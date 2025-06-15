@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Symbol_Queen",
+    "texture": "ac2a28ad-1b72-4119-a3f9-6cabea451c2a",
+    "atlas": "1902f085-8042-4e55-aed0-30b5c8ee841f",
+    "rect": [
+      819,
+      259,
+      169,
+      170
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      169,
+      170
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

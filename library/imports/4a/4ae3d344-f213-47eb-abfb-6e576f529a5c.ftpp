@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "version": "0.6.7"
+  },
+  "savePath": "D:\\Project\\Avenger\\assets\\Textures",
+  "images": [
+    {
+      "name": "img_nohu.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/img_nohu.png",
+      "folder": ""
+    },
+    {
+      "name": "img_thanglon.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/img_thanglon.png",
+      "folder": ""
+    },
+    {
+      "name": "img_thangsieulon.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/img_thangsieulon.png",
+      "folder": ""
+    },
+    {
+      "name": "popup.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/popup.png",
+      "folder": ""
+    },
+    {
+      "name": "txt_bangvinhdanh.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/txt_bangvinhdanh.png",
+      "folder": ""
+    },
+    {
+      "name": "txt_chitietlsgd.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/txt_chitietlsgd.png",
+      "folder": ""
+    },
+    {
+      "name": "txt_chondongcuoc.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/txt_chondongcuoc.png",
+      "folder": ""
+    },
+    {
+      "name": "txt_huongdan.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/txt_huongdan.png",
+      "folder": ""
+    },
+    {
+      "name": "txt_lsgd.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/txt_lsgd.png",
+      "folder": ""
+    },
+    {
+      "name": "txt_nohu.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/txt_nohu.png",
+      "folder": ""
+    },
+    {
+      "name": "txt_thanglon.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/txt_thanglon.png",
+      "folder": ""
+    },
+    {
+      "name": "txt_thangsieulon.png",
+      "path": "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/popup/txt_thangsieulon.png",
+      "folder": ""
+    }
+  ],
+  "folders": [
+    "C:/Users/ACER/Downloads/Avenger-20240111T220436Z-001/Avenger/asset/info"
+  ],
+  "packOptions": {
+    "textureName": "popup",
+    "textureFormat": "png",
+    "removeFileExtension": false,
+    "prependFolderName": true,
+    "base64Export": false,
+    "tinify": false,
+    "tinifyKey": "",
+    "scale": 1,
+    "filter": "none",
+    "exporter": "cocos2d",
+    "fileName": "pack-result",
+    "savePath": "D:\\Project\\Avenger\\assets\\Textures",
+    "width": 2048,
+    "height": 2048,
+    "fixedSize": true,
+    "powerOfTwo": true,
+    "padding": 5,
+    "extrude": 1,
+    "allowRotation": true,
+    "allowTrim": true,
+    "trimMode": "trim",
+    "alphaThreshold": "0",
+    "detectIdentical": false,
+    "packer": "MaxRectsBin",
+    "packerMethod": "BestShortSideFit"
+  }
+}

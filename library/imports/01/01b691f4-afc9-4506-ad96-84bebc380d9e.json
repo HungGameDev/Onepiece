@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "x6_hu_avenger.atlas",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\nx6_hu_avenger.png\nsize: 377,300\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nGroup 1\n  rotate: false\n  xy: 2, 2\n  size: 162, 159\n  orig: 162, 159\n  offset: 0, 0\n  index: -1\nLayer 3\n  rotate: false\n  xy: 166, 17\n  size: 170, 63\n  orig: 170, 63\n  offset: 0, 0\n  index: -1\nLayer 4\n  rotate: false\n  xy: 229, 152\n  size: 146, 146\n  orig: 146, 146\n  offset: 0, 0\n  index: -1\nX6 hũ\n  rotate: false\n  xy: 166, 82\n  size: 193, 68\n  orig: 193, 68\n  offset: 0, 0\n  index: -1\nlight\n  rotate: false\n  xy: 2, 163\n  size: 225, 135\n  orig: 225, 135\n  offset: 0, 0\n  index: -1\n"
+}

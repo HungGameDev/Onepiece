@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bmf-hu-export",
+    "texture": "570d0885-7c8c-493b-9e80-c7d90ca1c549",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      78,
+      60
+    ],
+    "offset": [
+      -25,
+      2
+    ],
+    "originalSize": [
+      128,
+      64
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

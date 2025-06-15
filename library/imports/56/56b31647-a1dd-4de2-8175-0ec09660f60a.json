@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bmf-cuoc-export",
+    "texture": "3c605ce7-b9d3-4b59-b874-032390d76808",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      27,
+      120
+    ],
+    "offset": [
+      -2.5,
+      4
+    ],
+    "originalSize": [
+      32,
+      128
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

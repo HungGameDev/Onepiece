@@ -1,0 +1,26 @@
+import { G1009EventManager } from "../../base/events/aka-g1009-event-manager";
+
+const {ccclass, property} = cc._decorator;
+
+@ccclass
+export default class G1009SelectBetActor extends cc.Component {
+
+    @property(cc.Node)
+    private content: cc.Node = null;
+
+    public start(): void {
+        G1009EventManager.GetInstance().register('SetBet', this.Hide.bind(this));
+    }
+    public Hide(): void{
+        this.content.active = false;
+    }
+
+    public Show(): void{
+        this.content.active = true;
+    } 
+
+    public OnButtonBackClick(): void{
+        cc.director.loadScene('Lobby');
+    }
+    
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn CHOITHU",
+    "texture": "0c703f52-ce7c-4825-ab65-e4c48d22d621",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      245,
+      84
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      245,
+      84
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

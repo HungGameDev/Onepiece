@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "7aee0939-0842-4b37-be3a-0f6d938a9c5a",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 79,
+  "height": 33,
+  "platformSettings": {},
+  "subMetas": {
+    "Ui_x6_avenger_btnroom": {
+      "ver": "1.0.6",
+      "uuid": "90d2f416-a581-4f30-9cea-ff4e6945088a",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "7aee0939-0842-4b37-be3a-0f6d938a9c5a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0.5,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 79,
+      "height": 32,
+      "rawWidth": 79,
+      "rawHeight": 33,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

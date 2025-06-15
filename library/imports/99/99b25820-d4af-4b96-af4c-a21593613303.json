@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "board_avanger",
+    "texture": "c59fa326-c324-472f-8fa8-7b401963761f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      907,
+      560
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      907,
+      560
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

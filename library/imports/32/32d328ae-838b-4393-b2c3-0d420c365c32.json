@@ -1,0 +1,253 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "eff_freespins",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "g1MnQ4YCLl8GDvHVSgOGYkTnyTs",
+      "spine": "3.6.52",
+      "width": 712,
+      "height": 140,
+      "images": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "bone",
+        "parent": "root",
+        "length": 75.42
+      },
+      {
+        "name": "bone2",
+        "parent": "root",
+        "length": 64.27,
+        "rotation": 90
+      }
+    ],
+    "slots": [
+      {
+        "name": "frame_jack2",
+        "bone": "bone2",
+        "color": "ffffff00",
+        "attachment": "frame_jack2"
+      },
+      {
+        "name": "txt_freespins",
+        "bone": "bone",
+        "attachment": "txt_freespins"
+      }
+    ],
+    "skins": {
+      "default": {
+        "frame_jack2": {
+          "frame_jack2": {
+            "rotation": -90,
+            "width": 712,
+            "height": 140
+          }
+        },
+        "txt_freespins": {
+          "txt_freespins": {
+            "y": -6.63,
+            "width": 462,
+            "height": 123
+          }
+        }
+      }
+    },
+    "animations": {
+      "animation": {
+        "slots": {
+          "frame_jack2": {
+            "color": [
+              {
+                "time": 0,
+                "color": "ffffff00"
+              },
+              {
+                "time": 0.3333,
+                "color": "ffffffff",
+                "curve": "stepped"
+              },
+              {
+                "time": 2.6667,
+                "color": "ffffffff"
+              },
+              {
+                "time": 3,
+                "color": "ffffff00"
+              }
+            ]
+          },
+          "txt_freespins": {
+            "color": [
+              {
+                "time": 0,
+                "color": "ffffff00",
+                "curve": [
+                  0.364,
+                  0.01,
+                  0.593,
+                  1
+                ]
+              },
+              {
+                "time": 0.4,
+                "color": "ffffffff",
+                "curve": "stepped"
+              },
+              {
+                "time": 2.6,
+                "color": "ffffffff",
+                "curve": [
+                  0.354,
+                  0.01,
+                  0.603,
+                  0.99
+                ]
+              },
+              {
+                "time": 3,
+                "color": "ffffff00"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone": {
+            "rotate": [
+              {
+                "time": 0,
+                "angle": 180,
+                "curve": [
+                  0.364,
+                  0.01,
+                  0.593,
+                  1
+                ]
+              },
+              {
+                "time": 0.6,
+                "angle": 0,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.4,
+                "angle": 0,
+                "curve": [
+                  0.354,
+                  0.01,
+                  0.603,
+                  0.99
+                ]
+              },
+              {
+                "time": 3,
+                "angle": 180
+              }
+            ],
+            "translate": [
+              {
+                "time": 0,
+                "x": 0,
+                "y": 0,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.6,
+                "x": 0,
+                "y": 0,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.4,
+                "x": 0,
+                "y": 0,
+                "curve": "stepped"
+              },
+              {
+                "time": 3,
+                "x": 0,
+                "y": 0
+              }
+            ],
+            "scale": [
+              {
+                "time": 0,
+                "x": 0.1,
+                "y": 0.1,
+                "curve": [
+                  0.364,
+                  0.01,
+                  0.593,
+                  1
+                ]
+              },
+              {
+                "time": 0.6,
+                "x": 1,
+                "y": 1,
+                "curve": "stepped"
+              },
+              {
+                "time": 0.9,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 1.2,
+                "x": 1.1,
+                "y": 1.1
+              },
+              {
+                "time": 1.5,
+                "x": 1,
+                "y": 1
+              },
+              {
+                "time": 1.8,
+                "x": 1.1,
+                "y": 1.1
+              },
+              {
+                "time": 2.1,
+                "x": 1,
+                "y": 1,
+                "curve": "stepped"
+              },
+              {
+                "time": 2.4,
+                "x": 1,
+                "y": 1,
+                "curve": [
+                  0.354,
+                  0.01,
+                  0.603,
+                  0.99
+                ]
+              },
+              {
+                "time": 3,
+                "x": 1.5,
+                "y": 1.5
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\neff_freespins.png\nsize: 1024,512\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nframe_jack2\n  rotate: false\n  xy: 2, 127\n  size: 712, 140\n  orig: 712, 140\n  offset: 0, 0\n  index: -1\ntxt_freespins\n  rotate: false\n  xy: 2, 2\n  size: 462, 123\n  orig: 462, 123\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "3e30fcd1-087a-4be7-ae21-5174ef181720"
+    }
+  ],
+  "textureNames": [
+    "eff_freespins.png"
+  ],
+  "scale": 1
+}

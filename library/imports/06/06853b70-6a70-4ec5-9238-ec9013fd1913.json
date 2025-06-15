@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "eff-lightborder",
+    "texture": "35b6ca81-207b-47b9-a498-a78f07e5d902",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      631,
+      213
+    ],
+    "offset": [
+      -194.5,
+      19.5
+    ],
+    "originalSize": [
+      1024,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

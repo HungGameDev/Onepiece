@@ -1,0 +1,20 @@
+
+eff_freespins.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+frame_jack2
+  rotate: false
+  xy: 2, 127
+  size: 712, 140
+  orig: 712, 140
+  offset: 0, 0
+  index: -1
+txt_freespins
+  rotate: false
+  xy: 2, 2
+  size: 462, 123
+  orig: 462, 123
+  offset: 0, 0
+  index: -1

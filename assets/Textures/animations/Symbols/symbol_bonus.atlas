@@ -1,0 +1,55 @@
+
+symbol_bonus.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+anh3
+  rotate: false
+  xy: 575, 90
+  size: 156, 148
+  orig: 156, 148
+  offset: 0, 0
+  index: -1
+anh3a
+  rotate: false
+  xy: 236, 47
+  size: 55, 19
+  orig: 55, 19
+  offset: 0, 0
+  index: -1
+anh3b
+  rotate: false
+  xy: 733, 90
+  size: 156, 148
+  orig: 156, 148
+  offset: 0, 0
+  index: -1
+bg3
+  rotate: false
+  xy: 407, 74
+  size: 166, 164
+  orig: 166, 164
+  offset: 0, 0
+  index: -1
+khung3
+  rotate: false
+  xy: 236, 68
+  size: 169, 170
+  orig: 169, 170
+  offset: 0, 0
+  index: -1
+text3
+  rotate: false
+  xy: 891, 168
+  size: 124, 70
+  orig: 124, 70
+  offset: 0, 0
+  index: -1
+tiasang
+  rotate: false
+  xy: 2, 2
+  size: 232, 236
+  orig: 232, 236
+  offset: 0, 0
+  index: -1
