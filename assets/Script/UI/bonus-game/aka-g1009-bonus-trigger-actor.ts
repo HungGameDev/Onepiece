@@ -7,9 +7,8 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class G1009BonusTrigger extends G1009FeatureTrigger {
-
-	@property(sp.Skeleton)
-	spineTransition: sp.Skeleton = null;
+	@property(cc.Node)
+	arrNodeSymbol: cc.Node[] = [];
 
     protected checkRuleTrigger(): boolean {
 		return G1009GameController.GetInstance().CheckBonusPointTrigger();
@@ -20,17 +19,39 @@ export default class G1009BonusTrigger extends G1009FeatureTrigger {
 	}
 
 	protected showContent(): void {
-		this.notifyEnterFeature();	
 		G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_bonustransition", isLoop: false });
-		this.spineTransition.node.active = true;
-		this.spineTransition.setAnimation(0, "animation", false);		
+		this.content.active = true;
+		cc.tween(this.content)
+				.to(0.5, { opacity: 255 })
+				.call(() => {
+					for (let index = 0; index < this.arrNodeSymbol.length; index++) {
+						const count = index;
+						const node = this.arrNodeSymbol[count];
+						const delayTime = 0.1 * count;
+						cc.tween(node)
+							.delay(delayTime)
+							.to(0.1, { opacity: 0 })
+							.to(0.1, { opacity: 255 })
+							.to(0.1, { opacity: 0 })
+							.to(0.1, { opacity: 255 })
+							.to(0.1, { opacity: 0 })
+							.to(0.1, { opacity: 255 })
+							.start();
+					}
+				}).start();
+
 		cc.tween(this.node).delay(2).call(() => {
+			this.notifyEnterFeature();	
+		}).delay(2).call(() => {
 			G1009EventManager.GetInstance().notify("BonusWinComplete");
 			this.reset();
-		}).start();
+		})
+		.start();
+		
 	}
 
 	protected reset(): void {
-		this.spineTransition.node.active = false;
+		this.content.opacity = 0;
+		this.content.active = false;
 	}
 }

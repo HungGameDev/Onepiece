@@ -6,7 +6,7 @@ const { ccclass, property } = cc._decorator;
 export default class G1009FeatureTrigger extends cc.Component {
 
 	@property(cc.Node)
-	private content: cc.Node = null;
+	protected content: cc.Node = null;
 
 	protected start(): void {
 		G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTrigger.bind(this));
