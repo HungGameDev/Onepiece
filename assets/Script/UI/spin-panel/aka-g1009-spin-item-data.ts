@@ -18,6 +18,6 @@ export  class G1009SpinItemData {
 
 const ReelDefaultData = [
     "Ace", "Jack", "King", "Queen", "Ace"
-    , "Bonus", "Wild", "Scatter", "Jack", "Ace"
-    , "King", "Queen", "Ace", "Jack", "Ace", "Wild"    
+    , "Bonus", "Jackpot", "Scatter", "Jack", "Ace"
+    , "King", "Queen", "Ace", "Jack", "Ace", "Jackpot"    
 ]

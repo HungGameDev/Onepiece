@@ -11,7 +11,7 @@ const { ccclass, property } = cc._decorator;
 export const SLOTTY_ITEM = {
 	'Bonus': 'Bonus',
 	'Scatter': 'Scatter',
-	'Wild': 'Wild',
+	'Jackpot': 'Jackpot',
 	'Ace': 'Ace',
 	'King': 'King',
 	'Queen': 'Queen',
