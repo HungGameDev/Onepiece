@@ -1,0 +1,383 @@
+
+TL_anim.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+TL_NPC_aop
+  rotate: true
+  xy: 726, 1133
+  size: 257, 318
+  orig: 257, 318
+  offset: 0, 0
+  index: -1
+TL_NPC_aot
+  rotate: true
+  xy: 706, 628
+  size: 225, 299
+  orig: 225, 299
+  offset: 0, 0
+  index: -1
+TL_NPC_bong
+  rotate: false
+  xy: 2, 1169
+  size: 722, 873
+  orig: 722, 873
+  offset: 0, 0
+  index: -1
+TL_NPC_chanp
+  rotate: false
+  xy: 1325, 1101
+  size: 101, 289
+  orig: 101, 289
+  offset: 0, 0
+  index: -1
+TL_NPC_chant
+  rotate: true
+  xy: 1007, 567
+  size: 104, 285
+  orig: 104, 285
+  offset: 0, 0
+  index: -1
+TL_NPC_dau
+  rotate: false
+  xy: 1800, 1615
+  size: 183, 143
+  orig: 183, 143
+  offset: 0, 0
+  index: -1
+TL_NPC_hom
+  rotate: false
+  xy: 2, 402
+  size: 695, 233
+  orig: 695, 233
+  offset: 0, 0
+  index: -1
+TL_NPC_than
+  rotate: false
+  xy: 1516, 1765
+  size: 335, 277
+  orig: 335, 277
+  offset: 0, 0
+  index: -1
+TL_NPC_vang
+  rotate: false
+  xy: 2, 637
+  size: 702, 530
+  orig: 702, 530
+  offset: 0, 0
+  index: -1
+TL_eff_tanlua
+  rotate: false
+  xy: 726, 1619
+  size: 788, 423
+  orig: 788, 423
+  offset: 0, 0
+  index: -1
+TL_tenkhung
+  rotate: false
+  xy: 726, 1392
+  size: 696, 67
+  orig: 696, 67
+  offset: 0, 0
+  index: -1
+TL_text
+  rotate: false
+  xy: 726, 1461
+  size: 681, 156
+  orig: 681, 156
+  offset: 0, 0
+  index: -1
+TL_tien_khung
+  rotate: false
+  xy: 2, 196
+  size: 591, 204
+  orig: 591, 204
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 122
+  rotate: false
+  xy: 2, 34
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 124
+  rotate: false
+  xy: 286, 34
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 126
+  rotate: true
+  xy: 1853, 1760
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 128
+  rotate: false
+  xy: 1516, 1603
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 130
+  rotate: false
+  xy: 985, 952
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 132
+  rotate: false
+  xy: 595, 188
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 134
+  rotate: false
+  xy: 570, 26
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 136
+  rotate: true
+  xy: 1257, 283
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 138
+  rotate: false
+  xy: 879, 127
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 140
+  rotate: false
+  xy: 1163, 121
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 142
+  rotate: true
+  xy: 1707, 1319
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 144
+  rotate: true
+  xy: 1707, 1035
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 145
+  rotate: true
+  xy: 1869, 1331
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 146
+  rotate: true
+  xy: 1869, 1047
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 147
+  rotate: true
+  xy: 1843, 751
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 148
+  rotate: false
+  xy: 1419, 317
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 149
+  rotate: false
+  xy: 1447, 155
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 150
+  rotate: false
+  xy: 1698, 589
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 151
+  rotate: false
+  xy: 1703, 427
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_bgnenv/Layer 152
+  rotate: true
+  xy: 1731, 143
+  size: 282, 160
+  orig: 282, 160
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 1
+  rotate: false
+  xy: 1046, 1114
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 10
+  rotate: false
+  xy: 1419, 479
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 2
+  rotate: false
+  xy: 706, 855
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 3
+  rotate: false
+  xy: 699, 350
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 4
+  rotate: true
+  xy: 1007, 673
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 5
+  rotate: false
+  xy: 978, 289
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 6
+  rotate: false
+  xy: 1428, 1325
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 7
+  rotate: false
+  xy: 1428, 1047
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 8
+  rotate: false
+  xy: 1285, 769
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_stren/Layer 9
+  rotate: false
+  xy: 1564, 757
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+eff_tias/Layer 1
+  rotate: true
+  xy: 1893, 273
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1
+eff_tias/Layer 2
+  rotate: false
+  xy: 1893, 120
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1
+eff_tias/Layer 3
+  rotate: false
+  xy: 1447, 2
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1
+
+TL_anim2.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+eff_tias/Layer 10
+  rotate: false
+  xy: 156, 2
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1
+eff_tias/Layer 4
+  rotate: false
+  xy: 2, 308
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1
+eff_tias/Layer 5
+  rotate: false
+  xy: 2, 155
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1
+eff_tias/Layer 6
+  rotate: false
+  xy: 156, 308
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1
+eff_tias/Layer 7
+  rotate: false
+  xy: 2, 2
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1
+eff_tias/Layer 8
+  rotate: false
+  xy: 156, 155
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1
+eff_tias/Layer 9
+  rotate: false
+  xy: 310, 308
+  size: 152, 151
+  orig: 152, 151
+  offset: 0, 0
+  index: -1

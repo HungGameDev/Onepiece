@@ -1,0 +1,13 @@
+
+frame.png
+size: 343,71
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tienthang_FX
+  rotate: false
+  xy: 1, 1
+  size: 341, 69
+  orig: 347, 71
+  offset: 3, 1
+  index: -1

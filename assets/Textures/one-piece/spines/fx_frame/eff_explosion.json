@@ -1,0 +1,1023 @@
+{
+	"skeleton": {
+		"hash": "TYcDuW6N8gGjkTRFSKKAPWprsa0",
+		"spine": "3.6.53",
+		"width": 176.5,
+		"height": 193.69,
+		"images": "./images/"
+	},
+	"bones": [
+		{
+			"name": "root"
+		},
+		{
+			"name": "ctrl2",
+			"parent": "root",
+			"scaleX": 1.14,
+			"scaleY": 1.145,
+			"color": "ff0000ff"
+		},
+		{
+			"name": "bubble_explode2",
+			"parent": "ctrl2",
+			"scaleX": 0.7,
+			"scaleY": 0.7
+		},
+		{
+			"name": "cover2",
+			"parent": "ctrl2"
+		},
+		{
+			"name": "frame_FX3",
+			"parent": "ctrl2",
+			"x": -7.72,
+			"y": -0.46,
+			"scaleX": 0.965,
+			"scaleY": 0.955
+		},
+		{
+			"name": "frame_FX4",
+			"parent": "ctrl2",
+			"x": -2,
+			"scaleX": 1.745,
+			"scaleY": 1.75
+		}
+	],
+	"slots": [
+		{
+			"name": "aura (380)2",
+			"bone": "cover2",
+			"color": "00000063",
+			"attachment": "aura (380)"
+		},
+		{
+			"name": "bubble_FX/Layer 4",
+			"bone": "bubble_explode2",
+			"color": "ace4ffff",
+			"attachment": "bubble_FX/Layer 38",
+			"blend": "additive"
+		},
+		{
+			"name": "frame_FX/Layer 4",
+			"bone": "frame_FX3",
+			"attachment": "frame_FX/Layer 35",
+			"blend": "additive"
+		},
+		{
+			"name": "frame_FX2/Layer 4",
+			"bone": "frame_FX4",
+			"attachment": "frame_FX2/Layer 12",
+			"blend": "additive"
+		}
+	],
+	"skins": {
+		"default": {
+			"aura (380)2": {
+				"aura (380)": {
+					"width": 131,
+					"height": 129
+				}
+			},
+			"bubble_FX/Layer 4": {
+				"bubble_FX/Layer 3": {
+					"width": 175,
+					"height": 183
+				},
+				"bubble_FX/Layer 4": {
+					"width": 239,
+					"height": 203
+				},
+				"bubble_FX/Layer 5": {
+					"x": 6,
+					"y": 14,
+					"width": 293,
+					"height": 270
+				},
+				"bubble_FX/Layer 6": {
+					"x": -17,
+					"y": 12,
+					"width": 367,
+					"height": 317
+				},
+				"bubble_FX/Layer 7": {
+					"x": -9,
+					"y": 4,
+					"width": 386,
+					"height": 354
+				},
+				"bubble_FX/Layer 8": {
+					"x": 4,
+					"y": 9,
+					"width": 412,
+					"height": 354
+				},
+				"bubble_FX/Layer 9": {
+					"x": -4,
+					"width": 394,
+					"height": 369
+				},
+				"bubble_FX/Layer 10": {
+					"x": -2,
+					"y": 9,
+					"width": 393,
+					"height": 332
+				},
+				"bubble_FX/Layer 11": {
+					"x": 5,
+					"y": 5,
+					"width": 401,
+					"height": 355
+				},
+				"bubble_FX/Layer 12": {
+					"x": -6,
+					"y": 4,
+					"width": 376,
+					"height": 333
+				},
+				"bubble_FX/Layer 13": {
+					"x": -3,
+					"y": 6,
+					"width": 381,
+					"height": 330
+				},
+				"bubble_FX/Layer 14": {
+					"x": 7,
+					"width": 398,
+					"height": 322
+				},
+				"bubble_FX/Layer 15": {
+					"x": 0.8,
+					"y": 5,
+					"width": 384,
+					"height": 312
+				},
+				"bubble_FX/Layer 16": {
+					"x": -10.44,
+					"y": 11.24,
+					"width": 358,
+					"height": 331
+				},
+				"bubble_FX/Layer 17": {
+					"x": -8.83,
+					"y": 8.83,
+					"width": 358,
+					"height": 312
+				},
+				"bubble_FX/Layer 18": {
+					"x": 5.72,
+					"y": -5.72,
+					"width": 322,
+					"height": 284
+				},
+				"bubble_FX/Layer 19": {
+					"x": 6.53,
+					"y": -0.9,
+					"width": 311,
+					"height": 296
+				},
+				"bubble_FX/Layer 20": {
+					"x": -12.04,
+					"y": 8.82,
+					"width": 332,
+					"height": 302
+				},
+				"bubble_FX/Layer 21": {
+					"x": 5.62,
+					"y": -10.36,
+					"width": 329,
+					"height": 328
+				},
+				"bubble_FX/Layer 22": {
+					"x": -6.95,
+					"width": 335,
+					"height": 306
+				},
+				"bubble_FX/Layer 23": {
+					"x": 7.95,
+					"width": 338,
+					"height": 299
+				},
+				"bubble_FX/Layer 24": {
+					"x": -2.94,
+					"y": -14.68,
+					"width": 340,
+					"height": 285
+				},
+				"bubble_FX/Layer 25": {
+					"x": -6.85,
+					"y": -2.94,
+					"width": 340,
+					"height": 289
+				},
+				"bubble_FX/Layer 26": {
+					"x": 10.77,
+					"y": -19.58,
+					"width": 339,
+					"height": 290
+				},
+				"bubble_FX/Layer 27": {
+					"x": 7.83,
+					"y": -9.79,
+					"width": 335,
+					"height": 299
+				},
+				"bubble_FX/Layer 28": {
+					"x": -8.81,
+					"y": -1.96,
+					"width": 332,
+					"height": 284
+				},
+				"bubble_FX/Layer 29": {
+					"x": 7.83,
+					"y": -9.08,
+					"width": 290,
+					"height": 272
+				},
+				"bubble_FX/Layer 30": {
+					"x": 12.73,
+					"y": -25.02,
+					"width": 265,
+					"height": 274
+				},
+				"bubble_FX/Layer 31": {
+					"x": 7.83,
+					"y": -26.98,
+					"width": 273,
+					"height": 248
+				},
+				"bubble_FX/Layer 32": {
+					"x": 13.71,
+					"y": -22.47,
+					"width": 269,
+					"height": 294
+				},
+				"bubble_FX/Layer 33": {
+					"x": 5.04,
+					"y": -20.67,
+					"width": 284,
+					"height": 285
+				},
+				"bubble_FX/Layer 34": {
+					"x": 10.77,
+					"y": -33.35,
+					"width": 333,
+					"height": 263
+				},
+				"bubble_FX/Layer 35": {
+					"x": 6.99,
+					"y": -18.28,
+					"width": 289,
+					"height": 278
+				},
+				"bubble_FX/Layer 36": {
+					"x": 7.96,
+					"y": -26.93,
+					"width": 274,
+					"height": 271
+				},
+				"bubble_FX/Layer 37": {
+					"x": 7.83,
+					"y": -20.67,
+					"width": 273,
+					"height": 258
+				},
+				"bubble_FX/Layer 38": {
+					"x": 35.33,
+					"y": -33.08,
+					"width": 160,
+					"height": 214
+				}
+			},
+			"frame_FX/Layer 4": {
+				"frame_FX/Layer 3": {
+					"x": 4.56,
+					"y": 3.92,
+					"width": 260,
+					"height": 283
+				},
+				"frame_FX/Layer 4": {
+					"x": 2.65,
+					"y": 9.7,
+					"width": 259,
+					"height": 244
+				},
+				"frame_FX/Layer 5": {
+					"x": 3.01,
+					"y": -9.19,
+					"width": 273,
+					"height": 270
+				},
+				"frame_FX/Layer 6": {
+					"x": 11.83,
+					"y": 5.54,
+					"width": 281,
+					"height": 248
+				},
+				"frame_FX/Layer 7": {
+					"x": 18.53,
+					"y": 4.74,
+					"width": 299,
+					"height": 297
+				},
+				"frame_FX/Layer 8": {
+					"x": 4.31,
+					"y": 4.31,
+					"width": 282,
+					"height": 297
+				},
+				"frame_FX/Layer 9": {
+					"x": 16.93,
+					"y": -11.4,
+					"width": 299,
+					"height": 296
+				},
+				"frame_FX/Layer 10": {
+					"x": 11.13,
+					"y": -15.6,
+					"width": 276,
+					"height": 282
+				},
+				"frame_FX/Layer 11": {
+					"x": 14.42,
+					"y": -0.35,
+					"width": 271,
+					"height": 310
+				},
+				"frame_FX/Layer 12": {
+					"x": 2.57,
+					"y": 5.19,
+					"width": 257,
+					"height": 296
+				},
+				"frame_FX/Layer 13": {
+					"x": 6.42,
+					"y": -7.07,
+					"width": 285,
+					"height": 305
+				},
+				"frame_FX/Layer 14": {
+					"x": 14.07,
+					"y": -7.21,
+					"width": 296,
+					"height": 307
+				},
+				"frame_FX/Layer 15": {
+					"x": 2.54,
+					"y": -1.95,
+					"width": 285,
+					"height": 305
+				},
+				"frame_FX/Layer 16": {
+					"x": 13.75,
+					"y": -12.74,
+					"width": 285,
+					"height": 316
+				},
+				"frame_FX/Layer 17": {
+					"x": 10.85,
+					"y": -15.5,
+					"width": 275,
+					"height": 302
+				},
+				"frame_FX/Layer 18": {
+					"x": -0.41,
+					"y": -0.99,
+					"width": 274,
+					"height": 281
+				},
+				"frame_FX/Layer 19": {
+					"x": 9.16,
+					"y": -10.52,
+					"width": 267,
+					"height": 302
+				},
+				"frame_FX/Layer 20": {
+					"x": 13.05,
+					"y": -3.65,
+					"width": 287,
+					"height": 296
+				},
+				"frame_FX/Layer 21": {
+					"x": 17,
+					"y": -5.43,
+					"width": 254,
+					"height": 252
+				},
+				"frame_FX/Layer 22": {
+					"x": 13.24,
+					"y": -1.4,
+					"width": 249,
+					"height": 241
+				},
+				"frame_FX/Layer 23": {
+					"x": 15.91,
+					"y": -2.53,
+					"width": 219,
+					"height": 226
+				},
+				"frame_FX/Layer 24": {
+					"x": 4.69,
+					"y": 3.72,
+					"width": 227,
+					"height": 256
+				},
+				"frame_FX/Layer 25": {
+					"x": 14.15,
+					"y": 0.1,
+					"width": 203,
+					"height": 247
+				},
+				"frame_FX/Layer 26": {
+					"x": 9.09,
+					"y": 10.86,
+					"width": 196,
+					"height": 256
+				},
+				"frame_FX/Layer 27": {
+					"x": 0.5,
+					"y": 16.01,
+					"width": 204,
+					"height": 204
+				},
+				"frame_FX/Layer 28": {
+					"x": 8.3,
+					"y": 23.22,
+					"width": 165,
+					"height": 189
+				},
+				"frame_FX/Layer 29": {
+					"x": 1.67,
+					"y": 18.06,
+					"width": 158,
+					"height": 180
+				},
+				"frame_FX/Layer 30": {
+					"x": 15.44,
+					"y": 14.44,
+					"width": 210,
+					"height": 186
+				},
+				"frame_FX/Layer 31": {
+					"x": 3.75,
+					"y": -6.11,
+					"width": 148,
+					"height": 160
+				},
+				"frame_FX/Layer 32": {
+					"x": 6.69,
+					"y": 11.82,
+					"width": 140,
+					"height": 169
+				},
+				"frame_FX/Layer 33": {
+					"x": -1.94,
+					"y": 9.93,
+					"width": 163,
+					"height": 182
+				},
+				"frame_FX/Layer 34": {
+					"x": 11.36,
+					"y": 2.18,
+					"width": 181,
+					"height": 141
+				},
+				"frame_FX/Layer 35": {
+					"x": 6.22,
+					"y": -6.56,
+					"width": 150,
+					"height": 163
+				}
+			},
+			"frame_FX2/Layer 4": {
+				"frame_FX2/Layer 3": {
+					"width": 80,
+					"height": 83
+				},
+				"frame_FX2/Layer 4": {
+					"width": 80,
+					"height": 80
+				},
+				"frame_FX2/Layer 5": {
+					"width": 80,
+					"height": 80
+				},
+				"frame_FX2/Layer 6": {
+					"width": 80,
+					"height": 83
+				},
+				"frame_FX2/Layer 7": {
+					"width": 80,
+					"height": 80
+				},
+				"frame_FX2/Layer 8": {
+					"width": 80,
+					"height": 80
+				},
+				"frame_FX2/Layer 9": {
+					"width": 80,
+					"height": 80
+				},
+				"frame_FX2/Layer 10": {
+					"width": 80,
+					"height": 80
+				},
+				"frame_FX2/Layer 11": {
+					"width": 80,
+					"height": 80
+				},
+				"frame_FX2/Layer 12": {
+					"width": 80,
+					"height": 80
+				}
+			}
+		}
+	},
+	"animations": {
+		"animation": {
+			"slots": {
+				"aura (380)2": {
+					"color": [
+						{
+							"time": 0,
+							"color": "00000000",
+							"curve": [
+								0.25,
+								0,
+								0.75,
+								1
+							]
+						},
+						{
+							"time": 0.0667,
+							"color": "000000a3",
+							"curve": "stepped"
+						},
+						{
+							"time": 0.4,
+							"color": "000000a3",
+							"curve": [
+								0.25,
+								0,
+								0.75,
+								1
+							]
+						},
+						{
+							"time": 0.6333,
+							"color": "00000000"
+						}
+					]
+				},
+				"bubble_FX/Layer 4": {
+					"attachment": [
+						{
+							"time": 0,
+							"name": null
+						},
+						{
+							"time": 0.0333,
+							"name": null
+						},
+						{
+							"time": 0.0667,
+							"name": "bubble_FX/Layer 3"
+						},
+						{
+							"time": 0.1,
+							"name": "bubble_FX/Layer 4"
+						},
+						{
+							"time": 0.1333,
+							"name": "bubble_FX/Layer 5"
+						},
+						{
+							"time": 0.1667,
+							"name": "bubble_FX/Layer 6"
+						},
+						{
+							"time": 0.2,
+							"name": "bubble_FX/Layer 7"
+						},
+						{
+							"time": 0.2333,
+							"name": "bubble_FX/Layer 8"
+						},
+						{
+							"time": 0.2667,
+							"name": "bubble_FX/Layer 9"
+						},
+						{
+							"time": 0.3,
+							"name": "bubble_FX/Layer 10"
+						},
+						{
+							"time": 0.3333,
+							"name": "bubble_FX/Layer 11"
+						},
+						{
+							"time": 0.3667,
+							"name": "bubble_FX/Layer 12"
+						},
+						{
+							"time": 0.4,
+							"name": "bubble_FX/Layer 13"
+						},
+						{
+							"time": 0.4333,
+							"name": "bubble_FX/Layer 14"
+						},
+						{
+							"time": 0.4667,
+							"name": "bubble_FX/Layer 15"
+						},
+						{
+							"time": 0.5,
+							"name": "bubble_FX/Layer 16"
+						},
+						{
+							"time": 0.5333,
+							"name": "bubble_FX/Layer 17"
+						},
+						{
+							"time": 0.5667,
+							"name": "bubble_FX/Layer 18"
+						},
+						{
+							"time": 0.6,
+							"name": "bubble_FX/Layer 19"
+						},
+						{
+							"time": 0.6333,
+							"name": "bubble_FX/Layer 20"
+						},
+						{
+							"time": 0.6667,
+							"name": "bubble_FX/Layer 21"
+						},
+						{
+							"time": 0.7,
+							"name": "bubble_FX/Layer 22"
+						},
+						{
+							"time": 0.7333,
+							"name": "bubble_FX/Layer 23"
+						},
+						{
+							"time": 0.7667,
+							"name": "bubble_FX/Layer 24"
+						},
+						{
+							"time": 0.8,
+							"name": "bubble_FX/Layer 25"
+						},
+						{
+							"time": 0.8333,
+							"name": "bubble_FX/Layer 26"
+						},
+						{
+							"time": 0.8667,
+							"name": "bubble_FX/Layer 27"
+						},
+						{
+							"time": 0.9,
+							"name": "bubble_FX/Layer 28"
+						},
+						{
+							"time": 0.9333,
+							"name": "bubble_FX/Layer 29"
+						},
+						{
+							"time": 0.9667,
+							"name": "bubble_FX/Layer 30"
+						},
+						{
+							"time": 1,
+							"name": "bubble_FX/Layer 31"
+						},
+						{
+							"time": 1.0333,
+							"name": "bubble_FX/Layer 32"
+						},
+						{
+							"time": 1.0667,
+							"name": "bubble_FX/Layer 33"
+						},
+						{
+							"time": 1.1,
+							"name": "bubble_FX/Layer 34"
+						},
+						{
+							"time": 1.1333,
+							"name": "bubble_FX/Layer 35"
+						},
+						{
+							"time": 1.1667,
+							"name": "bubble_FX/Layer 36"
+						},
+						{
+							"time": 1.2,
+							"name": "bubble_FX/Layer 37"
+						},
+						{
+							"time": 1.2333,
+							"name": "bubble_FX/Layer 38"
+						},
+						{
+							"time": 1.2667,
+							"name": null
+						},
+						{
+							"time": 1.5,
+							"name": null
+						}
+					]
+				},
+				"frame_FX/Layer 4": {
+					"attachment": [
+						{
+							"time": 0,
+							"name": null
+						},
+						{
+							"time": 0.0333,
+							"name": "frame_FX/Layer 3"
+						},
+						{
+							"time": 0.0667,
+							"name": "frame_FX/Layer 4"
+						},
+						{
+							"time": 0.1,
+							"name": "frame_FX/Layer 5"
+						},
+						{
+							"time": 0.1333,
+							"name": "frame_FX/Layer 6"
+						},
+						{
+							"time": 0.1667,
+							"name": "frame_FX/Layer 7"
+						},
+						{
+							"time": 0.2,
+							"name": "frame_FX/Layer 8"
+						},
+						{
+							"time": 0.2333,
+							"name": "frame_FX/Layer 9"
+						},
+						{
+							"time": 0.2667,
+							"name": "frame_FX/Layer 10"
+						},
+						{
+							"time": 0.3,
+							"name": "frame_FX/Layer 11"
+						},
+						{
+							"time": 0.3333,
+							"name": "frame_FX/Layer 12"
+						},
+						{
+							"time": 0.3667,
+							"name": "frame_FX/Layer 13"
+						},
+						{
+							"time": 0.4,
+							"name": "frame_FX/Layer 14"
+						},
+						{
+							"time": 0.4333,
+							"name": "frame_FX/Layer 15"
+						},
+						{
+							"time": 0.4667,
+							"name": "frame_FX/Layer 16"
+						},
+						{
+							"time": 0.5,
+							"name": "frame_FX/Layer 17"
+						},
+						{
+							"time": 0.5333,
+							"name": "frame_FX/Layer 18"
+						},
+						{
+							"time": 0.5667,
+							"name": "frame_FX/Layer 19"
+						},
+						{
+							"time": 0.6,
+							"name": "frame_FX/Layer 20"
+						},
+						{
+							"time": 0.6333,
+							"name": "frame_FX/Layer 21"
+						},
+						{
+							"time": 0.6667,
+							"name": "frame_FX/Layer 22"
+						},
+						{
+							"time": 0.7,
+							"name": "frame_FX/Layer 23"
+						},
+						{
+							"time": 0.7333,
+							"name": "frame_FX/Layer 24"
+						},
+						{
+							"time": 0.7667,
+							"name": "frame_FX/Layer 25"
+						},
+						{
+							"time": 0.8,
+							"name": "frame_FX/Layer 26"
+						},
+						{
+							"time": 0.8333,
+							"name": "frame_FX/Layer 27"
+						},
+						{
+							"time": 0.8667,
+							"name": "frame_FX/Layer 28"
+						},
+						{
+							"time": 0.9,
+							"name": "frame_FX/Layer 29"
+						},
+						{
+							"time": 0.9333,
+							"name": "frame_FX/Layer 30"
+						},
+						{
+							"time": 0.9667,
+							"name": "frame_FX/Layer 31"
+						},
+						{
+							"time": 1,
+							"name": "frame_FX/Layer 32"
+						},
+						{
+							"time": 1.0333,
+							"name": "frame_FX/Layer 33"
+						},
+						{
+							"time": 1.0667,
+							"name": "frame_FX/Layer 34"
+						},
+						{
+							"time": 1.1,
+							"name": "frame_FX/Layer 35"
+						},
+						{
+							"time": 1.1333,
+							"name": null
+						}
+					]
+				},
+				"frame_FX2/Layer 4": {
+					"color": [
+						{
+							"time": 0,
+							"color": "ffffff00"
+						},
+						{
+							"time": 0.1333,
+							"color": "ffffffff",
+							"curve": "stepped"
+						},
+						{
+							"time": 0.7,
+							"color": "ffffffff",
+							"curve": [
+								0.223,
+								0.61,
+								0.75,
+								1
+							]
+						},
+						{
+							"time": 1,
+							"color": "ffffff00"
+						}
+					],
+					"attachment": [
+						{
+							"time": 0,
+							"name": null
+						},
+						{
+							"time": 0.0333,
+							"name": "frame_FX2/Layer 3"
+						},
+						{
+							"time": 0.0667,
+							"name": "frame_FX2/Layer 4"
+						},
+						{
+							"time": 0.1,
+							"name": "frame_FX2/Layer 5"
+						},
+						{
+							"time": 0.1333,
+							"name": "frame_FX2/Layer 6"
+						},
+						{
+							"time": 0.1667,
+							"name": "frame_FX2/Layer 9"
+						},
+						{
+							"time": 0.2,
+							"name": "frame_FX2/Layer 12"
+						},
+						{
+							"time": 0.2333,
+							"name": "frame_FX2/Layer 8"
+						},
+						{
+							"time": 0.2667,
+							"name": "frame_FX2/Layer 11"
+						},
+						{
+							"time": 0.3,
+							"name": "frame_FX2/Layer 7"
+						},
+						{
+							"time": 0.3333,
+							"name": "frame_FX2/Layer 6"
+						},
+						{
+							"time": 0.3667,
+							"name": "frame_FX2/Layer 9"
+						},
+						{
+							"time": 0.4,
+							"name": "frame_FX2/Layer 12"
+						},
+						{
+							"time": 0.4333,
+							"name": "frame_FX2/Layer 8"
+						},
+						{
+							"time": 0.4667,
+							"name": "frame_FX2/Layer 11"
+						},
+						{
+							"time": 0.5,
+							"name": "frame_FX2/Layer 7"
+						},
+						{
+							"time": 0.5333,
+							"name": "frame_FX2/Layer 6"
+						},
+						{
+							"time": 0.5667,
+							"name": "frame_FX2/Layer 9"
+						},
+						{
+							"time": 0.6,
+							"name": "frame_FX2/Layer 12"
+						},
+						{
+							"time": 0.6333,
+							"name": "frame_FX2/Layer 8"
+						},
+						{
+							"time": 0.6667,
+							"name": "frame_FX2/Layer 11"
+						},
+						{
+							"time": 0.7,
+							"name": "frame_FX2/Layer 7"
+						},
+						{
+							"time": 0.7333,
+							"name": "frame_FX2/Layer 6"
+						},
+						{
+							"time": 0.7667,
+							"name": "frame_FX2/Layer 9"
+						},
+						{
+							"time": 0.8,
+							"name": "frame_FX2/Layer 8"
+						},
+						{
+							"time": 0.8333,
+							"name": "frame_FX2/Layer 7"
+						},
+						{
+							"time": 0.8667,
+							"name": "frame_FX2/Layer 5"
+						},
+						{
+							"time": 0.9,
+							"name": "frame_FX2/Layer 6"
+						}
+					]
+				}
+			}
+		}
+	}
+}

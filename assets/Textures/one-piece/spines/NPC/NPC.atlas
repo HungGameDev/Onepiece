@@ -1,0 +1,111 @@
+
+NPC.png
+size: 793,552
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+NPC
+  rotate: false
+  xy: 1, 164
+  size: 282, 387
+  orig: 284, 391
+  offset: 1, 3
+  index: -1
+NPC_FX1
+  rotate: false
+  xy: 284, 314
+  size: 187, 237
+  orig: 189, 239
+  offset: 1, 1
+  index: -1
+NPC_FX2
+  rotate: false
+  xy: 332, 82
+  size: 99, 90
+  orig: 101, 92
+  offset: 1, 1
+  index: -1
+NPC_FX3
+  rotate: false
+  xy: 432, 89
+  size: 140, 56
+  orig: 149, 59
+  offset: 7, 1
+  index: -1
+NPC_FX4
+  rotate: false
+  xy: 332, 10
+  size: 108, 71
+  orig: 112, 84
+  offset: 2, 11
+  index: -1
+NPC_hand
+  rotate: false
+  xy: 441, 34
+  size: 67, 54
+  orig: 69, 56
+  offset: 1, 1
+  index: -1
+electric_FX/Layer 10
+  rotate: false
+  xy: 179, 1
+  size: 152, 144
+  orig: 152, 144
+  offset: 0, 0
+  index: -1
+electric_FX/Layer 11
+  rotate: false
+  xy: 644, 236
+  size: 148, 159
+  orig: 148, 159
+  offset: 0, 0
+  index: -1
+electric_FX/Layer 3
+  rotate: false
+  xy: 625, 72
+  size: 143, 163
+  orig: 143, 163
+  offset: 0, 0
+  index: -1
+electric_FX/Layer 4
+  rotate: false
+  xy: 647, 396
+  size: 144, 155
+  orig: 144, 155
+  offset: 0, 0
+  index: -1
+electric_FX/Layer 5
+  rotate: false
+  xy: 1, 13
+  size: 177, 150
+  orig: 177, 150
+  offset: 0, 0
+  index: -1
+electric_FX/Layer 6
+  rotate: false
+  xy: 472, 416
+  size: 174, 135
+  orig: 174, 135
+  offset: 0, 0
+  index: -1
+electric_FX/Layer 7
+  rotate: false
+  xy: 472, 286
+  size: 171, 129
+  orig: 171, 129
+  offset: 0, 0
+  index: -1
+electric_FX/Layer 8
+  rotate: false
+  xy: 284, 173
+  size: 170, 140
+  orig: 170, 140
+  offset: 0, 0
+  index: -1
+electric_FX/Layer 9
+  rotate: false
+  xy: 455, 146
+  size: 169, 139
+  orig: 169, 139
+  offset: 0, 0
+  index: -1

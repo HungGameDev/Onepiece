@@ -1,0 +1,566 @@
+
+eff_explosion.png
+size: 4081,1302
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+aura (380)
+  rotate: false
+  xy: 3896, 32
+  size: 131, 129
+  orig: 131, 129
+  offset: 0, 0
+  index: -1
+bubble_FX/Layer 10
+  rotate: false
+  xy: 373, 274
+  size: 362, 328
+  orig: 393, 332
+  offset: 16, 3
+  index: -1
+bubble_FX/Layer 11
+  rotate: false
+  xy: 1, 595
+  size: 356, 344
+  orig: 401, 355
+  offset: 16, 0
+  index: -1
+bubble_FX/Layer 12
+  rotate: false
+  xy: 369, 981
+  size: 352, 320
+  orig: 376, 333
+  offset: 16, 11
+  index: -1
+bubble_FX/Layer 13
+  rotate: false
+  xy: 729, 662
+  size: 351, 318
+  orig: 381, 330
+  offset: 15, 9
+  index: -1
+bubble_FX/Layer 14
+  rotate: false
+  xy: 736, 351
+  size: 349, 310
+  orig: 398, 322
+  offset: 15, 12
+  index: -1
+bubble_FX/Layer 15
+  rotate: false
+  xy: 1081, 674
+  size: 348, 310
+  orig: 384, 312
+  offset: 15, 2
+  index: -1
+bubble_FX/Layer 16
+  rotate: false
+  xy: 1154, 69
+  size: 334, 301
+  orig: 358, 331
+  offset: 21, 14
+  index: -1
+bubble_FX/Layer 17
+  rotate: false
+  xy: 1344, 373
+  size: 332, 300
+  orig: 358, 312
+  offset: 21, 7
+  index: -1
+bubble_FX/Layer 18
+  rotate: false
+  xy: 2735, 484
+  size: 306, 268
+  orig: 322, 284
+  offset: 4, 16
+  index: -1
+bubble_FX/Layer 19
+  rotate: false
+  xy: 586, 1
+  size: 299, 272
+  orig: 311, 296
+  offset: 0, 23
+  index: -1
+bubble_FX/Layer 20
+  rotate: false
+  xy: 2470, 1027
+  size: 304, 274
+  orig: 332, 302
+  offset: 24, 16
+  index: -1
+bubble_FX/Layer 21
+  rotate: false
+  xy: 722, 981
+  size: 318, 320
+  orig: 329, 328
+  offset: 8, 0
+  index: -1
+bubble_FX/Layer 22
+  rotate: false
+  xy: 2632, 196
+  size: 298, 269
+  orig: 335, 306
+  offset: 24, 29
+  index: -1
+bubble_FX/Layer 23
+  rotate: false
+  xy: 3046, 1035
+  size: 323, 266
+  orig: 338, 299
+  offset: 15, 23
+  index: -1
+bubble_FX/Layer 24
+  rotate: false
+  xy: 1894, 1016
+  size: 312, 285
+  orig: 340, 285
+  offset: 28, 0
+  index: -1
+bubble_FX/Layer 25
+  rotate: false
+  xy: 2772, 759
+  size: 286, 267
+  orig: 340, 289
+  offset: 33, 18
+  index: -1
+bubble_FX/Layer 26
+  rotate: false
+  xy: 1489, 82
+  size: 322, 290
+  orig: 339, 290
+  offset: 16, 0
+  index: -1
+bubble_FX/Layer 27
+  rotate: false
+  xy: 3059, 779
+  size: 315, 255
+  orig: 335, 299
+  offset: 20, 25
+  index: -1
+bubble_FX/Layer 28
+  rotate: false
+  xy: 3370, 1046
+  size: 295, 255
+  orig: 332, 284
+  offset: 37, 3
+  index: -1
+bubble_FX/Layer 29
+  rotate: false
+  xy: 3304, 523
+  size: 279, 255
+  orig: 290, 272
+  offset: 0, 3
+  index: -1
+bubble_FX/Layer 3
+  rotate: false
+  xy: 2412, 7
+  size: 151, 171
+  orig: 175, 183
+  offset: 13, 5
+  index: -1
+bubble_FX/Layer 30
+  rotate: false
+  xy: 2473, 466
+  size: 261, 274
+  orig: 265, 274
+  offset: 0, 0
+  index: -1
+bubble_FX/Layer 31
+  rotate: false
+  xy: 3410, 2
+  size: 252, 237
+  orig: 273, 248
+  offset: 16, 4
+  index: -1
+bubble_FX/Layer 32
+  rotate: false
+  xy: 1812, 124
+  size: 256, 285
+  orig: 269, 294
+  offset: 8, 1
+  index: -1
+bubble_FX/Layer 33
+  rotate: false
+  xy: 2069, 160
+  size: 273, 277
+  orig: 284, 285
+  offset: 5, 5
+  index: -1
+bubble_FX/Layer 34
+  rotate: false
+  xy: 263, 3
+  size: 322, 252
+  orig: 333, 263
+  offset: 0, 0
+  index: -1
+bubble_FX/Layer 35
+  rotate: false
+  xy: 2343, 179
+  size: 288, 274
+  orig: 289, 278
+  offset: 1, 4
+  index: -1
+bubble_FX/Layer 36
+  rotate: false
+  xy: 3584, 547
+  size: 274, 246
+  orig: 274, 271
+  offset: 0, 14
+  index: -1
+bubble_FX/Layer 37
+  rotate: false
+  xy: 1, 2
+  size: 261, 253
+  orig: 273, 258
+  offset: 0, 0
+  index: -1
+bubble_FX/Layer 38
+  rotate: false
+  xy: 3039, 9
+  size: 157, 212
+  orig: 160, 214
+  offset: 3, 0
+  index: -1
+bubble_FX/Layer 4
+  rotate: false
+  xy: 3866, 890
+  size: 213, 188
+  orig: 239, 203
+  offset: 13, 15
+  index: -1
+bubble_FX/Layer 5
+  rotate: false
+  xy: 2931, 222
+  size: 288, 261
+  orig: 293, 270
+  offset: 5, 9
+  index: -1
+bubble_FX/Layer 6
+  rotate: false
+  xy: 1572, 1010
+  size: 321, 291
+  orig: 367, 317
+  offset: 39, 11
+  index: -1
+bubble_FX/Layer 7
+  rotate: false
+  xy: 1, 256
+  size: 371, 338
+  orig: 386, 354
+  offset: 15, 12
+  index: -1
+bubble_FX/Layer 8
+  rotate: false
+  xy: 358, 603
+  size: 370, 336
+  orig: 412, 354
+  offset: 16, 9
+  index: -1
+bubble_FX/Layer 9
+  rotate: false
+  xy: 1, 940
+  size: 367, 361
+  orig: 394, 369
+  offset: 18, 0
+  index: -1
+frame_FX/Layer 10
+  rotate: false
+  xy: 2775, 1034
+  size: 270, 267
+  orig: 276, 282
+  offset: 1, 15
+  index: -1
+frame_FX/Layer 11
+  rotate: false
+  xy: 886, 46
+  size: 267, 304
+  orig: 271, 310
+  offset: 0, 0
+  index: -1
+frame_FX/Layer 12
+  rotate: false
+  xy: 2013, 732
+  size: 255, 283
+  orig: 257, 296
+  offset: 2, 5
+  index: -1
+frame_FX/Layer 13
+  rotate: false
+  xy: 2207, 1019
+  size: 262, 282
+  orig: 285, 305
+  offset: 15, 23
+  index: -1
+frame_FX/Layer 14
+  rotate: false
+  xy: 1304, 996
+  size: 267, 305
+  orig: 296, 307
+  offset: 9, 0
+  index: -1
+frame_FX/Layer 15
+  rotate: false
+  xy: 1948, 438
+  size: 262, 284
+  orig: 285, 305
+  offset: 18, 17
+  index: -1
+frame_FX/Layer 16
+  rotate: false
+  xy: 1041, 985
+  size: 262, 316
+  orig: 285, 316
+  offset: 10, 0
+  index: -1
+frame_FX/Layer 17
+  rotate: false
+  xy: 1086, 371
+  size: 257, 302
+  orig: 275, 302
+  offset: 9, 0
+  index: -1
+frame_FX/Layer 18
+  rotate: false
+  xy: 2269, 741
+  size: 254, 277
+  orig: 274, 281
+  offset: 20, 4
+  index: -1
+frame_FX/Layer 19
+  rotate: false
+  xy: 2524, 753
+  size: 247, 273
+  orig: 267, 302
+  offset: 10, 29
+  index: -1
+frame_FX/Layer 20
+  rotate: false
+  xy: 2211, 454
+  size: 261, 277
+  orig: 287, 296
+  offset: 6, 15
+  index: -1
+frame_FX/Layer 21
+  rotate: false
+  xy: 3375, 794
+  size: 240, 251
+  orig: 254, 252
+  offset: 0, 1
+  index: -1
+frame_FX/Layer 22
+  rotate: false
+  xy: 3663, 32
+  size: 232, 241
+  orig: 249, 241
+  offset: 3, 0
+  index: -1
+frame_FX/Layer 23
+  rotate: false
+  xy: 3866, 1079
+  size: 214, 222
+  orig: 219, 226
+  offset: 0, 4
+  index: -1
+frame_FX/Layer 24
+  rotate: false
+  xy: 3197, 13
+  size: 212, 208
+  orig: 227, 256
+  offset: 0, 12
+  index: -1
+frame_FX/Layer 25
+  rotate: false
+  xy: 2704, 4
+  size: 181, 191
+  orig: 203, 247
+  offset: 6, 26
+  index: -1
+frame_FX/Layer 26
+  rotate: false
+  xy: 3896, 467
+  size: 183, 235
+  orig: 196, 256
+  offset: 12, 21
+  index: -1
+frame_FX/Layer 27
+  rotate: false
+  xy: 3666, 1105
+  size: 188, 196
+  orig: 204, 204
+  offset: 0, 8
+  index: -1
+frame_FX/Layer 28
+  rotate: false
+  xy: 2886, 6
+  size: 152, 189
+  orig: 165, 189
+  offset: 0, 0
+  index: -1
+frame_FX/Layer 29
+  rotate: false
+  xy: 2274, 16
+  size: 137, 143
+  orig: 158, 180
+  offset: 19, 0
+  index: -1
+frame_FX/Layer 3
+  rotate: false
+  xy: 3220, 240
+  size: 249, 256
+  orig: 260, 283
+  offset: 0, 27
+  index: -1
+frame_FX/Layer 30
+  rotate: false
+  xy: 3866, 703
+  size: 184, 186
+  orig: 210, 186
+  offset: 0, 0
+  index: -1
+frame_FX/Layer 31
+  rotate: false
+  xy: 2137, 12
+  size: 136, 147
+  orig: 148, 160
+  offset: 11, 13
+  index: -1
+frame_FX/Layer 32
+  rotate: false
+  xy: 2564, 9
+  size: 139, 169
+  orig: 140, 169
+  offset: 0, 0
+  index: -1
+frame_FX/Layer 33
+  rotate: false
+  xy: 3731, 364
+  size: 163, 182
+  orig: 163, 182
+  offset: 0, 0
+  index: -1
+frame_FX/Layer 34
+  rotate: false
+  xy: 3896, 325
+  size: 181, 141
+  orig: 181, 141
+  offset: 0, 0
+  index: -1
+frame_FX/Layer 35
+  rotate: false
+  xy: 3896, 162
+  size: 150, 162
+  orig: 150, 163
+  offset: 0, 0
+  index: -1
+frame_FX/Layer 4
+  rotate: false
+  xy: 3616, 801
+  size: 249, 244
+  orig: 259, 244
+  offset: 10, 0
+  index: -1
+frame_FX/Layer 5
+  rotate: false
+  xy: 3042, 497
+  size: 261, 261
+  orig: 273, 270
+  offset: 12, 9
+  index: -1
+frame_FX/Layer 6
+  rotate: false
+  xy: 3470, 274
+  size: 260, 248
+  orig: 281, 248
+  offset: 9, 0
+  index: -1
+frame_FX/Layer 7
+  rotate: false
+  xy: 1721, 723
+  size: 291, 286
+  orig: 299, 297
+  offset: 8, 4
+  index: -1
+frame_FX/Layer 8
+  rotate: false
+  xy: 1677, 410
+  size: 270, 288
+  orig: 282, 297
+  offset: 12, 3
+  index: -1
+frame_FX/Layer 9
+  rotate: false
+  xy: 1430, 699
+  size: 290, 296
+  orig: 299, 296
+  offset: 9, 0
+  index: -1
+frame_FX2/Layer 10
+  rotate: false
+  xy: 2056, 43
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+frame_FX2/Layer 11
+  rotate: false
+  xy: 3731, 283
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+frame_FX2/Layer 12
+  rotate: false
+  xy: 3812, 283
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+frame_FX2/Layer 3
+  rotate: false
+  xy: 1813, 40
+  size: 80, 83
+  orig: 80, 83
+  offset: 0, 0
+  index: -1
+frame_FX2/Layer 4
+  rotate: false
+  xy: 1489, 1
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+frame_FX2/Layer 5
+  rotate: false
+  xy: 1570, 1
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+frame_FX2/Layer 6
+  rotate: false
+  xy: 1894, 40
+  size: 80, 83
+  orig: 80, 83
+  offset: 0, 0
+  index: -1
+frame_FX2/Layer 7
+  rotate: false
+  xy: 1651, 1
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+frame_FX2/Layer 8
+  rotate: false
+  xy: 1732, 1
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+frame_FX2/Layer 9
+  rotate: false
+  xy: 1975, 43
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1

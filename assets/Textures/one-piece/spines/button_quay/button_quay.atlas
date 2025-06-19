@@ -1,0 +1,125 @@
+
+button_quay.png
+size: 1621,284
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_blink1
+  rotate: false
+  xy: 308, 1
+  size: 13, 13
+  orig: 15, 15
+  offset: 1, 1
+  index: -1
+NPC_FX2
+  rotate: false
+  xy: 1168, 20
+  size: 99, 90
+  orig: 101, 92
+  offset: 1, 1
+  index: -1
+Q_arrow
+  rotate: false
+  xy: 1529, 76
+  size: 91, 92
+  orig: 93, 94
+  offset: 1, 1
+  index: -1
+Q_button
+  rotate: false
+  xy: 1038, 117
+  size: 160, 166
+  orig: 162, 168
+  offset: 1, 1
+  index: -1
+Q_text
+  rotate: false
+  xy: 832, 7
+  size: 114, 45
+  orig: 117, 47
+  offset: 1, 1
+  index: -1
+quay_active_FX/Layer 3
+  rotate: false
+  xy: 568, 23
+  size: 263, 260
+  orig: 263, 260
+  offset: 0, 0
+  index: -1
+quay_active_FX/Layer 4
+  rotate: false
+  xy: 1, 13
+  size: 306, 270
+  orig: 306, 270
+  offset: 0, 0
+  index: -1
+quay_active_FX/Layer 5
+  rotate: false
+  xy: 308, 15
+  size: 259, 268
+  orig: 259, 268
+  offset: 0, 0
+  index: -1
+quay_active_FX/Layer 6
+  rotate: false
+  xy: 832, 53
+  size: 205, 230
+  orig: 205, 230
+  offset: 0, 0
+  index: -1
+quay_fx2/Layer 10
+  rotate: false
+  xy: 1475, 72
+  size: 53, 93
+  orig: 53, 93
+  offset: 0, 0
+  index: -1
+quay_fx2/Layer 3
+  rotate: false
+  xy: 947, 2
+  size: 54, 50
+  orig: 54, 50
+  offset: 0, 0
+  index: -1
+quay_fx2/Layer 4
+  rotate: false
+  xy: 1199, 111
+  size: 147, 172
+  orig: 147, 172
+  offset: 0, 0
+  index: -1
+quay_fx2/Layer 5
+  rotate: false
+  xy: 1038, 5
+  size: 129, 111
+  orig: 129, 111
+  offset: 0, 0
+  index: -1
+quay_fx2/Layer 6
+  rotate: false
+  xy: 1347, 166
+  size: 133, 117
+  orig: 133, 117
+  offset: 0, 0
+  index: -1
+quay_fx2/Layer 7
+  rotate: false
+  xy: 1481, 169
+  size: 133, 114
+  orig: 133, 114
+  offset: 0, 0
+  index: -1
+quay_fx2/Layer 8
+  rotate: false
+  xy: 1347, 43
+  size: 127, 122
+  orig: 127, 122
+  offset: 0, 0
+  index: -1
+quay_fx2/Layer 9
+  rotate: false
+  xy: 1268, 34
+  size: 75, 76
+  orig: 75, 76
+  offset: 0, 0
+  index: -1
