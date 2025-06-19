@@ -14,7 +14,9 @@ export default class G1009ChangeBetActor extends cc.Component {
 	@property(cc.Label)
 	private lblBalance: cc.Label = null;
 	@property(cc.Button)
-	private buttonShowBet: cc.Button = null;
+	private buttonDecreaseBet: cc.Button = null;
+	@property(cc.Button)
+	private buttonIncreaseBet: cc.Button = null;
 
 
 	protected start(): void {
@@ -27,12 +29,14 @@ export default class G1009ChangeBetActor extends cc.Component {
 	}
 
 	private onLockButton(): void {
-		this.buttonShowBet.interactable = false;
+		this.buttonDecreaseBet.interactable = false;
+		this.buttonIncreaseBet.interactable = false;
 	
 	}
 
 	private onSpinComplete(): void {
-		this.buttonShowBet.interactable = this.validatorButtonIncreaseBet();
+		this.buttonDecreaseBet.interactable = this.validatorButtonIncreaseBet();
+		this.buttonIncreaseBet.interactable = this.validatorButtonIncreaseBet();
 		
 	}
 
@@ -44,7 +48,8 @@ export default class G1009ChangeBetActor extends cc.Component {
 		this.lblBetPerLine.string = G1009Util.Instance().NumberFormat(G1009BetModel.GetInstance().GetCurrentBetPerLine());
 		this.lblBalance.string = G1009Util.Instance().NumberFormat(G1009BalanceModel.GetInstance().GetBalance());
 		this.lblTotalBetPoint.string = G1009Util.Instance().NumberFormat(G1009BetModel.GetInstance().GetTotalBetPoint());
-		this.buttonShowBet.interactable = this.validatorButtonIncreaseBet();
+		this.buttonDecreaseBet.interactable = this.validatorButtonIncreaseBet();
+		this.buttonIncreaseBet.interactable = this.validatorButtonIncreaseBet();
 		
 	}
 
@@ -61,11 +66,6 @@ export default class G1009ChangeBetActor extends cc.Component {
 		{
 			G1009EventManager.GetInstance().notify("SetBetIncrease",G1009BetModel.GetInstance().GetNextBetPerLineIndex());
 			G1009BetModel.GetInstance().IncreaseBetPerLine();					
-		}
-		else
-		{
-			G1009BetModel.GetInstance().SetBetToMin();		
-			G1009EventManager.GetInstance().notify("SetBetIncrease",0);
 		}
 		this.changeBet();
 	}
