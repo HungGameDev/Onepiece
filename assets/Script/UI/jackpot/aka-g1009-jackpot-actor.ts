@@ -13,8 +13,6 @@ export default class G1009JackpotActor extends cc.Component {
 	content: cc.Node = null;
 	@property(sp.Skeleton)
 	private spine: sp.Skeleton = null;
-	@property(sp.SkeletonData)
-	private skeletonData: sp.SkeletonData = null;
 	@property(cc.Label)
 	lblTotalWinPoint: cc.Label = null;
 
@@ -41,11 +39,11 @@ export default class G1009JackpotActor extends cc.Component {
 	}
 
 	private onJackpotStarted(): void {
-		if (this.isStopImmediately)
-		{
-			this.speedUpAnimation();
-			return;
-		}
+		// if (this.isStopImmediately)
+		// {
+		// 	this.speedUpAnimation();
+		// 	return;
+		// }
 		G1009EventManager.GetInstance().notify("JackpotPresentationStarted");
 		let objTween = {
 			value: 0
@@ -56,9 +54,7 @@ export default class G1009JackpotActor extends cc.Component {
 			.call(() => {
 				G1009EventManager.GetInstance().notify("JackpotShow");
 				this.content.active = true;
-				this.spine.skeletonData = this.skeletonData;
-				this.spine.setSkin("nohu");
-				let track = this.spine.setAnimation(0, "animation", true);
+				let track = this.spine.setAnimation(0, "NH", true);
 				// this.spine.setTrackCompleteListener(track, () => {
 				// 	this.spine.setAnimation(0, "Loop", true);
 				// });
@@ -119,7 +115,6 @@ export default class G1009JackpotActor extends cc.Component {
 	}
 
 	private reset(): void {
-		this.spine.skeletonData = null;
 		this.lblTotalWinPoint.string = "";
 		this.content.active = false;
 		this.content.opacity = 0;
