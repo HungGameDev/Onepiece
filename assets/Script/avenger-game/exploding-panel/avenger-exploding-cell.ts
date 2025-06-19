@@ -17,10 +17,10 @@ export default class ExplodingCell extends cc.Component {
     }
 
     public PlayEffectExplodeCells(nameSymbol: string) {
-        var nameSkin = cc.js.formatStr(this.nameSkinFormat, nameSymbol);
+        // var nameSkin = cc.js.formatStr(this.nameSkinFormat, nameSymbol);
         this.spineSkeleton.node.active = true;
         this.spineSkeleton.skeletonData = this.animEffectExplosion;
-        this.spineSkeleton.setSkin(nameSkin);
+        // this.spineSkeleton.setSkin(nameSkin);
         this.spineSkeleton.setEndListener(
             function () {
                 this.spineSkeleton.node.active = false;

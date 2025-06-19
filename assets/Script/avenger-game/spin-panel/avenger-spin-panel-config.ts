@@ -11,6 +11,6 @@ export  class SpinPanelConfig {
     static RotationDuration: number = 0.1;
 
     static ExplodeDuration: number = 2;
-    static FadeCellDuration: number = 0.2;
+    static FadeCellDuration: number = 1;
 }
 
