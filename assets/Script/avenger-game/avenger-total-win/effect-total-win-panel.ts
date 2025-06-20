@@ -20,7 +20,7 @@ export default class TotalWinPanel extends cc.Component {
         G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
         G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
         G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-        G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));\
+        G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
 		G1009EventManager.GetInstance().register("ShowBetPanel", this.onShowBetPanel.bind(this));
     }
 
@@ -45,12 +45,14 @@ export default class TotalWinPanel extends cc.Component {
     private onShowBetPanel(): void {
         if (!this.isFreespins) {
             let track = this.spine.setAnimation(0, "animation", true);
+            this.spine.node.active = true;
         }
     }
 
     private reset(): void {
         if (!this.isFreespins) {
             this.spine.clearTrack(0);
+            this.spine.node.active = false;
         }
     }
 }
