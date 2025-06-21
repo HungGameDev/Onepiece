@@ -3,6 +3,7 @@ import { G1009EventManager } from "../../events/aka-g1009-event-manager";
 import { State } from "../abstract/aka-g1009-state";
 import { G1009BetState } from "./aka-g1009-bet-state";
 import { G1009FeatureTriggerState } from "./aka-g1009-feature-trigger-state";
+import { G1009SpinState } from "./aka-g1009-spin-state";
 
 export class G1009FeatureWinState extends State {
 	constructor() {
@@ -14,10 +15,11 @@ export class G1009FeatureWinState extends State {
 	}
 
 	FeatureWinCompleted(): State {
-		if (G1009GameController.GetInstance().CheckBonusFeatureTrigger())
-		{
+		if (G1009GameController.GetInstance().CheckBonusFeatureTrigger()) {
 			return new G1009FeatureTriggerState();
 		}
+		else if (G1009GameController.GetInstance().IsActiveAuto())
+			return new G1009SpinState();
 		return new G1009BetState();
 	}
 }
