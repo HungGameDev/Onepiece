@@ -5,8 +5,9 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class SmokePanel extends cc.Component {
-    @property(cc.ParticleSystem)
-    particleSmoke: cc.ParticleSystem[] = [];
+
+    @property(sp.Skeleton)
+	private particleSmoke: sp.Skeleton [] = [];
 
     private register(): void {
         G1009EventManager.GetInstance().register("CellDropCompleted", this.onCellDropCompleted.bind(this));
@@ -18,7 +19,7 @@ export default class SmokePanel extends cc.Component {
 
 
     onCellDropCompleted(cellIndex){
-        this.particleSmoke[cellIndex].resetSystem();
+        this.particleSmoke[cellIndex].setAnimation(0, "animation", false);
     }
 
     

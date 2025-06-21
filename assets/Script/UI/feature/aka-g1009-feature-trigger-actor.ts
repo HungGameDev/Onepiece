@@ -6,10 +6,12 @@ const { ccclass, property } = cc._decorator;
 export default class G1009FeatureTrigger extends cc.Component {
 
 	@property(cc.Node)
-	private content: cc.Node = null;
+	protected content: cc.Node = null;
 
 	protected start(): void {
 		G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTrigger.bind(this));
+		G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
+
 	}
 
 	protected checkRuleTrigger(): boolean {
@@ -20,6 +22,13 @@ export default class G1009FeatureTrigger extends cc.Component {
 		if (this.checkRuleTrigger())
 		{
 			this.showContent();
+		}
+	}
+
+	protected onfeatureWinCompleted(): void {
+		if (this.checkRuleTrigger())
+		{
+			this.hideContent();
 		}
 	}
 
@@ -36,6 +45,9 @@ export default class G1009FeatureTrigger extends cc.Component {
 				}).start();
 		}
 		
+	}
+
+	protected hideContent() {
 	}
 
 	protected reset() {

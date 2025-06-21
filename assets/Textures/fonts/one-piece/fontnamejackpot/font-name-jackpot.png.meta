@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "e8abddee-958e-4e0f-b979-8f127d3e2c43",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 786,
+  "height": 795,
+  "platformSettings": {},
+  "subMetas": {
+    "font-name-jackpot": {
+      "ver": "1.0.6",
+      "uuid": "fb0b76fb-cfe1-479e-8fb8-36a96a4a0768",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "e8abddee-958e-4e0f-b979-8f127d3e2c43",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0.5,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 785,
+      "height": 794,
+      "rawWidth": 786,
+      "rawHeight": 795,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

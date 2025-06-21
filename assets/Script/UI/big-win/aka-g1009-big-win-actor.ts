@@ -18,7 +18,9 @@ export default class G1009BigwinActor extends cc.Component {
 	@property(sp.Skeleton)
 	private spine: sp.Skeleton = null;
 	@property(sp.SkeletonData)
-	private skeletonData: sp.SkeletonData = null;
+	private skeletonDataTL: sp.SkeletonData = null;
+	@property(sp.SkeletonData)
+	private skeletonDataTSL: sp.SkeletonData = null;
 	@property(cc.Label)
 	lblTotalWinPoint: cc.Label = null;
 
@@ -53,14 +55,14 @@ export default class G1009BigwinActor extends cc.Component {
 		};
 
 		this.totalWin = point;
-
+		var multi = point / G1009BetModel.GetInstance().GetTotalBetPoint();
+		this.spine.node.y = multi >= SUPER_WIN_TRIGGER_POINT ? 56 : -90;
 		this.tweenShowPopup = cc.tween(this.spine.node)
 			.to(FADE_DURATION, { scale: 1 })
 			.call(() => {
 				this.content.active = true;
-				this.spine.skeletonData = this.skeletonData;
-				this.spine.setSkin(this.getNameSkinAnimation(point));
-				let track = this.spine.setAnimation(0, "animation", false);
+				this.spine.skeletonData = this.getAnimation(multi);
+				let track : sp.spine.TrackEntry = this.spine.setAnimation(0, "animation", false);
 				cc.tween(this.content)
 					.to(FADE_DURATION, { opacity: 255 })
 					.call(() => {
@@ -71,9 +73,9 @@ export default class G1009BigwinActor extends cc.Component {
 		this.tweenShowPopup.start();
 	}
 
-	private getNameSkinAnimation(point: number): string {
-		var nameSkin = point / G1009BetModel.GetInstance().GetTotalBetPoint() >= SUPER_WIN_TRIGGER_POINT ? "thangsieulon" : "thanglon";
-		return nameSkin;
+	private getAnimation(multi: number): sp.SkeletonData {
+		var skeletonData =  multi >= SUPER_WIN_TRIGGER_POINT ? this.skeletonDataTSL : this.skeletonDataTL;
+		return skeletonData;
 	}
 
 	private countPoint(objTween: { value: number; }, point1: number, duration: number, delay: number = 0, callback = () => { }) {
@@ -118,11 +120,11 @@ export default class G1009BigwinActor extends cc.Component {
 	}
 
 	private onSpinStarted(): void {
-		// this.duration = COUNT_POINT_DURATION1 + COUNT_POINT_DURATION2 + COUNT_POINT_DURATION3;
+		// this.duration =4;
 		// this.isStopImmediately = false;
 	}
 
 	private onStopImmediately(): void {
-		this.duration = 0;
+		// this.duration = 0;
 	}
 }

@@ -1,0 +1,265 @@
+
+symbol_jackpot.png
+size: 1957,552
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_blink1
+  rotate: false
+  xy: 1912, 260
+  size: 13, 13
+  orig: 15, 15
+  offset: 1, 1
+  index: -1
+frame_FX1/Layer 10
+  rotate: false
+  xy: 1136, 325
+  size: 225, 226
+  orig: 225, 226
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 11
+  rotate: false
+  xy: 228, 98
+  size: 226, 226
+  orig: 226, 226
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 12
+  rotate: false
+  xy: 455, 325
+  size: 226, 226
+  orig: 226, 226
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 13
+  rotate: false
+  xy: 455, 98
+  size: 226, 226
+  orig: 226, 226
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 14
+  rotate: false
+  xy: 1362, 325
+  size: 225, 226
+  orig: 225, 226
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 15
+  rotate: false
+  xy: 909, 100
+  size: 226, 225
+  orig: 226, 225
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 16
+  rotate: false
+  xy: 1588, 326
+  size: 226, 225
+  orig: 226, 225
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 17
+  rotate: false
+  xy: 1136, 99
+  size: 226, 225
+  orig: 226, 225
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 18
+  rotate: false
+  xy: 1589, 100
+  size: 225, 225
+  orig: 225, 225
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 3
+  rotate: false
+  xy: 682, 326
+  size: 226, 225
+  orig: 226, 225
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 4
+  rotate: false
+  xy: 682, 100
+  size: 226, 225
+  orig: 226, 225
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 5
+  rotate: false
+  xy: 909, 326
+  size: 226, 225
+  orig: 226, 225
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 6
+  rotate: false
+  xy: 1363, 99
+  size: 225, 225
+  orig: 225, 225
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 7
+  rotate: false
+  xy: 1, 325
+  size: 226, 226
+  orig: 226, 226
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 8
+  rotate: false
+  xy: 1, 98
+  size: 226, 226
+  orig: 226, 226
+  offset: 0, 0
+  index: -1
+frame_FX1/Layer 9
+  rotate: false
+  xy: 228, 325
+  size: 226, 226
+  orig: 226, 226
+  offset: 0, 0
+  index: -1
+frame_FX2/freespin_frame_fx_00
+  rotate: false
+  xy: 1815, 177
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_01
+  rotate: false
+  xy: 1815, 80
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_02
+  rotate: false
+  xy: 158, 1
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_03
+  rotate: false
+  xy: 255, 1
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_04
+  rotate: false
+  xy: 352, 1
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_05
+  rotate: false
+  xy: 449, 1
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_06
+  rotate: false
+  xy: 546, 1
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_07
+  rotate: false
+  xy: 643, 1
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_08
+  rotate: false
+  xy: 740, 3
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_09
+  rotate: false
+  xy: 837, 3
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_10
+  rotate: false
+  xy: 934, 3
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_11
+  rotate: false
+  xy: 1031, 3
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_12
+  rotate: false
+  xy: 1128, 2
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_13
+  rotate: false
+  xy: 1225, 2
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_14
+  rotate: false
+  xy: 1322, 2
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_15
+  rotate: false
+  xy: 1419, 2
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+frame_FX2/freespin_frame_fx_16
+  rotate: false
+  xy: 1516, 2
+  size: 96, 96
+  orig: 100, 100
+  offset: 2, 2
+  index: -1
+jp_char
+  rotate: false
+  xy: 1815, 274
+  size: 135, 132
+  orig: 137, 134
+  offset: 1, 1
+  index: -1
+jp_frame
+  rotate: false
+  xy: 1815, 407
+  size: 141, 144
+  orig: 143, 146
+  offset: 1, 1
+  index: -1
+jp_text
+  rotate: false
+  xy: 1, 59
+  size: 156, 38
+  orig: 158, 40
+  offset: 1, 1
+  index: -1

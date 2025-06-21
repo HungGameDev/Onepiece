@@ -12,13 +12,10 @@ export default class G1009ButtonControllerActor extends cc.Component {
 	@property(G1009ButtonActor)
 	stopSpinButton: G1009ButtonActor = null;
 
-	@property(cc.Label)
-	private lblspinCount: cc.Label = null;
-
 	@property(cc.Toggle)
 	turboButton: cc.Toggle = null;
 
-	spinLeft: number = 0;
+	freespinLeft: number = 0;
 
 	isToggleMoving: boolean = false;
 	private isAuto: boolean = false;
@@ -43,7 +40,7 @@ export default class G1009ButtonControllerActor extends cc.Component {
 	}
 
 	private onNextScrollData(data: any): void {
-		this.spinLeft = data.freespinLeft;
+		this.freespinLeft = data.freespinLeft;
 	}
 
 	public onResume(): void {
@@ -88,7 +85,7 @@ export default class G1009ButtonControllerActor extends cc.Component {
 	}
 
 	private activeStopButton(): void {
-		this.spinLeft -= 1;
+		this.freespinLeft -= 1;
 		this.checkToActiveSpinLeft();
 
 		this.stopSpinButton.Interactable(true);
@@ -96,7 +93,6 @@ export default class G1009ButtonControllerActor extends cc.Component {
 
 	private checkToActiveSpinLeft() {
 		this.onStopAuto();
-		this.lblspinCount.string = this.spinLeft > 0 ? this.spinLeft.toString() : "0";
 	}
 
 	private OnResetSpin(): void {

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "1208796d-d2d9-4141-a36d-688d46f46c62",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 512,
+  "platformSettings": {},
+  "subMetas": {
+    "SapNo-InGame-Khoi": {
+      "ver": "1.0.6",
+      "uuid": "28cdc2e8-ee5e-4259-a68b-01ccf4077019",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "1208796d-d2d9-4141-a36d-688d46f46c62",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -38,
+      "offsetY": 3.5,
+      "trimX": 10,
+      "trimY": 9,
+      "width": 928,
+      "height": 487,
+      "rawWidth": 1024,
+      "rawHeight": 512,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

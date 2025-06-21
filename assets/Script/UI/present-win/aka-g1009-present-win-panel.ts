@@ -149,7 +149,7 @@ export default class G1009WinPanelActor extends cc.Component {
 		var haveWinLineJackpot = false;
 		for (let index = 0; index < this.winLine.length; index++) {
 			const winLineData = this.winLine[index];
-			if (winLineData.GetWinSymbol() == "Wild" && winLineData.GetWinLine().length == 5) {
+			if (winLineData.GetWinSymbol() == "Jackpot" && winLineData.GetWinLine().length == 5) {
 				haveWinLineJackpot = true;
 				break;
 			}
