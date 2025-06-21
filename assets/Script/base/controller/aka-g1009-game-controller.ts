@@ -38,7 +38,7 @@ export default class G1009GameController extends cc.Component {
 		G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
 		G1009EventManager.GetInstance().register("resumeBonus", this.onResumeBonus.bind(this));
 		G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-		G1009EventManager.GetInstance().register("EndRound", this.onEnround.bind(this));
+		G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
 
 
 		G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
@@ -56,8 +56,8 @@ export default class G1009GameController extends cc.Component {
 		this.isAuto = false;
 	}
 
-	private onEnround(): void {
-		console.warn("onEnround: ",this.comboCount);
+	private onEndRound(): void {
+		console.warn("onEndRound: ",this.comboCount);
 		this.comboCount = 0;
 	}
 
@@ -125,7 +125,7 @@ export default class G1009GameController extends cc.Component {
 	}
 
 	private onfeatureWinCompleted(): void {
-		this.onEnround();
+		this.onEndRound();
 	}
 
 	private onfeatureWinstarted(): void {

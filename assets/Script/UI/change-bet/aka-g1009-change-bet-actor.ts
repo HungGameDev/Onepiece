@@ -41,13 +41,13 @@ export default class G1009ChangeBetActor extends cc.Component {
 	}
 
 	private onBalanceChange(point): void {
-		this.lblBalance.string = G1009Util.Instance().NumberFormat(point);
+		this.lblBalance.string = G1009Util.Instance().NumberFormatWithoutCharacter(point);
 	}
 
 	private onShowBetPanel(): void {
-		this.lblBetPerLine.string = G1009Util.Instance().NumberFormat(G1009BetModel.GetInstance().GetCurrentBetPerLine());
-		this.lblBalance.string = G1009Util.Instance().NumberFormat(G1009BalanceModel.GetInstance().GetBalance());
-		this.lblTotalBetPoint.string = G1009Util.Instance().NumberFormat(G1009BetModel.GetInstance().GetTotalBetPoint());
+		this.lblBetPerLine.string = G1009Util.Instance().NumberFormatWithoutCharacter(G1009BetModel.GetInstance().GetCurrentBetPerLine());
+		this.lblBalance.string = G1009Util.Instance().NumberFormatWithoutCharacter(G1009BalanceModel.GetInstance().GetBalance());
+		this.lblTotalBetPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(G1009BetModel.GetInstance().GetTotalBetPoint());
 		this.buttonDecreaseBet.interactable = this.validatorButtonIncreaseBet();
 		this.buttonIncreaseBet.interactable = this.validatorButtonIncreaseBet();
 		
@@ -85,8 +85,8 @@ export default class G1009ChangeBetActor extends cc.Component {
 
 	private changeBet(): void {
 
-		this.lblBetPerLine.string = G1009Util.Instance().NumberFormat(G1009BetModel.GetInstance().GetCurrentBetPerLine());
-		this.lblTotalBetPoint.string = G1009Util.Instance().NumberFormat(G1009BetModel.GetInstance().GetTotalBetPoint());
+		this.lblBetPerLine.string = G1009Util.Instance().NumberFormatWithoutCharacter(G1009BetModel.GetInstance().GetCurrentBetPerLine());
+		this.lblTotalBetPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(G1009BetModel.GetInstance().GetTotalBetPoint());
 		G1009EventManager.GetInstance().notify("ChangeBet");
 	}
 

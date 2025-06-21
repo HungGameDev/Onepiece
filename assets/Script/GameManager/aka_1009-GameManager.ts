@@ -175,7 +175,7 @@ export class GameManager1009 {
     }> {
         const jpHistoryList: JPHistory[] = [];
 
-        var types = ['Jackpot','BigWin'];
+        var types = ['Nổ Hũ','Thăng lớn'];
      
         for (let i = 0; i < size; i++) {
             jpHistoryList.push({

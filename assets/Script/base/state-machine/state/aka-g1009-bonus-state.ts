@@ -23,10 +23,11 @@ export default class G1009BonusState extends State {
 	}
 
 	FeatureWinCompleted(): State {
-		if (G1009GameController.GetInstance().CheckBonusFeatureTrigger())
-		{
+		if (G1009GameController.GetInstance().CheckBonusFeatureTrigger()) {
 			return new G1009FeatureTriggerState();
 		}
+		else if (G1009GameController.GetInstance().IsActiveAuto())
+			return new G1009SpinState();
 		return new G1009BetState();
 	}
 }

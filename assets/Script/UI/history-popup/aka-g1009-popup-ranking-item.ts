@@ -3,7 +3,7 @@ import G1009Util from "../../base/Util/aka-g1009-number-converter";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009PopupJackpotHistoryItem extends cc.Component {
+export default class G1009PopupRankingItem extends cc.Component {
 
 	@property(cc.Label)
 	private lblSesion: cc.Label = null;
@@ -15,7 +15,11 @@ export default class G1009PopupJackpotHistoryItem extends cc.Component {
 	private lblTotalWin: cc.Label = null;
 	@property(cc.Label)
 	private lblWinType: cc.Label = null;
-	public SetInfoItem(session: string,time: string, userName: string,totalWin: number,winType: string) {
+	@property(cc.Sprite)
+	private sprBackround: cc.Sprite = null;
+
+	public SetInfoItem(session: string, time: string, userName: string, totalWin: number, winType: string, count) {
+		this.sprBackround.node.active = count % 2 == 0;
 		this.lblSesion.string = session;
 		this.lblTime.string = time;
 		this.lblUserName.string = userName;

@@ -7,9 +7,10 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class TotalWinPanel extends cc.Component {
 
-	@property(sp.Skeleton)
-	private spine: sp.Skeleton = null;
-
+    @property(sp.Skeleton)
+    private spineIdle: sp.Skeleton = null;
+    @property(sp.Skeleton)
+    private spineWinMerge: sp.Skeleton = null;
     private isFreespins: boolean = false;
 
     protected onLoad(): void {
@@ -21,7 +22,8 @@ export default class TotalWinPanel extends cc.Component {
         G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
         G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
         G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
-		G1009EventManager.GetInstance().register("ShowBetPanel", this.onShowBetPanel.bind(this));
+        G1009EventManager.GetInstance().register("ShowBetPanel", this.onShowBetPanel.bind(this));
+        G1009EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
     }
 
     private onResume(data: any) {
@@ -35,8 +37,7 @@ export default class TotalWinPanel extends cc.Component {
     }
 
     private onFeatureWinCompleted(data): void {
-        if(data && data.hitRule == "bonus")
-        {
+        if (data && data.hitRule == "bonus") {
             return;
         }
         this.isFreespins = false;
@@ -44,15 +45,28 @@ export default class TotalWinPanel extends cc.Component {
 
     private onShowBetPanel(): void {
         if (!this.isFreespins) {
-            let track = this.spine.setAnimation(0, "animation", true);
-            this.spine.node.active = true;
+            this.spineIdle.node.active = true;
+            let track = this.spineIdle.setAnimation(0, "animation", true);
         }
     }
 
     private reset(): void {
         if (!this.isFreespins) {
-            this.spine.clearTrack(0);
-            this.spine.node.active = false;
+            this.spineIdle.clearTrack(0);
+            this.spineIdle.node.active = false;
         }
+    }
+
+    private onIncreaseTotalWin(): void {
+        this.spineWinMerge.node.active = true;
+        let track = this.spineWinMerge.setAnimation(0, "animation", false);
+        var delayTime = track.animationEnd;
+        cc.tween(this.spineWinMerge.node)
+            .delay(delayTime)
+            .call(() => {
+                this.spineWinMerge.node.active = false;
+            })
+            .start();
+
     }
 }
