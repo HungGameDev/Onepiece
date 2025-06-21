@@ -49,12 +49,13 @@ export default class G1009PopupHistory extends cc.Component {
 	}
 
 	protected processData(historyData: any) {
-		
+		var count= 0;
 		historyData.data.forEach((data) => {
 			let item = cc.instantiate(this.prefabItem);
 			let itemComponent = item.getComponent(G1009PopupHistoryItem);		
 			let time: string = formatDDMMHHmmSS(data.time);
-			itemComponent.SetInfoItem(data.session, time, data.totalBet, data.totalWin,data.spinData);
+			count++;
+			itemComponent.SetInfoItem(data.session, time, data.totalBet, data.totalWin, data.spinData, count);
 			item.setParent(this.contentView);
 		});
 	}
