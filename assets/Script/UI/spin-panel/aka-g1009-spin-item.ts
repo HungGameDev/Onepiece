@@ -101,7 +101,7 @@ export default class G1009SpinItemActor extends cc.Component {
 	public Spin(): void {
 
 		if (this.state == ESpinningState.Idle) {
-			G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelspin', isLoop: false });
+			// G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelspin', isLoop: false });
 			this.momentum();
 		}
 	}
@@ -258,7 +258,7 @@ export default class G1009SpinItemActor extends cc.Component {
 	}
 
 	protected stopComplete(): void {
-		G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelstop', isLoop: false });
+		// G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelstop', isLoop: false });
 		this.cellItems.forEach(cellItem => cellItem.StopSpin());
 		this.state = ESpinningState.Idle;
 		this.onStopSpinCompleted(this.cellIndices);

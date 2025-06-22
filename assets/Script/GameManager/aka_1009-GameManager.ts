@@ -53,7 +53,7 @@ export class GameManager1009 {
         this.jackpotMessage = JSON.parse(JSON.stringify(joinGameData.message));
         this.currentBetInfo = joinGameData.currentBetInfo;
 
-        this.playerMoney = 10000;
+        this.playerMoney = 1000000;
     }
 
     registerEvent(event: string, listener: (...args: unknown[]) => void) {
