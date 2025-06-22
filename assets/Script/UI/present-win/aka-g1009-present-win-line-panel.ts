@@ -20,6 +20,7 @@ export default class G1009WinLinePanelActor extends cc.Component {
 
     private OnShowLine(line: number[]) {
         this.hideAllLine();
+		G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_show_line', isLoop: false });
         for (let index = 0; index < line.length; index++)
         {
             if (line[index] >= 0 && line[index] < this.lines.length)

@@ -17,6 +17,7 @@ export default class G1009SelectBetActor extends cc.Component {
 
     public Show(): void{
         this.content.active = true;
+		G1009EventManager.GetInstance().notify("ShowPopupChangeBet");
     } 
 
     public OnButtonBackClick(): void{

@@ -1,5 +1,6 @@
 const SoundNameConfig = {
-    BGMMainGame: 'bgm_normalgame',
+    BGMMainGame: 'bgm_normal_game',
+    BGMChooseBet: 'bgm_chose_bet',
     BGMFreeGame: 'bgm_freegame',
     BGMBonusGame: 'bgm_bonusgame',
     BGMBigWin: 'bgm_bigwin',
@@ -30,6 +31,7 @@ const SoundNameConfig = {
 }
 const SoundVolume = {};
 SoundVolume[SoundNameConfig.BGMMainGame] = 1;
+SoundVolume[SoundNameConfig.BGMChooseBet] = 1;
 SoundVolume[SoundNameConfig.BGMFreeGame] = 0.7;
 SoundVolume[SoundNameConfig.BGMBonusGame] = 1;
 

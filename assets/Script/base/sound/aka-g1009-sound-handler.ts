@@ -18,8 +18,8 @@ export default class G1009SoundHandlerActor extends cc.Component {
     SoundConfig: G1009SoundConfig = new G1009SoundConfig();
 
     protected start(): void {
-        this.currentBGMMusicPlaying = this.SoundConfig.SoundNameConfig.BGMMainGame;
-        this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMMainGame);      
+        this.currentBGMMusicPlaying = this.SoundConfig.SoundNameConfig.BGMChooseBet;
+        this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMChooseBet);      
         this.spinItemCount = 0;
         this.landingCount = {};
         this.isFreeSpin = false;
@@ -37,11 +37,8 @@ export default class G1009SoundHandlerActor extends cc.Component {
         G1009EventManager.GetInstance().register("StopSFX", this.onStopSFX.bind(this));
         G1009EventManager.GetInstance().register("PlayBGM", this.onPlayBGM.bind(this));
         G1009EventManager.GetInstance().register("StopBGM", this.onStopBGM.bind(this));
-        G1009EventManager.GetInstance().register("ShowBetPanel", this.onPlayMainGameBGMusic.bind(this));
-        G1009EventManager.GetInstance().register("BonusWinStarted", this.onPlayBonusGameBGMusic.bind(this));
-        G1009EventManager.GetInstance().register("EnterFreespins", this.onPlayFreeGameBGMusic.bind(this));
-        G1009EventManager.GetInstance().register("JackpotStarted", this.onPlayJackPotBGMusic.bind(this));
-        G1009EventManager.GetInstance().register("BigWinStarted", this.onPlayBigWinBGMusic.bind(this));
+        G1009EventManager.GetInstance().register("ShowPopupChangeBet", this.onPlayChooseBetBGMusic.bind(this));
+        G1009EventManager.GetInstance().register("ChangeBet", this.onPlayMainGameBGMusic.bind(this));
         G1009EventManager.GetInstance().register("FeatureTrigger", this.onFeatureTrigger.bind(this));
 	
     }
@@ -50,39 +47,17 @@ export default class G1009SoundHandlerActor extends cc.Component {
        // this.onPlaySFX({ sfxName: "sfx_featurewin", isLoop: false });
     }
 
+    private onPlayChooseBetBGMusic(): void{
+        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMChooseBet)
+        {          
+            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMChooseBet);
+        }
+    }
+
     private onPlayMainGameBGMusic(): void{
         if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMMainGame)
         {          
             this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMMainGame);
-        }
-    }
-
-    private onPlayFreeGameBGMusic(): void{
-        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMFreeGame)
-        { 
-            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMFreeGame);
-        }
-    }
-
-    private onPlayBonusGameBGMusic(): void{
-        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMBonusGame)
-        {          
-            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMBonusGame);
-        }
-    }
-
-    private onPlayJackPotBGMusic(): void{
-        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMJackPot)
-        {           
-            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMJackPot);
-        }
-    }
-
-    private onPlayBigWinBGMusic(): void{
-        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMBigWin)
-        {
-          
-            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMBigWin);
         }
     }
     

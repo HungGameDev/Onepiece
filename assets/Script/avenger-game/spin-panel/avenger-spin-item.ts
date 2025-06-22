@@ -8,6 +8,8 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class AvengerSpinItem extends G1009SpinItemActor {
 
+	@property()
+	reelIndex: number = -1;
 	private arrStartYPosCellItem = [];
 	public onExplodeCompleted: Function = () => { };
 
@@ -51,7 +53,10 @@ export default class AvengerSpinItem extends G1009SpinItemActor {
 			let count = cellIndex;
 			var tweenDropDown = cc.tween(cellItem.node)
 				.to(SpinPanelConfig.DropDownDuration, { y: endYPosition }, { easing: SpinPanelConfig.EasingDropDown })
-				.call(()=>{G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());})
+				.call(()=>{
+					G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
+					G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
+				})
 				.to(SpinPanelConfig.RotationDuration, { angle: SpinPanelConfig.ShakeRotation }, { easing: SpinPanelConfig.EasingDropDown })
 				.to(SpinPanelConfig.BounceDuration, { y: endYPosition + SpinPanelConfig.BouncedOffsetHeight, angle: -SpinPanelConfig.ShakeRotation / 2 }, { easing: SpinPanelConfig.EasingDropDown })
 				.to(SpinPanelConfig.BounceDuration, { y: endYPosition - SpinPanelConfig.BouncedOffsetHeight / 2, angle: 0 }, { easing: SpinPanelConfig.EasingDropDown })
@@ -94,6 +99,7 @@ export default class AvengerSpinItem extends G1009SpinItemActor {
 			const node = arrNodeExplodedCell[index];
 			let count = index;
 			var tweenExplode = cc.tween(node)
+				.delay(this.reelIndex * 0.1)
 				.to(SpinPanelConfig.FadeCellDuration, { opacity: 0 }, { easing: 'linear' })
 				.delay(SpinPanelConfig.ExplodeDuration - SpinPanelConfig.FadeCellDuration)
 				.call(() => {
@@ -125,7 +131,10 @@ export default class AvengerSpinItem extends G1009SpinItemActor {
 				
 				var tweenDropDown = cc.tween(cellItem.node)
 					.to(SpinPanelConfig.DropDownDuration, { y: desYPostion }, { easing: SpinPanelConfig.EasingDropDown })
-					.call(()=>{G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());})
+					.call(()=>{
+						G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
+						G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
+					})
 					.to(SpinPanelConfig.RotationDuration, { angle: SpinPanelConfig.ShakeRotation }, { easing: SpinPanelConfig.EasingDropDown })
 					.to(SpinPanelConfig.BounceDuration, { y: desYPostion + SpinPanelConfig.BouncedOffsetHeight, angle: -SpinPanelConfig.ShakeRotation / 2 }, { easing: SpinPanelConfig.EasingDropDown })
 					.to(SpinPanelConfig.BounceDuration, { y: desYPostion - SpinPanelConfig.BouncedOffsetHeight / 2, angle: 0 }, { easing: SpinPanelConfig.EasingDropDown })
