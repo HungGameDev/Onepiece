@@ -500,13 +500,13 @@
     "relativePath": "model\\primitives.fbx"
   },
   "10107b73-1090-460e-81f5-43be987c6d6c": {
-    "asset": 1750689813080,
-    "meta": 1750694278829,
+    "asset": 1750695107455,
+    "meta": 1750696018962,
     "relativePath": "Prefabs"
   },
   "ff55c8ed-9924-47ed-9aaa-4e5b6f0e2582": {
-    "asset": 1750694307505,
-    "meta": 1750694852645,
+    "asset": 1750695062313,
+    "meta": 1750696018962,
     "relativePath": "Scene"
   },
   "76f2c459-ce8d-488d-856b-a5781be8bb8f": {
@@ -515,8 +515,8 @@
     "relativePath": "Script"
   },
   "5d8fe5a4-26a8-41db-82f1-aa99e857e5b4": {
-    "asset": 1750694838641,
-    "meta": 1750694852646,
+    "asset": 1750695126373,
+    "meta": 1750696018963,
     "relativePath": "Textures"
   },
   "90440ea6-a49f-43be-af56-9d04d06bc713": {
@@ -880,8 +880,8 @@
     "relativePath": "Textures\\sound\\bgm\\bgm_normal_game.mp3"
   },
   "1d06b591-473f-4231-8811-fcec5af09a4a": {
-    "asset": 1750689755956,
-    "meta": 1750694278876,
+    "asset": 1750695720279,
+    "meta": 1750696018964,
     "relativePath": "Textures\\one-piece"
   },
   "875eaaee-b7ef-48db-95ce-d29cdb2b4136": {
@@ -1380,8 +1380,8 @@
     "relativePath": "Textures\\one-piece\\spines\\NH\\NH_anim.json"
   },
   "7c04f7d1-bbd2-41bd-b11b-f4598eaa9664": {
-    "asset": 1750695062318,
-    "meta": 1750695065024,
+    "asset": 1750695296986,
+    "meta": 1750696018963,
     "relativePath": "Textures\\animations"
   },
   "f0c77f24-65e1-4c0d-8e89-31ef9739321a": {
@@ -1813,5 +1813,40 @@
     "asset": 1750695563934,
     "meta": 1750695572444,
     "relativePath": "Script\\UI\\spin-panel\\Slot45-spin-panel.ts"
+  },
+  "0ccb698e-a54e-4354-af63-f75f0a95ed31": {
+    "asset": 1750695720232,
+    "meta": 1750695720339,
+    "relativePath": "Textures\\one-piece\\200.png"
+  },
+  "f077dd9b-2091-45b1-a4fe-f19533f2e8ce": {
+    "asset": 1750695720232,
+    "meta": 1750695720340,
+    "relativePath": "Textures\\one-piece\\2k.png"
+  },
+  "8b9f455d-0e82-48ce-be59-6a0554a06974": {
+    "asset": 1750695720232,
+    "meta": 1750695720340,
+    "relativePath": "Textures\\one-piece\\1k.png"
+  },
+  "c0f6ccec-8dc4-4acb-a9a5-e24f8eac2590": {
+    "asset": 1750695720264,
+    "meta": 1750695720343,
+    "relativePath": "Textures\\one-piece\\100.png"
+  },
+  "0a7ca84a-d698-4135-a8e3-6ca96a9a6dca": {
+    "asset": 1750695720265,
+    "meta": 1750695720349,
+    "relativePath": "Textures\\one-piece\\500.png"
+  },
+  "a0185e2d-e39b-4015-ba73-0968301805c2": {
+    "asset": 1750695720232,
+    "meta": 1750695720350,
+    "relativePath": "Textures\\one-piece\\10k.png"
+  },
+  "03fa1de8-4f5e-40cd-821b-bf03d174b94b": {
+    "asset": 1750695720266,
+    "meta": 1750695720350,
+    "relativePath": "Textures\\one-piece\\5k.png"
   }
 }
