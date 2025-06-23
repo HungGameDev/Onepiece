@@ -1,7 +1,7 @@
 {
   "__type__": "cc.TextAsset",
-  "_name": "aka-g1009-transition-Interface.d",
+  "_name": "Slot45-transition-Interface.d",
   "_objFlags": 0,
   "_native": "",
-  "text": "export interface TransitionInterface\n{\n\ttransitionNextState(): State;\n}\n"
+  "text": "export interface TransitionInterface\r\n{\r\n\ttransitionNextState(): State;\r\n}\r\n"
 }

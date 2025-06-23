@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '5bfb9wzm9xAp7bxi2qR5AVs', 'aka-g1009-select-bet-panel');
-// Script/UI/popup/aka-g1009-select-bet-panel.ts
+cc._RF.push(module, '5bfb9wzm9xAp7bxi2qR5AVs', 'Slot45-select-bet-panel');
+// Script/UI/popup/Slot45-select-bet-panel.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009SelectBetActor = /** @class */ (function (_super) {
     __extends(G1009SelectBetActor, _super);
@@ -33,13 +33,14 @@ var G1009SelectBetActor = /** @class */ (function (_super) {
         return _this;
     }
     G1009SelectBetActor.prototype.start = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('SetBet', this.Hide.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('SetBet', this.Hide.bind(this));
     };
     G1009SelectBetActor.prototype.Hide = function () {
         this.content.active = false;
     };
     G1009SelectBetActor.prototype.Show = function () {
         this.content.active = true;
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ShowPopupChangeBet");
     };
     G1009SelectBetActor.prototype.OnButtonBackClick = function () {
         cc.director.loadScene('Lobby');

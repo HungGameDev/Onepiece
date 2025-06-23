@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '6d52b9uXZRKWJrIFQbk03Ao', 'aka-g1009-spine-animation');
-// Script/base/animation/aka-g1009-spine-animation.ts
+cc._RF.push(module, '6d52b9uXZRKWJrIFQbk03Ao', 'Slot45-spine-animation');
+// Script/base/animation/Slot45-spine-animation.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -24,8 +24,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.G1009SpineEventData = exports.G1009SpineData = exports.G1009SpineAnimationData = void 0;
-var aka_g1009_animation_1 = require("./aka-g1009-animation");
-var aka_g1009_spine_animation_handler_1 = require("./aka-g1009-spine-animation-handler");
+var Slot45_animation_1 = require("./Slot45-animation");
+var Slot45_spine_animation_handler_1 = require("./Slot45-spine-animation-handler");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009SpineAnimationActor = /** @class */ (function (_super) {
     __extends(G1009SpineAnimationActor, _super);
@@ -48,7 +48,7 @@ var G1009SpineAnimationActor = /** @class */ (function (_super) {
     }
     G1009SpineAnimationActor_1 = G1009SpineAnimationActor;
     G1009SpineAnimationActor.prototype.Play = function (target, events, callback) {
-        this.animationHandler = new aka_g1009_spine_animation_handler_1.default(this, target);
+        this.animationHandler = new Slot45_spine_animation_handler_1.default(this, target);
         this.animationHandler.Play(target, events, callback);
     };
     G1009SpineAnimationActor.prototype.Stop = function (isCallComplete) {
@@ -95,7 +95,7 @@ var G1009SpineAnimationActor = /** @class */ (function (_super) {
         ccclass
     ], G1009SpineAnimationActor);
     return G1009SpineAnimationActor;
-}(aka_g1009_animation_1.default));
+}(Slot45_animation_1.default));
 exports.default = G1009SpineAnimationActor;
 var G1009SpineAnimationData = /** @class */ (function () {
     function G1009SpineAnimationData() {

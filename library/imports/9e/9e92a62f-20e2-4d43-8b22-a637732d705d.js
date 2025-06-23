@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '9e92aYvIOJNQ4sipjdzLXBd', 'aka-g1009-popup-history');
-// Script/UI/history-popup/aka-g1009-popup-history.ts
+cc._RF.push(module, '9e92aYvIOJNQ4sipjdzLXBd', 'Slot45-popup-history');
+// Script/UI/history-popup/Slot45-popup-history.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,10 +23,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_1009_GameManager_1 = require("../../GameManager/aka_1009-GameManager");
-var aka_date_util_1 = require("../../base/Util/aka_date-util");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_popup_history_item_1 = require("./aka-g1009-popup-history-item");
+var Slot45_GameManager_1 = require("../../GameManager/Slot45-GameManager");
+var Slot45_date_util_1 = require("../../base/Util/Slot45_date-util");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_popup_history_item_1 = require("./Slot45-popup-history-item");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009PopupHistory = /** @class */ (function (_super) {
     __extends(G1009PopupHistory, _super);
@@ -36,12 +36,12 @@ var G1009PopupHistory = /** @class */ (function (_super) {
         _this.content = null;
         _this.contentView = null;
         _this.pageIndex = 0;
-        _this.gameManager1009 = new aka_1009_GameManager_1.GameManager1009();
+        _this.gameManager1009 = new Slot45_GameManager_1.GameManager1009();
         return _this;
     }
     G1009PopupHistory.prototype.start = function () {
         this.Init();
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("OpenLSC", this.Show.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("OpenLSC", this.Show.bind(this));
     };
     G1009PopupHistory.prototype.Init = function () {
         var _this = this;
@@ -58,11 +58,13 @@ var G1009PopupHistory = /** @class */ (function (_super) {
     };
     G1009PopupHistory.prototype.processData = function (historyData) {
         var _this = this;
+        var count = 0;
         historyData.data.forEach(function (data) {
             var item = cc.instantiate(_this.prefabItem);
-            var itemComponent = item.getComponent(aka_g1009_popup_history_item_1.default);
-            var time = aka_date_util_1.formatDDMMHHmmSS(data.time);
-            itemComponent.SetInfoItem(data.session, time, data.totalBet, data.totalWin, data.spinData);
+            var itemComponent = item.getComponent(Slot45_popup_history_item_1.default);
+            var time = Slot45_date_util_1.formatDDMMHHmmSS(data.time);
+            count++;
+            itemComponent.SetInfoItem(data.session, time, data.totalBet, data.totalWin, data.spinData, count);
             item.setParent(_this.contentView);
         });
     };

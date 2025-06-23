@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '95032SfCBxAHJ8sEdNHH9+f', 'aka-g1009-present-win-line-panel');
-// Script/UI/present-win/aka-g1009-present-win-line-panel.ts
+cc._RF.push(module, '95032SfCBxAHJ8sEdNHH9+f', 'Slot45-present-win-line-panel');
+// Script/UI/present-win/Slot45-present-win-line-panel.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_win_line_1 = require("./aka-g1009-win-line");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_win_line_1 = require("./Slot45-win-line");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009WinLinePanelActor = /** @class */ (function (_super) {
     __extends(G1009WinLinePanelActor, _super);
@@ -35,14 +35,15 @@ var G1009WinLinePanelActor = /** @class */ (function (_super) {
     }
     G1009WinLinePanelActor.prototype.onLoad = function () {
         this.register();
-        this.lines = this.node.getComponentsInChildren(aka_g1009_win_line_1.default);
+        this.lines = this.node.getComponentsInChildren(Slot45_win_line_1.default);
     };
     G1009WinLinePanelActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ShowLine", this.OnShowLine.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ResetAllLine", this.hideAllLine.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowLine", this.OnShowLine.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ResetAllLine", this.hideAllLine.bind(this));
     };
     G1009WinLinePanelActor.prototype.OnShowLine = function (line) {
         this.hideAllLine();
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_show_line', isLoop: false });
         for (var index = 0; index < line.length; index++) {
             if (line[index] >= 0 && line[index] < this.lines.length)
                 this.lines[line[index]].Show();

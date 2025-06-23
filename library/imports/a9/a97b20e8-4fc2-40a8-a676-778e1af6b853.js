@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'a97b2DoT8JAqKZ2d44a9rhT', 'aka-g1009-jackpot-info-content');
-// Script/UI/popup/aka-g1009-jackpot-info-content.ts
+cc._RF.push(module, 'a97b2DoT8JAqKZ2d44a9rhT', 'Slot45-jackpot-info-content');
+// Script/UI/popup/Slot45-jackpot-info-content.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_bet_model_1 = require("../../models/aka-g1009-bet-model");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009JackpotInfoActor = /** @class */ (function (_super) {
     __extends(G1009JackpotInfoActor, _super);
@@ -36,14 +36,14 @@ var G1009JackpotInfoActor = /** @class */ (function (_super) {
         return _this;
     }
     G1009JackpotInfoActor.prototype.start = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('JackpotShowMultiple', this.show.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('JackpotHideMultiple', this.hide.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotShowMultiple', this.show.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotHideMultiple', this.hide.bind(this));
     };
     G1009JackpotInfoActor.prototype.show = function (datas) {
         var arr = Object.entries(datas);
         for (var index = 0; index < arr.length; index++) {
             var element = arr[index][1];
-            this.labelsBet[index].string = "P" + aka_g1009_bet_model_1.G1009BetModel.GetInstance().GetBetPointByIndex(index).toString();
+            this.labelsBet[index].string = "P" + Slot45_bet_model_1.G1009BetModel.GetInstance().GetBetPointByIndex(index).toString();
             this.labelsDescription[index].string = element.message;
         }
         this.content.active = true;

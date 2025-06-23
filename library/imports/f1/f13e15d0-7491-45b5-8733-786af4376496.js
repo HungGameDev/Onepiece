@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'f13e1XQdJFFtYczeGr0N2SW', 'aka-g1009-jackpot-actor');
-// Script/UI/jackpot/aka-g1009-jackpot-actor.ts
+cc._RF.push(module, 'f13e1XQdJFFtYczeGr0N2SW', 'Slot45-jackpot-actor');
+// Script/UI/jackpot/Slot45-jackpot-actor.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_number_converter_1 = require("../../base/Util/aka-g1009-number-converter");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var FADE_DURATION = 0.25;
 var COUNT_POINT_DURATION = 2;
@@ -35,7 +35,6 @@ var G1009JackpotActor = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         _this.spine = null;
-        _this.skeletonData = null;
         _this.lblTotalWinPoint = null;
         _this.currentWinPoint = 0;
         _this.jackpotWinPoint = 0;
@@ -47,21 +46,22 @@ var G1009JackpotActor = /** @class */ (function (_super) {
         this.register();
     };
     G1009JackpotActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("JackpotStarted", this.onJackpotStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("WinDataRespond", this.onSetFinalReSource.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("JackpotStarted", this.onJackpotStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("WinDataRespond", this.onSetFinalReSource.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
     };
     G1009JackpotActor.prototype.onSetFinalReSource = function (finalResult) {
         this.jackpotWinPoint = finalResult.jackpotWinPoint;
     };
     G1009JackpotActor.prototype.onJackpotStarted = function () {
         var _this = this;
-        if (this.isStopImmediately) {
-            this.speedUpAnimation();
-            return;
-        }
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("JackpotPresentationStarted");
+        // if (this.isStopImmediately)
+        // {
+        // 	this.speedUpAnimation();
+        // 	return;
+        // }
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("JackpotPresentationStarted");
         var objTween = {
             value: 0
         };
@@ -69,11 +69,9 @@ var G1009JackpotActor = /** @class */ (function (_super) {
             // .delay(4.6)
             .to(FADE_DURATION, { scale: 1 })
             .call(function () {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("JackpotShow");
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("JackpotShow");
             _this.content.active = true;
-            _this.spine.skeletonData = _this.skeletonData;
-            _this.spine.setSkin("nohu");
-            var track = _this.spine.setAnimation(0, "animation", true);
+            var track = _this.spine.setAnimation(0, "NH", true);
             // this.spine.setTrackCompleteListener(track, () => {
             // 	this.spine.setAnimation(0, "Loop", true);
             // });
@@ -93,18 +91,18 @@ var G1009JackpotActor = /** @class */ (function (_super) {
             .to(duration, { value: point1 }, {
             progress: function (start, end, current, ratio) {
                 _this.currentWinPoint = Math.round(current);
-                _this.lblTotalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(_this.currentWinPoint);
+                _this.lblTotalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(_this.currentWinPoint);
                 return start + (end - start) * ratio;
             }
         })
             .call(function () {
-            _this.lblTotalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point1);
+            _this.lblTotalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point1);
         })
             .delay(IDLE_DURATION)
             .call(function () {
             cc.tween(_this.content)
                 .to(FADE_DURATION, { opacity: 0 }).call(function () {
-                aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("JackpotCompleted", _this.jackpotWinPoint);
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify("JackpotCompleted", _this.jackpotWinPoint);
                 //this.transitionNextState();
                 _this.reset();
             })
@@ -131,14 +129,13 @@ var G1009JackpotActor = /** @class */ (function (_super) {
         // G1009EventManager.GetInstance().notify("EndRound");
     };
     G1009JackpotActor.prototype.reset = function () {
-        this.spine.skeletonData = null;
         this.lblTotalWinPoint.string = "";
         this.content.active = false;
         this.content.opacity = 0;
     };
     G1009JackpotActor.prototype.speedUpAnimation = function () {
         this.tweenCountPoint && this.tweenCountPoint.stop();
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("JackpotCompleted", this.jackpotWinPoint);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("JackpotCompleted", this.jackpotWinPoint);
         this.transitionNextState();
         this.reset();
     };
@@ -154,9 +151,6 @@ var G1009JackpotActor = /** @class */ (function (_super) {
     __decorate([
         property(sp.Skeleton)
     ], G1009JackpotActor.prototype, "spine", void 0);
-    __decorate([
-        property(sp.SkeletonData)
-    ], G1009JackpotActor.prototype, "skeletonData", void 0);
     __decorate([
         property(cc.Label)
     ], G1009JackpotActor.prototype, "lblTotalWinPoint", void 0);

@@ -28,7 +28,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // import { G1009EventManager } from "../../base/events/aka-g1009-event-manager";
 // import G1009SpinItemActor, { ESpinningState } from "./aka-g1009-spin-item";
 // import { G1009SpinItemData } from "./aka-g1009-spin-item-data";
-var aka_g1009_spin_panel_1 = require("../../UI/spin-panel/aka-g1009-spin-panel");
+var Slot45_spin_panel_1 = require("../../UI/spin-panel/Slot45-spin-panel");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var AvengerSpinPanel = /** @class */ (function (_super) {
     __extends(AvengerSpinPanel, _super);
@@ -39,7 +39,7 @@ var AvengerSpinPanel = /** @class */ (function (_super) {
         ccclass
     ], AvengerSpinPanel);
     return AvengerSpinPanel;
-}(aka_g1009_spin_panel_1.default));
+}(Slot45_spin_panel_1.default));
 exports.default = AvengerSpinPanel;
 
 cc._RF.pop();

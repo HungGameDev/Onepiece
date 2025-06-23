@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '0a196AGUMpLArBmWZ/k8QjU', 'aka-g1009-button-controller');
-// Script/UI/popup/aka-g1009-button-controller.ts
+cc._RF.push(module, '0a196AGUMpLArBmWZ/k8QjU', 'Slot45-button-controller');
+// Script/UI/popup/Slot45-button-controller.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_button_1 = require("./aka-g1009-button");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_button_1 = require("./Slot45-button");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009ButtonControllerActor = /** @class */ (function (_super) {
     __extends(G1009ButtonControllerActor, _super);
@@ -32,9 +32,8 @@ var G1009ButtonControllerActor = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.spinButton = null;
         _this.stopSpinButton = null;
-        _this.lblspinCount = null;
         _this.turboButton = null;
-        _this.spinLeft = 0;
+        _this.freespinLeft = 0;
         _this.isToggleMoving = false;
         _this.isAuto = false;
         return _this;
@@ -43,20 +42,20 @@ var G1009ButtonControllerActor = /** @class */ (function (_super) {
         this.register();
     };
     G1009ButtonControllerActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("Spin", this.OnSpinClicked.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.OnStopSpinClicked.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ShowBetPanel", this.OnResetSpin.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.activeStopButton.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("FeatureTrigger", this.checkToActiveSpinLeft.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("BigWinPresentationStarted", this.onBigWinStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("JackpotPresentationStarted", this.onBigWinStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinComplete", this.onSpinComplete.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Spin", this.OnSpinClicked.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.OnStopSpinClicked.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowBetPanel", this.OnResetSpin.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.activeStopButton.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("FeatureTrigger", this.checkToActiveSpinLeft.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BigWinPresentationStarted", this.onBigWinStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("JackpotPresentationStarted", this.onBigWinStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinComplete", this.onSpinComplete.bind(this));
     };
     G1009ButtonControllerActor.prototype.onNextScrollData = function (data) {
-        this.spinLeft = data.freespinLeft;
+        this.freespinLeft = data.freespinLeft;
     };
     G1009ButtonControllerActor.prototype.onResume = function () {
         this.spinButton.Disable();
@@ -89,13 +88,12 @@ var G1009ButtonControllerActor = /** @class */ (function (_super) {
         this.stopSpinButton.Interactable(false);
     };
     G1009ButtonControllerActor.prototype.activeStopButton = function () {
-        this.spinLeft -= 1;
+        this.freespinLeft -= 1;
         this.checkToActiveSpinLeft();
         this.stopSpinButton.Interactable(true);
     };
     G1009ButtonControllerActor.prototype.checkToActiveSpinLeft = function () {
         this.onStopAuto();
-        this.lblspinCount.string = this.spinLeft > 0 ? this.spinLeft.toString() : "0";
     };
     G1009ButtonControllerActor.prototype.OnResetSpin = function () {
         if (this.isAuto == false) {
@@ -104,28 +102,25 @@ var G1009ButtonControllerActor = /** @class */ (function (_super) {
         }
     };
     G1009ButtonControllerActor.prototype.OnTurboClicked = function (action) {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("Turbo", action.isChecked);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("Turbo", action.isChecked);
     };
     G1009ButtonControllerActor.prototype.OnAutoClicked = function (action) {
         if (action.isChecked) {
             this.onActiveAuto();
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ActiveAuto");
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ActiveAuto");
         }
         else {
             this.onStopAuto();
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("StopAuto");
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("StopImmediately");
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("StopAuto");
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("StopImmediately");
         }
     };
     __decorate([
-        property(aka_g1009_button_1.default)
+        property(Slot45_button_1.default)
     ], G1009ButtonControllerActor.prototype, "spinButton", void 0);
     __decorate([
-        property(aka_g1009_button_1.default)
+        property(Slot45_button_1.default)
     ], G1009ButtonControllerActor.prototype, "stopSpinButton", void 0);
-    __decorate([
-        property(cc.Label)
-    ], G1009ButtonControllerActor.prototype, "lblspinCount", void 0);
     __decorate([
         property(cc.Toggle)
     ], G1009ButtonControllerActor.prototype, "turboButton", void 0);

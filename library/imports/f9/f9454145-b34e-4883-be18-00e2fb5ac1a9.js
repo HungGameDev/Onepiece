@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'f9454FFs05Ig74YAOL7WsGp', 'aka-g1009-game-config');
-// Script/aka-g1009-game-config.ts
+cc._RF.push(module, 'f9454FFs05Ig74YAOL7WsGp', 'Slot45-game-config');
+// Script/Slot45-game-config.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });

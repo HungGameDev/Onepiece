@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '18531Kgo0RPV66laLYPkKce', 'ak-g1009-sfs-player');
-// Script/base/sound/ak-g1009-sfs-player.ts
+cc._RF.push(module, '18531Kgo0RPV66laLYPkKce', 'Slot45-sfs-player');
+// Script/base/sound/Slot45-sfs-player.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_sound_player_1 = require("./aka-g1009-sound-player");
+var Slot45_sound_player_1 = require("./Slot45-sound-player");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009SFXPlayerActor = /** @class */ (function (_super) {
     __extends(G1009SFXPlayerActor, _super);
@@ -195,7 +195,7 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
         ccclass
     ], G1009SFXPlayerActor);
     return G1009SFXPlayerActor;
-}(aka_g1009_sound_player_1.default));
+}(Slot45_sound_player_1.default));
 exports.default = G1009SFXPlayerActor;
 
 cc._RF.pop();

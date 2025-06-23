@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_number_converter_1 = require("../../base/Util/aka-g1009-number-converter");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var TotalWinPanel = /** @class */ (function (_super) {
     __extends(TotalWinPanel, _super);
@@ -38,26 +38,26 @@ var TotalWinPanel = /** @class */ (function (_super) {
     TotalWinPanel.prototype.onLoad = function () {
         this.register();
         this.currentPoint = 0;
-        this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+        this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
     };
     TotalWinPanel.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
     };
     TotalWinPanel.prototype.onResume = function (data) {
         if (data.isFreespins) {
             this.isFreespins = true;
-            this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(data.totalWinPoint);
+            this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(data.totalWinPoint);
         }
     };
     TotalWinPanel.prototype.onSetTotalWin = function (point) {
         this.currentPoint = point;
-        this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+        this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
     };
     TotalWinPanel.prototype.onIncreaseTotalWin = function (point) {
         var objTween = {
@@ -74,12 +74,12 @@ var TotalWinPanel = /** @class */ (function (_super) {
             .delay(delay)
             .to(duration, { value: point }, {
             progress: function (start, end, current, ratio) {
-                _this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Math.floor(current));
+                _this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Math.floor(current));
                 return start + (end - start) * ratio;
             }
         })
             .call(function () {
-            _this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point);
+            _this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point);
             _this.currentPoint = point;
         });
         this.tweenCountPoint.start();
@@ -104,14 +104,14 @@ var TotalWinPanel = /** @class */ (function (_super) {
             //         this.totalWinPoint.string = "";
             //     }).start();
             this.currentPoint = 0;
-            this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+            this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
         }
     };
     TotalWinPanel.prototype.onStopImmediately = function () {
         if (!this.isFreespins) {
             if (this.currentPoint > 0) {
                 this.tweenCountPoint && this.tweenCountPoint.stop();
-                this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+                this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
                 // this.totalWinPoint.node.opacity = 255;
             }
         }

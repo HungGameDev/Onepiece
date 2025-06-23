@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '8edf39ShXZImLq8jNj5tJjz', 'aka-g1009-present-win-panel');
-// Script/UI/present-win/aka-g1009-present-win-panel.ts
+cc._RF.push(module, '8edf39ShXZImLq8jNj5tJjz', 'Slot45-present-win-panel');
+// Script/UI/present-win/Slot45-present-win-panel.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -24,11 +24,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.G1009WinLineResult = void 0;
-var aka_g1009_game_config_1 = require("../../aka-g1009-game-config");
-var aka_g1009_game_controller_1 = require("../../base/controller/aka-g1009-game-controller");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_bet_model_1 = require("../../models/aka-g1009-bet-model");
-var aka_g1009_win_cell_item_1 = require("./aka-g1009-win-cell-item");
+var Slot45_game_config_1 = require("../../Slot45-game-config");
+var Slot45_game_controller_1 = require("../../base/controller/Slot45-game-controller");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
+var Slot45_win_cell_item_1 = require("./Slot45-win-cell-item");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var BIG_WIN_TRIGGER_POINT = 5;
 var G1009WinPanelActor = /** @class */ (function (_super) {
@@ -58,26 +58,26 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
     }
     G1009WinPanelActor.prototype.onLoad = function () {
         this.register();
-        this.Items = this.node.getComponentsInChildren(aka_g1009_win_cell_item_1.default);
+        this.Items = this.node.getComponentsInChildren(Slot45_win_cell_item_1.default);
         this.Items.sort(function (a, b) { return a.cellIndex - b.cellIndex; });
         this.Items.forEach(function (item) { return item.Hide(); });
     };
     G1009WinPanelActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("WinDataRespond", this.onSetFinalReSource.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("PresentWinStart", this.onPresentWinStart.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildStarted", this.onExpandWildStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildHide", this.onExpandWildHide.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("BigWinCompleted", this.onBigWinCompleted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("JackpotCompleted", this.onJackpotCompleted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("JackpotStarted", this.onJackpotStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("PresentAllWinComplete", this.onPresentAllWinComplete.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EnterBonus", this.onEnterBonus.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ExplodeCellsComplete", this.onExplodeCellsComplete.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("WinDataRespond", this.onSetFinalReSource.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("PresentWinStart", this.onPresentWinStart.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildStarted", this.onExpandWildStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildHide", this.onExpandWildHide.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BigWinCompleted", this.onBigWinCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("JackpotCompleted", this.onJackpotCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("JackpotStarted", this.onJackpotStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("PresentAllWinComplete", this.onPresentAllWinComplete.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterBonus", this.onEnterBonus.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ExplodeCellsComplete", this.onExplodeCellsComplete.bind(this));
     };
     G1009WinPanelActor.prototype.onResume = function (data) {
         if (data.isFreespins) {
@@ -105,7 +105,7 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
             _this.Items.forEach(function (item) { return item.Show(); });
             _this.isAlreadyChangeState = false;
             if (_this.checkJackpotTriggered()) {
-                aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("JackpotTriggered");
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify("JackpotTriggered");
             }
             else {
                 _this.presentAllWin();
@@ -115,8 +115,8 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
     G1009WinPanelActor.prototype.onExplodeCellsComplete = function () {
         this.updateDataWinPanelByComboData();
         // this.isBigwinTriggered = (this.checkBigWinTriggered() && !G1009GameController.GetInstance().CheckBonusPointTrigger() && !this.checkJackpotTriggered());
-        this.isBigwinTriggered = (this.checkBigWinTriggered() && !aka_g1009_game_controller_1.default.GetInstance().CheckBonusPointTrigger() && this.jackpotWinPoint <= 0);
-        var hasCombo = aka_g1009_game_controller_1.default.GetInstance().CheckComboWinPresentation();
+        this.isBigwinTriggered = (this.checkBigWinTriggered() && !Slot45_game_controller_1.default.GetInstance().CheckBonusPointTrigger() && this.jackpotWinPoint <= 0);
+        var hasCombo = Slot45_game_controller_1.default.GetInstance().CheckComboWinPresentation();
         if (hasCombo) {
             this.onPresentWinStart();
         }
@@ -134,7 +134,7 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
         });
         if (winPoint > 0) {
             this.totalWinPoint += winPoint;
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("IncreaseTotalWin", winPoint);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("IncreaseTotalWin", winPoint);
         }
     };
     G1009WinPanelActor.prototype.updateDataWinPanelByComboData = function () {
@@ -148,13 +148,13 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
         }
     };
     G1009WinPanelActor.prototype.checkBigWinTriggered = function () {
-        return this.totalWinPoint / aka_g1009_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint() > BIG_WIN_TRIGGER_POINT;
+        return this.totalWinPoint / Slot45_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint() > BIG_WIN_TRIGGER_POINT;
     };
     G1009WinPanelActor.prototype.checkJackpotTriggered = function () {
         var haveWinLineJackpot = false;
         for (var index = 0; index < this.winLine.length; index++) {
             var winLineData = this.winLine[index];
-            if (winLineData.GetWinSymbol() == "Wild" && winLineData.GetWinLine().length == 5) {
+            if (winLineData.GetWinSymbol() == "Jackpot" && winLineData.GetWinLine().length == 5) {
                 haveWinLineJackpot = true;
                 break;
             }
@@ -165,7 +165,7 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
         var _this = this;
         var winData = this.allWinLine;
         this.playSoundSFX(winData.CheckIsAllWin());
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("NotificationWinMessage", {
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("NotificationWinMessage", {
             isAllWin: winData.CheckIsAllWin(),
             WinPoint: winData.GetWinPoint(),
             WinSymbol: winData.GetWinSymbol(),
@@ -173,7 +173,7 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
         });
         if (this.winPoint > 0) {
             this.totalWinPoint += this.winPoint;
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("IncreaseTotalWin", this.winPoint);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("IncreaseTotalWin", this.winPoint);
         }
         this.showWinSymbols(this.allWinLine.GetWinLine());
         this.OnShowLine(this.allWinLine.GetWinNumber());
@@ -181,8 +181,8 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
         this.tweenPresentation = cc.tween(this.node)
             .delay(this.delayTime)
             .call(function () {
-            if (aka_g1009_game_controller_1.default.GetInstance().CheckComboWinPresentation()) {
-                _this.comboData = aka_g1009_game_controller_1.default.GetInstance().GetComboData();
+            if (Slot45_game_controller_1.default.GetInstance().CheckComboWinPresentation()) {
+                _this.comboData = Slot45_game_controller_1.default.GetInstance().GetComboData();
                 _this.presentWinCombo();
             }
             else {
@@ -194,13 +194,13 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
     };
     G1009WinPanelActor.prototype.presentWinCombo = function () {
         this.reset();
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("StartPresentWinCombo", this.comboData);
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_explosive", isLoop: false });
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("StartPresentWinCombo", this.comboData);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_explosive", isLoop: false });
     };
     G1009WinPanelActor.prototype.startBigWin = function () {
         if (this.isBigwinTriggered) {
             this.Items.forEach(function (i) { return i.ShowStaticFrame(); });
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("BigWinStarted", this.totalWinPoint);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BigWinStarted", this.totalWinPoint);
         }
         else {
             this.onBigWinCompleted();
@@ -218,7 +218,7 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
                 var winData = _this.jackpotWinLine[0];
                 if (winData != undefined && winData != null) {
                     _this.playSoundSFX(false);
-                    aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("NotificationWinMessage", {
+                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify("NotificationWinMessage", {
                         isAllWin: winData.CheckIsAllWin(),
                         WinPoint: winData.GetWinPoint(),
                         WinSymbol: winData.GetWinSymbol(),
@@ -235,18 +235,18 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
                 }
                 return;
             }
-            else if (aka_g1009_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
+            else if (Slot45_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
                 var winData = _this.triggerWinLine[0];
                 if (winData != undefined && winData != null) {
                     _this.playSoundSFX(false);
-                    aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("NotificationWinMessage", {
+                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify("NotificationWinMessage", {
                         isAllWin: winData.CheckIsAllWin(),
                         WinPoint: winData.GetWinPoint(),
                         WinSymbol: winData.GetWinSymbol(),
                         WinNumber: winData.GetWinNumber()
                     });
                     _this.showTriggerWinSymbols(winData.GetWinLine());
-                    aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("showTriggerWinSymbols");
+                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify("showTriggerWinSymbols");
                     _this.OnShowLine(winData.GetWinNumber());
                     _this.tweenPresentation = cc.tween(_this.node)
                         .delay(_this.delayTransitionTime)
@@ -277,7 +277,7 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
         var winData = this.winLine[this.count];
         if (!this.isCompleteOneLoop)
             this.playSoundSFX(winData.CheckIsAllWin());
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("NotificationWinMessage", {
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("NotificationWinMessage", {
             isAllWin: winData.CheckIsAllWin(),
             WinPoint: winData.GetWinPoint(),
             WinSymbol: winData.GetWinSymbol(),
@@ -315,47 +315,47 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
         }
     };
     G1009WinPanelActor.prototype.playSoundSFX = function (isAllWin) {
-        if (!isAllWin && !aka_g1009_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_symbolwin', isLoop: false });
+        if (!isAllWin && !Slot45_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_symbolwin', isLoop: false });
         }
     };
     G1009WinPanelActor.prototype.transitionNextState = function () {
-        this.totalWinPoint = aka_g1009_game_controller_1.default.GetInstance().GetTotalWinPoint();
+        this.totalWinPoint = Slot45_game_controller_1.default.GetInstance().GetTotalWinPoint();
         if (!this.isAlreadyChangeState) {
             this.isAlreadyChangeState = true;
             // if (this.checkJackpotTriggered()) {
             // 	G1009EventManager.GetInstance().notify("JackpotTriggered");
             // 	return;
             // }
-            if (aka_g1009_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
-                var dataFeature = aka_g1009_game_controller_1.default.GetInstance().GetFeatureWinData();
-                aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("FeatureTrigger", dataFeature);
+            if (Slot45_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
+                var dataFeature = Slot45_game_controller_1.default.GetInstance().GetFeatureWinData();
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify("FeatureTrigger", dataFeature);
                 return;
             }
-            if (aka_g1009_game_controller_1.default.GetInstance().CheckFreespinContinue()) {
+            if (Slot45_game_controller_1.default.GetInstance().CheckFreespinContinue()) {
                 this.reset();
-                aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("Spin");
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify("Spin");
                 return;
             }
-            if (aka_g1009_game_controller_1.default.GetInstance().CheckFreespinEnd()) {
+            if (Slot45_game_controller_1.default.GetInstance().CheckFreespinEnd()) {
                 this.reset();
                 this.totalWinPoint = 0;
-                aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("FeatureComplete");
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify("FeatureComplete");
                 return;
             }
             this.totalWinPoint = 0;
             console.warn('transitionNextState:, ', this.totalWinPoint);
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("EndRound");
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("EndRound");
         }
     };
     G1009WinPanelActor.prototype.OnShowLine = function (line) {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ShowLine", line);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ShowLine", line);
     };
     G1009WinPanelActor.prototype.OnHideAllLine = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ResetAllLine");
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ResetAllLine");
     };
     G1009WinPanelActor.prototype.showWinSymbols = function (winLine) {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ShowWinCells", winLine);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ShowWinCells", winLine);
         var _loop_1 = function (index) {
             this_1.Items.find(function (item) { return item.cellIndex == winLine[index]; }).PlayWinAnimation();
         };
@@ -377,10 +377,10 @@ var G1009WinPanelActor = /** @class */ (function (_super) {
         var _this = this;
         this.expandWildIndices = Object.assign([], expandWildIndices);
         this.expandWildIndices.forEach(function (index) {
-            var reelIndex = aka_g1009_game_config_1.SlottyParameter.GetReelIndex(index);
-            _this.Items[aka_g1009_game_config_1.SlottyParameter.GetCellIndex(reelIndex, 0)].node.active = false;
-            _this.Items[aka_g1009_game_config_1.SlottyParameter.GetCellIndex(reelIndex, 1)].node.active = false;
-            _this.Items[aka_g1009_game_config_1.SlottyParameter.GetCellIndex(reelIndex, 2)].node.active = false;
+            var reelIndex = Slot45_game_config_1.SlottyParameter.GetReelIndex(index);
+            _this.Items[Slot45_game_config_1.SlottyParameter.GetCellIndex(reelIndex, 0)].node.active = false;
+            _this.Items[Slot45_game_config_1.SlottyParameter.GetCellIndex(reelIndex, 1)].node.active = false;
+            _this.Items[Slot45_game_config_1.SlottyParameter.GetCellIndex(reelIndex, 2)].node.active = false;
         });
     };
     G1009WinPanelActor.prototype.onExpandWildHide = function () {

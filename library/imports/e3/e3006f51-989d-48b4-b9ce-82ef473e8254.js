@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'e30069RmJ1ItLnOgu9HPoJU', 'aka-g1009-balance-model');
-// Script/models/aka-g1009-balance-model.ts
+cc._RF.push(module, 'e30069RmJ1ItLnOgu9HPoJU', 'Slot45-balance-model');
+// Script/models/Slot45-balance-model.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });

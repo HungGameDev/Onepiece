@@ -1,5 +1,5 @@
-import { G1009AnimationProviderManager } from "../../base/animation/aka-g1009-animation-provider";
-import { G1009EventManager } from "../../base/events/aka-g1009-event-manager";
+import { G1009AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
+import { G1009EventManager } from "../../base/events/Slot45-event-manager";
 import AvengerSpinItem from "../spin-panel/avenger-spin-item";
 import ExplodingCell from "./avenger-exploding-cell";
 

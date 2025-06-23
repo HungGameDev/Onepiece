@@ -1,5 +1,5 @@
 
-import { G1009EventManager } from "../../base/events/aka-g1009-event-manager";
+import { G1009EventManager } from "../../base/events/Slot45-event-manager";
 
 const { ccclass, property } = cc._decorator;
 

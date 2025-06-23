@@ -1,4 +1,4 @@
-import { G1009AnimationProviderManager } from "../../base/animation/aka-g1009-animation-provider";
+import { G1009AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
 
 const { ccclass, property } = cc._decorator;
 

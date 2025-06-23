@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '368eedYmX1LaL+43LcbWxuX', 'aka-g1009-animation');
-// Script/base/animation/aka-g1009-animation.ts
+cc._RF.push(module, '368eedYmX1LaL+43LcbWxuX', 'Slot45-animation');
+// Script/base/animation/Slot45-animation.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {

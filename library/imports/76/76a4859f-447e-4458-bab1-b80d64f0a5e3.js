@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '76a48WfRH5EWLqxuA1k8KXj', 'aka-g1009-sound-player');
-// Script/base/sound/aka-g1009-sound-player.ts
+cc._RF.push(module, '76a48WfRH5EWLqxuA1k8KXj', 'Slot45-sound-player');
+// Script/base/sound/Slot45-sound-player.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {

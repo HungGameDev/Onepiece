@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'f7a66h2lbZAm7ljFUM1B/Yn', 'aka-g1009-freespins-trigger-actor');
-// Script/UI/freespins/aka-g1009-freespins-trigger-actor.ts
+cc._RF.push(module, 'f7a66h2lbZAm7ljFUM1B/Yn', 'Slot45-freespins-trigger-actor');
+// Script/UI/freespins/Slot45-freespins-trigger-actor.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,57 +23,71 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_game_controller_1 = require("../../base/controller/aka-g1009-game-controller");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_feature_trigger_actor_1 = require("../feature/aka-g1009-feature-trigger-actor");
+var Slot45_game_controller_1 = require("../../base/controller/Slot45-game-controller");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_feature_trigger_actor_1 = require("../feature/Slot45-feature-trigger-actor");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009FreespinsTrigger = /** @class */ (function (_super) {
     __extends(G1009FreespinsTrigger, _super);
     function G1009FreespinsTrigger() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.spine = null;
         _this.bannerCountFreespin = null;
+        _this.bannerTriggerFreespin = null;
         return _this;
     }
     G1009FreespinsTrigger.prototype.start = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTrigger.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("resume", this.showContent.bind(this));
+        _super.prototype.start.call(this);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.showContent.bind(this));
+        this.resetBannerTrigger();
     };
     G1009FreespinsTrigger.prototype.checkRuleTrigger = function () {
-        return aka_g1009_game_controller_1.default.GetInstance().CheckFreespinTrigger();
+        return Slot45_game_controller_1.default.GetInstance().CheckFreespinTrigger();
     };
     G1009FreespinsTrigger.prototype.notifyEnterFeature = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("EnterFreespins");
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("EnterFreespins");
     };
     G1009FreespinsTrigger.prototype.showContent = function () {
         var _this = this;
-        if (this.spine == null)
-            return;
-        this.bannerCountFreespin.active = true;
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_freewin", isLoop: false });
-        this.spine.node.active = true;
-        this.spine.setAnimation(0, "animation", false);
-        cc.tween(this.bannerCountFreespin).delay(4).to(0.2, { scale: 0.9 }).to(0.2, { scale: 1 }).start();
-        cc.tween(this.node).delay(5).call(function () {
-            _this.notifyEnterFeature();
-        }).delay(1).call(function () {
-            _this.reset();
-        }).start();
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_freewin", isLoop: false });
+        this.content.active = true;
+        cc.tween(this.bannerTriggerFreespin)
+            .to(0.2, { opacity: 255, scale: 1 })
+            .to(0.1, { scale: 1.2 })
+            .to(0.1, { scale: 1 })
+            .to(0.1, { scale: 1.1 })
+            .to(0.1, { scale: 1 })
+            .delay(1)
+            .call(function () {
+            _this.resetBannerTrigger();
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("CountFreespinsLeft");
+            _this.bannerCountFreespin.active = true;
+            cc.tween(_this.node)
+                .delay(0.5)
+                .call(function () {
+                _this.notifyEnterFeature();
+            }).start();
+        })
+            .start();
     };
-    G1009FreespinsTrigger.prototype.reset = function () {
-        this.spine.node.active = false;
+    G1009FreespinsTrigger.prototype.hideContent = function () {
+        this.bannerCountFreespin.active = false;
     };
-    __decorate([
-        property(sp.Skeleton)
-    ], G1009FreespinsTrigger.prototype, "spine", void 0);
+    G1009FreespinsTrigger.prototype.resetBannerTrigger = function () {
+        this.content.active = false;
+        this.bannerTriggerFreespin.scale = 3;
+        this.bannerTriggerFreespin.opacity = 0;
+    };
     __decorate([
         property(cc.Node)
     ], G1009FreespinsTrigger.prototype, "bannerCountFreespin", void 0);
+    __decorate([
+        property(cc.Node)
+    ], G1009FreespinsTrigger.prototype, "bannerTriggerFreespin", void 0);
     G1009FreespinsTrigger = __decorate([
         ccclass
     ], G1009FreespinsTrigger);
     return G1009FreespinsTrigger;
-}(aka_g1009_feature_trigger_actor_1.default));
+}(Slot45_feature_trigger_actor_1.default));
 exports.default = G1009FreespinsTrigger;
 
 cc._RF.pop();

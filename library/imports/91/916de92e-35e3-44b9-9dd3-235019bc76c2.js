@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '916dekuNeNEuZ3TI1AZvHbC', 'aka-g1009-spin-item');
-// Script/UI/spin-panel/aka-g1009-spin-item.ts
+cc._RF.push(module, '916dekuNeNEuZ3TI1AZvHbC', 'Slot45-spin-item');
+// Script/UI/spin-panel/Slot45-spin-item.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -25,8 +25,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ESpinningState = void 0;
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_cell_item_1 = require("./aka-g1009-cell-item");
+var Slot45_cell_item_1 = require("./Slot45-cell-item");
 var MAX_LOOP = 10;
 var EDirection;
 (function (EDirection) {
@@ -121,7 +120,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
     };
     G1009SpinItemActor.prototype.Spin = function () {
         if (this.state == ESpinningState.Idle) {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelspin', isLoop: false });
+            // G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelspin', isLoop: false });
             this.momentum();
         }
     };
@@ -260,7 +259,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
         }
     };
     G1009SpinItemActor.prototype.stopComplete = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelstop', isLoop: false });
+        // G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelstop', isLoop: false });
         this.cellItems.forEach(function (cellItem) { return cellItem.StopSpin(); });
         this.state = ESpinningState.Idle;
         this.onStopSpinCompleted(this.cellIndices);
@@ -359,7 +358,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
         }
     };
     __decorate([
-        property(aka_g1009_cell_item_1.default)
+        property(Slot45_cell_item_1.default)
     ], G1009SpinItemActor.prototype, "cellItems", void 0);
     __decorate([
         property

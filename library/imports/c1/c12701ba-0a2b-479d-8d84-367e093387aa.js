@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'c1270G6CitHnY2ENn4JM4eq', 'aka_1009-SpinGameData');
-// Script/GameManager/aka_1009-SpinGameData.ts
+cc._RF.push(module, 'c1270G6CitHnY2ENn4JM4eq', 'Slot45-SpinGameData');
+// Script/GameManager/Slot45-SpinGameData.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });

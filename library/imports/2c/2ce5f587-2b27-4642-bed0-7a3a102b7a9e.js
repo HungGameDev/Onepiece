@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '2ce5fWHKydGQr7QejoQK3qe', 'aka-g1009-popup-error');
-// Script/UI/popup/aka-g1009-popup-error.ts
+cc._RF.push(module, '2ce5fWHKydGQr7QejoQK3qe', 'Slot45-popup-error');
+// Script/UI/popup/Slot45-popup-error.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009PopupError = /** @class */ (function (_super) {
     __extends(G1009PopupError, _super);
@@ -36,7 +36,7 @@ var G1009PopupError = /** @class */ (function (_super) {
         return _this;
     }
     G1009PopupError.prototype.start = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("PopupInfoMessage", this.onPopupInfoMessage.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("PopupInfoMessage", this.onPopupInfoMessage.bind(this));
         this.reset();
     };
     G1009PopupError.prototype.onPopupInfoMessage = function (data) {

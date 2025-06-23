@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '97a43glc+pC/L1d820kSp0W', 'aka-g1009-bet-state');
-// Script/base/state-machine/state/aka-g1009-bet-state.ts
+cc._RF.push(module, '97a43glc+pC/L1d820kSp0W', 'Slot45-bet-state');
+// Script/base/state-machine/state/Slot45-bet-state.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -18,28 +18,28 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.G1009BetState = void 0;
-var aka_g1009_event_manager_1 = require("../../events/aka-g1009-event-manager");
-var aka_g1009_state_1 = require("../abstract/aka-g1009-state");
-var aka_g1009_spin_state_1 = require("./aka-g1009-spin-state");
+var Slot45_event_manager_1 = require("../../events/Slot45-event-manager");
+var Slot45_state_1 = require("../abstract/Slot45-state");
+var Slot45_spin_state_1 = require("./Slot45-spin-state");
 var G1009BetState = /** @class */ (function (_super) {
     __extends(G1009BetState, _super);
     function G1009BetState() {
         var _this = _super.call(this) || this;
         console.log("bet state");
         setTimeout(function () {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ShowBetPanel");
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ShowBetPanel");
         }, 100);
         return _this;
     }
     G1009BetState.prototype.Spin = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("HideBetPanel");
-        return new aka_g1009_spin_state_1.G1009SpinState();
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("HideBetPanel");
+        return new Slot45_spin_state_1.G1009SpinState();
     };
     G1009BetState.prototype.EndRound = function () {
         return new G1009BetState();
     };
     return G1009BetState;
-}(aka_g1009_state_1.State));
+}(Slot45_state_1.State));
 exports.G1009BetState = G1009BetState;
 
 cc._RF.pop();

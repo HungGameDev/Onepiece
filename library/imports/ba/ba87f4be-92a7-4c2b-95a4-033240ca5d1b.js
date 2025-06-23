@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'ba87fS+kqdMK5WkAzJAyl0b', 'aka-g1009-jackpot-banner');
-// Script/UI/jackpot/aka-g1009-jackpot-banner.ts
+cc._RF.push(module, 'ba87fS+kqdMK5WkAzJAyl0b', 'Slot45-jackpot-banner');
+// Script/UI/jackpot/Slot45-jackpot-banner.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,9 +23,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_number_converter_1 = require("../../base/Util/aka-g1009-number-converter");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_bet_model_1 = require("../../models/aka-g1009-bet-model");
+var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009JackpotBanner = /** @class */ (function (_super) {
     __extends(G1009JackpotBanner, _super);
@@ -35,11 +35,11 @@ var G1009JackpotBanner = /** @class */ (function (_super) {
         return _this;
     }
     G1009JackpotBanner.prototype.onLoad = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('JackpotCompleted', this.onJackpotCompleted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('JackpotShow', this.onJackpotStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('ChangeBet', this.updateLabel.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotCompleted', this.onJackpotCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotShow', this.onJackpotStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('ChangeBet', this.updateLabel.bind(this));
     };
     G1009JackpotBanner.prototype.onBetInfos = function (data) {
         this.betInfos = Object.assign([], data);
@@ -59,9 +59,9 @@ var G1009JackpotBanner = /** @class */ (function (_super) {
         this.updateLabel();
     };
     G1009JackpotBanner.prototype.updateLabel = function () {
-        var betDenom = aka_g1009_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine();
+        var betDenom = Slot45_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine();
         var betInfo = this.betInfos.filter(function (betInfo) { return betInfo.betDenom == betDenom; })[0];
-        this.lblJackpotPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(betInfo.jackpotInfos[0].jackpotAmount);
+        this.lblJackpotPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(betInfo.jackpotInfos[0].jackpotAmount);
     };
     G1009JackpotBanner.prototype.onJackpotStarted = function () {
         this.lblJackpotPoint.string = "0";

@@ -1,4 +1,4 @@
-import { G1009WinLineResult } from "../../UI/present-win/aka-g1009-present-win-panel";
+import { G1009WinLineResult } from "../../UI/present-win/Slot45-present-win-panel";
 
 export class ComboData {
     private explodedCells: number[];

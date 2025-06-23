@@ -1,13 +1,13 @@
 "use strict";
-cc._RF.push(module, '9a327yfiDRBvZGaHMkoFYzP', 'aka_1009-GameManager');
-// Script/GameManager/aka_1009-GameManager.ts
+cc._RF.push(module, '9a327yfiDRBvZGaHMkoFYzP', 'Slot45-GameManager');
+// Script/GameManager/Slot45-GameManager.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GameManager1009 = exports.GAME_MANAGER_EVENT = void 0;
 var EventEmitter = require("events");
-var aka_1009_JoinGameData_1 = require("./aka_1009-JoinGameData");
-var aka_1009_SpinGameData2_1 = require("./aka_1009-SpinGameData2");
+var Slot45_JoinGameData_1 = require("./Slot45-JoinGameData");
+var Slot45_SpinGameData2_1 = require("./Slot45-SpinGameData2");
 globalThis.CHEAT_IDX = -1;
 exports.GAME_MANAGER_EVENT = {
     'START_GAME_SUCCESS': 'start-game-success',
@@ -24,11 +24,11 @@ exports.GAME_MANAGER_EVENT = {
 var GameManager1009 = /** @class */ (function () {
     function GameManager1009() {
         this._emitter = new EventEmitter();
-        this.jackpotData = aka_1009_JoinGameData_1.default.allJackpotInfos;
-        this.jackpotDataOrigin = JSON.parse(JSON.stringify(aka_1009_JoinGameData_1.default.allJackpotInfos));
-        this.jackpotMessage = JSON.parse(JSON.stringify(aka_1009_JoinGameData_1.default.message));
-        this.currentBetInfo = aka_1009_JoinGameData_1.default.currentBetInfo;
-        this.playerMoney = 10000;
+        this.jackpotData = Slot45_JoinGameData_1.default.allJackpotInfos;
+        this.jackpotDataOrigin = JSON.parse(JSON.stringify(Slot45_JoinGameData_1.default.allJackpotInfos));
+        this.jackpotMessage = JSON.parse(JSON.stringify(Slot45_JoinGameData_1.default.message));
+        this.currentBetInfo = Slot45_JoinGameData_1.default.currentBetInfo;
+        this.playerMoney = 1000000;
     }
     GameManager1009.getInstance = function () {
         if (GameManager1009.instance === null) {
@@ -56,10 +56,10 @@ var GameManager1009 = /** @class */ (function () {
             this.currentSpinData = this.getNextCurrentSpinData();
             this.currentSpinData.splice(0, this.currentSpinData.length - lastSpinData.lenRemainData - 1);
             CHEAT_IDX = -1;
-            aka_1009_JoinGameData_1.default.playerState = this.currentSpinData.splice(0, 1)[0];
+            Slot45_JoinGameData_1.default.playerState = this.currentSpinData.splice(0, 1)[0];
         }
         setTimeout(function () {
-            _this._emitter.emit(exports.GAME_MANAGER_EVENT.START_GAME_SUCCESS, aka_1009_JoinGameData_1.default);
+            _this._emitter.emit(exports.GAME_MANAGER_EVENT.START_GAME_SUCCESS, Slot45_JoinGameData_1.default);
         }, random(100, 500));
     };
     GameManager1009.prototype.normalSpin = function (betId) {
@@ -74,7 +74,7 @@ var GameManager1009 = /** @class */ (function () {
         //     this.hideMessageJackpot();
         // }
         //if (!this.currentSpinData || this.currentSpinData.length === 0) {
-        var foundBetInfo = aka_1009_JoinGameData_1.default.betInfos.find(function (betInfo) {
+        var foundBetInfo = Slot45_JoinGameData_1.default.betInfos.find(function (betInfo) {
             return betInfo.betId == betId;
         });
         this.currentBetInfo = foundBetInfo;
@@ -134,7 +134,7 @@ var GameManager1009 = /** @class */ (function () {
     };
     GameManager1009.prototype.getJPHistory = function (from, size) {
         var jpHistoryList = [];
-        var types = ['Jackpot', 'BigWin'];
+        var types = ['Nổ Hũ', 'Thăng lớn'];
         for (var i = 0; i < size; i++) {
             jpHistoryList.push({
                 session: "#" + (2000 - (i + from)),
@@ -155,7 +155,7 @@ var GameManager1009 = /** @class */ (function () {
     GameManager1009.prototype.getBetHistory = function (from, size) {
         var betHistoryList = [];
         for (var i = 0; i < size; i++) {
-            var betUnit = aka_1009_JoinGameData_1.default.betInfos[random(0, 5)].betAmount;
+            var betUnit = Slot45_JoinGameData_1.default.betInfos[random(0, 5)].betAmount;
             var lineBet = 20;
             betHistoryList.push({
                 session: "#" + (2000 - (i + from)),
@@ -212,7 +212,7 @@ var GameManager1009 = /** @class */ (function () {
         };
     };
     GameManager1009.prototype.getNextCurrentSpinData = function () {
-        var fakeDatas = aka_1009_SpinGameData2_1.default;
+        var fakeDatas = Slot45_SpinGameData2_1.default;
         var idx = CHEAT_IDX >= 0 && CHEAT_IDX < fakeDatas.length ? CHEAT_IDX : random(0, fakeDatas.length - 1);
         globalThis.CURRENT_IDX_SPIN_DATA = idx;
         return JSON.parse(JSON.stringify(fakeDatas[idx].data));

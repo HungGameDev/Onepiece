@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '0366agUf6NF+r+LJWwYSyzs', 'aka-g1009-win-line');
-// Script/UI/present-win/aka-g1009-win-line.ts
+cc._RF.push(module, '0366agUf6NF+r+LJWwYSyzs', 'Slot45-win-line');
+// Script/UI/present-win/Slot45-win-line.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -29,6 +29,7 @@ var G1009WinLineActor = /** @class */ (function (_super) {
     function G1009WinLineActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.lineIndex = -1;
+        _this.spineShowLine = null;
         _this.image = null;
         return _this;
     }
@@ -37,6 +38,7 @@ var G1009WinLineActor = /** @class */ (function (_super) {
     };
     G1009WinLineActor.prototype.Show = function () {
         this.node.active = true;
+        var track = this.spineShowLine.setAnimation(0, this.lineIndex.toString(), true);
     };
     G1009WinLineActor.prototype.Hide = function () {
         this.node.active = false;
@@ -44,6 +46,9 @@ var G1009WinLineActor = /** @class */ (function (_super) {
     __decorate([
         property
     ], G1009WinLineActor.prototype, "lineIndex", void 0);
+    __decorate([
+        property(sp.Skeleton)
+    ], G1009WinLineActor.prototype, "spineShowLine", void 0);
     G1009WinLineActor = __decorate([
         ccclass
     ], G1009WinLineActor);

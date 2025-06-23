@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '91481uc6nVDEIXSZYtvhixA', 'aka-g1009-popup-select-bet');
-// Script/UI/popup/aka-g1009-popup-select-bet.ts
+cc._RF.push(module, '91481uc6nVDEIXSZYtvhixA', 'Slot45-popup-select-bet');
+// Script/UI/popup/Slot45-popup-select-bet.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,9 +23,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_balance_model_1 = require("../../models/aka-g1009-balance-model");
-var aka_g1009_bet_model_1 = require("../../models/aka-g1009-bet-model");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_balance_model_1 = require("../../models/Slot45-balance-model");
+var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009PopUpSelectBetActor = /** @class */ (function (_super) {
     __extends(G1009PopUpSelectBetActor, _super);
@@ -41,8 +41,8 @@ var G1009PopUpSelectBetActor = /** @class */ (function (_super) {
         this.register();
     };
     G1009PopUpSelectBetActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ShowBetLinePanel", this.onShowClick.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SelectBetLineClick", this.onSelectBetLineClick.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowBetLinePanel", this.onShowClick.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SelectBetLineClick", this.onSelectBetLineClick.bind(this));
     };
     G1009PopUpSelectBetActor.prototype.reset = function () {
         this.content.active = false;
@@ -54,12 +54,12 @@ var G1009PopUpSelectBetActor = /** @class */ (function (_super) {
                 .to(0.2, { opacity: 0 })
                 .call(function () {
                 _this.reset();
-                aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("UpdateBetLine", _this.selectedBetLine);
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify("UpdateBetLine", _this.selectedBetLine);
             })
                 .start();
         }
         else {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("PopupInfoMessage", { message: "khong du tien", type: "info" });
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("PopupInfoMessage", { message: "khong du tien", type: "info" });
         }
     };
     G1009PopUpSelectBetActor.prototype.onSelectBetLineClick = function (data) {
@@ -84,22 +84,22 @@ var G1009PopUpSelectBetActor = /** @class */ (function (_super) {
         this.selectedBetLine = this.selectedBetLine.filter(function (element) {
             return element % 2 == 0;
         });
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
     };
     G1009PopUpSelectBetActor.prototype.onTakAllLine = function () {
         this.resetSelectBetLine();
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
     };
     G1009PopUpSelectBetActor.prototype.onTakNoLine = function () {
         this.selectedBetLine = [];
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
     };
     G1009PopUpSelectBetActor.prototype.onTakeOddLine = function () {
         this.resetSelectBetLine();
         this.selectedBetLine = this.selectedBetLine.filter(function (element) {
             return element % 2 !== 0;
         });
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
     };
     G1009PopUpSelectBetActor.prototype.resetSelectBetLine = function () {
         this.selectedBetLine = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
@@ -112,7 +112,7 @@ var G1009PopUpSelectBetActor = /** @class */ (function (_super) {
         this.content.active = true;
     };
     G1009PopUpSelectBetActor.prototype.validatorBet = function () {
-        return aka_g1009_bet_model_1.G1009BetModel.GetInstance().TryGetTotalBetPointByBetMultiplier(this.selectedBetLine.length) <= aka_g1009_balance_model_1.G1009BalanceModel.GetInstance().GetBalance();
+        return Slot45_bet_model_1.G1009BetModel.GetInstance().TryGetTotalBetPointByBetMultiplier(this.selectedBetLine.length) <= Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance();
     };
     __decorate([
         property(cc.Node)

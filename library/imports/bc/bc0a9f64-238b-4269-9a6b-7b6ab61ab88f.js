@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'bc0a99kI4tCaZpre2q2GriP', 'aka-g1009-popup-jackpot-history-item');
-// Script/UI/history-popup/aka-g1009-popup-jackpot-history-item.ts
+cc._RF.push(module, 'bc0a99kI4tCaZpre2q2GriP', 'Slot45-popup-ranking-item');
+// Script/UI/history-popup/Slot45-popup-ranking-item.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,50 +23,55 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_number_converter_1 = require("../../base/Util/aka-g1009-number-converter");
+var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009PopupJackpotHistoryItem = /** @class */ (function (_super) {
-    __extends(G1009PopupJackpotHistoryItem, _super);
-    function G1009PopupJackpotHistoryItem() {
+var G1009PopupRankingItem = /** @class */ (function (_super) {
+    __extends(G1009PopupRankingItem, _super);
+    function G1009PopupRankingItem() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.lblSesion = null;
         _this.lblTime = null;
         _this.lblUserName = null;
         _this.lblTotalWin = null;
         _this.lblWinType = null;
+        _this.sprBackround = null;
         return _this;
     }
-    G1009PopupJackpotHistoryItem.prototype.SetInfoItem = function (session, time, userName, totalWin, winType) {
+    G1009PopupRankingItem.prototype.SetInfoItem = function (session, time, userName, totalWin, winType, count) {
+        this.sprBackround.node.active = count % 2 == 0;
         this.lblSesion.string = session;
         this.lblTime.string = time;
         this.lblUserName.string = userName;
-        this.lblTotalWin.string = aka_g1009_number_converter_1.default.Instance().NumberFormat(totalWin);
+        this.lblTotalWin.string = Slot45_number_converter_1.default.Instance().NumberFormat(totalWin);
         this.lblWinType.string = winType;
         this.node.active = true;
     };
-    G1009PopupJackpotHistoryItem.prototype.Hide = function () {
+    G1009PopupRankingItem.prototype.Hide = function () {
         this.node.active = false;
     };
     __decorate([
         property(cc.Label)
-    ], G1009PopupJackpotHistoryItem.prototype, "lblSesion", void 0);
+    ], G1009PopupRankingItem.prototype, "lblSesion", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupJackpotHistoryItem.prototype, "lblTime", void 0);
+    ], G1009PopupRankingItem.prototype, "lblTime", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupJackpotHistoryItem.prototype, "lblUserName", void 0);
+    ], G1009PopupRankingItem.prototype, "lblUserName", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupJackpotHistoryItem.prototype, "lblTotalWin", void 0);
+    ], G1009PopupRankingItem.prototype, "lblTotalWin", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupJackpotHistoryItem.prototype, "lblWinType", void 0);
-    G1009PopupJackpotHistoryItem = __decorate([
+    ], G1009PopupRankingItem.prototype, "lblWinType", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], G1009PopupRankingItem.prototype, "sprBackround", void 0);
+    G1009PopupRankingItem = __decorate([
         ccclass
-    ], G1009PopupJackpotHistoryItem);
-    return G1009PopupJackpotHistoryItem;
+    ], G1009PopupRankingItem);
+    return G1009PopupRankingItem;
 }(cc.Component));
-exports.default = G1009PopupJackpotHistoryItem;
+exports.default = G1009PopupRankingItem;
 
 cc._RF.pop();

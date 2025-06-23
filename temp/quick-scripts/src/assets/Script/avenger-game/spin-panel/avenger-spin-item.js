@@ -23,14 +23,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_spin_item_1 = require("../../UI/spin-panel/aka-g1009-spin-item");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_spin_item_1 = require("../../UI/spin-panel/Slot45-spin-item");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var avenger_spin_panel_config_1 = require("./avenger-spin-panel-config");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var AvengerSpinItem = /** @class */ (function (_super) {
     __extends(AvengerSpinItem, _super);
     function AvengerSpinItem() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.reelIndex = -1;
         _this.arrStartYPosCellItem = [];
         _this.onExplodeCompleted = function () { };
         return _this;
@@ -47,7 +48,7 @@ var AvengerSpinItem = /** @class */ (function (_super) {
     };
     AvengerSpinItem.prototype.scroll = function () {
         var _this = this;
-        this.state = aka_g1009_spin_item_1.ESpinningState.Scroll;
+        this.state = Slot45_spin_item_1.ESpinningState.Scroll;
         var _loop_1 = function (cellIndex) {
             var cellItem = this_1.cellItems[cellIndex];
             var startYPosition = this_1.arrStartYPosCellItem[cellIndex];
@@ -70,14 +71,17 @@ var AvengerSpinItem = /** @class */ (function (_super) {
     };
     AvengerSpinItem.prototype.stopScroll = function () {
         var _this = this;
-        this.state = aka_g1009_spin_item_1.ESpinningState.StopScroll;
+        this.state = Slot45_spin_item_1.ESpinningState.StopScroll;
         var _loop_2 = function (cellIndex) {
             var cellItem = this_2.cellItems[cellIndex];
             var endYPosition = this_2.arrStartYPosCellItem[cellIndex];
             var count = cellIndex;
             tweenDropDown = cc.tween(cellItem.node)
                 .to(avenger_spin_panel_config_1.SpinPanelConfig.DropDownDuration, { y: endYPosition }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
-                .call(function () { aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex()); })
+                .call(function () {
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
+            })
                 .to(avenger_spin_panel_config_1.SpinPanelConfig.RotationDuration, { angle: avenger_spin_panel_config_1.SpinPanelConfig.ShakeRotation }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
                 .to(avenger_spin_panel_config_1.SpinPanelConfig.BounceDuration, { y: endYPosition + avenger_spin_panel_config_1.SpinPanelConfig.BouncedOffsetHeight, angle: -avenger_spin_panel_config_1.SpinPanelConfig.ShakeRotation / 2 }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
                 .to(avenger_spin_panel_config_1.SpinPanelConfig.BounceDuration, { y: endYPosition - avenger_spin_panel_config_1.SpinPanelConfig.BouncedOffsetHeight / 2, angle: 0 }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
@@ -122,6 +126,7 @@ var AvengerSpinItem = /** @class */ (function (_super) {
             var node = arrNodeExplodedCell[index];
             var count = index;
             tweenExplode = cc.tween(node)
+                .delay(this_3.reelIndex * 0.1)
                 .to(avenger_spin_panel_config_1.SpinPanelConfig.FadeCellDuration, { opacity: 0 }, { easing: 'linear' })
                 .delay(avenger_spin_panel_config_1.SpinPanelConfig.ExplodeDuration - avenger_spin_panel_config_1.SpinPanelConfig.FadeCellDuration)
                 .call(function () {
@@ -140,7 +145,7 @@ var AvengerSpinItem = /** @class */ (function (_super) {
                 }
             }).start();
         };
-        var tweenExplode;
+        var this_3 = this, tweenExplode;
         for (var index = 0; index < arrNodeExplodedCell.length; index++) {
             _loop_3(index);
         }
@@ -148,13 +153,16 @@ var AvengerSpinItem = /** @class */ (function (_super) {
     AvengerSpinItem.prototype.stopExplodeCells = function (arrNodeExplodedCell) {
         var _this = this;
         var _loop_4 = function (index) {
-            var cellItem = this_3.cellItems[index];
+            var cellItem = this_4.cellItems[index];
             var count = index;
-            var desYPostion = this_3.arrStartYPosCellItem[index];
+            var desYPostion = this_4.arrStartYPosCellItem[index];
             if (desYPostion != cellItem.node.y) {
                 tweenDropDown = cc.tween(cellItem.node)
                     .to(avenger_spin_panel_config_1.SpinPanelConfig.DropDownDuration, { y: desYPostion }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
-                    .call(function () { aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex()); })
+                    .call(function () {
+                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
+                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
+                })
                     .to(avenger_spin_panel_config_1.SpinPanelConfig.RotationDuration, { angle: avenger_spin_panel_config_1.SpinPanelConfig.ShakeRotation }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
                     .to(avenger_spin_panel_config_1.SpinPanelConfig.BounceDuration, { y: desYPostion + avenger_spin_panel_config_1.SpinPanelConfig.BouncedOffsetHeight, angle: -avenger_spin_panel_config_1.SpinPanelConfig.ShakeRotation / 2 }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
                     .to(avenger_spin_panel_config_1.SpinPanelConfig.BounceDuration, { y: desYPostion - avenger_spin_panel_config_1.SpinPanelConfig.BouncedOffsetHeight / 2, angle: 0 }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
@@ -166,16 +174,19 @@ var AvengerSpinItem = /** @class */ (function (_super) {
                 }).start();
             }
         };
-        var this_3 = this, tweenDropDown;
+        var this_4 = this, tweenDropDown;
         for (var index = 0; index < this.cellItems.length; index++) {
             _loop_4(index);
         }
     };
+    __decorate([
+        property()
+    ], AvengerSpinItem.prototype, "reelIndex", void 0);
     AvengerSpinItem = __decorate([
         ccclass
     ], AvengerSpinItem);
     return AvengerSpinItem;
-}(aka_g1009_spin_item_1.default));
+}(Slot45_spin_item_1.default));
 exports.default = AvengerSpinItem;
 
 cc._RF.pop();

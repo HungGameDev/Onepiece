@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'b0f81QIsZVKFbaYd/KfA9Hr', 'aka-g1009-bet-model');
-// Script/models/aka-g1009-bet-model.ts
+cc._RF.push(module, 'b0f81QIsZVKFbaYd/KfA9Hr', 'Slot45-bet-model');
+// Script/models/Slot45-bet-model.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });

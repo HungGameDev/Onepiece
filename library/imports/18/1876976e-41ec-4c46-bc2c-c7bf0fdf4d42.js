@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var avenger_spin_item_1 = require("../spin-panel/avenger-spin-item");
 var avenger_exploding_cell_1 = require("./avenger-exploding-cell");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -38,8 +38,8 @@ var ExplodingPanel = /** @class */ (function (_super) {
         return _this;
     }
     ExplodingPanel.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
     };
     ExplodingPanel.prototype.onLoad = function () {
         var _this = this;
@@ -69,7 +69,7 @@ var ExplodingPanel = /** @class */ (function (_super) {
     ExplodingPanel.prototype.handleExplodeCompleted = function () {
         if (this.isStartExplodeCells) {
             this.isStartExplodeCells = false;
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ExplodeCellsComplete");
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ExplodeCellsComplete");
         }
     };
     __decorate([

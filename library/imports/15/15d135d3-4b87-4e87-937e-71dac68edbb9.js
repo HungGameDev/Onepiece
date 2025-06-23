@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '15d13XTS4dOh5N+cdrGjtu5', 'aka-g1009-event-manager');
-// Script/base/events/aka-g1009-event-manager.ts
+cc._RF.push(module, '15d13XTS4dOh5N+cdrGjtu5', 'Slot45-event-manager');
+// Script/base/events/Slot45-event-manager.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });

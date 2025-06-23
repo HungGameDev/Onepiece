@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '146ecyOf/BOiJoBQcHRmqGu', 'aka-g1009-bet-button-v2');
-// Script/UI/popup/aka-g1009-bet-button-v2.ts
+cc._RF.push(module, '146ecyOf/BOiJoBQcHRmqGu', 'Slot45-bet-button-v2');
+// Script/UI/popup/Slot45-bet-button-v2.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,10 +23,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_number_converter_1 = require("../../base/Util/aka-g1009-number-converter");
-var aka_g1009_bet_model_1 = require("../../models/aka-g1009-bet-model");
-var aka_g1009_bet_button_1 = require("./aka-g1009-bet-button");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter");
+var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
+var Slot45_bet_button_1 = require("./Slot45-bet-button");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009BetButtonv2Actor = /** @class */ (function (_super) {
     __extends(G1009BetButtonv2Actor, _super);
@@ -36,8 +36,8 @@ var G1009BetButtonv2Actor = /** @class */ (function (_super) {
         return _this;
     }
     G1009BetButtonv2Actor.prototype.start = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
     };
     G1009BetButtonv2Actor.prototype.onJackpotUpdate = function (datas) {
         var arr = Object.entries(datas);
@@ -53,10 +53,14 @@ var G1009BetButtonv2Actor = /** @class */ (function (_super) {
         this.betInfos = Object.assign([], data);
         this.updateLabel();
     };
+    G1009BetButtonv2Actor.prototype.onButtonClick = function () {
+        _super.prototype.onButtonClick.call(this);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_choosen_bet", isLoop: false });
+    };
     G1009BetButtonv2Actor.prototype.updateLabel = function () {
         var betInfo = this.betInfos[this.betIndex];
-        this.txtButtonText.string = aka_g1009_bet_model_1.G1009BetModel.GetInstance().GetBetPointByIndex(this.betIndex).toString();
-        this.txtJackpotText.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(betInfo.jackpotInfos[0].jackpotAmount);
+        this.txtButtonText.string = Slot45_bet_model_1.G1009BetModel.GetInstance().GetBetPointByIndex(this.betIndex).toString();
+        this.txtJackpotText.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(betInfo.jackpotInfos[0].jackpotAmount);
     };
     __decorate([
         property(cc.Label)
@@ -65,7 +69,7 @@ var G1009BetButtonv2Actor = /** @class */ (function (_super) {
         ccclass
     ], G1009BetButtonv2Actor);
     return G1009BetButtonv2Actor;
-}(aka_g1009_bet_button_1.default));
+}(Slot45_bet_button_1.default));
 exports.default = G1009BetButtonv2Actor;
 
 cc._RF.pop();

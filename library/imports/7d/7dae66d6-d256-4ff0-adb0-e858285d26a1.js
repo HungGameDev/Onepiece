@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '7dae6bW0lZP8K2w6FgoXSah', 'aka-g1009-popup-history-detail');
-// Script/UI/history-popup/aka-g1009-popup-history-detail.ts
+cc._RF.push(module, '7dae6bW0lZP8K2w6FgoXSah', 'Slot45-popup-history-detail');
+// Script/UI/history-popup/Slot45-popup-history-detail.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_sprite_frame_provider_1 = require("../provider/aka-g1009-sprite-frame-provider");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_sprite_frame_provider_1 = require("../provider/Slot45-sprite-frame-provider");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009PopupHistoryDetail = /** @class */ (function (_super) {
     __extends(G1009PopupHistoryDetail, _super);
@@ -39,7 +39,7 @@ var G1009PopupHistoryDetail = /** @class */ (function (_super) {
         return _this;
     }
     G1009PopupHistoryDetail.prototype.start = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ShowDetailHistory", this.onShowDetailHistory.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowDetailHistory", this.onShowDetailHistory.bind(this));
         for (var index = 0; index < this.contentSpinResuilt.childrenCount; index++) {
             var itemComponent = this.contentSpinResuilt.children[index].getComponent(cc.Sprite);
             this.spinResuilt.push(itemComponent);
@@ -48,7 +48,7 @@ var G1009PopupHistoryDetail = /** @class */ (function (_super) {
     G1009PopupHistoryDetail.prototype.onShowDetailHistory = function (data) {
         for (var index = 0; index < data.SpinResuilt.length; index++) {
             var Id = data.SpinResuilt[index];
-            var frame = aka_g1009_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, Id));
+            var frame = Slot45_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, Id));
             this.spinResuilt[index].spriteFrame = frame;
         }
         this.lblSession.string = data.Session;

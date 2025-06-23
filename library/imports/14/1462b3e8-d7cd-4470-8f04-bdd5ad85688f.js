@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '1462bPo181EcI8EvdWthWiP', 'aka-g1009-freespins-content-activation-actor');
-// Script/UI/freespins/aka-g1009-freespins-content-activation-actor.ts
+cc._RF.push(module, '1462bPo181EcI8EvdWthWiP', 'Slot45-freespins-content-activation-actor');
+// Script/UI/freespins/Slot45-freespins-content-activation-actor.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,9 +23,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_game_controller_1 = require("../../base/controller/aka-g1009-game-controller");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_feature_content_activation_actor_1 = require("../feature/aka-g1009-feature-content-activation-actor");
+var Slot45_game_controller_1 = require("../../base/controller/Slot45-game-controller");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_feature_content_activation_actor_1 = require("../feature/Slot45-feature-content-activation-actor");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009FreespinsContentActivationActor = /** @class */ (function (_super) {
     __extends(G1009FreespinsContentActivationActor, _super);
@@ -33,16 +33,16 @@ var G1009FreespinsContentActivationActor = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     G1009FreespinsContentActivationActor.prototype.onLoad = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("resume", this.showContent.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.showContent.bind(this));
     };
     G1009FreespinsContentActivationActor.prototype.checkRuleTrigger = function () {
-        return aka_g1009_game_controller_1.default.GetInstance().CheckFreespinTrigger();
+        return Slot45_game_controller_1.default.GetInstance().CheckFreespinTrigger();
     };
     G1009FreespinsContentActivationActor = __decorate([
         ccclass
     ], G1009FreespinsContentActivationActor);
     return G1009FreespinsContentActivationActor;
-}(aka_g1009_feature_content_activation_actor_1.default));
+}(Slot45_feature_content_activation_actor_1.default));
 exports.default = G1009FreespinsContentActivationActor;
 
 cc._RF.pop();

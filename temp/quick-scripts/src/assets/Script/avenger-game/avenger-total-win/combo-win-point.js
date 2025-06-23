@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_number_converter_1 = require("../../base/Util/aka-g1009-number-converter");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var ComboWinPoint = /** @class */ (function (_super) {
     __extends(ComboWinPoint, _super);
@@ -39,15 +39,15 @@ var ComboWinPoint = /** @class */ (function (_super) {
         this.reset();
     };
     ComboWinPoint.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
     };
     ComboWinPoint.prototype.onSetTotalWin = function (point) {
         this.currentPoint = point;
-        this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+        this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
     };
     ComboWinPoint.prototype.onIncreaseTotalWin = function (point) {
         var objTween = {
@@ -67,12 +67,12 @@ var ComboWinPoint = /** @class */ (function (_super) {
             .delay(delay)
             .to(duration, { value: point }, {
             progress: function (start, end, current, ratio) {
-                _this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Math.floor(current));
+                _this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Math.floor(current));
                 return start + (end - start) * ratio;
             }
         })
             .call(function () {
-            _this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point);
+            _this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point);
             _this.currentPoint = point;
         });
         this.tweenCountPoint.start();
@@ -80,7 +80,7 @@ var ComboWinPoint = /** @class */ (function (_super) {
     ComboWinPoint.prototype.reset = function () {
         this.totalWinPoint.node.active = false;
         this.currentPoint = 0;
-        this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+        this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
     };
     __decorate([
         property(cc.Label)

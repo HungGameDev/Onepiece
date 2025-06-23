@@ -30,9 +30,9 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_game_config_1 = require("../../aka-g1009-game-config");
-var aka_g1009_animation_provider_1 = require("../../base/animation/aka-g1009-animation-provider");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_game_config_1 = require("../../Slot45-game-config");
+var Slot45_animation_provider_1 = require("../../base/animation/Slot45-animation-provider");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var BorderWinCellPanel = /** @class */ (function (_super) {
     __extends(BorderWinCellPanel, _super);
@@ -46,7 +46,7 @@ var BorderWinCellPanel = /** @class */ (function (_super) {
         this.register();
     };
     BorderWinCellPanel.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ShowWinCells", this.onShowWinCells.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowWinCells", this.onShowWinCells.bind(this));
     };
     BorderWinCellPanel.prototype.onShowWinCells = function (arrWinCells) {
         var dataSequence = this.generateDataSequenceFollowReel(__spreadArrays(arrWinCells));
@@ -54,18 +54,18 @@ var BorderWinCellPanel = /** @class */ (function (_super) {
     };
     BorderWinCellPanel.prototype.generateDataSequenceFollowReel = function (arrIndexWinCells) {
         var arrSequenceIndexCell = [];
-        for (var reel = 0; reel < aka_g1009_game_config_1.SlottyParameter.GetReelCount(); reel++) {
+        for (var reel = 0; reel < Slot45_game_config_1.SlottyParameter.GetReelCount(); reel++) {
             arrSequenceIndexCell.push([]);
         }
         arrIndexWinCells.forEach(function (indexCell) {
-            var reelCell = aka_g1009_game_config_1.SlottyParameter.GetReelIndex(indexCell);
+            var reelCell = Slot45_game_config_1.SlottyParameter.GetReelIndex(indexCell);
             arrSequenceIndexCell[reelCell].push(indexCell);
         });
         return arrSequenceIndexCell;
     };
     BorderWinCellPanel.prototype.playAnimationBorderWinCell = function (dataSequenceIndexCell) {
         var _this = this;
-        var dataSpine = aka_g1009_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation(this.nameSpineAnimation);
+        var dataSpine = Slot45_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation(this.nameSpineAnimation);
         var _loop_1 = function (index) {
             var countIndex = index;
             var arrIndex = dataSequenceIndexCell[countIndex];

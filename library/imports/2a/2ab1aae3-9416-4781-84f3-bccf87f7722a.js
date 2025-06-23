@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '2ab1arjlBZHgYTzvM+H93Iq', 'aka-g1009-sound-controller');
-// Script/base/sound/aka-g1009-sound-controller.ts
+cc._RF.push(module, '2ab1arjlBZHgYTzvM+H93Iq', 'Slot45-sound-controller');
+// Script/base/sound/Slot45-sound-controller.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,9 +23,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../events/aka-g1009-event-manager");
-var ak_g1009_sfs_player_1 = require("./ak-g1009-sfs-player");
-var aka_g1009_music_player_1 = require("./aka-g1009-music-player");
+var Slot45_event_manager_1 = require("../events/Slot45-event-manager");
+var Slot45_sfs_player_1 = require("./Slot45-sfs-player");
+var Slot45_music_player_1 = require("./Slot45-music-player");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009SoundControllerActor = /** @class */ (function (_super) {
     __extends(G1009SoundControllerActor, _super);
@@ -43,10 +43,10 @@ var G1009SoundControllerActor = /** @class */ (function (_super) {
     G1009SoundControllerActor_1 = G1009SoundControllerActor;
     G1009SoundControllerActor.prototype.onLoad = function () {
         cc.game.addPersistRootNode(this.node);
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("Music-on", this.UnmuteMusic.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("Music-off", this.MuteMusic.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("Sound-on", this.UnmuteSfx.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("Sound-off", this.MuteSfx.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Music-on", this.UnmuteMusic.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Music-off", this.MuteMusic.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Sound-on", this.UnmuteSfx.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Sound-off", this.MuteSfx.bind(this));
         cc.sys.localStorage.getItem('enableSFXKey') == "false" ? this.MuteSfx() : this.UnmuteSfx();
         cc.sys.localStorage.getItem('enableBGMKey') == "false" ? this.MuteMusic() : this.UnmuteMusic();
     };
@@ -160,10 +160,10 @@ var G1009SoundControllerActor = /** @class */ (function (_super) {
     };
     var G1009SoundControllerActor_1;
     __decorate([
-        property(aka_g1009_music_player_1.default)
+        property(Slot45_music_player_1.default)
     ], G1009SoundControllerActor.prototype, "musicPlayer", void 0);
     __decorate([
-        property(ak_g1009_sfs_player_1.default)
+        property(Slot45_sfs_player_1.default)
     ], G1009SoundControllerActor.prototype, "sfxPlayer", void 0);
     G1009SoundControllerActor = G1009SoundControllerActor_1 = __decorate([
         ccclass

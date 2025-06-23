@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '523968PExxFx6lA5JFPNAsk', 'aka-g1009-slotty-setting');
-// Script/aka-g1009-slotty-setting.ts
+cc._RF.push(module, '523968PExxFx6lA5JFPNAsk', 'Slot45-slotty-setting');
+// Script/Slot45-slotty-setting.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,14 +23,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("./base/events/aka-g1009-event-manager");
-var aka_g1009_init_state_1 = require("./base/state-machine/state/aka-g1009-init-state");
+var Slot45_event_manager_1 = require("./base/events/Slot45-event-manager");
+var Slot45_init_state_1 = require("./base/state-machine/state/Slot45-init-state");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009SlottySetting = /** @class */ (function (_super) {
     __extends(G1009SlottySetting, _super);
     function G1009SlottySetting() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = new aka_g1009_init_state_1.G1009InitState();
+        _this.state = new Slot45_init_state_1.G1009InitState();
         return _this;
     }
     G1009SlottySetting.prototype.start = function () {
@@ -41,20 +41,20 @@ var G1009SlottySetting = /** @class */ (function (_super) {
         console.log(this.state);
     };
     G1009SlottySetting.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("Init", this.onInit.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("Bet", this.onBet.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ActiveAuto", this.onSpin.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("spin", this.onSpin.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinComplete", this.onSpinComplete.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("FeatureTrigger", this.onFeatureTrigger.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("FeatureComplete", this.onFeatureComplete.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EnterBonus", this.onEnterBonus.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("resumeBonus", this.onEnterBonus.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildCompleted", this.onExpandWildCompleted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("JackpotTriggered", this.onJackpotTriggered.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Init", this.onInit.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Bet", this.onBet.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ActiveAuto", this.onSpin.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("spin", this.onSpin.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinComplete", this.onSpinComplete.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("FeatureTrigger", this.onFeatureTrigger.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("FeatureComplete", this.onFeatureComplete.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterBonus", this.onEnterBonus.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resumeBonus", this.onEnterBonus.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildCompleted", this.onExpandWildCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("JackpotTriggered", this.onJackpotTriggered.bind(this));
     };
     G1009SlottySetting.prototype.onInit = function () {
         this.state = this.state.Init();

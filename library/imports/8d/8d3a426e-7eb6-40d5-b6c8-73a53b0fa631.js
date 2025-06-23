@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '8d3a4JufrZA1bbIc6U7D6Yx', 'aka-g1009-button-home');
-// Script/UI/popup/aka-g1009-button-home.ts
+cc._RF.push(module, '8d3a4JufrZA1bbIc6U7D6Yx', 'Slot45-button-home');
+// Script/UI/popup/Slot45-button-home.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {

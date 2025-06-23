@@ -1,4 +1,4 @@
-import { GameManager1009, GAME_MANAGER_EVENT, PlayerData1009, JackpotInfo, StartGameData1009, PopupInfoMessage } from "../GameManager/aka_1009-GameManager";
+import { GameManager1009, GAME_MANAGER_EVENT, PlayerData1009, JackpotInfo, StartGameData1009, PopupInfoMessage } from "../GameManager/Slot45-GameManager";
 
 const {ccclass, property} = cc._decorator;
 

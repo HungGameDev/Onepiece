@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'fc7cavumttFY6oXCBSxunEG', 'aka-g1009-number-converter');
-// Script/base/Util/aka-g1009-number-converter.ts
+cc._RF.push(module, 'fc7cavumttFY6oXCBSxunEG', 'Slot45-number-converter');
+// Script/base/Util/Slot45-number-converter.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });

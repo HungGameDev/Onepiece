@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '35ab4E8T3ZCLbBrgPGPmvHJ', 'aka-g1009-popup-jackpot-history');
-// Script/UI/history-popup/aka-g1009-popup-jackpot-history.ts
+cc._RF.push(module, '35ab4E8T3ZCLbBrgPGPmvHJ', 'Slot45-popup-ranking');
+// Script/UI/history-popup/Slot45-popup-ranking.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,10 +23,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_date_util_1 = require("../../base/Util/aka_date-util");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_popup_history_1 = require("./aka-g1009-popup-history");
-var aka_g1009_popup_jackpot_history_item_1 = require("./aka-g1009-popup-jackpot-history-item");
+var Slot45_date_util_1 = require("../../base/Util/Slot45_date-util");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_popup_history_1 = require("./Slot45-popup-history");
+var Slot45_popup_ranking_item_1 = require("./Slot45-popup-ranking-item");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009PopupLeaderBoard = /** @class */ (function (_super) {
     __extends(G1009PopupLeaderBoard, _super);
@@ -38,24 +38,26 @@ var G1009PopupLeaderBoard = /** @class */ (function (_super) {
     }
     G1009PopupLeaderBoard.prototype.start = function () {
         this.Init();
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("OpenJackpotH", this.Show.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("OpenJackpotH", this.Show.bind(this));
     };
     G1009PopupLeaderBoard.prototype.Init = function () {
         var _this = this;
         this.gameManager1009.getJPHistory(this.pageIndex * 6, 20).then(function (data) {
             console.log('getJPHistory', data);
             _this.allData = data.data;
-            _this.jackpotData = _this.allData.filter(function (x) { return x.type == 'Jackpot'; });
+            _this.jackpotData = _this.allData.filter(function (x) { return x.type == 'Nổ Hũ'; });
             _this.processData(data.data);
         });
     };
     G1009PopupLeaderBoard.prototype.processData = function (historyData) {
+        var count = 0;
         for (var index = 0; index < historyData.length; index++) {
             var data = historyData[index];
+            count++;
             var item = cc.instantiate(this.prefabItem);
-            var itemComponent = item.getComponent(aka_g1009_popup_jackpot_history_item_1.default);
-            var time = aka_date_util_1.formatDDMMHHmmSS(data.time);
-            itemComponent.SetInfoItem(data.session, time, data.wonUser, data.win, data.type);
+            var itemComponent = item.getComponent(Slot45_popup_ranking_item_1.default);
+            var time = Slot45_date_util_1.formatDDMMHHmmSS(data.time);
+            itemComponent.SetInfoItem(data.session, time, data.wonUser, data.win, data.type, count);
             item.setParent(this.contentView);
         }
     };
@@ -71,7 +73,7 @@ var G1009PopupLeaderBoard = /** @class */ (function (_super) {
         ccclass
     ], G1009PopupLeaderBoard);
     return G1009PopupLeaderBoard;
-}(aka_g1009_popup_history_1.default));
+}(Slot45_popup_history_1.default));
 exports.default = G1009PopupLeaderBoard;
 
 cc._RF.pop();

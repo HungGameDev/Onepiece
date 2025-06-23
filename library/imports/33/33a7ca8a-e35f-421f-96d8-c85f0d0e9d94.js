@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '33a7cqK419CH5bYyF8NDp2U', 'aka-g1009-info-toggle-panel');
-// Script/UI/popup/aka-g1009-info-toggle-panel.ts
+cc._RF.push(module, '33a7cqK419CH5bYyF8NDp2U', 'Slot45-info-toggle-panel');
+// Script/UI/popup/Slot45-info-toggle-panel.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var TOGGLE_SPACE = -60;
 var G1009InfoTogglePanelActor = /** @class */ (function (_super) {
@@ -39,7 +39,7 @@ var G1009InfoTogglePanelActor = /** @class */ (function (_super) {
         this.container = this.node.getComponent(cc.ToggleContainer);
     };
     G1009InfoTogglePanelActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ChangeInfoPage", this.onChangeInfoPage.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ChangeInfoPage", this.onChangeInfoPage.bind(this));
     };
     G1009InfoTogglePanelActor.prototype.onChangeInfoPage = function (toggleId) {
         if (this.currenttoggleID != toggleId) {

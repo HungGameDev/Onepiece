@@ -16,7 +16,7 @@ var SpinPanelConfig = /** @class */ (function () {
     SpinPanelConfig.ShakeRotation = -2;
     SpinPanelConfig.RotationDuration = 0.1;
     SpinPanelConfig.ExplodeDuration = 2;
-    SpinPanelConfig.FadeCellDuration = 0.2;
+    SpinPanelConfig.FadeCellDuration = 1;
     return SpinPanelConfig;
 }());
 exports.SpinPanelConfig = SpinPanelConfig;

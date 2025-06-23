@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '948e4CEajtGVoHR0RdCP6+B', 'aka-g1009-cell-item');
-// Script/UI/spin-panel/aka-g1009-cell-item.ts
+cc._RF.push(module, '948e4CEajtGVoHR0RdCP6+B', 'Slot45-cell-item');
+// Script/UI/spin-panel/Slot45-cell-item.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_animation_provider_1 = require("../../base/animation/aka-g1009-animation-provider");
-var aka_g1009_sprite_frame_provider_1 = require("../provider/aka-g1009-sprite-frame-provider");
+var Slot45_animation_provider_1 = require("../../base/animation/Slot45-animation-provider");
+var Slot45_sprite_frame_provider_1 = require("../provider/Slot45-sprite-frame-provider");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009CellItemActor = /** @class */ (function (_super) {
     __extends(G1009CellItemActor, _super);
@@ -43,13 +43,13 @@ var G1009CellItemActor = /** @class */ (function (_super) {
     G1009CellItemActor.prototype.setSpinFrame = function () {
         this.skeleton.node.active = false;
         this.sprite.node.active = true;
-        var frame = aka_g1009_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SpinSymbolFormat, this.itemID));
+        var frame = Slot45_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SpinSymbolFormat, this.itemID));
         this.sprite.spriteFrame = frame;
     };
     G1009CellItemActor.prototype.setNormalFrame = function () {
         this.skeleton.node.active = true;
         this.sprite.node.active = false;
-        var data = aka_g1009_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
+        var data = Slot45_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
         if (data) {
             this.skeleton.node.active = true;
             this.sprite.node.active = false;
@@ -59,12 +59,12 @@ var G1009CellItemActor = /** @class */ (function (_super) {
         else {
             this.skeleton.node.active = false;
             this.sprite.node.active = true;
-            var frame = aka_g1009_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
+            var frame = Slot45_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
             this.sprite.spriteFrame = frame;
         }
     };
     G1009CellItemActor.prototype.setOldFrame = function () {
-        var data = aka_g1009_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
+        var data = Slot45_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
         if (data) {
             this.skeleton.node.active = true;
             this.sprite.node.active = false;
@@ -74,7 +74,7 @@ var G1009CellItemActor = /** @class */ (function (_super) {
         else {
             this.skeleton.node.active = false;
             this.sprite.node.active = true;
-            var frame = aka_g1009_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
+            var frame = Slot45_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
             this.sprite.spriteFrame = frame;
         }
     };

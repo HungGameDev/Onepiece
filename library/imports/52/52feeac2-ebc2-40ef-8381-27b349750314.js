@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '52feerC68JA74OBJ7NJdQMU', 'aka-g1009-spin-panel');
-// Script/UI/spin-panel/aka-g1009-spin-panel.ts
+cc._RF.push(module, '52feerC68JA74OBJ7NJdQMU', 'Slot45-spin-panel');
+// Script/UI/spin-panel/Slot45-spin-panel.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,18 +23,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_game_config_1 = require("../../aka-g1009-game-config");
-var aka_g1009_number_converter_1 = require("../../base/Util/aka-g1009-number-converter");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_spin_item_1 = require("./aka-g1009-spin-item");
-var aka_g1009_spin_item_data_1 = require("./aka-g1009-spin-item-data");
+var Slot45_game_config_1 = require("../../Slot45-game-config");
+var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_spin_item_1 = require("./Slot45-spin-item");
+var Slot45_spin_item_data_1 = require("./Slot45-spin-item-data");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009SpinPanelActor = /** @class */ (function (_super) {
     __extends(G1009SpinPanelActor, _super);
     function G1009SpinPanelActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.spinItems = [];
-        _this.spinItemData = new aka_g1009_spin_item_data_1.G1009SpinItemData();
+        _this.spinItemData = new Slot45_spin_item_data_1.G1009SpinItemData();
         _this.spinningItems = [];
         _this.isTurbo = false;
         _this.isStopImmediately = false;
@@ -50,20 +50,20 @@ var G1009SpinPanelActor = /** @class */ (function (_super) {
         return _this;
     }
     G1009SpinPanelActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("Turbo", this.OnTurbo.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.OnSpinStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.stopImmediately.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SetItems", this.SetItems.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SetOldItems", this.SetOldItems.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("TensionStarted", this.onTensionStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("TensionGenerated", this.onTensionGenerated.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Turbo", this.OnTurbo.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.OnSpinStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.stopImmediately.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SetItems", this.SetItems.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SetOldItems", this.SetOldItems.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("TensionStarted", this.onTensionStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("TensionGenerated", this.onTensionGenerated.bind(this));
         //G1009EventManager.GetInstance().register("PresentWinStart", this.onHideItems.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ResetAllLine", this.onResetAllLine.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ResetAllLine", this.onResetAllLine.bind(this));
         // G1009EventManager.GetInstance().register("JackpotStarted", this.onHideItems.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("PresentAllWinComplete", this.onPresentAllWinComplete.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildStarted", this.onExpandWildStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildHide", this.onExpandWildHide.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("PresentAllWinComplete", this.onPresentAllWinComplete.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildStarted", this.onExpandWildStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildHide", this.onExpandWildHide.bind(this));
     };
     G1009SpinPanelActor.prototype.onLoad = function () {
         this.register();
@@ -97,7 +97,7 @@ var G1009SpinPanelActor = /** @class */ (function (_super) {
             this.stopSpin(spinResult);
         }
         else {
-            aka_g1009_number_converter_1.default.Instance().WaitUntil(this.checkReadyToStop.bind(this)).then(function () {
+            Slot45_number_converter_1.default.Instance().WaitUntil(this.checkReadyToStop.bind(this)).then(function () {
                 _this.stopSpin(spinResult);
             });
         }
@@ -137,7 +137,7 @@ var G1009SpinPanelActor = /** @class */ (function (_super) {
         if (this.checkDataResponde() && this.checkReadyToStop()) {
             this.node.stopAllActions();
             for (var index = this.spinItemStopCount; index < this.spinningItems.length; index++) {
-                if (this.spinningItems[index].state == aka_g1009_spin_item_1.ESpinningState.Idle) {
+                if (this.spinningItems[index].state == Slot45_spin_item_1.ESpinningState.Idle) {
                     this.spinningItems[index].Spin();
                 }
             }
@@ -152,7 +152,7 @@ var G1009SpinPanelActor = /** @class */ (function (_super) {
         return this.isReadyToStop && this.spinItemScrollCount == this.spinItems.length;
     };
     G1009SpinPanelActor.prototype.spinItemStopCompleted = function (cellIndices) {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("SpinItemStopCompleted", {
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("SpinItemStopCompleted", {
             cellIndices: cellIndices,
         });
         this.spinItemStopCount++;
@@ -172,7 +172,7 @@ var G1009SpinPanelActor = /** @class */ (function (_super) {
     };
     G1009SpinPanelActor.prototype.spinEnd = function () {
         this.reset();
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("SpinComplete");
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("SpinComplete");
     };
     G1009SpinPanelActor.prototype.stopSpin = function (items) {
         if (this.isStopImmediately) {
@@ -199,7 +199,7 @@ var G1009SpinPanelActor = /** @class */ (function (_super) {
         var _this = this;
         this.expandWildIndices = Object.assign([], expandWildIndices);
         expandWildIndices.forEach(function (cellIndex) {
-            var reelIndex = aka_g1009_game_config_1.SlottyParameter.GetReelIndex(cellIndex);
+            var reelIndex = Slot45_game_config_1.SlottyParameter.GetReelIndex(cellIndex);
             cc.tween(_this.spinItems[reelIndex].node)
                 .to(0.1, { opacity: 0 })
                 .start();
@@ -224,9 +224,9 @@ var G1009SpinPanelActor = /** @class */ (function (_super) {
         this.spinItems.forEach(function (spinItem) { return spinItem.SetItems(reelData); });
     };
     G1009SpinPanelActor.prototype.SetOldItems = function (data) {
-        var indices = data.expandWildIndices.map(function (index) { return aka_g1009_game_config_1.SlottyParameter.GetReelIndex(index); });
+        var indices = data.expandWildIndices.map(function (index) { return Slot45_game_config_1.SlottyParameter.GetReelIndex(index); });
         this.spinItems.forEach(function (spinItem, index) {
-            if (!indices.includes(aka_g1009_game_config_1.SlottyParameter.GetReelIndex(index))) {
+            if (!indices.includes(Slot45_game_config_1.SlottyParameter.GetReelIndex(index))) {
                 spinItem.node.opacity = 255;
             }
             else {
@@ -265,9 +265,9 @@ var G1009SpinPanelActor = /** @class */ (function (_super) {
     };
     G1009SpinPanelActor.prototype.resetItemNotExpandWild = function () {
         this.tweenHideItem && this.tweenHideItem.stop();
-        var indices = this.expandWildIndices.map(function (index) { return aka_g1009_game_config_1.SlottyParameter.GetReelIndex(index); });
+        var indices = this.expandWildIndices.map(function (index) { return Slot45_game_config_1.SlottyParameter.GetReelIndex(index); });
         this.spinItems.forEach(function (spinItem, index) {
-            if (!indices.includes(aka_g1009_game_config_1.SlottyParameter.GetReelIndex(index))) {
+            if (!indices.includes(Slot45_game_config_1.SlottyParameter.GetReelIndex(index))) {
                 spinItem.node.opacity = 255;
             }
             else {
@@ -284,7 +284,7 @@ var G1009SpinPanelActor = /** @class */ (function (_super) {
         this.resetItemNotExpandWild();
     };
     __decorate([
-        property(aka_g1009_spin_item_1.default)
+        property(Slot45_spin_item_1.default)
     ], G1009SpinPanelActor.prototype, "spinItems", void 0);
     G1009SpinPanelActor = __decorate([
         ccclass

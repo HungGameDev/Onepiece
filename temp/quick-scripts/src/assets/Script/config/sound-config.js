@@ -5,7 +5,8 @@ cc._RF.push(module, 'eb436ylYvBM/rSCqpK+jWug', 'sound-config');
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var SoundNameConfig = {
-    BGMMainGame: 'bgm_normalgame',
+    BGMMainGame: 'bgm_normal_game',
+    BGMChooseBet: 'bgm_chose_bet',
     BGMFreeGame: 'bgm_freegame',
     BGMBonusGame: 'bgm_bonusgame',
     BGMBigWin: 'bgm_bigwin',
@@ -34,6 +35,7 @@ var SoundNameConfig = {
 };
 var SoundVolume = {};
 SoundVolume[SoundNameConfig.BGMMainGame] = 1;
+SoundVolume[SoundNameConfig.BGMChooseBet] = 1;
 SoundVolume[SoundNameConfig.BGMFreeGame] = 0.7;
 SoundVolume[SoundNameConfig.BGMBonusGame] = 1;
 var G1009SoundConfig = /** @class */ (function () {

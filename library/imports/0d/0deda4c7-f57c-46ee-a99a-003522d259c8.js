@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '0dedaTH9XxG7qmaADUi0lnI', 'aka-g1009-big-win-actor');
-// Script/UI/big-win/aka-g1009-big-win-actor.ts
+cc._RF.push(module, '0dedaTH9XxG7qmaADUi0lnI', 'Slot45-big-win-actor');
+// Script/UI/big-win/Slot45-big-win-actor.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,9 +23,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_number_converter_1 = require("../../base/Util/aka-g1009-number-converter");
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_bet_model_1 = require("../../models/aka-g1009-bet-model");
+var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var FADE_DURATION = 0.25;
 var COUNT_POINT_DURATION1 = 1.75;
@@ -39,7 +39,8 @@ var G1009BigwinActor = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         _this.spine = null;
-        _this.skeletonData = null;
+        _this.skeletonDataTL = null;
+        _this.skeletonDataTSL = null;
         _this.lblTotalWinPoint = null;
         _this.currentWinPoint = 0;
         _this.totalWin = 0;
@@ -52,9 +53,9 @@ var G1009BigwinActor = /** @class */ (function (_super) {
         this.register();
     };
     G1009BigwinActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("BigWinStarted", this.onBigWinStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BigWinStarted", this.onBigWinStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
     };
     G1009BigwinActor.prototype.onBigWinStarted = function (point) {
         var _this = this;
@@ -63,17 +64,18 @@ var G1009BigwinActor = /** @class */ (function (_super) {
         // 	this.speedUpAnimation();
         // 	return;
         // }
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("BigWinPresentationStarted");
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BigWinPresentationStarted");
         var objTween = {
             value: 0
         };
         this.totalWin = point;
+        var multi = point / Slot45_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint();
+        this.spine.node.y = multi >= SUPER_WIN_TRIGGER_POINT ? 56 : -90;
         this.tweenShowPopup = cc.tween(this.spine.node)
             .to(FADE_DURATION, { scale: 1 })
             .call(function () {
             _this.content.active = true;
-            _this.spine.skeletonData = _this.skeletonData;
-            _this.spine.setSkin(_this.getNameSkinAnimation(point));
+            _this.spine.skeletonData = _this.getAnimation(multi);
             var track = _this.spine.setAnimation(0, "animation", false);
             cc.tween(_this.content)
                 .to(FADE_DURATION, { opacity: 255 })
@@ -84,9 +86,9 @@ var G1009BigwinActor = /** @class */ (function (_super) {
         });
         this.tweenShowPopup.start();
     };
-    G1009BigwinActor.prototype.getNameSkinAnimation = function (point) {
-        var nameSkin = point / aka_g1009_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint() >= SUPER_WIN_TRIGGER_POINT ? "thangsieulon" : "thanglon";
-        return nameSkin;
+    G1009BigwinActor.prototype.getAnimation = function (multi) {
+        var skeletonData = multi >= SUPER_WIN_TRIGGER_POINT ? this.skeletonDataTSL : this.skeletonDataTL;
+        return skeletonData;
     };
     G1009BigwinActor.prototype.countPoint = function (objTween, point1, duration, delay, callback) {
         var _this = this;
@@ -97,18 +99,18 @@ var G1009BigwinActor = /** @class */ (function (_super) {
             .to(duration, { value: point1 }, {
             progress: function (start, end, current, ratio) {
                 _this.currentWinPoint = Math.round(current);
-                _this.lblTotalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(_this.currentWinPoint);
+                _this.lblTotalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(_this.currentWinPoint);
                 return start + (end - start) * ratio;
             }
         })
             .call(function () {
-            _this.lblTotalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point1);
+            _this.lblTotalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point1);
         })
             .delay(IDLE_DURATION)
             .call(function () {
             cc.tween(_this.content)
                 .to(FADE_DURATION, { opacity: 0 }).call(function () {
-                aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("BigWinCompleted");
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BigWinCompleted");
                 _this.reset();
             })
                 .start();
@@ -130,11 +132,11 @@ var G1009BigwinActor = /** @class */ (function (_super) {
         this.countPoint(objTween, this.totalWin, 0);
     };
     G1009BigwinActor.prototype.onSpinStarted = function () {
-        // this.duration = COUNT_POINT_DURATION1 + COUNT_POINT_DURATION2 + COUNT_POINT_DURATION3;
+        // this.duration =4;
         // this.isStopImmediately = false;
     };
     G1009BigwinActor.prototype.onStopImmediately = function () {
-        this.duration = 0;
+        // this.duration = 0;
     };
     __decorate([
         property(cc.Node)
@@ -144,7 +146,10 @@ var G1009BigwinActor = /** @class */ (function (_super) {
     ], G1009BigwinActor.prototype, "spine", void 0);
     __decorate([
         property(sp.SkeletonData)
-    ], G1009BigwinActor.prototype, "skeletonData", void 0);
+    ], G1009BigwinActor.prototype, "skeletonDataTL", void 0);
+    __decorate([
+        property(sp.SkeletonData)
+    ], G1009BigwinActor.prototype, "skeletonDataTSL", void 0);
     __decorate([
         property(cc.Label)
     ], G1009BigwinActor.prototype, "lblTotalWinPoint", void 0);

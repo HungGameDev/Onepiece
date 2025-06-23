@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'cf5baJ8QqVNl6jWnAm6X0LG', 'aka-g1009-spine-animation-handler');
-// Script/base/animation/aka-g1009-spine-animation-handler.ts
+cc._RF.push(module, 'cf5baJ8QqVNl6jWnAm6X0LG', 'Slot45-spine-animation-handler');
+// Script/base/animation/Slot45-spine-animation-handler.ts
 
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

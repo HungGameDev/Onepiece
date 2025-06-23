@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '67c0duyhspCGa6fCQ6IlHBc', 'aka-g1009-game-controller');
-// Script/base/controller/aka-g1009-game-controller.ts
+cc._RF.push(module, '67c0duyhspCGa6fCQ6IlHBc', 'Slot45-game-controller');
+// Script/base/controller/Slot45-game-controller.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_present_win_panel_1 = require("../../UI/present-win/aka-g1009-present-win-panel");
-var aka_g1009_event_manager_1 = require("../events/aka-g1009-event-manager");
+var Slot45_present_win_panel_1 = require("../../UI/present-win/Slot45-present-win-panel");
+var Slot45_event_manager_1 = require("../events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009GameController = /** @class */ (function (_super) {
     __extends(G1009GameController, _super);
@@ -49,20 +49,20 @@ var G1009GameController = /** @class */ (function (_super) {
         return G1009GameController_1.instance;
     };
     G1009GameController.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ActiveAuto", this.onActiveAuto.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("Turbo", this.onTurbo.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featureWinstarted", this.onfeatureWinstarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("BonusWinStarted", this.onBonusWinStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("BonusWinComplete", this.onBonusWinComplete.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("resumeBonus", this.onResumeBonus.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EndRound", this.onEnround.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ActiveAuto", this.onActiveAuto.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Turbo", this.onTurbo.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinstarted", this.onfeatureWinstarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BonusWinStarted", this.onBonusWinStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BonusWinComplete", this.onBonusWinComplete.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resumeBonus", this.onResumeBonus.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
     };
     G1009GameController.prototype.onStartPresentWinCombo = function () {
         this.comboCount++;
@@ -73,8 +73,8 @@ var G1009GameController = /** @class */ (function (_super) {
     G1009GameController.prototype.onStopAuto = function () {
         this.isAuto = false;
     };
-    G1009GameController.prototype.onEnround = function () {
-        console.warn("onEnround: ", this.comboCount);
+    G1009GameController.prototype.onEndRound = function () {
+        console.warn("onEndRound: ", this.comboCount);
         this.comboCount = 0;
     };
     G1009GameController.prototype.IsActiveAuto = function () {
@@ -101,12 +101,12 @@ var G1009GameController = /** @class */ (function (_super) {
         var filterFeatureDatas = this.data.featureDatas.filter(function (x) { return !x.hitRule.includes("bonus"); });
         this.featureDatas = filterFeatureDatas;
         this.data.featureDatas = filterFeatureDatas;
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("featureWinCompleted", { hitRule: "bonus" });
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("featureWinCompleted", { hitRule: "bonus" });
     };
     G1009GameController.prototype.onSpinStarted = function () {
         this.comboCount = 0;
         var requestData = { isFreespin: this.CheckIsFreespin() };
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("SpinRequest", requestData);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("SpinRequest", requestData);
     };
     G1009GameController.prototype.onTurbo = function (isTurbo) {
         this.isTurbo = isTurbo;
@@ -126,13 +126,13 @@ var G1009GameController = /** @class */ (function (_super) {
             this.freespinTotalWinPoint = data.freespintotalWinPoint;
         }
         if (!!this.data.bonusGameDatas) {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("PickUpdata", this.data.bonusGameDatas);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("PickUpdata", this.data.bonusGameDatas);
         }
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("DataRespond", data.Cells);
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("WinDataRespond", this.data);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("DataRespond", data.Cells);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("WinDataRespond", this.data);
     };
     G1009GameController.prototype.onfeatureWinCompleted = function () {
-        this.onEnround();
+        this.onEndRound();
     };
     G1009GameController.prototype.onfeatureWinstarted = function () {
         this.isFreespins = false;
@@ -267,7 +267,7 @@ var G1009GameController = /** @class */ (function (_super) {
             winLines[index].GetWinNumber().forEach(function (number) { return winNumber.push(number); });
         }
         winAllSymbols = Array.from(new Set(winAllSymbols));
-        return new aka_g1009_present_win_panel_1.G1009WinLineResult(winAllSymbols, winPoint, winNumber, '', true);
+        return new Slot45_present_win_panel_1.G1009WinLineResult(winAllSymbols, winPoint, winNumber, '', true);
     };
     G1009GameController.prototype.CheckTurbo = function () {
         return this.isTurbo;

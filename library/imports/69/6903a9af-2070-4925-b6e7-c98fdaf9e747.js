@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '6903amvIHBJJbbnyY/a+edH', 'aka-g1009-sprite-frame-provider');
-// Script/UI/provider/aka-g1009-sprite-frame-provider.ts
+cc._RF.push(module, '6903amvIHBJJbbnyY/a+edH', 'Slot45-sprite-frame-provider');
+// Script/UI/provider/Slot45-sprite-frame-provider.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {

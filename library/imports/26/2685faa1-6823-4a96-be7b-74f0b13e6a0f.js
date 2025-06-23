@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '2685fqhaCNKlr57dPCxPmoP', 'aka-g1009-notification-message');
-// Script/UI/aka-g1009-notification-message.ts
+cc._RF.push(module, '2685fqhaCNKlr57dPCxPmoP', 'Slot45-notification-message');
+// Script/UI/Slot45-notification-message.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,9 +23,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_number_converter_1 = require("../base/Util/aka-g1009-number-converter");
-var aka_g1009_event_manager_1 = require("../base/events/aka-g1009-event-manager");
-var aka_g1009_sprite_frame_provider_1 = require("./provider/aka-g1009-sprite-frame-provider");
+var Slot45_number_converter_1 = require("../base/Util/Slot45-number-converter");
+var Slot45_event_manager_1 = require("../base/events/Slot45-event-manager");
+var Slot45_sprite_frame_provider_1 = require("./provider/Slot45-sprite-frame-provider");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var NewClass = /** @class */ (function (_super) {
     __extends(NewClass, _super);
@@ -46,18 +46,18 @@ var NewClass = /** @class */ (function (_super) {
         this.register();
     };
     NewClass.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("NotificationWinMessage", this.onMessages.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("NotificationWinMessage", this.onMessages.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
     };
     NewClass.prototype.onResume = function (data) {
         if (data.isFreespins) {
             this.isFreespins = true;
-            this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(data.totalWinPoint);
+            this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(data.totalWinPoint);
         }
     };
     NewClass.prototype.onMessages = function (mesageData) {
@@ -69,8 +69,8 @@ var NewClass = /** @class */ (function (_super) {
         if (!mesageData.isAllWin) {
             if (mesageData.WinSymbol != "Scatter" && mesageData.WinSymbol != "Bonus") {
                 this.winNumber.string = mesageData.WinNumber[0] + 1;
-                this.winPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(mesageData.WinPoint);
-                this.winIcon.spriteFrame = aka_g1009_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, mesageData.WinSymbol));
+                this.winPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(mesageData.WinPoint);
+                this.winIcon.spriteFrame = Slot45_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, mesageData.WinSymbol));
                 this.lineMessage.active = true;
             }
         }
@@ -90,12 +90,12 @@ var NewClass = /** @class */ (function (_super) {
             .delay(delay)
             .to(duration, { value: point }, {
             progress: function (start, end, current, ratio) {
-                _this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Math.floor(current));
+                _this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Math.floor(current));
                 return start + (end - start) * ratio;
             }
         })
             .call(function () {
-            _this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point);
+            _this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point);
             _this.currentPoint = point;
         });
         this.tweenCountPoint.start();
@@ -128,7 +128,7 @@ var NewClass = /** @class */ (function (_super) {
         if (!this.isFreespins) {
             if (this.currentPoint > 0) {
                 this.tweenCountPoint && this.tweenCountPoint.stop();
-                this.totalWinPoint.string = aka_g1009_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+                this.totalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(this.currentPoint);
                 this.totalWinPoint.node.opacity = 255;
             }
         }

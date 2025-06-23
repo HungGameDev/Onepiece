@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '8e79a7v9A1P1pGLOENYdhkP', 'aka-g1009-feature-trigger-actor');
-// Script/UI/feature/aka-g1009-feature-trigger-actor.ts
+cc._RF.push(module, '8e79a7v9A1P1pGLOENYdhkP', 'Slot45-feature-trigger-actor');
+// Script/UI/feature/Slot45-feature-trigger-actor.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009FeatureTrigger = /** @class */ (function (_super) {
     __extends(G1009FeatureTrigger, _super);
@@ -33,7 +33,8 @@ var G1009FeatureTrigger = /** @class */ (function (_super) {
         return _this;
     }
     G1009FeatureTrigger.prototype.start = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTrigger.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTrigger.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
     };
     G1009FeatureTrigger.prototype.checkRuleTrigger = function () {
         return false;
@@ -41,6 +42,11 @@ var G1009FeatureTrigger = /** @class */ (function (_super) {
     G1009FeatureTrigger.prototype.onFeatureTrigger = function () {
         if (this.checkRuleTrigger()) {
             this.showContent();
+        }
+    };
+    G1009FeatureTrigger.prototype.onfeatureWinCompleted = function () {
+        if (this.checkRuleTrigger()) {
+            this.hideContent();
         }
     };
     G1009FeatureTrigger.prototype.showContent = function () {
@@ -55,6 +61,8 @@ var G1009FeatureTrigger = /** @class */ (function (_super) {
                 }).start();
             }).start();
         }
+    };
+    G1009FeatureTrigger.prototype.hideContent = function () {
     };
     G1009FeatureTrigger.prototype.reset = function () {
         if (this.content != null) {

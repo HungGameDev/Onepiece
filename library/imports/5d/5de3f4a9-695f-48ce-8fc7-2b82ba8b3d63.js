@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '5de3fSpaV9Izo/HK4K6iz1j', 'aka-g1009-spin-item-data');
-// Script/UI/spin-panel/aka-g1009-spin-item-data.ts
+cc._RF.push(module, '5de3fSpaV9Izo/HK4K6iz1j', 'Slot45-spin-item-data');
+// Script/UI/spin-panel/Slot45-spin-item-data.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -27,8 +27,8 @@ var G1009SpinItemData = /** @class */ (function () {
 exports.G1009SpinItemData = G1009SpinItemData;
 var ReelDefaultData = [
     "Ace", "Jack", "King", "Queen", "Ace",
-    "Bonus", "Wild", "Scatter", "Jack", "Ace",
-    "King", "Queen", "Ace", "Jack", "Ace", "Wild"
+    "Bonus", "Jackpot", "Scatter", "Jack", "Ace",
+    "King", "Queen", "Ace", "Jack", "Ace", "Jackpot"
 ];
 
 cc._RF.pop();

@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'b746eHco41Iq4DztaweVrSY', 'aka_date-util');
-// Script/base/Util/aka_date-util.ts
+cc._RF.push(module, 'b746eHco41Iq4DztaweVrSY', 'Slot45_date-util');
+// Script/base/Util/Slot45_date-util.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });

@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'd6647rtVqBKmIJzvrHS+dKH', 'aka-g1009-simulator-server');
-// Script/base/aka-g1009-simulator-server.ts
+cc._RF.push(module, 'd6647rtVqBKmIJzvrHS+dKH', 'Slot45-simulator-server');
+// Script/base/Slot45-simulator-server.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,10 +23,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_present_win_panel_1 = require("../UI/present-win/aka-g1009-present-win-panel");
-var aka_g1009_balance_model_1 = require("../models/aka-g1009-balance-model");
-var aka_g1009_bet_model_1 = require("../models/aka-g1009-bet-model");
-var aka_g1009_event_manager_1 = require("./events/aka-g1009-event-manager");
+var Slot45_present_win_panel_1 = require("../UI/present-win/Slot45-present-win-panel");
+var Slot45_balance_model_1 = require("../models/Slot45-balance-model");
+var Slot45_bet_model_1 = require("../models/Slot45-bet-model");
+var Slot45_event_manager_1 = require("./events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var TOTAL_FREESPINS = 5;
 var G1009SimulatorServer = /** @class */ (function (_super) {
@@ -44,39 +44,39 @@ var G1009SimulatorServer = /** @class */ (function (_super) {
     G1009SimulatorServer.prototype.onLoad = function () {
         this.register();
         this.WinLines = [
-            new aka_g1009_present_win_panel_1.G1009WinLineResult([0, 1, 2, 3, 4], 25000, [1]),
-            new aka_g1009_present_win_panel_1.G1009WinLineResult([5, 6, 7, 8, 9], 25000, [0]),
-            new aka_g1009_present_win_panel_1.G1009WinLineResult([10, 11, 12, 13, 14], 25000, [2])
+            new Slot45_present_win_panel_1.G1009WinLineResult([0, 1, 2, 3, 4], 25000, [1]),
+            new Slot45_present_win_panel_1.G1009WinLineResult([5, 6, 7, 8, 9], 25000, [0]),
+            new Slot45_present_win_panel_1.G1009WinLineResult([10, 11, 12, 13, 14], 25000, [2])
         ];
         this.winLineAndScatter = [
-            new aka_g1009_present_win_panel_1.G1009WinLineResult([0, 1, 2, 3, 4], 40000, [1], "A"),
-            new aka_g1009_present_win_panel_1.G1009WinLineResult([5, 6, 7, 8, 9], 40000, [0], "Q"),
+            new Slot45_present_win_panel_1.G1009WinLineResult([0, 1, 2, 3, 4], 40000, [1], "A"),
+            new Slot45_present_win_panel_1.G1009WinLineResult([5, 6, 7, 8, 9], 40000, [0], "Q"),
         ];
         this.winScatters = [
-            new aka_g1009_present_win_panel_1.G1009WinLineResult([10, 12, 14], 0, [-1], "Scatter")
+            new Slot45_present_win_panel_1.G1009WinLineResult([10, 12, 14], 0, [-1], "Scatter")
         ];
         this.winBonus = [
-            new aka_g1009_present_win_panel_1.G1009WinLineResult([1, 2, 3], 0, [-1], "Bonus")
+            new Slot45_present_win_panel_1.G1009WinLineResult([1, 2, 3], 0, [-1], "Bonus")
         ];
         this.winlineContent = [[5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [10, 11, 12, 13, 14]];
         //, [0, 6, 12, 8, 4], [10, 6, 3, 8, 14]
-        aka_g1009_bet_model_1.G1009BetModel.GetInstance().SetBetPerLines([100, 250, 1000, 2500, 10000, 25000, 50000]);
-        aka_g1009_bet_model_1.G1009BetModel.GetInstance().SetBetMultiplier(20);
-        aka_g1009_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(1000);
+        Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetPerLines([100, 250, 1000, 2500, 10000, 25000, 50000]);
+        Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetMultiplier(20);
+        Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(1000);
     };
     G1009SimulatorServer.prototype.start = function () {
         setTimeout(function () {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("init");
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("init");
         }, 0.1);
     };
     G1009SimulatorServer.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
     };
     G1009SimulatorServer.prototype.fakeBalanceSpin = function () {
         if (!this.isFreespins) {
-            var newBalance = aka_g1009_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() - aka_g1009_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint();
-            aka_g1009_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange");
+            var newBalance = Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() - Slot45_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint();
+            Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange");
         }
     };
     G1009SimulatorServer.prototype.onSpinRequest = function () {
@@ -262,7 +262,7 @@ var G1009SimulatorServer = /** @class */ (function (_super) {
         var _this = this;
         var delaytime = Math.floor(Math.random() * 2);
         var sep = cc.sequence(cc.delayTime(delaytime), cc.callFunc(function () {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("NextScrollData", _this.result);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("NextScrollData", _this.result);
         }, this));
         this.node.runAction(sep);
     };

@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'b2b65DpYitFqpgwmkspHWnT', 'aka-g1009-feature-content-activation-actor');
-// Script/UI/feature/aka-g1009-feature-content-activation-actor.ts
+cc._RF.push(module, 'b2b65DpYitFqpgwmkspHWnT', 'Slot45-feature-content-activation-actor');
+// Script/UI/feature/Slot45-feature-content-activation-actor.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009FeatureContentActivationActor = /** @class */ (function (_super) {
     __extends(G1009FeatureContentActivationActor, _super);
@@ -36,8 +36,8 @@ var G1009FeatureContentActivationActor = /** @class */ (function (_super) {
     }
     G1009FeatureContentActivationActor.prototype.start = function () {
         this.reset();
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTriggerStarted.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTriggerStarted.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
     };
     G1009FeatureContentActivationActor.prototype.checkRuleTrigger = function () {
         return false;

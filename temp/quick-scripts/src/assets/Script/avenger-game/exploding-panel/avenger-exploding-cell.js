@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_animation_provider_1 = require("../../base/animation/aka-g1009-animation-provider");
+var Slot45_animation_provider_1 = require("../../base/animation/Slot45-animation-provider");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var ExplodingCell = /** @class */ (function (_super) {
     __extends(ExplodingCell, _super);
@@ -35,13 +35,13 @@ var ExplodingCell = /** @class */ (function (_super) {
         return _this;
     }
     ExplodingCell.prototype.onLoad = function () {
-        this.animEffectExplosion = aka_g1009_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation('eff_explosion');
+        this.animEffectExplosion = Slot45_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation('eff_explosion');
     };
     ExplodingCell.prototype.PlayEffectExplodeCells = function (nameSymbol) {
-        var nameSkin = cc.js.formatStr(this.nameSkinFormat, nameSymbol);
+        // var nameSkin = cc.js.formatStr(this.nameSkinFormat, nameSymbol);
         this.spineSkeleton.node.active = true;
         this.spineSkeleton.skeletonData = this.animEffectExplosion;
-        this.spineSkeleton.setSkin(nameSkin);
+        // this.spineSkeleton.setSkin(nameSkin);
         this.spineSkeleton.setEndListener(function () {
             this.spineSkeleton.node.active = false;
             this.spineSkeleton.clearTrack(0);

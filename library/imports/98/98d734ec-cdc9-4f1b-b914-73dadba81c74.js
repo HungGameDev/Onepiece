@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '98d73TszclPG7kUc9rbqBx0', 'aka-g1009-perist-root-node');
-// Script/base/aka-g1009-perist-root-node.ts
+cc._RF.push(module, '98d73TszclPG7kUc9rbqBx0', 'Slot45-perist-root-node');
+// Script/base/Slot45-perist-root-node.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {

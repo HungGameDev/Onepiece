@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '6b0bdd9NehPQY8Y55gr4EoG', 'aka-g1009-state');
-// Script/base/state-machine/abstract/aka-g1009-state.ts
+cc._RF.push(module, '6b0bdd9NehPQY8Y55gr4EoG', 'Slot45-state');
+// Script/base/state-machine/abstract/Slot45-state.ts
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });

@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'af56dL+6lBNz5Rsz3dY6vZM', 'aka-g1009-bet-toggle-button');
-// Script/UI/popup/aka-g1009-bet-toggle-button.ts
+cc._RF.push(module, 'af56dL+6lBNz5Rsz3dY6vZM', 'Slot45-bet-toggle-button');
+// Script/UI/popup/Slot45-bet-toggle-button.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,8 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
-var aka_g1009_info_toggle_button_1 = require("./aka-g1009-info-toggle-button");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
+var Slot45_info_toggle_button_1 = require("./Slot45-info-toggle-button");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009BetToggleButtonActor = /** @class */ (function (_super) {
     __extends(G1009BetToggleButtonActor, _super);
@@ -32,10 +32,10 @@ var G1009BetToggleButtonActor = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     G1009BetToggleButtonActor.prototype.start = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ChangeToggleState", this.OnChangeToggleState.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ChangeToggleState", this.OnChangeToggleState.bind(this));
     };
     G1009BetToggleButtonActor.prototype.OnToggleClicked = function (action) {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("SelectBetLineClick", { id: this.toggleId, isCheck: action.isChecked });
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("SelectBetLineClick", { id: this.toggleId, isCheck: action.isChecked });
     };
     G1009BetToggleButtonActor.prototype.OnChangeToggleState = function (toggleArray) {
         this.toggle.isChecked = toggleArray.includes(this.toggleId);
@@ -44,7 +44,7 @@ var G1009BetToggleButtonActor = /** @class */ (function (_super) {
         ccclass
     ], G1009BetToggleButtonActor);
     return G1009BetToggleButtonActor;
-}(aka_g1009_info_toggle_button_1.default));
+}(Slot45_info_toggle_button_1.default));
 exports.default = G1009BetToggleButtonActor;
 
 cc._RF.pop();

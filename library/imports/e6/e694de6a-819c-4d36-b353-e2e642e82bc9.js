@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'e694d5qgZxNNrNT4uZC6CvJ', 'aka-g1009-win-state');
-// Script/base/state-machine/state/aka-g1009-win-state.ts
+cc._RF.push(module, 'e694d5qgZxNNrNT4uZC6CvJ', 'Slot45-win-state');
+// Script/base/state-machine/state/Slot45-win-state.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -18,55 +18,55 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.G1009WinState = void 0;
-var aka_g1009_game_controller_1 = require("../../controller/aka-g1009-game-controller");
-var aka_g1009_event_manager_1 = require("../../events/aka-g1009-event-manager");
-var aka_g1009_state_1 = require("../abstract/aka-g1009-state");
-var aka_g1009_bet_state_1 = require("./aka-g1009-bet-state");
-var aka_g1009_feature_trigger_state_1 = require("./aka-g1009-feature-trigger-state");
-var aka_g1009_feature_win_state_1 = require("./aka-g1009-feature-win-state");
-var aka_g1009_jackpot_state_1 = require("./aka-g1009-jackpot-state");
-var aka_g1009_spin_state_1 = require("./aka-g1009-spin-state");
+var Slot45_game_controller_1 = require("../../controller/Slot45-game-controller");
+var Slot45_event_manager_1 = require("../../events/Slot45-event-manager");
+var Slot45_state_1 = require("../abstract/Slot45-state");
+var Slot45_bet_state_1 = require("./Slot45-bet-state");
+var Slot45_feature_trigger_state_1 = require("./Slot45-feature-trigger-state");
+var Slot45_feature_win_state_1 = require("./Slot45-feature-win-state");
+var Slot45_jackpot_state_1 = require("./Slot45-jackpot-state");
+var Slot45_spin_state_1 = require("./Slot45-spin-state");
 var G1009WinState = /** @class */ (function (_super) {
     __extends(G1009WinState, _super);
     function G1009WinState() {
         var _this = _super.call(this) || this;
         console.log("Win state");
         setTimeout(function () {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("PresentWinStart");
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("PresentWinStart");
         }, 100);
         return _this;
     }
     G1009WinState.prototype.FeatureTrigger = function () {
-        if (aka_g1009_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
-            return new aka_g1009_feature_trigger_state_1.G1009FeatureTriggerState();
+        if (Slot45_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
+            return new Slot45_feature_trigger_state_1.G1009FeatureTriggerState();
         }
-        if (aka_g1009_game_controller_1.default.GetInstance().CheckFreespinContinue()) {
-            return new aka_g1009_spin_state_1.G1009SpinState();
+        if (Slot45_game_controller_1.default.GetInstance().CheckFreespinContinue()) {
+            return new Slot45_spin_state_1.G1009SpinState();
         }
-        if (aka_g1009_game_controller_1.default.GetInstance().CheckFreespinEnd()) {
-            return new aka_g1009_feature_win_state_1.G1009FeatureWinState();
+        if (Slot45_game_controller_1.default.GetInstance().CheckFreespinEnd()) {
+            return new Slot45_feature_win_state_1.G1009FeatureWinState();
         }
-        return new aka_g1009_bet_state_1.G1009BetState();
+        return new Slot45_bet_state_1.G1009BetState();
     };
     G1009WinState.prototype.FeatureComplete = function () {
-        return new aka_g1009_feature_win_state_1.G1009FeatureWinState();
+        return new Slot45_feature_win_state_1.G1009FeatureWinState();
     };
     G1009WinState.prototype.Spin = function () {
-        if (aka_g1009_game_controller_1.default.GetInstance().CheckFreespinContinue()) {
-            return new aka_g1009_spin_state_1.G1009SpinState();
+        if (Slot45_game_controller_1.default.GetInstance().CheckFreespinContinue()) {
+            return new Slot45_spin_state_1.G1009SpinState();
         }
-        return new aka_g1009_bet_state_1.G1009BetState();
+        return new Slot45_bet_state_1.G1009BetState();
     };
     G1009WinState.prototype.EndRound = function () {
-        if (aka_g1009_game_controller_1.default.GetInstance().IsActiveAuto())
-            return new aka_g1009_spin_state_1.G1009SpinState();
-        return new aka_g1009_bet_state_1.G1009BetState();
+        if (Slot45_game_controller_1.default.GetInstance().IsActiveAuto())
+            return new Slot45_spin_state_1.G1009SpinState();
+        return new Slot45_bet_state_1.G1009BetState();
     };
     G1009WinState.prototype.JackpotTriggered = function () {
-        return new aka_g1009_jackpot_state_1.G1009JackpotState();
+        return new Slot45_jackpot_state_1.G1009JackpotState();
     };
     return G1009WinState;
-}(aka_g1009_state_1.State));
+}(Slot45_state_1.State));
 exports.G1009WinState = G1009WinState;
 
 cc._RF.pop();

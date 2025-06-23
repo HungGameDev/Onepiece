@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '7d8acNkafNHgozJl/aJaJYt', 'aka-g1009-info-page');
-// Script/UI/popup/aka-g1009-info-page.ts
+cc._RF.push(module, '7d8acNkafNHgozJl/aJaJYt', 'Slot45-info-page');
+// Script/UI/popup/Slot45-info-page.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,87 +23,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var MAX_PAGE_INDEX = 1;
 var G1009InfoPageActor = /** @class */ (function (_super) {
     __extends(G1009InfoPageActor, _super);
     function G1009InfoPageActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.scrollView = null;
         _this.content = null;
-        _this.preButton = null;
-        _this.nextButton = null;
-        _this.currentToggleId = 0;
         return _this;
     }
     G1009InfoPageActor.prototype.onLoad = function () {
         this.register();
     };
     G1009InfoPageActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ChangeInfoPage", this.onChangeInfoPage.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ScrollToNextPage", this.onNextPageClick.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ScrollToPrevertPage", this.onPrevertPageClick.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("HideInfoPanel", this.onHideClick.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ShowInfoPanel", this.onShowClick.bind(this));
-    };
-    G1009InfoPageActor.prototype.onChangeInfoPage = function (toggleId) {
-        if (this.currentToggleId != toggleId) {
-            this.currentToggleId = toggleId;
-            this.scrollView.scrollTo(new cc.Vec2(toggleId / MAX_PAGE_INDEX), 0.5);
-            this.resetButton();
-            if (this.currentToggleId == MAX_PAGE_INDEX)
-                this.nextButton.interactable = false;
-            if (this.currentToggleId == 0)
-                this.preButton.interactable = false;
-        }
-    };
-    G1009InfoPageActor.prototype.onNextPageClick = function () {
-        if (this.currentToggleId < MAX_PAGE_INDEX) {
-            this.currentToggleId += 1;
-            this.scrollView.scrollTo(new cc.Vec2(this.currentToggleId / MAX_PAGE_INDEX), 0.5);
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ChangeInfoPage", this.currentToggleId);
-            this.resetButton();
-            if (this.currentToggleId == MAX_PAGE_INDEX)
-                this.nextButton.interactable = false;
-        }
-    };
-    G1009InfoPageActor.prototype.onPrevertPageClick = function () {
-        if (this.currentToggleId > 0) {
-            this.currentToggleId -= 1;
-            this.scrollView.scrollTo(new cc.Vec2(this.currentToggleId / MAX_PAGE_INDEX), 0.5);
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ChangeInfoPage", this.currentToggleId);
-            this.resetButton();
-            if (this.currentToggleId == 0)
-                this.preButton.interactable = false;
-        }
-    };
-    G1009InfoPageActor.prototype.resetButton = function () {
-        this.preButton.interactable = true;
-        this.nextButton.interactable = true;
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("HideInfoPanel", this.onHideClick.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowInfoPanel", this.onShowClick.bind(this));
     };
     G1009InfoPageActor.prototype.onHideClick = function () {
         this.content.active = false;
     };
     G1009InfoPageActor.prototype.onShowClick = function () {
         this.content.active = true;
-        if (this.currentToggleId == MAX_PAGE_INDEX)
-            this.nextButton.interactable = false;
-        if (this.currentToggleId == 0)
-            this.preButton.interactable = false;
     };
-    __decorate([
-        property(cc.ScrollView)
-    ], G1009InfoPageActor.prototype, "scrollView", void 0);
     __decorate([
         property(cc.Node)
     ], G1009InfoPageActor.prototype, "content", void 0);
-    __decorate([
-        property(cc.Button)
-    ], G1009InfoPageActor.prototype, "preButton", void 0);
-    __decorate([
-        property(cc.Button)
-    ], G1009InfoPageActor.prototype, "nextButton", void 0);
     G1009InfoPageActor = __decorate([
         ccclass
     ], G1009InfoPageActor);

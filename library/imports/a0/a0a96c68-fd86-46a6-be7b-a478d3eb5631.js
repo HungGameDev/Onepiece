@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, 'a0a96xo/YZGpr57pHjT61Yx', 'aka-g1009-sound-button-click');
-// Script/base/sound/aka-g1009-sound-button-click.ts
+cc._RF.push(module, 'a0a96xo/YZGpr57pHjT61Yx', 'Slot45-sound-button-click');
+// Script/base/sound/Slot45-sound-button-click.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../events/aka-g1009-event-manager");
+var Slot45_event_manager_1 = require("../events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009SoundButtonClick = /** @class */ (function (_super) {
     __extends(G1009SoundButtonClick, _super);
@@ -37,7 +37,7 @@ var G1009SoundButtonClick = /** @class */ (function (_super) {
         this.node.on("click", this.onButtonClick.bind(this));
     };
     G1009SoundButtonClick.prototype.onButtonClick = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: this.SFXName, isLoop: this.IsLoop });
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: this.SFXName, isLoop: this.IsLoop });
     };
     __decorate([
         property

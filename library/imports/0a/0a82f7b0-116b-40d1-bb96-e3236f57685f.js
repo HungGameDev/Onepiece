@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '0a82fewEWtA0buW4yNvV2hf', 'aka-g1009-sound-handler');
-// Script/base/sound/aka-g1009-sound-handler.ts
+cc._RF.push(module, '0a82fewEWtA0buW4yNvV2hf', 'Slot45-sound-handler');
+// Script/base/sound/Slot45-sound-handler.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -24,8 +24,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var sound_config_1 = require("../../config/sound-config");
-var aka_g1009_event_manager_1 = require("../events/aka-g1009-event-manager");
-var aka_g1009_sound_controller_1 = require("../sound/aka-g1009-sound-controller");
+var Slot45_event_manager_1 = require("../events/Slot45-event-manager");
+var Slot45_sound_controller_1 = require("./Slot45-sound-controller");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009SoundHandlerActor = /** @class */ (function (_super) {
     __extends(G1009SoundHandlerActor, _super);
@@ -43,8 +43,8 @@ var G1009SoundHandlerActor = /** @class */ (function (_super) {
         return _this;
     }
     G1009SoundHandlerActor.prototype.start = function () {
-        this.currentBGMMusicPlaying = this.SoundConfig.SoundNameConfig.BGMMainGame;
-        this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMMainGame);
+        this.currentBGMMusicPlaying = this.SoundConfig.SoundNameConfig.BGMChooseBet;
+        this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMChooseBet);
         this.spinItemCount = 0;
         this.landingCount = {};
         this.isFreeSpin = false;
@@ -53,47 +53,29 @@ var G1009SoundHandlerActor = /** @class */ (function (_super) {
         this.tweenVolume = cc.tween({});
     };
     G1009SoundHandlerActor.prototype.onLoad = function () {
-        this.soundController = aka_g1009_sound_controller_1.default.Instance;
+        this.soundController = Slot45_sound_controller_1.default.Instance;
         this.register();
     };
     G1009SoundHandlerActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("PlaySFX", this.onPlaySFX.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopSFX", this.onStopSFX.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("PlayBGM", this.onPlayBGM.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("StopBGM", this.onStopBGM.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ShowBetPanel", this.onPlayMainGameBGMusic.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("BonusWinStarted", this.onPlayBonusGameBGMusic.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onPlayFreeGameBGMusic.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("JackpotStarted", this.onPlayJackPotBGMusic.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("BigWinStarted", this.onPlayBigWinBGMusic.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("FeatureTrigger", this.onFeatureTrigger.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("PlaySFX", this.onPlaySFX.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopSFX", this.onStopSFX.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("PlayBGM", this.onPlayBGM.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopBGM", this.onStopBGM.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowPopupChangeBet", this.onPlayChooseBetBGMusic.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ChangeBet", this.onPlayMainGameBGMusic.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("FeatureTrigger", this.onFeatureTrigger.bind(this));
     };
     G1009SoundHandlerActor.prototype.onFeatureTrigger = function () {
         // this.onPlaySFX({ sfxName: "sfx_featurewin", isLoop: false });
     };
+    G1009SoundHandlerActor.prototype.onPlayChooseBetBGMusic = function () {
+        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMChooseBet) {
+            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMChooseBet);
+        }
+    };
     G1009SoundHandlerActor.prototype.onPlayMainGameBGMusic = function () {
         if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMMainGame) {
             this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMMainGame);
-        }
-    };
-    G1009SoundHandlerActor.prototype.onPlayFreeGameBGMusic = function () {
-        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMFreeGame) {
-            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMFreeGame);
-        }
-    };
-    G1009SoundHandlerActor.prototype.onPlayBonusGameBGMusic = function () {
-        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMBonusGame) {
-            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMBonusGame);
-        }
-    };
-    G1009SoundHandlerActor.prototype.onPlayJackPotBGMusic = function () {
-        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMJackPot) {
-            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMJackPot);
-        }
-    };
-    G1009SoundHandlerActor.prototype.onPlayBigWinBGMusic = function () {
-        if (this.currentBGMMusicPlaying != this.SoundConfig.SoundNameConfig.BGMBigWin) {
-            this.onPlayBGM(this.SoundConfig.SoundNameConfig.BGMBigWin);
         }
     };
     G1009SoundHandlerActor.prototype.onPlayBGM = function (bgmName) {

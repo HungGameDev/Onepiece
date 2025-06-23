@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '7b73bCinV1JOJQz4r5I9OTH', 'aka-g1009-connect-server');
-// Script/base/aka-g1009-connect-server.ts
+cc._RF.push(module, '7b73bCinV1JOJQz4r5I9OTH', 'Slot45-connect-server');
+// Script/base/Slot45-connect-server.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -24,18 +24,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WIN_LINE_MAPPING = exports.SLOTTY_ITEM = void 0;
-var aka_1009_GameManager_1 = require("../GameManager/aka_1009-GameManager");
-var aka_g1009_present_win_panel_1 = require("../UI/present-win/aka-g1009-present-win-panel");
-var aka_g1009_game_config_1 = require("../aka-g1009-game-config");
+var Slot45_GameManager_1 = require("../GameManager/Slot45-GameManager");
+var Slot45_present_win_panel_1 = require("../UI/present-win/Slot45-present-win-panel");
+var Slot45_game_config_1 = require("../Slot45-game-config");
 var combo_data_1 = require("../avenger-game/model/combo-data");
-var aka_g1009_balance_model_1 = require("../models/aka-g1009-balance-model");
-var aka_g1009_bet_model_1 = require("../models/aka-g1009-bet-model");
-var aka_g1009_event_manager_1 = require("./events/aka-g1009-event-manager");
+var Slot45_balance_model_1 = require("../models/Slot45-balance-model");
+var Slot45_bet_model_1 = require("../models/Slot45-bet-model");
+var Slot45_event_manager_1 = require("./events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 exports.SLOTTY_ITEM = {
     'Bonus': 'Bonus',
     'Scatter': 'Scatter',
-    'Wild': 'Wild',
+    'Jackpot': 'Jackpot',
     'Ace': 'Ace',
     'King': 'King',
     'Queen': 'Queen',
@@ -69,7 +69,7 @@ var ConnectServer = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.isFreespins = false;
         _this.totalFreespins = 0;
-        _this.gameManager1009 = aka_1009_GameManager_1.GameManager1009.getInstance();
+        _this.gameManager1009 = Slot45_GameManager_1.GameManager1009.getInstance();
         return _this;
     }
     ConnectServer.prototype.onLoad = function () {
@@ -78,7 +78,7 @@ var ConnectServer = /** @class */ (function (_super) {
     ConnectServer.prototype.start = function () {
         var _this = this;
         //hard set bet multipliser = 9
-        aka_g1009_bet_model_1.G1009BetModel.GetInstance().SetBetMultiplier(exports.WIN_LINE_MAPPING.length);
+        Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetMultiplier(exports.WIN_LINE_MAPPING.length);
         this.gameManager1009.startGame();
         // this.gameManager1009.getJPHistory(0, 8).then((data) => {
         // 	console.log('getJPHistory', data);
@@ -88,23 +88,23 @@ var ConnectServer = /** @class */ (function (_super) {
         // })
         if (this.dataJackpot) {
             setTimeout(function () {
-                aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('JackpotUpdate', _this.dataJackpot);
+                Slot45_event_manager_1.G1009EventManager.GetInstance().notify('JackpotUpdate', _this.dataJackpot);
             }, 100);
         }
     };
     ConnectServer.prototype.register = function () {
         var _this = this;
-        this.gameManager1009.registerEvent(aka_1009_GameManager_1.GAME_MANAGER_EVENT.START_GAME_SUCCESS, function (data) {
+        this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.START_GAME_SUCCESS, function (data) {
             console.log('START_GAME_SUCCESS', data);
             _this.currentSession = data.playerState;
             _this.betInfos = data.betInfos;
             var betPerLines = data.betInfos.map(function (betInfo) { return betInfo.betDenom; });
-            aka_g1009_bet_model_1.G1009BetModel.GetInstance().SetBetPerLines(betPerLines);
-            aka_g1009_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(_this.gameManager1009.getPlayerMoney());
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("BetInfos", _this.betInfos);
+            Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetPerLines(betPerLines);
+            Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(_this.gameManager1009.getPlayerMoney());
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BetInfos", _this.betInfos);
             if (data.hasOwnProperty("playerState") && data.playerState) {
                 // G1009BetModel.GetInstance().SetCurrentBetPerLine(data.playerState.datas[0].content.bet);
-                aka_g1009_bet_model_1.G1009BetModel.GetInstance().SetCurrentBetPerLine(100);
+                Slot45_bet_model_1.G1009BetModel.GetInstance().SetCurrentBetPerLine(100);
             }
             if (data.hasOwnProperty("allJackpotInfos")) {
                 _this.dataJackpot = data.allJackpotInfos;
@@ -118,7 +118,7 @@ var ConnectServer = /** @class */ (function (_super) {
                         totalFreespins: _this.currentSession.freeGameRemain,
                         isRetrigger: false,
                     });
-                    aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("resume", resuilt);
+                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify("resume", resuilt);
                 }, 100);
             }
             else {
@@ -126,59 +126,59 @@ var ConnectServer = /** @class */ (function (_super) {
                     setTimeout(function () {
                         var resuilt = _this.processNormalData();
                         resuilt.featureDatas = [];
-                        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("resumeBonus", resuilt);
+                        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("resumeBonus", resuilt);
                     }, 100);
                 }
                 else {
-                    aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("init");
+                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify("init");
                 }
             }
         });
-        this.gameManager1009.registerEvent(aka_1009_GameManager_1.GAME_MANAGER_EVENT.NORMAL_GAME_RESULT, function (data) {
+        this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.NORMAL_GAME_RESULT, function (data) {
             console.log('NORMAL_GAME_RESULT', data);
             _this.currentSession = data;
             _this.nextScrollData();
         });
-        this.gameManager1009.registerEvent(aka_1009_GameManager_1.GAME_MANAGER_EVENT.FREE_GAME_RESULT, function (data) {
+        this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.FREE_GAME_RESULT, function (data) {
             console.log('FREE_GAME_RESULT', data);
             _this.currentSession = data;
             _this.nextScrollData();
         });
-        this.gameManager1009.registerEvent(aka_1009_GameManager_1.GAME_MANAGER_EVENT.BONUS_GAME_RESULT, function (data) {
+        this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.BONUS_GAME_RESULT, function (data) {
             console.log('BONUS_GAME_RESULT', data);
             _this.currentSession = data;
             _this.nextScrollData();
         });
-        this.gameManager1009.registerEvent(aka_1009_GameManager_1.GAME_MANAGER_EVENT.PLAYER_MONEY_UPDATE, function (data) {
+        this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.PLAYER_MONEY_UPDATE, function (data) {
             console.log('PLAYER_MONEY_UPDATE', data);
             // G1009BalanceModel.GetInstance().SetBalance(data);
             // G1009EventManager.GetInstance().notify("BalanceChange", data);
         });
-        this.gameManager1009.registerEvent(aka_1009_GameManager_1.GAME_MANAGER_EVENT.JACKPOT_UPDATE, function (data) {
+        this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.JACKPOT_UPDATE, function (data) {
             console.log('JACKPOT_UPDATE', data);
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('JackpotUpdate', data);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify('JackpotUpdate', data);
         });
-        this.gameManager1009.registerEvent(aka_1009_GameManager_1.GAME_MANAGER_EVENT.JACKPOT_SHOW_MULTIPLE, function (data) {
+        this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.JACKPOT_SHOW_MULTIPLE, function (data) {
             console.log('JACKPOT_SHOW_MULTIPLE', data);
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('JackpotShowMultiple', data);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify('JackpotShowMultiple', data);
         });
-        this.gameManager1009.registerEvent(aka_1009_GameManager_1.GAME_MANAGER_EVENT.JACKPOT_HIDE_MULTIPLE, function (data) {
+        this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.JACKPOT_HIDE_MULTIPLE, function (data) {
             console.log('JACKPOT_SHOW_MULTIPLE', data);
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('JackpotHideMultiple');
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify('JackpotHideMultiple');
         });
-        this.gameManager1009.registerEvent(aka_1009_GameManager_1.GAME_MANAGER_EVENT.POPUP_INFO_MESSAGE, function (data) {
+        this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.POPUP_INFO_MESSAGE, function (data) {
             console.log('POPUP_INFO_MESSAGE', data);
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify('PopupInfoMessage', data);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PopupInfoMessage', data);
         });
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("PickUpRequest", this.onPickUpRequest.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ShowBetPanel", this.onEndRound.bind(this));
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("UpdateBetLine", this.onUpdateBetLine.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("PickUpRequest", this.onPickUpRequest.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowBetPanel", this.onEndRound.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("UpdateBetLine", this.onUpdateBetLine.bind(this));
     };
     ConnectServer.prototype.onUpdateBetLine = function (betLines) {
-        aka_g1009_bet_model_1.G1009BetModel.GetInstance().SetBetMultiplier(betLines.length);
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("ShowBetPanel");
+        Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetMultiplier(betLines.length);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ShowBetPanel");
     };
     ConnectServer.prototype.onPickUpRequest = function (item) {
         this.gameManager1009.bonusPlay(item);
@@ -188,7 +188,7 @@ var ConnectServer = /** @class */ (function (_super) {
             this.gameManager1009.freeSpin();
         }
         else {
-            var betDenom_1 = aka_g1009_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine();
+            var betDenom_1 = Slot45_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine();
             var betInfo = this.betInfos.filter(function (betInfo) { return betInfo.betDenom == betDenom_1; })[0];
             this.gameManager1009.normalSpin(betInfo.betId);
         }
@@ -233,7 +233,7 @@ var ConnectServer = /** @class */ (function (_super) {
                     var content = element.content;
                     var arrNumber = [];
                     arrNumber.push(content.hitSetID);
-                    var winLineData = new aka_g1009_present_win_panel_1.G1009WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
+                    var winLineData = new Slot45_present_win_panel_1.G1009WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
                     if (countCombo == 0) {
                         WinLines.push(winLineData);
                         winPoint += winLineData.GetWinPoint();
@@ -264,7 +264,7 @@ var ConnectServer = /** @class */ (function (_super) {
                         // 		scatters.push(index);
                         // 	}
                         // }
-                        winScatters.push(new aka_g1009_present_win_panel_1.G1009WinLineResult(element.content.trigger.hitSet, 0, [-1], "Scatter", false, true));
+                        winScatters.push(new Slot45_present_win_panel_1.G1009WinLineResult(element.content.trigger.hitSet, 0, [-1], "Scatter", false, true));
                     }
                     break;
                 case "spinTriggerBonus":
@@ -281,13 +281,13 @@ var ConnectServer = /** @class */ (function (_super) {
                     // 		bonus.push(index);
                     // 	}
                     // }
-                    winBonus.push(new aka_g1009_present_win_panel_1.G1009WinLineResult(element.content.trigger.hitSet, element.content.pay, [-1], "Bonus", false, true));
+                    winBonus.push(new Slot45_present_win_panel_1.G1009WinLineResult(element.content.trigger.hitSet, element.content.pay, [-1], "Bonus", false, true));
                     break;
                 case "jackpotWin":
                     var content = element.content;
                     var arrNumber = [];
                     arrNumber.push(content.hitSetID);
-                    var winLineData = new aka_g1009_present_win_panel_1.G1009WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
+                    var winLineData = new Slot45_present_win_panel_1.G1009WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
                     if (countCombo == 0) {
                         WinLines.push(winLineData);
                         winPoint += winLineData.GetWinPoint();
@@ -377,7 +377,7 @@ var ConnectServer = /** @class */ (function (_super) {
         //parse winline
         if (this.currentSession.hasOwnProperty("normalPayLines")) {
             this.currentSession.normalPayLines.forEach(function (normalPayLine) {
-                WinLines.push(new aka_g1009_present_win_panel_1.G1009WinLineResult(exports.WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], exports.SLOTTY_ITEM[normalPayLine.psc], false, aka_g1009_game_config_1.NEAR_WIN_SYMBOL.includes((exports.SLOTTY_ITEM[normalPayLine.psc]))));
+                WinLines.push(new Slot45_present_win_panel_1.G1009WinLineResult(exports.WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], exports.SLOTTY_ITEM[normalPayLine.psc], false, Slot45_game_config_1.NEAR_WIN_SYMBOL.includes((exports.SLOTTY_ITEM[normalPayLine.psc]))));
             });
         }
         WinLines.forEach(function (winLine) { return winPoint += winLine.GetWinPoint(); });
@@ -398,7 +398,7 @@ var ConnectServer = /** @class */ (function (_super) {
                         scatters.push(index);
                     }
                 }
-                winScatters.push(new aka_g1009_present_win_panel_1.G1009WinLineResult(scatters, 0, [-1], "Scatter", false, true));
+                winScatters.push(new Slot45_present_win_panel_1.G1009WinLineResult(scatters, 0, [-1], "Scatter", false, true));
             }
         }
         freespinLeft = this.currentSession.freeGameRemain || 0;
@@ -417,7 +417,7 @@ var ConnectServer = /** @class */ (function (_super) {
                         bonus.push(index);
                     }
                 }
-                winBonus.push(new aka_g1009_present_win_panel_1.G1009WinLineResult(bonus, 0, [-1], "Bonus", false, true));
+                winBonus.push(new Slot45_present_win_panel_1.G1009WinLineResult(bonus, 0, [-1], "Bonus", false, true));
             }
         }
         if (this.currentSession.hasOwnProperty("bonusMatrix")) {
@@ -456,7 +456,7 @@ var ConnectServer = /** @class */ (function (_super) {
                     coreWinLine_1.push(index);
                 }
             });
-            jackpotWinLine.push(new aka_g1009_present_win_panel_1.G1009WinLineResult(coreWinLine_1, 0, [winLineNumber], "Core", false, true));
+            jackpotWinLine.push(new Slot45_present_win_panel_1.G1009WinLineResult(coreWinLine_1, 0, [winLineNumber], "Core", false, true));
             // });
             jackpotWinPoint = jackpotTotalWin;
         }
@@ -467,23 +467,23 @@ var ConnectServer = /** @class */ (function (_super) {
                 var newCellsResult = [];
                 this.currentSession.data.normalMatrixOrigin.forEach(function (item) { return items_1.push(exports.SLOTTY_ITEM[item]); });
                 var count = 0;
-                for (var reelIndex = 0; reelIndex < aka_g1009_game_config_1.reelCount; reelIndex++) {
-                    for (var rowIndex = 0; rowIndex < aka_g1009_game_config_1.rowCount; rowIndex++) {
-                        var cellIndex = aka_g1009_game_config_1.SlottyParameter.GetCellIndex(reelIndex, rowIndex);
+                for (var reelIndex = 0; reelIndex < Slot45_game_config_1.reelCount; reelIndex++) {
+                    for (var rowIndex = 0; rowIndex < Slot45_game_config_1.rowCount; rowIndex++) {
+                        var cellIndex = Slot45_game_config_1.SlottyParameter.GetCellIndex(reelIndex, rowIndex);
                         newCellsResult[cellIndex] = items_1[count++];
                     }
                 }
-                for (var reelIndex = 0; reelIndex < aka_g1009_game_config_1.reelCount; reelIndex++) {
+                for (var reelIndex = 0; reelIndex < Slot45_game_config_1.reelCount; reelIndex++) {
                     var count_1 = 0;
-                    for (var rowIndex = 0; rowIndex < aka_g1009_game_config_1.rowCount; rowIndex++) {
-                        var cellIndex = aka_g1009_game_config_1.SlottyParameter.GetCellIndex(reelIndex, rowIndex);
+                    for (var rowIndex = 0; rowIndex < Slot45_game_config_1.rowCount; rowIndex++) {
+                        var cellIndex = Slot45_game_config_1.SlottyParameter.GetCellIndex(reelIndex, rowIndex);
                         if (cellsResult[cellIndex] == "Core") {
                             count_1++;
                             if (count_1 == 3) {
                                 isExpandWild = true;
                                 var indices = [];
-                                for (var newRowIndex = 0; newRowIndex < aka_g1009_game_config_1.rowCount; newRowIndex++) {
-                                    var newCellIndex = aka_g1009_game_config_1.SlottyParameter.GetCellIndex(reelIndex, newRowIndex);
+                                for (var newRowIndex = 0; newRowIndex < Slot45_game_config_1.rowCount; newRowIndex++) {
+                                    var newCellIndex = Slot45_game_config_1.SlottyParameter.GetCellIndex(reelIndex, newRowIndex);
                                     if (newCellsResult[newCellIndex] == "Core") {
                                         newCellsResult[newCellIndex] = "Reactor";
                                         indices.push(newCellIndex);
@@ -549,7 +549,7 @@ var ConnectServer = /** @class */ (function (_super) {
             data.Cells = _this.createCellsResult(rawData.normalGameMatrix);
             if (_this.currentSession.hasOwnProperty("normalPayLines")) {
                 _this.currentSession.normalPayLines.forEach(function (normalPayLine) {
-                    data.WinLines.push(new aka_g1009_present_win_panel_1.G1009WinLineResult(exports.WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], exports.SLOTTY_ITEM[normalPayLine.psc], false, aka_g1009_game_config_1.NEAR_WIN_SYMBOL.includes((exports.SLOTTY_ITEM[normalPayLine.psc]))));
+                    data.WinLines.push(new Slot45_present_win_panel_1.G1009WinLineResult(exports.WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], exports.SLOTTY_ITEM[normalPayLine.psc], false, Slot45_game_config_1.NEAR_WIN_SYMBOL.includes((exports.SLOTTY_ITEM[normalPayLine.psc]))));
                 });
             }
             data.WinLines.forEach(function (winLine) { return data.winPoint += winLine.GetWinPoint(); });
@@ -559,10 +559,10 @@ var ConnectServer = /** @class */ (function (_super) {
     };
     ConnectServer.prototype.createCellsResult = function (arrItem) {
         var cellsResult = [];
-        for (var rowIndex = 0; rowIndex < aka_g1009_game_config_1.rowCount; rowIndex++) {
-            for (var reelIndex = 0; reelIndex < aka_g1009_game_config_1.reelCount; reelIndex++) {
+        for (var rowIndex = 0; rowIndex < Slot45_game_config_1.rowCount; rowIndex++) {
+            for (var reelIndex = 0; reelIndex < Slot45_game_config_1.reelCount; reelIndex++) {
                 var item = arrItem[reelIndex][rowIndex];
-                var cellIndex = aka_g1009_game_config_1.SlottyParameter.GetCellIndex(reelIndex, rowIndex);
+                var cellIndex = Slot45_game_config_1.SlottyParameter.GetCellIndex(reelIndex, rowIndex);
                 cellsResult.push(exports.SLOTTY_ITEM[item]);
             }
         }
@@ -572,7 +572,7 @@ var ConnectServer = /** @class */ (function (_super) {
         var _this = this;
         var result = this.processNormalData();
         setTimeout(function () {
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("NextScrollData", result);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("NextScrollData", result);
             if (result.freespinLeft == 0) {
                 _this.isFreespins = false;
             }
@@ -580,15 +580,15 @@ var ConnectServer = /** @class */ (function (_super) {
     };
     ConnectServer.prototype.fakeBalanceSpin = function () {
         if (!this.isFreespins) {
-            var newBalance = aka_g1009_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() - aka_g1009_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint();
-            aka_g1009_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
-            aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
+            var newBalance = Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() - Slot45_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint();
+            Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
+            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
         }
     };
     ConnectServer.prototype.onEndRound = function () {
         var newBalance = this.gameManager1009.getPlayerMoney();
-        aka_g1009_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
+        Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
+        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
     };
     ConnectServer = __decorate([
         ccclass

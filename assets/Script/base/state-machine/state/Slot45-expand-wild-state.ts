@@ -1,0 +1,38 @@
+import G1009GameController from "../../controller/Slot45-game-controller";
+import { G1009EventManager } from "../../events/Slot45-event-manager";
+import { State } from "../abstract/Slot45-state";
+import { G1009BetState } from "./Slot45-bet-state";
+import { G1009FeatureTriggerState } from "./Slot45-feature-trigger-state";
+import { G1009FeatureWinState } from "./Slot45-feature-win-state";
+import { G1009SpinState } from "./Slot45-spin-state";
+import { G1009WinState } from "./Slot45-win-state";
+
+export class G1009ExpandwildState extends State {
+	constructor() {
+		super();
+		console.log("Expand wild state");
+		setTimeout(() => {
+			G1009EventManager.GetInstance().notify("ExpandWildStarted", G1009GameController.GetInstance().GetExpandWildIndices());
+		}, 100);
+	}
+
+	ExpandWildCompleted(): State {
+		if (G1009GameController.GetInstance().CheckWinLineData())
+		{
+			return new G1009WinState();
+		}
+		if (G1009GameController.GetInstance().CheckBonusFeatureTrigger())
+		{
+			return new G1009FeatureTriggerState();
+		}
+		if (G1009GameController.GetInstance().CheckFreespinContinue())
+		{
+			return new G1009SpinState();
+		}
+		if (G1009GameController.GetInstance().CheckFreespinEnd())
+		{
+			return new G1009FeatureWinState();
+		}
+		return new G1009BetState();
+	}
+}

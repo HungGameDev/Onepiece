@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '4dcd5uWPp9DVZ+nOV55ZXZw', 'aka-g1009-round-popup');
-// Script/UI/popup/aka-g1009-round-popup.ts
+cc._RF.push(module, '4dcd5uWPp9DVZ+nOV55ZXZw', 'Slot45-round-popup');
+// Script/UI/popup/Slot45-round-popup.ts
 
 "use strict";
 var __extends = (this && this.__extends) || (function () {
@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var aka_g1009_event_manager_1 = require("../../base/events/aka-g1009-event-manager");
+var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var G1009RoundPopupActor = /** @class */ (function (_super) {
     __extends(G1009RoundPopupActor, _super);
@@ -36,7 +36,7 @@ var G1009RoundPopupActor = /** @class */ (function (_super) {
         this.register();
     };
     G1009RoundPopupActor.prototype.register = function () {
-        aka_g1009_event_manager_1.G1009EventManager.GetInstance().register("ShowRound", this.OnShowRound.bind(this));
+        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowRound", this.OnShowRound.bind(this));
     };
     G1009RoundPopupActor.prototype.OnShowRound = function (round) {
         this.rounnd.string = round;

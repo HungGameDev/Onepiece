@@ -3,7 +3,7 @@
 // import { G1009EventManager } from "../../base/events/aka-g1009-event-manager";
 // import G1009SpinItemActor, { ESpinningState } from "./aka-g1009-spin-item";
 // import { G1009SpinItemData } from "./aka-g1009-spin-item-data";
-import G1009SpinPanelActor from "../../UI/spin-panel/aka-g1009-spin-panel";
+import G1009SpinPanelActor from "../../UI/spin-panel/Slot45-spin-panel";
 
 const { ccclass, property } = cc._decorator;
 @ccclass

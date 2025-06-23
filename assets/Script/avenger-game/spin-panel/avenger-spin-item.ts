@@ -1,7 +1,7 @@
-import G1009CellItemActor from "../../UI/spin-panel/aka-g1009-cell-item";
-import G1009SpinItemActor, { ESpinningState } from "../../UI/spin-panel/aka-g1009-spin-item";
-import { G1009SpinItemData } from "../../UI/spin-panel/aka-g1009-spin-item-data";
-import { G1009EventManager } from "../../base/events/aka-g1009-event-manager";
+import G1009CellItemActor from "../../UI/spin-panel/Slot45-cell-item";
+import G1009SpinItemActor, { ESpinningState } from "../../UI/spin-panel/Slot45-spin-item";
+import { G1009SpinItemData } from "../../UI/spin-panel/Slot45-spin-item-data";
+import { G1009EventManager } from "../../base/events/Slot45-event-manager";
 import { SpinPanelConfig } from "./avenger-spin-panel-config";
 
 const { ccclass, property } = cc._decorator;
