@@ -4,9 +4,9 @@ cc._RF.push(module, '5de3fSpaV9Izo/HK4K6iz1j', 'Slot45-spin-item-data');
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.G1009SpinItemData = void 0;
-var G1009SpinItemData = /** @class */ (function () {
-    function G1009SpinItemData() {
+exports.Slot45SpinItemData = void 0;
+var Slot45SpinItemData = /** @class */ (function () {
+    function Slot45SpinItemData() {
         this.ReelDataType = "reel-data";
         this.ScrollSpeed = 60;
         this.TensionSpeedMultiplier = 2;
@@ -22,9 +22,9 @@ var G1009SpinItemData = /** @class */ (function () {
         this.IsDisableTopAndBottom = true;
         this.ReelDefaultData = ReelDefaultData;
     }
-    return G1009SpinItemData;
+    return Slot45SpinItemData;
 }());
-exports.G1009SpinItemData = G1009SpinItemData;
+exports.Slot45SpinItemData = Slot45SpinItemData;
 var ReelDefaultData = [
     "Ace", "Jack", "King", "Queen", "Ace",
     "Bonus", "Jackpot", "Scatter", "Jack", "Ace",

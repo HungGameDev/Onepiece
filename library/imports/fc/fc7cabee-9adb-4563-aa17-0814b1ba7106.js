@@ -4,15 +4,15 @@ cc._RF.push(module, 'fc7cavumttFY6oXCBSxunEG', 'Slot45-number-converter');
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var G1009Util = /** @class */ (function () {
-    function G1009Util() {
+var Slot45Util = /** @class */ (function () {
+    function Slot45Util() {
     }
-    G1009Util.Instance = function () {
-        if (!G1009Util.instance)
-            G1009Util.instance = new G1009Util();
-        return G1009Util.instance;
+    Slot45Util.Instance = function () {
+        if (!Slot45Util.instance)
+            Slot45Util.instance = new Slot45Util();
+        return Slot45Util.instance;
     };
-    G1009Util.prototype.NumberFormat = function (inputNumber) {
+    Slot45Util.prototype.NumberFormat = function (inputNumber) {
         if (isNaN(inputNumber)) {
             return undefined; // or handle the case differently based on your requirements
         }
@@ -32,7 +32,7 @@ var G1009Util = /** @class */ (function () {
             return result % 1 === 0 ? result.toFixed(0) + 'B' : result.toFixed(result % 1 === 0.5 ? 1 : 3) + 'B';
         }
     };
-    G1009Util.prototype.NumberFormatWithoutCharacter = function (number) {
+    Slot45Util.prototype.NumberFormatWithoutCharacter = function (number) {
         var temp = number.toLocaleString('en-US').split(".");
         var re = /\,/gi;
         var result = temp[0].replace(re, ".");
@@ -41,7 +41,7 @@ var G1009Util = /** @class */ (function () {
         }
         return result;
     };
-    G1009Util.prototype.WaitUntil = function (condition, timeout, interval) {
+    Slot45Util.prototype.WaitUntil = function (condition, timeout, interval) {
         if (timeout === void 0) {
             timeout = 0;
         } // if not set, wait forever
@@ -78,20 +78,20 @@ var G1009Util = /** @class */ (function () {
             }
         });
     };
-    G1009Util.prototype.ConvertTimeStampToHours = function (timestamp) {
+    Slot45Util.prototype.ConvertTimeStampToHours = function (timestamp) {
         var u = new Date(timestamp * 1000);
         return ('0' + u.getUTCHours()).slice(-2) +
             ':' + ('0' + u.getUTCMinutes()).slice(-2) +
             ':' + ('0' + u.getUTCSeconds()).slice(-2);
     };
-    G1009Util.prototype.ConvertTimeStampToDate = function (timestamp) {
+    Slot45Util.prototype.ConvertTimeStampToDate = function (timestamp) {
         var u = new Date(timestamp * 1000);
         return ('0' + u.getUTCDate()).slice(-2) +
             '-' + ('0' + u.getUTCMonth()).slice(-2) +
             '-' + u.getUTCFullYear();
     };
-    return G1009Util;
+    return Slot45Util;
 }());
-exports.default = G1009Util;
+exports.default = Slot45Util;
 
 cc._RF.pop();

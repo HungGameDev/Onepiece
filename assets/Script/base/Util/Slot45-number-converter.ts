@@ -1,11 +1,11 @@
 
-export default class G1009Util {
-	private static instance: G1009Util;
+export default class Slot45Util {
+	private static instance: Slot45Util;
 
 	public static Instance() {
-		if (!G1009Util.instance)
-			G1009Util.instance = new G1009Util();
-		return G1009Util.instance;
+		if (!Slot45Util.instance)
+			Slot45Util.instance = new Slot45Util();
+		return Slot45Util.instance;
 	}
 
 	public NumberFormat(inputNumber: number): string {

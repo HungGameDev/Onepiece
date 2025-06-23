@@ -1,13 +1,13 @@
-import G1009SoundConfig from "../../config/sound-config";
-import { G1009EventManager } from "../events/Slot45-event-manager";
-import G1009SoundControllerActor from "./Slot45-sound-controller";
+import Slot45SoundConfig from "../../config/sound-config";
+import { Slot45EventManager } from "../events/Slot45-event-manager";
+import Slot45SoundControllerActor from "./Slot45-sound-controller";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009SoundHandlerActor extends cc.Component {
+export default class Slot45SoundHandlerActor extends cc.Component {
     
-    public soundController: G1009SoundControllerActor = null;
+    public soundController: Slot45SoundControllerActor = null;
     private spinItemCount: number = 0;
     private landingCount: any = {};
     private isFreeSpin: boolean = false;
@@ -15,7 +15,7 @@ export default class G1009SoundHandlerActor extends cc.Component {
     private isPlayedSoundLandingImmediately: boolean = false;
     private currentBGMMusicPlaying: string = "";
     private tweenVolume: cc.Tween = cc.tween({});
-    SoundConfig: G1009SoundConfig = new G1009SoundConfig();
+    SoundConfig: Slot45SoundConfig = new Slot45SoundConfig();
 
     protected start(): void {
         this.currentBGMMusicPlaying = this.SoundConfig.SoundNameConfig.BGMChooseBet;
@@ -29,17 +29,17 @@ export default class G1009SoundHandlerActor extends cc.Component {
     }
     
     protected onLoad(): void {
-        this.soundController = G1009SoundControllerActor.Instance;
+        this.soundController = Slot45SoundControllerActor.Instance;
         this.register();
     }
     private register(): void {
-        G1009EventManager.GetInstance().register("PlaySFX", this.onPlaySFX.bind(this));
-        G1009EventManager.GetInstance().register("StopSFX", this.onStopSFX.bind(this));
-        G1009EventManager.GetInstance().register("PlayBGM", this.onPlayBGM.bind(this));
-        G1009EventManager.GetInstance().register("StopBGM", this.onStopBGM.bind(this));
-        G1009EventManager.GetInstance().register("ShowPopupChangeBet", this.onPlayChooseBetBGMusic.bind(this));
-        G1009EventManager.GetInstance().register("ChangeBet", this.onPlayMainGameBGMusic.bind(this));
-        G1009EventManager.GetInstance().register("FeatureTrigger", this.onFeatureTrigger.bind(this));
+        Slot45EventManager.GetInstance().register("PlaySFX", this.onPlaySFX.bind(this));
+        Slot45EventManager.GetInstance().register("StopSFX", this.onStopSFX.bind(this));
+        Slot45EventManager.GetInstance().register("PlayBGM", this.onPlayBGM.bind(this));
+        Slot45EventManager.GetInstance().register("StopBGM", this.onStopBGM.bind(this));
+        Slot45EventManager.GetInstance().register("ShowPopupChangeBet", this.onPlayChooseBetBGMusic.bind(this));
+        Slot45EventManager.GetInstance().register("ChangeBet", this.onPlayMainGameBGMusic.bind(this));
+        Slot45EventManager.GetInstance().register("FeatureTrigger", this.onFeatureTrigger.bind(this));
 	
     }
 

@@ -46,7 +46,7 @@ var BorderWinCellPanel = /** @class */ (function (_super) {
         this.register();
     };
     BorderWinCellPanel.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowWinCells", this.onShowWinCells.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowWinCells", this.onShowWinCells.bind(this));
     };
     BorderWinCellPanel.prototype.onShowWinCells = function (arrWinCells) {
         var dataSequence = this.generateDataSequenceFollowReel(__spreadArrays(arrWinCells));
@@ -65,7 +65,7 @@ var BorderWinCellPanel = /** @class */ (function (_super) {
     };
     BorderWinCellPanel.prototype.playAnimationBorderWinCell = function (dataSequenceIndexCell) {
         var _this = this;
-        var dataSpine = Slot45_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation(this.nameSpineAnimation);
+        var dataSpine = Slot45_animation_provider_1.Slot45AnimationProviderManager.Instance().GetAnimation(this.nameSpineAnimation);
         var _loop_1 = function (index) {
             var countIndex = index;
             var arrIndex = dataSequenceIndexCell[countIndex];

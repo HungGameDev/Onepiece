@@ -25,31 +25,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009FeatureTrigger = /** @class */ (function (_super) {
-    __extends(G1009FeatureTrigger, _super);
-    function G1009FeatureTrigger() {
+var Slot45FeatureTrigger = /** @class */ (function (_super) {
+    __extends(Slot45FeatureTrigger, _super);
+    function Slot45FeatureTrigger() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         return _this;
     }
-    G1009FeatureTrigger.prototype.start = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTrigger.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
+    Slot45FeatureTrigger.prototype.start = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTrigger.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
     };
-    G1009FeatureTrigger.prototype.checkRuleTrigger = function () {
+    Slot45FeatureTrigger.prototype.checkRuleTrigger = function () {
         return false;
     };
-    G1009FeatureTrigger.prototype.onFeatureTrigger = function () {
+    Slot45FeatureTrigger.prototype.onFeatureTrigger = function () {
         if (this.checkRuleTrigger()) {
             this.showContent();
         }
     };
-    G1009FeatureTrigger.prototype.onfeatureWinCompleted = function () {
+    Slot45FeatureTrigger.prototype.onfeatureWinCompleted = function () {
         if (this.checkRuleTrigger()) {
             this.hideContent();
         }
     };
-    G1009FeatureTrigger.prototype.showContent = function () {
+    Slot45FeatureTrigger.prototype.showContent = function () {
         var _this = this;
         if (this.content != null) {
             cc.tween(this.content)
@@ -62,23 +62,23 @@ var G1009FeatureTrigger = /** @class */ (function (_super) {
             }).start();
         }
     };
-    G1009FeatureTrigger.prototype.hideContent = function () {
+    Slot45FeatureTrigger.prototype.hideContent = function () {
     };
-    G1009FeatureTrigger.prototype.reset = function () {
+    Slot45FeatureTrigger.prototype.reset = function () {
         if (this.content != null) {
             this.content.opacity = 0;
             this.content.active = false;
         }
     };
-    G1009FeatureTrigger.prototype.notifyEnterFeature = function () { };
+    Slot45FeatureTrigger.prototype.notifyEnterFeature = function () { };
     __decorate([
         property(cc.Node)
-    ], G1009FeatureTrigger.prototype, "content", void 0);
-    G1009FeatureTrigger = __decorate([
+    ], Slot45FeatureTrigger.prototype, "content", void 0);
+    Slot45FeatureTrigger = __decorate([
         ccclass
-    ], G1009FeatureTrigger);
-    return G1009FeatureTrigger;
+    ], Slot45FeatureTrigger);
+    return Slot45FeatureTrigger;
 }(cc.Component));
-exports.default = G1009FeatureTrigger;
+exports.default = Slot45FeatureTrigger;
 
 cc._RF.pop();

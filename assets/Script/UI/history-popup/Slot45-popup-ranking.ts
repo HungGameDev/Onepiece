@@ -1,19 +1,19 @@
 import { formatDDMMHHmmSS } from "../../base/Util/Slot45_date-util";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import G1009PopupHistory from "./Slot45-popup-history";
-import G1009PopupRankingItem from "./Slot45-popup-ranking-item";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45PopupHistory from "./Slot45-popup-history";
+import Slot45PopupRankingItem from "./Slot45-popup-ranking-item";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009PopupLeaderBoard extends G1009PopupHistory {
+export default class Slot45PopupLeaderBoard extends Slot45PopupHistory {
 
 	private allData: any[] = null;
 	private jackpotData: any[] = null;
 
 	override start(): void {
 		this.Init();
-		G1009EventManager.GetInstance().register("OpenJackpotH", this.Show.bind(this));
+		Slot45EventManager.GetInstance().register("OpenJackpotH", this.Show.bind(this));
 
 	}
 	override  Init(): void {
@@ -31,7 +31,7 @@ export default class G1009PopupLeaderBoard extends G1009PopupHistory {
 			const data = historyData[index];
 			count++;
 			let item = cc.instantiate(this.prefabItem);
-			let itemComponent = item.getComponent(G1009PopupRankingItem);
+			let itemComponent = item.getComponent(Slot45PopupRankingItem);
 			let time: string = formatDDMMHHmmSS(data.time);
 			itemComponent.SetInfoItem(data.session, time, data.wonUser, data.win, data.type, count);
 			item.setParent(this.contentView);

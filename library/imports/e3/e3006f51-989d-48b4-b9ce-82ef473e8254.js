@@ -4,24 +4,24 @@ cc._RF.push(module, 'e30069RmJ1ItLnOgu9HPoJU', 'Slot45-balance-model');
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.G1009BalanceModel = void 0;
-var G1009BalanceModel = /** @class */ (function () {
-    function G1009BalanceModel() {
+exports.Slot45BalanceModel = void 0;
+var Slot45BalanceModel = /** @class */ (function () {
+    function Slot45BalanceModel() {
         this.balance = 0;
     }
-    G1009BalanceModel.GetInstance = function () {
-        if (!G1009BalanceModel.instance)
-            G1009BalanceModel.instance = new G1009BalanceModel();
-        return G1009BalanceModel.instance;
+    Slot45BalanceModel.GetInstance = function () {
+        if (!Slot45BalanceModel.instance)
+            Slot45BalanceModel.instance = new Slot45BalanceModel();
+        return Slot45BalanceModel.instance;
     };
-    G1009BalanceModel.prototype.SetBalance = function (balance) {
+    Slot45BalanceModel.prototype.SetBalance = function (balance) {
         this.balance = balance;
     };
-    G1009BalanceModel.prototype.GetBalance = function () {
+    Slot45BalanceModel.prototype.GetBalance = function () {
         return this.balance;
     };
-    return G1009BalanceModel;
+    return Slot45BalanceModel;
 }());
-exports.G1009BalanceModel = G1009BalanceModel;
+exports.Slot45BalanceModel = Slot45BalanceModel;
 
 cc._RF.pop();

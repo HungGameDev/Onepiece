@@ -1,25 +1,25 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009AnimationProviderActor extends cc.Component {
+export default class Slot45AnimationProviderActor extends cc.Component {
 
     @property(sp.SkeletonData)
     listAnimation: sp.SkeletonData[] = [];
 
     protected onLoad(): void {
-        G1009AnimationProviderManager.Instance().SetAniamtion(this.listAnimation);
+        Slot45AnimationProviderManager.Instance().SetAniamtion(this.listAnimation);
     }
 
 }
 
-export class G1009AnimationProviderManager{
-    private static instance: G1009AnimationProviderManager;
+export class Slot45AnimationProviderManager{
+    private static instance: Slot45AnimationProviderManager;
     dictSpriteFrame: cc.SpriteFrame[] = [];
 
     public static Instance() {
-        if (!G1009AnimationProviderManager.instance)
-        G1009AnimationProviderManager.instance = new G1009AnimationProviderManager();
-        return G1009AnimationProviderManager.instance;
+        if (!Slot45AnimationProviderManager.instance)
+        Slot45AnimationProviderManager.instance = new Slot45AnimationProviderManager();
+        return Slot45AnimationProviderManager.instance;
     }
 
     public SetAniamtion(_animationDatas: sp.SkeletonData[]) {

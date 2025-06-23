@@ -1,25 +1,25 @@
-import G1009GameController from "../../base/controller/Slot45-game-controller";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import G1009FeatureTrigger from "../feature/Slot45-feature-trigger-actor";
+import Slot45GameController from "../../base/controller/Slot45-game-controller";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45FeatureTrigger from "../feature/Slot45-feature-trigger-actor";
 
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009BonusTrigger extends G1009FeatureTrigger {
+export default class Slot45BonusTrigger extends Slot45FeatureTrigger {
 	@property(cc.Node)
 	arrNodeSymbol: cc.Node[] = [];
 
     protected checkRuleTrigger(): boolean {
-		return G1009GameController.GetInstance().CheckBonusPointTrigger();
+		return Slot45GameController.GetInstance().CheckBonusPointTrigger();
 	}
 
 	protected notifyEnterFeature() {
-		G1009EventManager.GetInstance().notify("EnterBonus", G1009GameController.GetInstance().GetWinBonus());
+		Slot45EventManager.GetInstance().notify("EnterBonus", Slot45GameController.GetInstance().GetWinBonus());
 	}
 
 	protected showContent(): void {
-		G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_bonustransition", isLoop: false });
+		Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_bonustransition", isLoop: false });
 		this.content.active = true;
 		cc.tween(this.content)
 				.to(0.5, { opacity: 255 })
@@ -43,7 +43,7 @@ export default class G1009BonusTrigger extends G1009FeatureTrigger {
 		cc.tween(this.node).delay(2).call(() => {
 			this.notifyEnterFeature();	
 		}).delay(2).call(() => {
-			G1009EventManager.GetInstance().notify("BonusWinComplete");
+			Slot45EventManager.GetInstance().notify("BonusWinComplete");
 			this.reset();
 		})
 		.start();

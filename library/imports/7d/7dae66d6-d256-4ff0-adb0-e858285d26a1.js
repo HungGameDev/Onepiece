@@ -26,9 +26,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_sprite_frame_provider_1 = require("../provider/Slot45-sprite-frame-provider");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009PopupHistoryDetail = /** @class */ (function (_super) {
-    __extends(G1009PopupHistoryDetail, _super);
-    function G1009PopupHistoryDetail() {
+var Slot45PopupHistoryDetail = /** @class */ (function (_super) {
+    __extends(Slot45PopupHistoryDetail, _super);
+    function Slot45PopupHistoryDetail() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         _this.contentSpinResuilt = null;
@@ -38,46 +38,46 @@ var G1009PopupHistoryDetail = /** @class */ (function (_super) {
         _this.SymbolFormat = 'Symbol_%s';
         return _this;
     }
-    G1009PopupHistoryDetail.prototype.start = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowDetailHistory", this.onShowDetailHistory.bind(this));
+    Slot45PopupHistoryDetail.prototype.start = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowDetailHistory", this.onShowDetailHistory.bind(this));
         for (var index = 0; index < this.contentSpinResuilt.childrenCount; index++) {
             var itemComponent = this.contentSpinResuilt.children[index].getComponent(cc.Sprite);
             this.spinResuilt.push(itemComponent);
         }
     };
-    G1009PopupHistoryDetail.prototype.onShowDetailHistory = function (data) {
+    Slot45PopupHistoryDetail.prototype.onShowDetailHistory = function (data) {
         for (var index = 0; index < data.SpinResuilt.length; index++) {
             var Id = data.SpinResuilt[index];
-            var frame = Slot45_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, Id));
+            var frame = Slot45_sprite_frame_provider_1.Slot45SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, Id));
             this.spinResuilt[index].spriteFrame = frame;
         }
         this.lblSession.string = data.Session;
         this.lblTotalWin.string = data.TotalWin;
         this.Show();
     };
-    G1009PopupHistoryDetail.prototype.Show = function () {
+    Slot45PopupHistoryDetail.prototype.Show = function () {
         this.content.active = true;
     };
-    G1009PopupHistoryDetail.prototype.Hide = function () {
+    Slot45PopupHistoryDetail.prototype.Hide = function () {
         this.content.active = false;
     };
     __decorate([
         property(cc.Node)
-    ], G1009PopupHistoryDetail.prototype, "content", void 0);
+    ], Slot45PopupHistoryDetail.prototype, "content", void 0);
     __decorate([
         property(cc.Node)
-    ], G1009PopupHistoryDetail.prototype, "contentSpinResuilt", void 0);
+    ], Slot45PopupHistoryDetail.prototype, "contentSpinResuilt", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupHistoryDetail.prototype, "lblSession", void 0);
+    ], Slot45PopupHistoryDetail.prototype, "lblSession", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupHistoryDetail.prototype, "lblTotalWin", void 0);
-    G1009PopupHistoryDetail = __decorate([
+    ], Slot45PopupHistoryDetail.prototype, "lblTotalWin", void 0);
+    Slot45PopupHistoryDetail = __decorate([
         ccclass
-    ], G1009PopupHistoryDetail);
-    return G1009PopupHistoryDetail;
+    ], Slot45PopupHistoryDetail);
+    return Slot45PopupHistoryDetail;
 }(cc.Component));
-exports.default = G1009PopupHistoryDetail;
+exports.default = Slot45PopupHistoryDetail;
 
 cc._RF.pop();

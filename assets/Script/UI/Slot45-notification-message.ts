@@ -1,6 +1,6 @@
-import G1009Util from "../base/Util/Slot45-number-converter";
-import { G1009EventManager } from "../base/events/Slot45-event-manager";
-import { G1009SpriteProviderManagerActor } from "./provider/Slot45-sprite-frame-provider";
+import Slot45Util from "../base/Util/Slot45-number-converter";
+import { Slot45EventManager } from "../base/events/Slot45-event-manager";
+import { Slot45SpriteProviderManagerActor } from "./provider/Slot45-sprite-frame-provider";
 
 const { ccclass, property } = cc._decorator;
 
@@ -36,20 +36,20 @@ export default class NewClass extends cc.Component {
 	}
 
 	private register(): void {
-		G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
-		G1009EventManager.GetInstance().register("NotificationWinMessage", this.onMessages.bind(this));
-		G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
-		G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
-		G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-		G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-		G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
+		Slot45EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
+		Slot45EventManager.GetInstance().register("NotificationWinMessage", this.onMessages.bind(this));
+		Slot45EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
+		Slot45EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
+		Slot45EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+		Slot45EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
+		Slot45EventManager.GetInstance().register("resume", this.onResume.bind(this));
 	}
 
 	private onResume(data: any) {
 		if (data.isFreespins)
 		{
 			this.isFreespins = true;
-			this.totalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(data.totalWinPoint);
+			this.totalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(data.totalWinPoint);
 		}
 	}
 
@@ -65,8 +65,8 @@ export default class NewClass extends cc.Component {
 			if (mesageData.WinSymbol != "Scatter" && mesageData.WinSymbol != "Bonus")
 			{
 				this.winNumber.string = mesageData.WinNumber[0] + 1;
-				this.winPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(mesageData.WinPoint);
-				this.winIcon.spriteFrame = G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, mesageData.WinSymbol));
+				this.winPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(mesageData.WinPoint);
+				this.winIcon.spriteFrame = Slot45SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, mesageData.WinSymbol));
 				this.lineMessage.active = true;
 			}
 		}
@@ -85,12 +85,12 @@ export default class NewClass extends cc.Component {
 			.delay(delay)
 			.to(duration, { value: point }, {
 				progress: (start: any, end: any, current: any, ratio: any) => {
-					this.totalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(Math.floor(current));
+					this.totalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(Math.floor(current));
 					return start + (end - start) * ratio;
 				}
 			})
 			.call(() => {
-				this.totalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(point);
+				this.totalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(point);
 				this.currentPoint = point;
 			})
 		this.tweenCountPoint.start();
@@ -130,7 +130,7 @@ export default class NewClass extends cc.Component {
 			if (this.currentPoint > 0)
 			{
 				this.tweenCountPoint && this.tweenCountPoint.stop();
-				this.totalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+				this.totalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(this.currentPoint);
 				this.totalWinPoint.node.opacity = 255;
 			}
 		}

@@ -1,6 +1,6 @@
 import { SlottyParameter } from "../../Slot45-game-config";
-import { G1009AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 
 const { ccclass, property } = cc._decorator;
@@ -19,7 +19,7 @@ export default class BorderWinCellPanel extends cc.Component {
     }
 
     private register(): void {
-        G1009EventManager.GetInstance().register("ShowWinCells", this.onShowWinCells.bind(this));
+        Slot45EventManager.GetInstance().register("ShowWinCells", this.onShowWinCells.bind(this));
     }
 
     private onShowWinCells(arrWinCells: []) {
@@ -40,7 +40,7 @@ export default class BorderWinCellPanel extends cc.Component {
     }
 
     playAnimationBorderWinCell(dataSequenceIndexCell) {
-        var dataSpine = G1009AnimationProviderManager.Instance().GetAnimation(this.nameSpineAnimation);
+        var dataSpine = Slot45AnimationProviderManager.Instance().GetAnimation(this.nameSpineAnimation);
         for (let index = 0; index < dataSequenceIndexCell.length; index++) {
             let countIndex = index;
             let arrIndex = dataSequenceIndexCell[countIndex];

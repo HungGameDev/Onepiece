@@ -33,7 +33,7 @@ var SmokePanel = /** @class */ (function (_super) {
         return _this;
     }
     SmokePanel.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("CellDropCompleted", this.onCellDropCompleted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("CellDropCompleted", this.onCellDropCompleted.bind(this));
     };
     SmokePanel.prototype.onLoad = function () {
         this.register();

@@ -29,9 +29,9 @@ var Slot45_bet_model_1 = require("../models/Slot45-bet-model");
 var Slot45_event_manager_1 = require("./events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var TOTAL_FREESPINS = 5;
-var G1009SimulatorServer = /** @class */ (function (_super) {
-    __extends(G1009SimulatorServer, _super);
-    function G1009SimulatorServer() {
+var Slot45SimulatorServer = /** @class */ (function (_super) {
+    __extends(Slot45SimulatorServer, _super);
+    function Slot45SimulatorServer() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.result = null;
         _this.isFreespins = false;
@@ -41,45 +41,45 @@ var G1009SimulatorServer = /** @class */ (function (_super) {
         _this.totalWinPoint = 0;
         return _this;
     }
-    G1009SimulatorServer.prototype.onLoad = function () {
+    Slot45SimulatorServer.prototype.onLoad = function () {
         this.register();
         this.WinLines = [
-            new Slot45_present_win_panel_1.G1009WinLineResult([0, 1, 2, 3, 4], 25000, [1]),
-            new Slot45_present_win_panel_1.G1009WinLineResult([5, 6, 7, 8, 9], 25000, [0]),
-            new Slot45_present_win_panel_1.G1009WinLineResult([10, 11, 12, 13, 14], 25000, [2])
+            new Slot45_present_win_panel_1.Slot45WinLineResult([0, 1, 2, 3, 4], 25000, [1]),
+            new Slot45_present_win_panel_1.Slot45WinLineResult([5, 6, 7, 8, 9], 25000, [0]),
+            new Slot45_present_win_panel_1.Slot45WinLineResult([10, 11, 12, 13, 14], 25000, [2])
         ];
         this.winLineAndScatter = [
-            new Slot45_present_win_panel_1.G1009WinLineResult([0, 1, 2, 3, 4], 40000, [1], "A"),
-            new Slot45_present_win_panel_1.G1009WinLineResult([5, 6, 7, 8, 9], 40000, [0], "Q"),
+            new Slot45_present_win_panel_1.Slot45WinLineResult([0, 1, 2, 3, 4], 40000, [1], "A"),
+            new Slot45_present_win_panel_1.Slot45WinLineResult([5, 6, 7, 8, 9], 40000, [0], "Q"),
         ];
         this.winScatters = [
-            new Slot45_present_win_panel_1.G1009WinLineResult([10, 12, 14], 0, [-1], "Scatter")
+            new Slot45_present_win_panel_1.Slot45WinLineResult([10, 12, 14], 0, [-1], "Scatter")
         ];
         this.winBonus = [
-            new Slot45_present_win_panel_1.G1009WinLineResult([1, 2, 3], 0, [-1], "Bonus")
+            new Slot45_present_win_panel_1.Slot45WinLineResult([1, 2, 3], 0, [-1], "Bonus")
         ];
         this.winlineContent = [[5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [10, 11, 12, 13, 14]];
         //, [0, 6, 12, 8, 4], [10, 6, 3, 8, 14]
-        Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetPerLines([100, 250, 1000, 2500, 10000, 25000, 50000]);
-        Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetMultiplier(20);
-        Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(1000);
+        Slot45_bet_model_1.Slot45BetModel.GetInstance().SetBetPerLines([100, 250, 1000, 2500, 10000, 25000, 50000]);
+        Slot45_bet_model_1.Slot45BetModel.GetInstance().SetBetMultiplier(20);
+        Slot45_balance_model_1.Slot45BalanceModel.GetInstance().SetBalance(1000);
     };
-    G1009SimulatorServer.prototype.start = function () {
+    Slot45SimulatorServer.prototype.start = function () {
         setTimeout(function () {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("init");
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("init");
         }, 0.1);
     };
-    G1009SimulatorServer.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
+    Slot45SimulatorServer.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
     };
-    G1009SimulatorServer.prototype.fakeBalanceSpin = function () {
+    Slot45SimulatorServer.prototype.fakeBalanceSpin = function () {
         if (!this.isFreespins) {
-            var newBalance = Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() - Slot45_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint();
-            Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange");
+            var newBalance = Slot45_balance_model_1.Slot45BalanceModel.GetInstance().GetBalance() - Slot45_bet_model_1.Slot45BetModel.GetInstance().GetTotalBetPoint();
+            Slot45_balance_model_1.Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("BalanceChange");
         }
     };
-    G1009SimulatorServer.prototype.onSpinRequest = function () {
+    Slot45SimulatorServer.prototype.onSpinRequest = function () {
         var _a;
         var isEndround = false;
         var isRetrigger = false;
@@ -130,7 +130,7 @@ var G1009SimulatorServer = /** @class */ (function (_super) {
         }
         this.simulatorServer();
     };
-    G1009SimulatorServer.prototype.fakebug = function (featureDatas, featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround, jackpotWinPoint) {
+    Slot45SimulatorServer.prototype.fakebug = function (featureDatas, featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround, jackpotWinPoint) {
         cellsResult = [
             "K",
             "Core",
@@ -157,7 +157,7 @@ var G1009SimulatorServer = /** @class */ (function (_super) {
         // jackpotWinPoint = 1000000;
         return { featureData: featureData, cellsResult: cellsResult, WinLines: WinLines, winScatters: winScatters, winBonus: winBonus, isExpandWild: isExpandWild, expandWildIndices: expandWildIndices, isEndround: isEndround, jackpotWinPoint: jackpotWinPoint };
     };
-    G1009SimulatorServer.prototype.fakeJackpot = function (featureDatas, featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround, jackpotWinPoint) {
+    Slot45SimulatorServer.prototype.fakeJackpot = function (featureDatas, featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround, jackpotWinPoint) {
         cellsResult[0] = "Core";
         cellsResult[1] = "Core";
         cellsResult[12] = "Reactor";
@@ -172,7 +172,7 @@ var G1009SimulatorServer = /** @class */ (function (_super) {
         jackpotWinPoint = 1000000;
         return { featureData: featureData, cellsResult: cellsResult, WinLines: WinLines, winScatters: winScatters, winBonus: winBonus, isExpandWild: isExpandWild, expandWildIndices: expandWildIndices, isEndround: isEndround, jackpotWinPoint: jackpotWinPoint };
     };
-    G1009SimulatorServer.prototype.fakeBigWinInShortFreespins = function (featureDatas, featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround) {
+    Slot45SimulatorServer.prototype.fakeBigWinInShortFreespins = function (featureDatas, featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround) {
         if (!this.isFreespins) {
             this.totalWinPoint = 0;
             this.isFreespins = true;
@@ -199,7 +199,7 @@ var G1009SimulatorServer = /** @class */ (function (_super) {
         }
         return { featureData: featureData, cellsResult: cellsResult, WinLines: WinLines, winScatters: winScatters, winBonus: winBonus, isExpandWild: isExpandWild, expandWildIndices: expandWildIndices, isEndround: isEndround };
     };
-    G1009SimulatorServer.prototype.fakeFreespinWin = function (featureDatas, featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround) {
+    Slot45SimulatorServer.prototype.fakeFreespinWin = function (featureDatas, featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround) {
         if (!this.isFreespins) {
             this.totalWinPoint = 0;
             this.isFreespins = true;
@@ -240,7 +240,7 @@ var G1009SimulatorServer = /** @class */ (function (_super) {
         }
         return { featureData: featureData, cellsResult: cellsResult, WinLines: WinLines, winScatters: winScatters, winBonus: winBonus, isExpandWild: isExpandWild, expandWildIndices: expandWildIndices, isEndround: isEndround };
     };
-    G1009SimulatorServer.prototype.generateDemoResult = function () {
+    Slot45SimulatorServer.prototype.generateDemoResult = function () {
         var demoArray = [
             "A", "K", "Q", "J", "Bonus", "Communicator", "Helmet", "Mechanic",
             "Pilot", "Wrench", "Core"
@@ -258,19 +258,19 @@ var G1009SimulatorServer = /** @class */ (function (_super) {
         });
         return templateResult;
     };
-    G1009SimulatorServer.prototype.simulatorServer = function () {
+    Slot45SimulatorServer.prototype.simulatorServer = function () {
         var _this = this;
         var delaytime = Math.floor(Math.random() * 2);
         var sep = cc.sequence(cc.delayTime(delaytime), cc.callFunc(function () {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("NextScrollData", _this.result);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("NextScrollData", _this.result);
         }, this));
         this.node.runAction(sep);
     };
-    G1009SimulatorServer = __decorate([
+    Slot45SimulatorServer = __decorate([
         ccclass
-    ], G1009SimulatorServer);
-    return G1009SimulatorServer;
+    ], Slot45SimulatorServer);
+    return Slot45SimulatorServer;
 }(cc.Component));
-exports.default = G1009SimulatorServer;
+exports.default = Slot45SimulatorServer;
 
 cc._RF.pop();

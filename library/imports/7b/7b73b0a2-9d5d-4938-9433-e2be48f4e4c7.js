@@ -78,7 +78,7 @@ var ConnectServer = /** @class */ (function (_super) {
     ConnectServer.prototype.start = function () {
         var _this = this;
         //hard set bet multipliser = 9
-        Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetMultiplier(exports.WIN_LINE_MAPPING.length);
+        Slot45_bet_model_1.Slot45BetModel.GetInstance().SetBetMultiplier(exports.WIN_LINE_MAPPING.length);
         this.gameManager1009.startGame();
         // this.gameManager1009.getJPHistory(0, 8).then((data) => {
         // 	console.log('getJPHistory', data);
@@ -88,7 +88,7 @@ var ConnectServer = /** @class */ (function (_super) {
         // })
         if (this.dataJackpot) {
             setTimeout(function () {
-                Slot45_event_manager_1.G1009EventManager.GetInstance().notify('JackpotUpdate', _this.dataJackpot);
+                Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('JackpotUpdate', _this.dataJackpot);
             }, 100);
         }
     };
@@ -99,12 +99,12 @@ var ConnectServer = /** @class */ (function (_super) {
             _this.currentSession = data.playerState;
             _this.betInfos = data.betInfos;
             var betPerLines = data.betInfos.map(function (betInfo) { return betInfo.betDenom; });
-            Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetPerLines(betPerLines);
-            Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(_this.gameManager1009.getPlayerMoney());
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BetInfos", _this.betInfos);
+            Slot45_bet_model_1.Slot45BetModel.GetInstance().SetBetPerLines(betPerLines);
+            Slot45_balance_model_1.Slot45BalanceModel.GetInstance().SetBalance(_this.gameManager1009.getPlayerMoney());
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("BetInfos", _this.betInfos);
             if (data.hasOwnProperty("playerState") && data.playerState) {
-                // G1009BetModel.GetInstance().SetCurrentBetPerLine(data.playerState.datas[0].content.bet);
-                Slot45_bet_model_1.G1009BetModel.GetInstance().SetCurrentBetPerLine(100);
+                // Slot45BetModel.GetInstance().SetCurrentBetPerLine(data.playerState.datas[0].content.bet);
+                Slot45_bet_model_1.Slot45BetModel.GetInstance().SetCurrentBetPerLine(100);
             }
             if (data.hasOwnProperty("allJackpotInfos")) {
                 _this.dataJackpot = data.allJackpotInfos;
@@ -118,7 +118,7 @@ var ConnectServer = /** @class */ (function (_super) {
                         totalFreespins: _this.currentSession.freeGameRemain,
                         isRetrigger: false,
                     });
-                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify("resume", resuilt);
+                    Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("resume", resuilt);
                 }, 100);
             }
             else {
@@ -126,11 +126,11 @@ var ConnectServer = /** @class */ (function (_super) {
                     setTimeout(function () {
                         var resuilt = _this.processNormalData();
                         resuilt.featureDatas = [];
-                        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("resumeBonus", resuilt);
+                        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("resumeBonus", resuilt);
                     }, 100);
                 }
                 else {
-                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify("init");
+                    Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("init");
                 }
             }
         });
@@ -151,34 +151,34 @@ var ConnectServer = /** @class */ (function (_super) {
         });
         this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.PLAYER_MONEY_UPDATE, function (data) {
             console.log('PLAYER_MONEY_UPDATE', data);
-            // G1009BalanceModel.GetInstance().SetBalance(data);
-            // G1009EventManager.GetInstance().notify("BalanceChange", data);
+            // Slot45BalanceModel.GetInstance().SetBalance(data);
+            // Slot45EventManager.GetInstance().notify("BalanceChange", data);
         });
         this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.JACKPOT_UPDATE, function (data) {
             console.log('JACKPOT_UPDATE', data);
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify('JackpotUpdate', data);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('JackpotUpdate', data);
         });
         this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.JACKPOT_SHOW_MULTIPLE, function (data) {
             console.log('JACKPOT_SHOW_MULTIPLE', data);
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify('JackpotShowMultiple', data);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('JackpotShowMultiple', data);
         });
         this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.JACKPOT_HIDE_MULTIPLE, function (data) {
             console.log('JACKPOT_SHOW_MULTIPLE', data);
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify('JackpotHideMultiple');
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('JackpotHideMultiple');
         });
         this.gameManager1009.registerEvent(Slot45_GameManager_1.GAME_MANAGER_EVENT.POPUP_INFO_MESSAGE, function (data) {
             console.log('POPUP_INFO_MESSAGE', data);
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PopupInfoMessage', data);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('PopupInfoMessage', data);
         });
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("PickUpRequest", this.onPickUpRequest.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowBetPanel", this.onEndRound.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("UpdateBetLine", this.onUpdateBetLine.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("PickUpRequest", this.onPickUpRequest.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowBetPanel", this.onEndRound.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("UpdateBetLine", this.onUpdateBetLine.bind(this));
     };
     ConnectServer.prototype.onUpdateBetLine = function (betLines) {
-        Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetMultiplier(betLines.length);
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ShowBetPanel");
+        Slot45_bet_model_1.Slot45BetModel.GetInstance().SetBetMultiplier(betLines.length);
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("ShowBetPanel");
     };
     ConnectServer.prototype.onPickUpRequest = function (item) {
         this.gameManager1009.bonusPlay(item);
@@ -188,7 +188,7 @@ var ConnectServer = /** @class */ (function (_super) {
             this.gameManager1009.freeSpin();
         }
         else {
-            var betDenom_1 = Slot45_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine();
+            var betDenom_1 = Slot45_bet_model_1.Slot45BetModel.GetInstance().GetCurrentBetPerLine();
             var betInfo = this.betInfos.filter(function (betInfo) { return betInfo.betDenom == betDenom_1; })[0];
             this.gameManager1009.normalSpin(betInfo.betId);
         }
@@ -233,7 +233,7 @@ var ConnectServer = /** @class */ (function (_super) {
                     var content = element.content;
                     var arrNumber = [];
                     arrNumber.push(content.hitSetID);
-                    var winLineData = new Slot45_present_win_panel_1.G1009WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
+                    var winLineData = new Slot45_present_win_panel_1.Slot45WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
                     if (countCombo == 0) {
                         WinLines.push(winLineData);
                         winPoint += winLineData.GetWinPoint();
@@ -264,7 +264,7 @@ var ConnectServer = /** @class */ (function (_super) {
                         // 		scatters.push(index);
                         // 	}
                         // }
-                        winScatters.push(new Slot45_present_win_panel_1.G1009WinLineResult(element.content.trigger.hitSet, 0, [-1], "Scatter", false, true));
+                        winScatters.push(new Slot45_present_win_panel_1.Slot45WinLineResult(element.content.trigger.hitSet, 0, [-1], "Scatter", false, true));
                     }
                     break;
                 case "spinTriggerBonus":
@@ -281,13 +281,13 @@ var ConnectServer = /** @class */ (function (_super) {
                     // 		bonus.push(index);
                     // 	}
                     // }
-                    winBonus.push(new Slot45_present_win_panel_1.G1009WinLineResult(element.content.trigger.hitSet, element.content.pay, [-1], "Bonus", false, true));
+                    winBonus.push(new Slot45_present_win_panel_1.Slot45WinLineResult(element.content.trigger.hitSet, element.content.pay, [-1], "Bonus", false, true));
                     break;
                 case "jackpotWin":
                     var content = element.content;
                     var arrNumber = [];
                     arrNumber.push(content.hitSetID);
-                    var winLineData = new Slot45_present_win_panel_1.G1009WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
+                    var winLineData = new Slot45_present_win_panel_1.Slot45WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
                     if (countCombo == 0) {
                         WinLines.push(winLineData);
                         winPoint += winLineData.GetWinPoint();
@@ -377,7 +377,7 @@ var ConnectServer = /** @class */ (function (_super) {
         //parse winline
         if (this.currentSession.hasOwnProperty("normalPayLines")) {
             this.currentSession.normalPayLines.forEach(function (normalPayLine) {
-                WinLines.push(new Slot45_present_win_panel_1.G1009WinLineResult(exports.WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], exports.SLOTTY_ITEM[normalPayLine.psc], false, Slot45_game_config_1.NEAR_WIN_SYMBOL.includes((exports.SLOTTY_ITEM[normalPayLine.psc]))));
+                WinLines.push(new Slot45_present_win_panel_1.Slot45WinLineResult(exports.WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], exports.SLOTTY_ITEM[normalPayLine.psc], false, Slot45_game_config_1.NEAR_WIN_SYMBOL.includes((exports.SLOTTY_ITEM[normalPayLine.psc]))));
             });
         }
         WinLines.forEach(function (winLine) { return winPoint += winLine.GetWinPoint(); });
@@ -398,7 +398,7 @@ var ConnectServer = /** @class */ (function (_super) {
                         scatters.push(index);
                     }
                 }
-                winScatters.push(new Slot45_present_win_panel_1.G1009WinLineResult(scatters, 0, [-1], "Scatter", false, true));
+                winScatters.push(new Slot45_present_win_panel_1.Slot45WinLineResult(scatters, 0, [-1], "Scatter", false, true));
             }
         }
         freespinLeft = this.currentSession.freeGameRemain || 0;
@@ -417,7 +417,7 @@ var ConnectServer = /** @class */ (function (_super) {
                         bonus.push(index);
                     }
                 }
-                winBonus.push(new Slot45_present_win_panel_1.G1009WinLineResult(bonus, 0, [-1], "Bonus", false, true));
+                winBonus.push(new Slot45_present_win_panel_1.Slot45WinLineResult(bonus, 0, [-1], "Bonus", false, true));
             }
         }
         if (this.currentSession.hasOwnProperty("bonusMatrix")) {
@@ -456,7 +456,7 @@ var ConnectServer = /** @class */ (function (_super) {
                     coreWinLine_1.push(index);
                 }
             });
-            jackpotWinLine.push(new Slot45_present_win_panel_1.G1009WinLineResult(coreWinLine_1, 0, [winLineNumber], "Core", false, true));
+            jackpotWinLine.push(new Slot45_present_win_panel_1.Slot45WinLineResult(coreWinLine_1, 0, [winLineNumber], "Core", false, true));
             // });
             jackpotWinPoint = jackpotTotalWin;
         }
@@ -549,7 +549,7 @@ var ConnectServer = /** @class */ (function (_super) {
             data.Cells = _this.createCellsResult(rawData.normalGameMatrix);
             if (_this.currentSession.hasOwnProperty("normalPayLines")) {
                 _this.currentSession.normalPayLines.forEach(function (normalPayLine) {
-                    data.WinLines.push(new Slot45_present_win_panel_1.G1009WinLineResult(exports.WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], exports.SLOTTY_ITEM[normalPayLine.psc], false, Slot45_game_config_1.NEAR_WIN_SYMBOL.includes((exports.SLOTTY_ITEM[normalPayLine.psc]))));
+                    data.WinLines.push(new Slot45_present_win_panel_1.Slot45WinLineResult(exports.WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], exports.SLOTTY_ITEM[normalPayLine.psc], false, Slot45_game_config_1.NEAR_WIN_SYMBOL.includes((exports.SLOTTY_ITEM[normalPayLine.psc]))));
                 });
             }
             data.WinLines.forEach(function (winLine) { return data.winPoint += winLine.GetWinPoint(); });
@@ -572,7 +572,7 @@ var ConnectServer = /** @class */ (function (_super) {
         var _this = this;
         var result = this.processNormalData();
         setTimeout(function () {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("NextScrollData", result);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("NextScrollData", result);
             if (result.freespinLeft == 0) {
                 _this.isFreespins = false;
             }
@@ -580,15 +580,15 @@ var ConnectServer = /** @class */ (function (_super) {
     };
     ConnectServer.prototype.fakeBalanceSpin = function () {
         if (!this.isFreespins) {
-            var newBalance = Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() - Slot45_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint();
-            Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
+            var newBalance = Slot45_balance_model_1.Slot45BalanceModel.GetInstance().GetBalance() - Slot45_bet_model_1.Slot45BetModel.GetInstance().GetTotalBetPoint();
+            Slot45_balance_model_1.Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("BalanceChange", newBalance);
         }
     };
     ConnectServer.prototype.onEndRound = function () {
         var newBalance = this.gameManager1009.getPlayerMoney();
-        Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
+        Slot45_balance_model_1.Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("BalanceChange", newBalance);
     };
     ConnectServer = __decorate([
         ccclass

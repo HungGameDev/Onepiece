@@ -25,28 +25,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009InfoToggleButtonActor = /** @class */ (function (_super) {
-    __extends(G1009InfoToggleButtonActor, _super);
-    function G1009InfoToggleButtonActor() {
+var Slot45InfoToggleButtonActor = /** @class */ (function (_super) {
+    __extends(Slot45InfoToggleButtonActor, _super);
+    function Slot45InfoToggleButtonActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.toggleId = -1;
         _this.toggle = null;
         return _this;
     }
-    G1009InfoToggleButtonActor.prototype.onLoad = function () {
+    Slot45InfoToggleButtonActor.prototype.onLoad = function () {
         this.toggle = this.node.getComponent(cc.Toggle);
     };
-    G1009InfoToggleButtonActor.prototype.OnToggleClicked = function (action) {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ChangeInfoPage", this.toggleId);
+    Slot45InfoToggleButtonActor.prototype.OnToggleClicked = function (action) {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("ChangeInfoPage", this.toggleId);
     };
     __decorate([
         property
-    ], G1009InfoToggleButtonActor.prototype, "toggleId", void 0);
-    G1009InfoToggleButtonActor = __decorate([
+    ], Slot45InfoToggleButtonActor.prototype, "toggleId", void 0);
+    Slot45InfoToggleButtonActor = __decorate([
         ccclass
-    ], G1009InfoToggleButtonActor);
-    return G1009InfoToggleButtonActor;
+    ], Slot45InfoToggleButtonActor);
+    return Slot45InfoToggleButtonActor;
 }(cc.Component));
-exports.default = G1009InfoToggleButtonActor;
+exports.default = Slot45InfoToggleButtonActor;
 
 cc._RF.pop();

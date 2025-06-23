@@ -1,26 +1,26 @@
-import { G1009EventManager } from "../../events/Slot45-event-manager";
+import { Slot45EventManager } from "../../events/Slot45-event-manager";
 import { State } from "../abstract/Slot45-state";
-import G1009BonusState from "./Slot45-bonus-state";
-import { G1009FeatureWinState as G1009FeatureCompleteState } from "./Slot45-feature-win-state";
-import { G1009SpinState } from "./Slot45-spin-state";
+import Slot45BonusState from "./Slot45-bonus-state";
+import { Slot45FeatureWinState as Slot45FeatureCompleteState } from "./Slot45-feature-win-state";
+import { Slot45SpinState } from "./Slot45-spin-state";
 
-export class G1009FeatureTriggerState extends State {
+export class Slot45FeatureTriggerState extends State {
 	constructor() {
 		super();
 		console.log("Feature Trigger state");
 		setTimeout(() => {
-			G1009EventManager.GetInstance().notify("featuretriggerstarted");
+			Slot45EventManager.GetInstance().notify("featuretriggerstarted");
 		}, 500);
 	}
 
 	EnterFreespins(): State {
-		return new G1009SpinState();
+		return new Slot45SpinState();
 	}
 
 	FeatureComplete(): State {
-		return new G1009FeatureCompleteState();
+		return new Slot45FeatureCompleteState();
 	}
 	EnterBonus(): State {
-		return new G1009BonusState();
+		return new Slot45BonusState();
 	}
 }

@@ -11,8 +11,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SpineAnimationHandler = /** @class */ (function () {
-    function G1009SpineAnimationHandler(context, targetNode) {
+var Slot45SpineAnimationHandler = /** @class */ (function () {
+    function Slot45SpineAnimationHandler(context, targetNode) {
         this.animation = null;
         this.target = null;
         this.skeletonData = null;
@@ -26,12 +26,12 @@ var G1009SpineAnimationHandler = /** @class */ (function () {
         this.animationData = this.animation.animationData;
         this.spineData = this.animation.spineData;
     }
-    G1009SpineAnimationHandler.prototype.Play = function (targetNode, events, callback) {
+    Slot45SpineAnimationHandler.prototype.Play = function (targetNode, events, callback) {
         this.animation.trackEntry = this.handleAnimation(this.spineData, targetNode);
         this.handleCallback(callback);
         this.handleSpineEvent(events);
     };
-    G1009SpineAnimationHandler.prototype.Stop = function (isCallComplete) {
+    Slot45SpineAnimationHandler.prototype.Stop = function (isCallComplete) {
         if (!this.animation.spineSkeleton || !this.animation.spineSkeleton.node || !this.animation.trackEntry) {
             return;
         }
@@ -39,7 +39,7 @@ var G1009SpineAnimationHandler = /** @class */ (function () {
         this.animation.trackEntry = null;
         this.animation.spineSkeleton.enabled = false;
     };
-    G1009SpineAnimationHandler.prototype.Destroy = function () {
+    Slot45SpineAnimationHandler.prototype.Destroy = function () {
         this.animation = null;
         this.target = null;
         this.skeletonData = null;
@@ -47,26 +47,26 @@ var G1009SpineAnimationHandler = /** @class */ (function () {
         this.animationData = null;
         this.spineData = null;
     };
-    G1009SpineAnimationHandler.prototype.handleAnimation = function (spineData, targetNode) {
+    Slot45SpineAnimationHandler.prototype.handleAnimation = function (spineData, targetNode) {
         this.animation.spineSkeleton = targetNode.getComponent(sp.Skeleton) || targetNode.addComponent(sp.Skeleton);
         this.animation.spineSkeleton.timeScale = spineData.TimeScale;
         this.animation.spineSkeleton.enabled = true;
         this.animation.spineSkeleton.skeletonData = this.skeletonData;
         return this.animation.spineSkeleton.setAnimation(spineData.TrackIndex || 0, spineData.Name, spineData.IsLoop || false);
     };
-    G1009SpineAnimationHandler.prototype.handleCallback = function (callback) {
+    Slot45SpineAnimationHandler.prototype.handleCallback = function (callback) {
         this.animation.spineSkeleton.setTrackCompleteListener(this.animation.trackEntry, callback);
     };
-    G1009SpineAnimationHandler.prototype.handleSpineEvent = function (events) {
+    Slot45SpineAnimationHandler.prototype.handleSpineEvent = function (events) {
         this.animation.spineSkeleton.setEventListener(function (trackEntry, event) {
             events ? events[event.data.name]() : (function () { });
         });
     };
-    G1009SpineAnimationHandler = __decorate([
+    Slot45SpineAnimationHandler = __decorate([
         ccclass
-    ], G1009SpineAnimationHandler);
-    return G1009SpineAnimationHandler;
+    ], Slot45SpineAnimationHandler);
+    return Slot45SpineAnimationHandler;
 }());
-exports.default = G1009SpineAnimationHandler;
+exports.default = Slot45SpineAnimationHandler;
 
 cc._RF.pop();

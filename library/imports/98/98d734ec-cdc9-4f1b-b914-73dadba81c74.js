@@ -24,19 +24,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009PeristRootNode = /** @class */ (function (_super) {
-    __extends(G1009PeristRootNode, _super);
-    function G1009PeristRootNode() {
+var Slot45PeristRootNode = /** @class */ (function (_super) {
+    __extends(Slot45PeristRootNode, _super);
+    function Slot45PeristRootNode() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    G1009PeristRootNode.prototype.onLoad = function () {
+    Slot45PeristRootNode.prototype.onLoad = function () {
         cc.game.addPersistRootNode(this.node);
     };
-    G1009PeristRootNode = __decorate([
+    Slot45PeristRootNode = __decorate([
         ccclass
-    ], G1009PeristRootNode);
-    return G1009PeristRootNode;
+    ], Slot45PeristRootNode);
+    return Slot45PeristRootNode;
 }(cc.Component));
-exports.default = G1009PeristRootNode;
+exports.default = Slot45PeristRootNode;
 
 cc._RF.pop();

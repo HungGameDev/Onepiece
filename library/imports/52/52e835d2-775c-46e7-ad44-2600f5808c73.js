@@ -28,9 +28,9 @@ var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_balance_model_1 = require("../../models/Slot45-balance-model");
 var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009ChangeBetActor = /** @class */ (function (_super) {
-    __extends(G1009ChangeBetActor, _super);
-    function G1009ChangeBetActor() {
+var Slot45ChangeBetActor = /** @class */ (function (_super) {
+    __extends(Slot45ChangeBetActor, _super);
+    function Slot45ChangeBetActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.lblBetPerLine = null;
         _this.lblTotalBetPoint = null;
@@ -39,83 +39,83 @@ var G1009ChangeBetActor = /** @class */ (function (_super) {
         _this.buttonIncreaseBet = null;
         return _this;
     }
-    G1009ChangeBetActor.prototype.start = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onShowBetPanel.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowBetPanel", this.onShowBetPanel.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BalanceChange", this.onBalanceChange.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Spin", this.onLockButton.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ActiveAuto", this.onLockButton.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SetBet", this.SetBetValues.bind(this));
+    Slot45ChangeBetActor.prototype.start = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("resume", this.onShowBetPanel.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowBetPanel", this.onShowBetPanel.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("BalanceChange", this.onBalanceChange.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("Spin", this.onLockButton.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ActiveAuto", this.onLockButton.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SetBet", this.SetBetValues.bind(this));
     };
-    G1009ChangeBetActor.prototype.onLockButton = function () {
+    Slot45ChangeBetActor.prototype.onLockButton = function () {
         this.buttonDecreaseBet.interactable = false;
         this.buttonIncreaseBet.interactable = false;
     };
-    G1009ChangeBetActor.prototype.onSpinComplete = function () {
+    Slot45ChangeBetActor.prototype.onSpinComplete = function () {
         this.buttonDecreaseBet.interactable = this.validatorButtonIncreaseBet();
         this.buttonIncreaseBet.interactable = this.validatorButtonIncreaseBet();
     };
-    G1009ChangeBetActor.prototype.onBalanceChange = function (point) {
+    Slot45ChangeBetActor.prototype.onBalanceChange = function (point) {
         this.lblBalance.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(point);
     };
-    G1009ChangeBetActor.prototype.onShowBetPanel = function () {
-        this.lblBetPerLine.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine());
-        this.lblBalance.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance());
-        this.lblTotalBetPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint());
+    Slot45ChangeBetActor.prototype.onShowBetPanel = function () {
+        this.lblBetPerLine.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_bet_model_1.Slot45BetModel.GetInstance().GetCurrentBetPerLine());
+        this.lblBalance.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_balance_model_1.Slot45BalanceModel.GetInstance().GetBalance());
+        this.lblTotalBetPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_bet_model_1.Slot45BetModel.GetInstance().GetTotalBetPoint());
         this.buttonDecreaseBet.interactable = this.validatorButtonIncreaseBet();
         this.buttonIncreaseBet.interactable = this.validatorButtonIncreaseBet();
     };
-    G1009ChangeBetActor.prototype.validatorButtonIncreaseBet = function () {
-        return Slot45_bet_model_1.G1009BetModel.GetInstance().GetNextTotalBetPoint() <= Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() && Slot45_bet_model_1.G1009BetModel.GetInstance().GetNextBetPerLine() != Slot45_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine();
+    Slot45ChangeBetActor.prototype.validatorButtonIncreaseBet = function () {
+        return Slot45_bet_model_1.Slot45BetModel.GetInstance().GetNextTotalBetPoint() <= Slot45_balance_model_1.Slot45BalanceModel.GetInstance().GetBalance() && Slot45_bet_model_1.Slot45BetModel.GetInstance().GetNextBetPerLine() != Slot45_bet_model_1.Slot45BetModel.GetInstance().GetCurrentBetPerLine();
     };
-    G1009ChangeBetActor.prototype.validatorButtonDecreaseBet = function () {
-        return Slot45_bet_model_1.G1009BetModel.GetInstance().GetPreviousBetPerLine() <= Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() && Slot45_bet_model_1.G1009BetModel.GetInstance().GetPreviousBetPerLine() != Slot45_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine();
+    Slot45ChangeBetActor.prototype.validatorButtonDecreaseBet = function () {
+        return Slot45_bet_model_1.Slot45BetModel.GetInstance().GetPreviousBetPerLine() <= Slot45_balance_model_1.Slot45BalanceModel.GetInstance().GetBalance() && Slot45_bet_model_1.Slot45BetModel.GetInstance().GetPreviousBetPerLine() != Slot45_bet_model_1.Slot45BetModel.GetInstance().GetCurrentBetPerLine();
     };
-    G1009ChangeBetActor.prototype.IncreaseBetPerLine = function () {
+    Slot45ChangeBetActor.prototype.IncreaseBetPerLine = function () {
         if (this.validatorButtonIncreaseBet()) {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("SetBetIncrease", Slot45_bet_model_1.G1009BetModel.GetInstance().GetNextBetPerLineIndex());
-            Slot45_bet_model_1.G1009BetModel.GetInstance().IncreaseBetPerLine();
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("SetBetIncrease", Slot45_bet_model_1.Slot45BetModel.GetInstance().GetNextBetPerLineIndex());
+            Slot45_bet_model_1.Slot45BetModel.GetInstance().IncreaseBetPerLine();
         }
         this.changeBet();
     };
-    G1009ChangeBetActor.prototype.DecreaseBetPerLine = function () {
+    Slot45ChangeBetActor.prototype.DecreaseBetPerLine = function () {
         if (this.validatorButtonDecreaseBet()) {
-            Slot45_bet_model_1.G1009BetModel.GetInstance().DecreaseBetPerLine();
+            Slot45_bet_model_1.Slot45BetModel.GetInstance().DecreaseBetPerLine();
             this.changeBet();
         }
     };
-    G1009ChangeBetActor.prototype.SetBetValues = function (betIndex) {
-        Slot45_bet_model_1.G1009BetModel.GetInstance().SetBetbyIndex(betIndex);
+    Slot45ChangeBetActor.prototype.SetBetValues = function (betIndex) {
+        Slot45_bet_model_1.Slot45BetModel.GetInstance().SetBetbyIndex(betIndex);
         this.changeBet();
     };
-    G1009ChangeBetActor.prototype.changeBet = function () {
-        this.lblBetPerLine.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine());
-        this.lblTotalBetPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint());
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ChangeBet");
+    Slot45ChangeBetActor.prototype.changeBet = function () {
+        this.lblBetPerLine.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_bet_model_1.Slot45BetModel.GetInstance().GetCurrentBetPerLine());
+        this.lblTotalBetPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(Slot45_bet_model_1.Slot45BetModel.GetInstance().GetTotalBetPoint());
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("ChangeBet");
     };
-    G1009ChangeBetActor.prototype.ShowBetClick = function () {
+    Slot45ChangeBetActor.prototype.ShowBetClick = function () {
         this.node.active = !this.node.active;
     };
     __decorate([
         property(cc.Label)
-    ], G1009ChangeBetActor.prototype, "lblBetPerLine", void 0);
+    ], Slot45ChangeBetActor.prototype, "lblBetPerLine", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009ChangeBetActor.prototype, "lblTotalBetPoint", void 0);
+    ], Slot45ChangeBetActor.prototype, "lblTotalBetPoint", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009ChangeBetActor.prototype, "lblBalance", void 0);
+    ], Slot45ChangeBetActor.prototype, "lblBalance", void 0);
     __decorate([
         property(cc.Button)
-    ], G1009ChangeBetActor.prototype, "buttonDecreaseBet", void 0);
+    ], Slot45ChangeBetActor.prototype, "buttonDecreaseBet", void 0);
     __decorate([
         property(cc.Button)
-    ], G1009ChangeBetActor.prototype, "buttonIncreaseBet", void 0);
-    G1009ChangeBetActor = __decorate([
+    ], Slot45ChangeBetActor.prototype, "buttonIncreaseBet", void 0);
+    Slot45ChangeBetActor = __decorate([
         ccclass
-    ], G1009ChangeBetActor);
-    return G1009ChangeBetActor;
+    ], Slot45ChangeBetActor);
+    return Slot45ChangeBetActor;
 }(cc.Component));
-exports.default = G1009ChangeBetActor;
+exports.default = Slot45ChangeBetActor;
 
 cc._RF.pop();

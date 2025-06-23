@@ -25,31 +25,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SoundButtonClick = /** @class */ (function (_super) {
-    __extends(G1009SoundButtonClick, _super);
-    function G1009SoundButtonClick() {
+var Slot45SoundButtonClick = /** @class */ (function (_super) {
+    __extends(Slot45SoundButtonClick, _super);
+    function Slot45SoundButtonClick() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.SFXName = 'sfx_uiclick';
         _this.IsLoop = false;
         return _this;
     }
-    G1009SoundButtonClick.prototype.onLoad = function () {
+    Slot45SoundButtonClick.prototype.onLoad = function () {
         this.node.on("click", this.onButtonClick.bind(this));
     };
-    G1009SoundButtonClick.prototype.onButtonClick = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: this.SFXName, isLoop: this.IsLoop });
+    Slot45SoundButtonClick.prototype.onButtonClick = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: this.SFXName, isLoop: this.IsLoop });
     };
     __decorate([
         property
-    ], G1009SoundButtonClick.prototype, "SFXName", void 0);
+    ], Slot45SoundButtonClick.prototype, "SFXName", void 0);
     __decorate([
         property
-    ], G1009SoundButtonClick.prototype, "IsLoop", void 0);
-    G1009SoundButtonClick = __decorate([
+    ], Slot45SoundButtonClick.prototype, "IsLoop", void 0);
+    Slot45SoundButtonClick = __decorate([
         ccclass
-    ], G1009SoundButtonClick);
-    return G1009SoundButtonClick;
+    ], Slot45SoundButtonClick);
+    return Slot45SoundButtonClick;
 }(cc.Component));
-exports.default = G1009SoundButtonClick;
+exports.default = Slot45SoundButtonClick;
 
 cc._RF.pop();

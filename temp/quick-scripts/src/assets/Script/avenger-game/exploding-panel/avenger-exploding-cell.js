@@ -35,7 +35,7 @@ var ExplodingCell = /** @class */ (function (_super) {
         return _this;
     }
     ExplodingCell.prototype.onLoad = function () {
-        this.animEffectExplosion = Slot45_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation('eff_explosion');
+        this.animEffectExplosion = Slot45_animation_provider_1.Slot45AnimationProviderManager.Instance().GetAnimation('eff_explosion');
     };
     ExplodingCell.prototype.PlayEffectExplodeCells = function (nameSymbol) {
         // var nameSkin = cc.js.formatStr(this.nameSkinFormat, nameSymbol);

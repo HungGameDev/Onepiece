@@ -26,37 +26,37 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_win_line_1 = require("./Slot45-win-line");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009WinLinePanelActor = /** @class */ (function (_super) {
-    __extends(G1009WinLinePanelActor, _super);
-    function G1009WinLinePanelActor() {
+var Slot45WinLinePanelActor = /** @class */ (function (_super) {
+    __extends(Slot45WinLinePanelActor, _super);
+    function Slot45WinLinePanelActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.lines = [];
         return _this;
     }
-    G1009WinLinePanelActor.prototype.onLoad = function () {
+    Slot45WinLinePanelActor.prototype.onLoad = function () {
         this.register();
         this.lines = this.node.getComponentsInChildren(Slot45_win_line_1.default);
     };
-    G1009WinLinePanelActor.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowLine", this.OnShowLine.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ResetAllLine", this.hideAllLine.bind(this));
+    Slot45WinLinePanelActor.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowLine", this.OnShowLine.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ResetAllLine", this.hideAllLine.bind(this));
     };
-    G1009WinLinePanelActor.prototype.OnShowLine = function (line) {
+    Slot45WinLinePanelActor.prototype.OnShowLine = function (line) {
         this.hideAllLine();
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_show_line', isLoop: false });
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_show_line', isLoop: false });
         for (var index = 0; index < line.length; index++) {
             if (line[index] >= 0 && line[index] < this.lines.length)
                 this.lines[line[index]].Show();
         }
     };
-    G1009WinLinePanelActor.prototype.hideAllLine = function () {
+    Slot45WinLinePanelActor.prototype.hideAllLine = function () {
         this.lines.forEach(function (line) { return line.Hide(); });
     };
-    G1009WinLinePanelActor = __decorate([
+    Slot45WinLinePanelActor = __decorate([
         ccclass
-    ], G1009WinLinePanelActor);
-    return G1009WinLinePanelActor;
+    ], Slot45WinLinePanelActor);
+    return Slot45WinLinePanelActor;
 }(cc.Component));
-exports.default = G1009WinLinePanelActor;
+exports.default = Slot45WinLinePanelActor;
 
 cc._RF.pop();

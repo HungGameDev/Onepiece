@@ -26,89 +26,89 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("./base/events/Slot45-event-manager");
 var Slot45_init_state_1 = require("./base/state-machine/state/Slot45-init-state");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SlottySetting = /** @class */ (function (_super) {
-    __extends(G1009SlottySetting, _super);
-    function G1009SlottySetting() {
+var Slot45SlottySetting = /** @class */ (function (_super) {
+    __extends(Slot45SlottySetting, _super);
+    function Slot45SlottySetting() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = new Slot45_init_state_1.G1009InitState();
+        _this.state = new Slot45_init_state_1.Slot45InitState();
         return _this;
     }
-    G1009SlottySetting.prototype.start = function () {
+    Slot45SlottySetting.prototype.start = function () {
         this.showCurrentState();
         this.register();
     };
-    G1009SlottySetting.prototype.showCurrentState = function () {
+    Slot45SlottySetting.prototype.showCurrentState = function () {
         console.log(this.state);
     };
-    G1009SlottySetting.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Init", this.onInit.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Bet", this.onBet.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ActiveAuto", this.onSpin.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("spin", this.onSpin.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinComplete", this.onSpinComplete.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("FeatureTrigger", this.onFeatureTrigger.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("FeatureComplete", this.onFeatureComplete.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterBonus", this.onEnterBonus.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resumeBonus", this.onEnterBonus.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ExpandWildCompleted", this.onExpandWildCompleted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("JackpotTriggered", this.onJackpotTriggered.bind(this));
+    Slot45SlottySetting.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("Init", this.onInit.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("Bet", this.onBet.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ActiveAuto", this.onSpin.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("spin", this.onSpin.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SpinComplete", this.onSpinComplete.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("FeatureTrigger", this.onFeatureTrigger.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("FeatureComplete", this.onFeatureComplete.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("EnterBonus", this.onEnterBonus.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("resumeBonus", this.onEnterBonus.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ExpandWildCompleted", this.onExpandWildCompleted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("JackpotTriggered", this.onJackpotTriggered.bind(this));
     };
-    G1009SlottySetting.prototype.onInit = function () {
+    Slot45SlottySetting.prototype.onInit = function () {
         this.state = this.state.Init();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onBet = function () {
+    Slot45SlottySetting.prototype.onBet = function () {
         this.state = this.state.Spin();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onSpin = function () {
+    Slot45SlottySetting.prototype.onSpin = function () {
         this.state = this.state.Spin();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onSpinComplete = function () {
+    Slot45SlottySetting.prototype.onSpinComplete = function () {
         this.state = this.state.SpinComplete();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onFeatureTrigger = function () {
+    Slot45SlottySetting.prototype.onFeatureTrigger = function () {
         this.state = this.state.FeatureTrigger();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onEnterFreespins = function () {
+    Slot45SlottySetting.prototype.onEnterFreespins = function () {
         this.state = this.state.EnterFreespins();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onEnterBonus = function () {
+    Slot45SlottySetting.prototype.onEnterBonus = function () {
         this.state = this.state.EnterBonus();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onFeatureComplete = function () {
+    Slot45SlottySetting.prototype.onFeatureComplete = function () {
         this.state = this.state.FeatureComplete();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onFeatureWinCompleted = function () {
+    Slot45SlottySetting.prototype.onFeatureWinCompleted = function () {
         this.state = this.state.FeatureWinCompleted();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onExpandWildCompleted = function () {
+    Slot45SlottySetting.prototype.onExpandWildCompleted = function () {
         this.state = this.state.ExpandWildCompleted();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onEndRound = function () {
+    Slot45SlottySetting.prototype.onEndRound = function () {
         this.state = this.state.EndRound();
         this.showCurrentState();
     };
-    G1009SlottySetting.prototype.onJackpotTriggered = function () {
+    Slot45SlottySetting.prototype.onJackpotTriggered = function () {
         this.state = this.state.JackpotTriggered();
         this.showCurrentState();
     };
-    G1009SlottySetting = __decorate([
+    Slot45SlottySetting = __decorate([
         ccclass
-    ], G1009SlottySetting);
-    return G1009SlottySetting;
+    ], Slot45SlottySetting);
+    return Slot45SlottySetting;
 }(cc.Component));
-exports.default = G1009SlottySetting;
+exports.default = Slot45SlottySetting;
 
 cc._RF.pop();

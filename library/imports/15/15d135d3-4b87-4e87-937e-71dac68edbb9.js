@@ -4,23 +4,23 @@ cc._RF.push(module, '15d13XTS4dOh5N+cdrGjtu5', 'Slot45-event-manager');
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.G1009EventManager = void 0;
-var G1009EventManager = /** @class */ (function () {
-    function G1009EventManager() {
+exports.Slot45EventManager = void 0;
+var Slot45EventManager = /** @class */ (function () {
+    function Slot45EventManager() {
         this.events = {};
     }
-    G1009EventManager.GetInstance = function () {
-        if (!G1009EventManager.instance)
-            G1009EventManager.instance = new G1009EventManager();
-        return G1009EventManager.instance;
+    Slot45EventManager.GetInstance = function () {
+        if (!Slot45EventManager.instance)
+            Slot45EventManager.instance = new Slot45EventManager();
+        return Slot45EventManager.instance;
     };
-    G1009EventManager.prototype.register = function (name, callback) {
+    Slot45EventManager.prototype.register = function (name, callback) {
         name = name.toLowerCase();
         if (!this.events[name])
             this.events[name] = [];
         this.events[name].push(callback);
     };
-    G1009EventManager.prototype.unregister = function (name, searchCallback) {
+    Slot45EventManager.prototype.unregister = function (name, searchCallback) {
         name = name.toLowerCase();
         if (!this.events[name])
             return;
@@ -35,7 +35,7 @@ var G1009EventManager = /** @class */ (function () {
             this.events[name].splice(callbackIndex, 1);
         }
     };
-    G1009EventManager.prototype.notify = function (name, args) {
+    Slot45EventManager.prototype.notify = function (name, args) {
         if (args === void 0) { args = null; }
         console.log(name, args);
         name = name.toLowerCase();
@@ -46,8 +46,8 @@ var G1009EventManager = /** @class */ (function () {
             callback(args);
         }
     };
-    return G1009EventManager;
+    return Slot45EventManager;
 }());
-exports.G1009EventManager = G1009EventManager;
+exports.Slot45EventManager = Slot45EventManager;
 
 cc._RF.pop();

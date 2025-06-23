@@ -1,9 +1,9 @@
-import { G1009EventManager } from "../events/Slot45-event-manager";
+import { Slot45EventManager } from "../events/Slot45-event-manager";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009SoundButtonClick extends cc.Component {
+export default class Slot45SoundButtonClick extends cc.Component {
 
     @property
     SFXName: string = 'sfx_uiclick';
@@ -17,6 +17,6 @@ export default class G1009SoundButtonClick extends cc.Component {
     
     private onButtonClick():void
     {
-        G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: this.SFXName, isLoop: this.IsLoop });
+        Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: this.SFXName, isLoop: this.IsLoop });
     }
 }

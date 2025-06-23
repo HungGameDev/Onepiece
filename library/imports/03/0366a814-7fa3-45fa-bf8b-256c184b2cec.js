@@ -24,36 +24,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009WinLineActor = /** @class */ (function (_super) {
-    __extends(G1009WinLineActor, _super);
-    function G1009WinLineActor() {
+var Slot45WinLineActor = /** @class */ (function (_super) {
+    __extends(Slot45WinLineActor, _super);
+    function Slot45WinLineActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.lineIndex = -1;
         _this.spineShowLine = null;
         _this.image = null;
         return _this;
     }
-    G1009WinLineActor.prototype.onLoad = function () {
+    Slot45WinLineActor.prototype.onLoad = function () {
         this.image = this.node.getComponent(cc.Sprite);
     };
-    G1009WinLineActor.prototype.Show = function () {
+    Slot45WinLineActor.prototype.Show = function () {
         this.node.active = true;
         var track = this.spineShowLine.setAnimation(0, this.lineIndex.toString(), true);
     };
-    G1009WinLineActor.prototype.Hide = function () {
+    Slot45WinLineActor.prototype.Hide = function () {
         this.node.active = false;
     };
     __decorate([
         property
-    ], G1009WinLineActor.prototype, "lineIndex", void 0);
+    ], Slot45WinLineActor.prototype, "lineIndex", void 0);
     __decorate([
         property(sp.Skeleton)
-    ], G1009WinLineActor.prototype, "spineShowLine", void 0);
-    G1009WinLineActor = __decorate([
+    ], Slot45WinLineActor.prototype, "spineShowLine", void 0);
+    Slot45WinLineActor = __decorate([
         ccclass
-    ], G1009WinLineActor);
-    return G1009WinLineActor;
+    ], Slot45WinLineActor);
+    return Slot45WinLineActor;
 }(cc.Component));
-exports.default = G1009WinLineActor;
+exports.default = Slot45WinLineActor;
 
 cc._RF.pop();

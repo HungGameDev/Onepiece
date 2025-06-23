@@ -1,12 +1,12 @@
 import { GameManager1009 } from "../../GameManager/Slot45-GameManager";
 import { formatDDMMHHmmSS } from "../../base/Util/Slot45_date-util";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import G1009PopupHistoryItem from "./Slot45-popup-history-item";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45PopupHistoryItem from "./Slot45-popup-history-item";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009PopupHistory extends cc.Component {
+export default class Slot45PopupHistory extends cc.Component {
 
 	
 	@property(cc.Prefab)
@@ -28,7 +28,7 @@ export default class G1009PopupHistory extends cc.Component {
 
 	protected start(): void {
 		this.Init();
-		G1009EventManager.GetInstance().register("OpenLSC", this.Show.bind(this));
+		Slot45EventManager.GetInstance().register("OpenLSC", this.Show.bind(this));
 	}
 	
 	protected  Init(): void
@@ -52,7 +52,7 @@ export default class G1009PopupHistory extends cc.Component {
 		var count= 0;
 		historyData.data.forEach((data) => {
 			let item = cc.instantiate(this.prefabItem);
-			let itemComponent = item.getComponent(G1009PopupHistoryItem);		
+			let itemComponent = item.getComponent(Slot45PopupHistoryItem);		
 			let time: string = formatDDMMHHmmSS(data.time);
 			count++;
 			itemComponent.SetInfoItem(data.session, time, data.totalBet, data.totalWin, data.spinData, count);

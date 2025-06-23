@@ -1,19 +1,19 @@
-import { G1009WinLineResult } from "../UI/present-win/Slot45-present-win-panel";
-import { G1009BalanceModel } from "../models/Slot45-balance-model";
-import { G1009BetModel } from "../models/Slot45-bet-model";
-import { G1009EventManager } from "./events/Slot45-event-manager";
+import { Slot45WinLineResult } from "../UI/present-win/Slot45-present-win-panel";
+import { Slot45BalanceModel } from "../models/Slot45-balance-model";
+import { Slot45BetModel } from "../models/Slot45-bet-model";
+import { Slot45EventManager } from "./events/Slot45-event-manager";
 
 const { ccclass, property } = cc._decorator;
 const TOTAL_FREESPINS = 5;
 @ccclass
-export default class G1009SimulatorServer extends cc.Component {
+export default class Slot45SimulatorServer extends cc.Component {
 
 	result: any = null;
 	winlineContent: number[][];
-	WinLines: G1009WinLineResult[];
-	winLineAndScatter: G1009WinLineResult[];
-	winScatters: G1009WinLineResult[];
-	winBonus: G1009WinLineResult[];
+	WinLines: Slot45WinLineResult[];
+	winLineAndScatter: Slot45WinLineResult[];
+	winScatters: Slot45WinLineResult[];
+	winBonus: Slot45WinLineResult[];
 	private isFreespins: boolean = false;
 	private freespinLeft: number = 0;
 	private totalFreespins: number = 0;
@@ -23,45 +23,45 @@ export default class G1009SimulatorServer extends cc.Component {
 	protected onLoad(): void {
 		this.register();
 		this.WinLines = [
-			new G1009WinLineResult([0, 1, 2, 3, 4], 25000, [1]),
-			new G1009WinLineResult([5, 6, 7, 8, 9], 25000, [0]),
-			new G1009WinLineResult([10, 11, 12, 13, 14], 25000, [2])
+			new Slot45WinLineResult([0, 1, 2, 3, 4], 25000, [1]),
+			new Slot45WinLineResult([5, 6, 7, 8, 9], 25000, [0]),
+			new Slot45WinLineResult([10, 11, 12, 13, 14], 25000, [2])
 		];
 		this.winLineAndScatter = [
-			new G1009WinLineResult([0, 1, 2, 3, 4], 40000, [1], "A"),
-			new G1009WinLineResult([5, 6, 7, 8, 9], 40000, [0], "Q"),
+			new Slot45WinLineResult([0, 1, 2, 3, 4], 40000, [1], "A"),
+			new Slot45WinLineResult([5, 6, 7, 8, 9], 40000, [0], "Q"),
 		];
 		this.winScatters = [
-			new G1009WinLineResult([10, 12, 14], 0, [-1], "Scatter")
+			new Slot45WinLineResult([10, 12, 14], 0, [-1], "Scatter")
 		];
 
 		this.winBonus = [
-			new G1009WinLineResult([1, 2, 3], 0, [-1], "Bonus")
+			new Slot45WinLineResult([1, 2, 3], 0, [-1], "Bonus")
 		];
 
 		this.winlineContent = [[5, 6, 7, 8, 9], [0, 1, 2, 3, 4], [10, 11, 12, 13, 14]];
 		//, [0, 6, 12, 8, 4], [10, 6, 3, 8, 14]
-		G1009BetModel.GetInstance().SetBetPerLines([100, 250, 1000, 2500, 10000, 25000,50000]);
-		G1009BetModel.GetInstance().SetBetMultiplier(20);
-		G1009BalanceModel.GetInstance().SetBalance(1000);
+		Slot45BetModel.GetInstance().SetBetPerLines([100, 250, 1000, 2500, 10000, 25000,50000]);
+		Slot45BetModel.GetInstance().SetBetMultiplier(20);
+		Slot45BalanceModel.GetInstance().SetBalance(1000);
 	}
 
 	protected start(): void {
 		setTimeout(() => {
-			G1009EventManager.GetInstance().notify("init");
+			Slot45EventManager.GetInstance().notify("init");
 		}, 0.1);
 	}
 
 	private register(): void {
-		G1009EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
+		Slot45EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
 	}
 
 	private fakeBalanceSpin() {
 		if (!this.isFreespins)
 		{
-			let newBalance = G1009BalanceModel.GetInstance().GetBalance() - G1009BetModel.GetInstance().GetTotalBetPoint();
-			G1009BalanceModel.GetInstance().SetBalance(newBalance);
-			G1009EventManager.GetInstance().notify("BalanceChange");
+			let newBalance = Slot45BalanceModel.GetInstance().GetBalance() - Slot45BetModel.GetInstance().GetTotalBetPoint();
+			Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+			Slot45EventManager.GetInstance().notify("BalanceChange");
 		}
 	}
 
@@ -83,7 +83,7 @@ export default class G1009SimulatorServer extends cc.Component {
 		this.fakeBalanceSpin();
 		let cellsResult = this.generateDemoResult();
 		//fake winline
-		let WinLines: G1009WinLineResult[] = [];
+		let WinLines: Slot45WinLineResult[] = [];
 		let winScatters = [];
 
 		// //fake freespin Win and bonus win
@@ -124,7 +124,7 @@ export default class G1009SimulatorServer extends cc.Component {
 		this.simulatorServer();
 	}
 
-	private fakebug(featureDatas: any[], featureData: {}, cellsResult: string[], WinLines: G1009WinLineResult[], winScatters: any[], winBonus: any[], isExpandWild: boolean, expandWildIndices: number, isEndround: boolean, jackpotWinPoint: number) {
+	private fakebug(featureDatas: any[], featureData: {}, cellsResult: string[], WinLines: Slot45WinLineResult[], winScatters: any[], winBonus: any[], isExpandWild: boolean, expandWildIndices: number, isEndround: boolean, jackpotWinPoint: number) {
 		cellsResult = [
 			"K",
 			"Core",
@@ -152,7 +152,7 @@ export default class G1009SimulatorServer extends cc.Component {
 		return { featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround, jackpotWinPoint };
 	}
 
-	private fakeJackpot(featureDatas: any[], featureData: {}, cellsResult: string[], WinLines: G1009WinLineResult[], winScatters: any[], winBonus: any[], isExpandWild: boolean, expandWildIndices: number, isEndround: boolean, jackpotWinPoint: number) {
+	private fakeJackpot(featureDatas: any[], featureData: {}, cellsResult: string[], WinLines: Slot45WinLineResult[], winScatters: any[], winBonus: any[], isExpandWild: boolean, expandWildIndices: number, isEndround: boolean, jackpotWinPoint: number) {
 		cellsResult[0] = "Core";
 		cellsResult[1] = "Core";
 		cellsResult[12] = "Reactor";
@@ -168,7 +168,7 @@ export default class G1009SimulatorServer extends cc.Component {
 		return { featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround, jackpotWinPoint };
 	}
 
-	private fakeBigWinInShortFreespins(featureDatas: any[], featureData: {}, cellsResult: string[], WinLines: G1009WinLineResult[], winScatters: any[], winBonus: any[], isExpandWild: boolean, expandWildIndices: number, isEndround: boolean) {
+	private fakeBigWinInShortFreespins(featureDatas: any[], featureData: {}, cellsResult: string[], WinLines: Slot45WinLineResult[], winScatters: any[], winBonus: any[], isExpandWild: boolean, expandWildIndices: number, isEndround: boolean) {
 		if (!this.isFreespins)
 		{
 			this.totalWinPoint = 0;
@@ -201,7 +201,7 @@ export default class G1009SimulatorServer extends cc.Component {
 		return { featureData, cellsResult, WinLines, winScatters, winBonus, isExpandWild, expandWildIndices, isEndround };
 	}
 
-	private fakeFreespinWin(featureDatas: any[], featureData: {}, cellsResult: string[], WinLines: G1009WinLineResult[], winScatters: any[], winBonus: any[], isExpandWild: boolean, expandWildIndices: number, isEndround: boolean) {
+	private fakeFreespinWin(featureDatas: any[], featureData: {}, cellsResult: string[], WinLines: Slot45WinLineResult[], winScatters: any[], winBonus: any[], isExpandWild: boolean, expandWildIndices: number, isEndround: boolean) {
 		if (!this.isFreespins)
 		{
 			this.totalWinPoint = 0;
@@ -276,7 +276,7 @@ export default class G1009SimulatorServer extends cc.Component {
 		let sep = cc.sequence(
 			cc.delayTime(delaytime)
 			, cc.callFunc(() => {
-				G1009EventManager.GetInstance().notify("NextScrollData", this.result);
+				Slot45EventManager.GetInstance().notify("NextScrollData", this.result);
 			}, this));
 		this.node.runAction(sep);
 	}

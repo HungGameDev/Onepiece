@@ -1,17 +1,17 @@
 import { SlottyParameter } from "../../Slot45-game-config";
-import G1009Util from "../../base/Util/Slot45-number-converter";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import G1009SpinItemActor, { ESpinningState } from "./Slot45-spin-item";
-import { G1009SpinItemData } from "./Slot45-spin-item-data";
+import Slot45Util from "../../base/Util/Slot45-number-converter";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45SpinItemActor, { ESpinningState } from "./Slot45-spin-item";
+import { Slot45SpinItemData } from "./Slot45-spin-item-data";
 const { ccclass, property } = cc._decorator;
 @ccclass
-export default class G1009SpinPanelActor extends cc.Component {
+export default class Slot45SpinPanelActor extends cc.Component {
 
-	@property(G1009SpinItemActor)
-	spinItems: G1009SpinItemActor[] = [];
+	@property(Slot45SpinItemActor)
+	spinItems: Slot45SpinItemActor[] = [];
 
-	private spinItemData: G1009SpinItemData = new G1009SpinItemData();
-	private spinningItems: G1009SpinItemActor[] = [];
+	private spinItemData: Slot45SpinItemData = new Slot45SpinItemData();
+	private spinningItems: Slot45SpinItemActor[] = [];
 	private isTurbo: boolean = false;
 	private isStopImmediately: boolean = false;
 	private spinItemScrollCount: number = 0;
@@ -25,20 +25,20 @@ export default class G1009SpinPanelActor extends cc.Component {
 	private tweenHideItem: cc.Tween = null;
 
 	private register(): void {
-		G1009EventManager.GetInstance().register("Turbo", this.OnTurbo.bind(this));
-		G1009EventManager.GetInstance().register("SpinStarted", this.OnSpinStarted.bind(this));
-		G1009EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
-		G1009EventManager.GetInstance().register("StopImmediately", this.stopImmediately.bind(this));
-		G1009EventManager.GetInstance().register("SetItems", this.SetItems.bind(this));
-		G1009EventManager.GetInstance().register("SetOldItems", this.SetOldItems.bind(this));
-		G1009EventManager.GetInstance().register("TensionStarted", this.onTensionStarted.bind(this));
-		G1009EventManager.GetInstance().register("TensionGenerated", this.onTensionGenerated.bind(this));
-		//G1009EventManager.GetInstance().register("PresentWinStart", this.onHideItems.bind(this));
-		G1009EventManager.GetInstance().register("ResetAllLine", this.onResetAllLine.bind(this));
-		// G1009EventManager.GetInstance().register("JackpotStarted", this.onHideItems.bind(this));
-		G1009EventManager.GetInstance().register("PresentAllWinComplete", this.onPresentAllWinComplete.bind(this));
-		G1009EventManager.GetInstance().register("ExpandWildStarted", this.onExpandWildStarted.bind(this));
-		G1009EventManager.GetInstance().register("ExpandWildHide", this.onExpandWildHide.bind(this));
+		Slot45EventManager.GetInstance().register("Turbo", this.OnTurbo.bind(this));
+		Slot45EventManager.GetInstance().register("SpinStarted", this.OnSpinStarted.bind(this));
+		Slot45EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
+		Slot45EventManager.GetInstance().register("StopImmediately", this.stopImmediately.bind(this));
+		Slot45EventManager.GetInstance().register("SetItems", this.SetItems.bind(this));
+		Slot45EventManager.GetInstance().register("SetOldItems", this.SetOldItems.bind(this));
+		Slot45EventManager.GetInstance().register("TensionStarted", this.onTensionStarted.bind(this));
+		Slot45EventManager.GetInstance().register("TensionGenerated", this.onTensionGenerated.bind(this));
+		//Slot45EventManager.GetInstance().register("PresentWinStart", this.onHideItems.bind(this));
+		Slot45EventManager.GetInstance().register("ResetAllLine", this.onResetAllLine.bind(this));
+		// Slot45EventManager.GetInstance().register("JackpotStarted", this.onHideItems.bind(this));
+		Slot45EventManager.GetInstance().register("PresentAllWinComplete", this.onPresentAllWinComplete.bind(this));
+		Slot45EventManager.GetInstance().register("ExpandWildStarted", this.onExpandWildStarted.bind(this));
+		Slot45EventManager.GetInstance().register("ExpandWildHide", this.onExpandWildHide.bind(this));
 	}
 
 	protected onLoad(): void {
@@ -77,7 +77,7 @@ export default class G1009SpinPanelActor extends cc.Component {
 			this.stopSpin(spinResult);
 		}
 		else {
-			G1009Util.Instance().WaitUntil(this.checkReadyToStop.bind(this)).then(() => {
+			Slot45Util.Instance().WaitUntil(this.checkReadyToStop.bind(this)).then(() => {
 				this.stopSpin(spinResult);
 			});
 		}
@@ -135,7 +135,7 @@ export default class G1009SpinPanelActor extends cc.Component {
 	}
 
 	private spinItemStopCompleted(cellIndices: number[]): void {
-		G1009EventManager.GetInstance().notify("SpinItemStopCompleted", {
+		Slot45EventManager.GetInstance().notify("SpinItemStopCompleted", {
 			cellIndices: cellIndices,
 		});
 		this.spinItemStopCount++;
@@ -159,7 +159,7 @@ export default class G1009SpinPanelActor extends cc.Component {
 
 	private spinEnd(): void {
 		this.reset();
-		G1009EventManager.GetInstance().notify("SpinComplete");
+		Slot45EventManager.GetInstance().notify("SpinComplete");
 	}
 
 	private stopSpin(items: string[]) {

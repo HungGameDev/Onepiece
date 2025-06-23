@@ -28,46 +28,46 @@ var Slot45_balance_model_1 = require("../../models/Slot45-balance-model");
 var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
 var Slot45_button_1 = require("./Slot45-button");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009BetButtonActor = /** @class */ (function (_super) {
-    __extends(G1009BetButtonActor, _super);
-    function G1009BetButtonActor() {
+var Slot45BetButtonActor = /** @class */ (function (_super) {
+    __extends(Slot45BetButtonActor, _super);
+    function Slot45BetButtonActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.betIndex = -1;
         _this.txtButtonText = null;
         return _this;
     }
-    G1009BetButtonActor.prototype.start = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowBetPanel", this.SetButtonTextValues.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SetBetIncrease", this.SetTextColor.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register(this.EventName, this.SetTextColor.bind(this));
+    Slot45BetButtonActor.prototype.start = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowBetPanel", this.SetButtonTextValues.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SetBetIncrease", this.SetTextColor.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register(this.EventName, this.SetTextColor.bind(this));
         this.SetTextColor(0);
     };
-    G1009BetButtonActor.prototype.SetButtonTextValues = function () {
-        this.txtButtonText.string = Slot45_bet_model_1.G1009BetModel.GetInstance().GetBetPointByIndex(this.betIndex).toString();
+    Slot45BetButtonActor.prototype.SetButtonTextValues = function () {
+        this.txtButtonText.string = Slot45_bet_model_1.Slot45BetModel.GetInstance().GetBetPointByIndex(this.betIndex).toString();
         this.button.interactable = this.validatorButtonSetBet(this.betIndex);
     };
-    G1009BetButtonActor.prototype.onButtonClick = function () {
-        if (this.validatorButtonSetBet(this.betIndex) && Slot45_bet_model_1.G1009BetModel.GetInstance().GetBetPerLinebyIndex(this.betIndex) != Slot45_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine()) {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify(this.EventName, this.betIndex);
+    Slot45BetButtonActor.prototype.onButtonClick = function () {
+        if (this.validatorButtonSetBet(this.betIndex) && Slot45_bet_model_1.Slot45BetModel.GetInstance().GetBetPerLinebyIndex(this.betIndex) != Slot45_bet_model_1.Slot45BetModel.GetInstance().GetCurrentBetPerLine()) {
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify(this.EventName, this.betIndex);
         }
     };
-    G1009BetButtonActor.prototype.validatorButtonSetBet = function (index) {
-        return Slot45_bet_model_1.G1009BetModel.GetInstance().GetNextTotalBetPointbyIndex(index) <= Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance();
+    Slot45BetButtonActor.prototype.validatorButtonSetBet = function (index) {
+        return Slot45_bet_model_1.Slot45BetModel.GetInstance().GetNextTotalBetPointbyIndex(index) <= Slot45_balance_model_1.Slot45BalanceModel.GetInstance().GetBalance();
     };
-    G1009BetButtonActor.prototype.SetTextColor = function (index) {
+    Slot45BetButtonActor.prototype.SetTextColor = function (index) {
         this.txtButtonText.node.color = this.betIndex != index ? cc.Color.GRAY : cc.Color.WHITE;
     };
     __decorate([
         property
-    ], G1009BetButtonActor.prototype, "betIndex", void 0);
+    ], Slot45BetButtonActor.prototype, "betIndex", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009BetButtonActor.prototype, "txtButtonText", void 0);
-    G1009BetButtonActor = __decorate([
+    ], Slot45BetButtonActor.prototype, "txtButtonText", void 0);
+    Slot45BetButtonActor = __decorate([
         ccclass
-    ], G1009BetButtonActor);
-    return G1009BetButtonActor;
+    ], Slot45BetButtonActor);
+    return Slot45BetButtonActor;
 }(Slot45_button_1.default));
-exports.default = G1009BetButtonActor;
+exports.default = Slot45BetButtonActor;
 
 cc._RF.pop();

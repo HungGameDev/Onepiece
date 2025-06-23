@@ -1,26 +1,26 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009SpriteProviderActor extends cc.Component {
+export default class Slot45SpriteProviderActor extends cc.Component {
 
     @property(cc.SpriteFrame)
     spriteFrames: cc.SpriteFrame[] = [];
 
      public onLoad(): void {
-         G1009SpriteProviderManagerActor.Instance().SetFrame(this.spriteFrames);
+         Slot45SpriteProviderManagerActor.Instance().SetFrame(this.spriteFrames);
     }
   
 }
 
-export class G1009SpriteProviderManagerActor{
+export class Slot45SpriteProviderManagerActor{
 
-    private static instance: G1009SpriteProviderManagerActor;
+    private static instance: Slot45SpriteProviderManagerActor;
     dictSpriteFrame: cc.SpriteFrame[] = [];
 
     public static Instance() {
-        if (!G1009SpriteProviderManagerActor.instance)
-            G1009SpriteProviderManagerActor.instance = new G1009SpriteProviderManagerActor();
-        return G1009SpriteProviderManagerActor.instance;
+        if (!Slot45SpriteProviderManagerActor.instance)
+            Slot45SpriteProviderManagerActor.instance = new Slot45SpriteProviderManagerActor();
+        return Slot45SpriteProviderManagerActor.instance;
     }
 
     public SetFrame(_spriteFrames: cc.SpriteFrame[]) {

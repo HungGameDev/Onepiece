@@ -26,25 +26,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_info_toggle_button_1 = require("./Slot45-info-toggle-button");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009BetToggleButtonActor = /** @class */ (function (_super) {
-    __extends(G1009BetToggleButtonActor, _super);
-    function G1009BetToggleButtonActor() {
+var Slot45BetToggleButtonActor = /** @class */ (function (_super) {
+    __extends(Slot45BetToggleButtonActor, _super);
+    function Slot45BetToggleButtonActor() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    G1009BetToggleButtonActor.prototype.start = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ChangeToggleState", this.OnChangeToggleState.bind(this));
+    Slot45BetToggleButtonActor.prototype.start = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ChangeToggleState", this.OnChangeToggleState.bind(this));
     };
-    G1009BetToggleButtonActor.prototype.OnToggleClicked = function (action) {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("SelectBetLineClick", { id: this.toggleId, isCheck: action.isChecked });
+    Slot45BetToggleButtonActor.prototype.OnToggleClicked = function (action) {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("SelectBetLineClick", { id: this.toggleId, isCheck: action.isChecked });
     };
-    G1009BetToggleButtonActor.prototype.OnChangeToggleState = function (toggleArray) {
+    Slot45BetToggleButtonActor.prototype.OnChangeToggleState = function (toggleArray) {
         this.toggle.isChecked = toggleArray.includes(this.toggleId);
     };
-    G1009BetToggleButtonActor = __decorate([
+    Slot45BetToggleButtonActor = __decorate([
         ccclass
-    ], G1009BetToggleButtonActor);
-    return G1009BetToggleButtonActor;
+    ], Slot45BetToggleButtonActor);
+    return Slot45BetToggleButtonActor;
 }(Slot45_info_toggle_button_1.default));
-exports.default = G1009BetToggleButtonActor;
+exports.default = Slot45BetToggleButtonActor;
 
 cc._RF.pop();

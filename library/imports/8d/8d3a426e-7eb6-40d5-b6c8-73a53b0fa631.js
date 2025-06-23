@@ -24,19 +24,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009PopupError = /** @class */ (function (_super) {
-    __extends(G1009PopupError, _super);
-    function G1009PopupError() {
+var Slot45PopupError = /** @class */ (function (_super) {
+    __extends(Slot45PopupError, _super);
+    function Slot45PopupError() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    G1009PopupError.prototype.onExitClick = function () {
+    Slot45PopupError.prototype.onExitClick = function () {
         cc.director.loadScene('home-page');
     };
-    G1009PopupError = __decorate([
+    Slot45PopupError = __decorate([
         ccclass
-    ], G1009PopupError);
-    return G1009PopupError;
+    ], Slot45PopupError);
+    return Slot45PopupError;
 }(cc.Component));
-exports.default = G1009PopupError;
+exports.default = Slot45PopupError;
 
 cc._RF.pop();

@@ -1,9 +1,9 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import G1009ButtonActor from "./Slot45-button";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45ButtonActor from "./Slot45-button";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009ButtonSpinAnimationActor extends G1009ButtonActor {
+export default class Slot45ButtonSpinAnimationActor extends Slot45ButtonActor {
 	@property(sp.Skeleton)
 	animationButton: sp.Skeleton = null;
 	protected onLoad(): void {
@@ -13,7 +13,7 @@ export default class G1009ButtonSpinAnimationActor extends G1009ButtonActor {
 
 	protected onButtonClick(): void {
 		this.playAnimSpin();
-		G1009EventManager.GetInstance().notify(this.EventName);
+		Slot45EventManager.GetInstance().notify(this.EventName);
 	}
 
 	private playAnimIdle():void{

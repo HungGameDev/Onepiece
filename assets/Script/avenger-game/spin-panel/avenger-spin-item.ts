@@ -1,12 +1,12 @@
-import G1009CellItemActor from "../../UI/spin-panel/Slot45-cell-item";
-import G1009SpinItemActor, { ESpinningState } from "../../UI/spin-panel/Slot45-spin-item";
-import { G1009SpinItemData } from "../../UI/spin-panel/Slot45-spin-item-data";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45CellItemActor from "../../UI/spin-panel/Slot45-cell-item";
+import Slot45SpinItemActor, { ESpinningState } from "../../UI/spin-panel/Slot45-spin-item";
+import { Slot45SpinItemData } from "../../UI/spin-panel/Slot45-spin-item-data";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 import { SpinPanelConfig } from "./avenger-spin-panel-config";
 
 const { ccclass, property } = cc._decorator;
 @ccclass
-export default class AvengerSpinItem extends G1009SpinItemActor {
+export default class AvengerSpinItem extends Slot45SpinItemActor {
 
 	@property()
 	reelIndex: number = -1;
@@ -54,8 +54,8 @@ export default class AvengerSpinItem extends G1009SpinItemActor {
 			var tweenDropDown = cc.tween(cellItem.node)
 				.to(SpinPanelConfig.DropDownDuration, { y: endYPosition }, { easing: SpinPanelConfig.EasingDropDown })
 				.call(()=>{
-					G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
-					G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
+					Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
+					Slot45EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
 				})
 				.to(SpinPanelConfig.RotationDuration, { angle: SpinPanelConfig.ShakeRotation }, { easing: SpinPanelConfig.EasingDropDown })
 				.to(SpinPanelConfig.BounceDuration, { y: endYPosition + SpinPanelConfig.BouncedOffsetHeight, angle: -SpinPanelConfig.ShakeRotation / 2 }, { easing: SpinPanelConfig.EasingDropDown })
@@ -132,8 +132,8 @@ export default class AvengerSpinItem extends G1009SpinItemActor {
 				var tweenDropDown = cc.tween(cellItem.node)
 					.to(SpinPanelConfig.DropDownDuration, { y: desYPostion }, { easing: SpinPanelConfig.EasingDropDown })
 					.call(()=>{
-						G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
-						G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
+						Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
+						Slot45EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
 					})
 					.to(SpinPanelConfig.RotationDuration, { angle: SpinPanelConfig.ShakeRotation }, { easing: SpinPanelConfig.EasingDropDown })
 					.to(SpinPanelConfig.BounceDuration, { y: desYPostion + SpinPanelConfig.BouncedOffsetHeight, angle: -SpinPanelConfig.ShakeRotation / 2 }, { easing: SpinPanelConfig.EasingDropDown })

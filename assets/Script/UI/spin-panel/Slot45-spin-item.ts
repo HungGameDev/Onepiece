@@ -1,9 +1,9 @@
 
 
 const { ccclass, property } = cc._decorator;
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import G1009CellItemActor from "./Slot45-cell-item";
-import { G1009SpinItemData } from "./Slot45-spin-item-data";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45CellItemActor from "./Slot45-cell-item";
+import { Slot45SpinItemData } from "./Slot45-spin-item-data";
 const MAX_LOOP = 10;
 enum EDirection {
 	Down = 1,
@@ -19,10 +19,10 @@ export enum ESpinningState {
 	WaitingBounce = 5,
 }
 @ccclass
-export default class G1009SpinItemActor extends cc.Component {
+export default class Slot45SpinItemActor extends cc.Component {
 
-	@property(G1009CellItemActor)
-	cellItems: G1009CellItemActor[] = [];
+	@property(Slot45CellItemActor)
+	cellItems: Slot45CellItemActor[] = [];
 
 	@property
 	direction: EDirection = EDirection.Down;
@@ -55,7 +55,7 @@ export default class G1009SpinItemActor extends cc.Component {
 	onReadyBounceUp: Function = () => { };
 	repeatCount: number = 0;
 
-	public Init(initData: G1009SpinItemData): void {
+	public Init(initData: Slot45SpinItemData): void {
 		this.scrollSpeed = initData.ScrollSpeed;
 		this.originSpeed = this.scrollSpeed;
 		this.tensionSpeedMultiplier = initData.TensionSpeedMultiplier;
@@ -101,7 +101,7 @@ export default class G1009SpinItemActor extends cc.Component {
 	public Spin(): void {
 
 		if (this.state == ESpinningState.Idle) {
-			// G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelspin', isLoop: false });
+			// Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelspin', isLoop: false });
 			this.momentum();
 		}
 	}
@@ -203,7 +203,7 @@ export default class G1009SpinItemActor extends cc.Component {
 		}
 	}
 
-	private setSpinningItem(cellItem: G1009CellItemActor, index: number) {
+	private setSpinningItem(cellItem: Slot45CellItemActor, index: number) {
 		if (this.rawResultItems.length > 0) {
 			let item = this.resultItems.pop();
 			cellItem.SetScrollItem(item);
@@ -258,7 +258,7 @@ export default class G1009SpinItemActor extends cc.Component {
 	}
 
 	protected stopComplete(): void {
-		// G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelstop', isLoop: false });
+		// Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelstop', isLoop: false });
 		this.cellItems.forEach(cellItem => cellItem.StopSpin());
 		this.state = ESpinningState.Idle;
 		this.onStopSpinCompleted(this.cellIndices);

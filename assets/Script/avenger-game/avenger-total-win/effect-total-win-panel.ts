@@ -1,5 +1,5 @@
-import G1009Util from "../../base/Util/Slot45-number-converter";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45Util from "../../base/Util/Slot45-number-converter";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 
 const { ccclass, property } = cc._decorator;
@@ -18,12 +18,12 @@ export default class TotalWinPanel extends cc.Component {
     }
 
     private register(): void {
-        G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
-        G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-        G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-        G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
-        G1009EventManager.GetInstance().register("ShowBetPanel", this.onShowBetPanel.bind(this));
-        G1009EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
+        Slot45EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
+        Slot45EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+        Slot45EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
+        Slot45EventManager.GetInstance().register("resume", this.onResume.bind(this));
+        Slot45EventManager.GetInstance().register("ShowBetPanel", this.onShowBetPanel.bind(this));
+        Slot45EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
     }
 
     private onResume(data: any) {

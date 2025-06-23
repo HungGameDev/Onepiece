@@ -27,28 +27,28 @@ var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009JackpotBanner = /** @class */ (function (_super) {
-    __extends(G1009JackpotBanner, _super);
-    function G1009JackpotBanner() {
+var Slot45JackpotBanner = /** @class */ (function (_super) {
+    __extends(Slot45JackpotBanner, _super);
+    function Slot45JackpotBanner() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.lblJackpotPoint = null;
         return _this;
     }
-    G1009JackpotBanner.prototype.onLoad = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotCompleted', this.onJackpotCompleted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotShow', this.onJackpotStarted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('ChangeBet', this.updateLabel.bind(this));
+    Slot45JackpotBanner.prototype.onLoad = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('JackpotCompleted', this.onJackpotCompleted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('JackpotShow', this.onJackpotStarted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('ChangeBet', this.updateLabel.bind(this));
     };
-    G1009JackpotBanner.prototype.onBetInfos = function (data) {
+    Slot45JackpotBanner.prototype.onBetInfos = function (data) {
         this.betInfos = Object.assign([], data);
         this.updateLabel();
     };
-    G1009JackpotBanner.prototype.onJackpotCompleted = function () {
+    Slot45JackpotBanner.prototype.onJackpotCompleted = function () {
         this.updateLabel();
     };
-    G1009JackpotBanner.prototype.onJackpotUpdate = function (datas) {
+    Slot45JackpotBanner.prototype.onJackpotUpdate = function (datas) {
         var arr = Object.entries(datas);
         this.betInfos.forEach(function (betInfo) {
             var jackpotData = arr.find(function (data) {
@@ -58,22 +58,22 @@ var G1009JackpotBanner = /** @class */ (function (_super) {
         });
         this.updateLabel();
     };
-    G1009JackpotBanner.prototype.updateLabel = function () {
-        var betDenom = Slot45_bet_model_1.G1009BetModel.GetInstance().GetCurrentBetPerLine();
+    Slot45JackpotBanner.prototype.updateLabel = function () {
+        var betDenom = Slot45_bet_model_1.Slot45BetModel.GetInstance().GetCurrentBetPerLine();
         var betInfo = this.betInfos.filter(function (betInfo) { return betInfo.betDenom == betDenom; })[0];
         this.lblJackpotPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(betInfo.jackpotInfos[0].jackpotAmount);
     };
-    G1009JackpotBanner.prototype.onJackpotStarted = function () {
+    Slot45JackpotBanner.prototype.onJackpotStarted = function () {
         this.lblJackpotPoint.string = "0";
     };
     __decorate([
         property(cc.Label)
-    ], G1009JackpotBanner.prototype, "lblJackpotPoint", void 0);
-    G1009JackpotBanner = __decorate([
+    ], Slot45JackpotBanner.prototype, "lblJackpotPoint", void 0);
+    Slot45JackpotBanner = __decorate([
         ccclass
-    ], G1009JackpotBanner);
-    return G1009JackpotBanner;
+    ], Slot45JackpotBanner);
+    return Slot45JackpotBanner;
 }(cc.Component));
-exports.default = G1009JackpotBanner;
+exports.default = Slot45JackpotBanner;
 
 cc._RF.pop();

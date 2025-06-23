@@ -25,34 +25,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SelectBetActor = /** @class */ (function (_super) {
-    __extends(G1009SelectBetActor, _super);
-    function G1009SelectBetActor() {
+var Slot45SelectBetActor = /** @class */ (function (_super) {
+    __extends(Slot45SelectBetActor, _super);
+    function Slot45SelectBetActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         return _this;
     }
-    G1009SelectBetActor.prototype.start = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('SetBet', this.Hide.bind(this));
+    Slot45SelectBetActor.prototype.start = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('SetBet', this.Hide.bind(this));
     };
-    G1009SelectBetActor.prototype.Hide = function () {
+    Slot45SelectBetActor.prototype.Hide = function () {
         this.content.active = false;
     };
-    G1009SelectBetActor.prototype.Show = function () {
+    Slot45SelectBetActor.prototype.Show = function () {
         this.content.active = true;
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ShowPopupChangeBet");
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("ShowPopupChangeBet");
     };
-    G1009SelectBetActor.prototype.OnButtonBackClick = function () {
+    Slot45SelectBetActor.prototype.OnButtonBackClick = function () {
         cc.director.loadScene('Lobby');
     };
     __decorate([
         property(cc.Node)
-    ], G1009SelectBetActor.prototype, "content", void 0);
-    G1009SelectBetActor = __decorate([
+    ], Slot45SelectBetActor.prototype, "content", void 0);
+    Slot45SelectBetActor = __decorate([
         ccclass
-    ], G1009SelectBetActor);
-    return G1009SelectBetActor;
+    ], Slot45SelectBetActor);
+    return Slot45SelectBetActor;
 }(cc.Component));
-exports.default = G1009SelectBetActor;
+exports.default = Slot45SelectBetActor;
 
 cc._RF.pop();

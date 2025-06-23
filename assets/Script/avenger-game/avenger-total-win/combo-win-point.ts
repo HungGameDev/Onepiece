@@ -1,5 +1,5 @@
-import G1009Util from "../../base/Util/Slot45-number-converter";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45Util from "../../base/Util/Slot45-number-converter";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 
 const { ccclass, property } = cc._decorator;
@@ -19,17 +19,17 @@ export default class ComboWinPoint extends cc.Component {
     }
 
     private register(): void {
-        G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
-        G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
-        G1009EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
-		G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
-		G1009EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
+        Slot45EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
+        Slot45EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
+        Slot45EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
+		Slot45EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
+		Slot45EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
 
     }
 
     private onSetTotalWin(point: number): void {
         this.currentPoint = point;
-        this.totalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+        this.totalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(this.currentPoint);
     }
 
     private onIncreaseTotalWin(point: number): void {
@@ -49,12 +49,12 @@ export default class ComboWinPoint extends cc.Component {
             .delay(delay)
             .to(duration, { value: point }, {
                 progress: (start: any, end: any, current: any, ratio: any) => {
-                    this.totalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(Math.floor(current));
+                    this.totalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(Math.floor(current));
                     return start + (end - start) * ratio;
                 }
             })
             .call(() => {
-                this.totalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(point);
+                this.totalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(point);
                 this.currentPoint = point;
             })
         this.tweenCountPoint.start();
@@ -64,6 +64,6 @@ export default class ComboWinPoint extends cc.Component {
     private reset(): void {
         this.totalWinPoint.node.active = false;
         this.currentPoint = 0;
-        this.totalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(this.currentPoint);
+        this.totalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(this.currentPoint);
     }
 }

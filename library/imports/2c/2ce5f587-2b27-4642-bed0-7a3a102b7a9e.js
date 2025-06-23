@@ -25,9 +25,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009PopupError = /** @class */ (function (_super) {
-    __extends(G1009PopupError, _super);
-    function G1009PopupError() {
+var Slot45PopupError = /** @class */ (function (_super) {
+    __extends(Slot45PopupError, _super);
+    function Slot45PopupError() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         _this.lblMessage = null;
@@ -35,11 +35,11 @@ var G1009PopupError = /** @class */ (function (_super) {
         _this.btnClosePopup = null;
         return _this;
     }
-    G1009PopupError.prototype.start = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("PopupInfoMessage", this.onPopupInfoMessage.bind(this));
+    Slot45PopupError.prototype.start = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("PopupInfoMessage", this.onPopupInfoMessage.bind(this));
         this.reset();
     };
-    G1009PopupError.prototype.onPopupInfoMessage = function (data) {
+    Slot45PopupError.prototype.onPopupInfoMessage = function (data) {
         this.lblMessage.string = data.message;
         this.btnExit.active = !(data.type == 'info');
         this.btnClosePopup.active = (data.type == 'info');
@@ -49,13 +49,13 @@ var G1009PopupError = /** @class */ (function (_super) {
             .to(0.2, { opacity: 255 })
             .start();
     };
-    G1009PopupError.prototype.reset = function () {
+    Slot45PopupError.prototype.reset = function () {
         this.content.active = false;
     };
-    G1009PopupError.prototype.onExitClick = function () {
+    Slot45PopupError.prototype.onExitClick = function () {
         cc.director.loadScene('home-page');
     };
-    G1009PopupError.prototype.onClosePopupClick = function () {
+    Slot45PopupError.prototype.onClosePopupClick = function () {
         var _this = this;
         cc.tween(this.content)
             .to(0.2, { opacity: 0 })
@@ -64,21 +64,21 @@ var G1009PopupError = /** @class */ (function (_super) {
     };
     __decorate([
         property(cc.Node)
-    ], G1009PopupError.prototype, "content", void 0);
+    ], Slot45PopupError.prototype, "content", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupError.prototype, "lblMessage", void 0);
+    ], Slot45PopupError.prototype, "lblMessage", void 0);
     __decorate([
         property(cc.Node)
-    ], G1009PopupError.prototype, "btnExit", void 0);
+    ], Slot45PopupError.prototype, "btnExit", void 0);
     __decorate([
         property(cc.Node)
-    ], G1009PopupError.prototype, "btnClosePopup", void 0);
-    G1009PopupError = __decorate([
+    ], Slot45PopupError.prototype, "btnClosePopup", void 0);
+    Slot45PopupError = __decorate([
         ccclass
-    ], G1009PopupError);
-    return G1009PopupError;
+    ], Slot45PopupError);
+    return Slot45PopupError;
 }(cc.Component));
-exports.default = G1009PopupError;
+exports.default = Slot45PopupError;
 
 cc._RF.pop();

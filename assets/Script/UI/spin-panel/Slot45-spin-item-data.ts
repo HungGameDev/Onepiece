@@ -1,5 +1,5 @@
 
-export  class G1009SpinItemData {
+export  class Slot45SpinItemData {
     ReelDataType: string = "reel-data";
     ScrollSpeed: number = 60;
     TensionSpeedMultiplier: number = 2;

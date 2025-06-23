@@ -39,11 +39,11 @@ var ComboWinPoint = /** @class */ (function (_super) {
         this.reset();
     };
     ComboWinPoint.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("IncreaseTotalWin", this.onIncreaseTotalWin.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
     };
     ComboWinPoint.prototype.onSetTotalWin = function (point) {
         this.currentPoint = point;

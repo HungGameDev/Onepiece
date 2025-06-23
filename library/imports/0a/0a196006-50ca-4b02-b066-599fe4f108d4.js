@@ -26,9 +26,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_button_1 = require("./Slot45-button");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009ButtonControllerActor = /** @class */ (function (_super) {
-    __extends(G1009ButtonControllerActor, _super);
-    function G1009ButtonControllerActor() {
+var Slot45ButtonControllerActor = /** @class */ (function (_super) {
+    __extends(Slot45ButtonControllerActor, _super);
+    function Slot45ButtonControllerActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.spinButton = null;
         _this.stopSpinButton = null;
@@ -38,97 +38,97 @@ var G1009ButtonControllerActor = /** @class */ (function (_super) {
         _this.isAuto = false;
         return _this;
     }
-    G1009ButtonControllerActor.prototype.start = function () {
+    Slot45ButtonControllerActor.prototype.start = function () {
         this.register();
     };
-    G1009ButtonControllerActor.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Spin", this.OnSpinClicked.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.OnStopSpinClicked.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowBetPanel", this.OnResetSpin.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.activeStopButton.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("FeatureTrigger", this.checkToActiveSpinLeft.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BigWinPresentationStarted", this.onBigWinStarted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("JackpotPresentationStarted", this.onBigWinStarted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinComplete", this.onSpinComplete.bind(this));
+    Slot45ButtonControllerActor.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("Spin", this.OnSpinClicked.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("StopImmediately", this.OnStopSpinClicked.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowBetPanel", this.OnResetSpin.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SpinStarted", this.activeStopButton.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("FeatureTrigger", this.checkToActiveSpinLeft.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("resume", this.onResume.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("BigWinPresentationStarted", this.onBigWinStarted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("JackpotPresentationStarted", this.onBigWinStarted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SpinComplete", this.onSpinComplete.bind(this));
     };
-    G1009ButtonControllerActor.prototype.onNextScrollData = function (data) {
+    Slot45ButtonControllerActor.prototype.onNextScrollData = function (data) {
         this.freespinLeft = data.freespinLeft;
     };
-    G1009ButtonControllerActor.prototype.onResume = function () {
+    Slot45ButtonControllerActor.prototype.onResume = function () {
         this.spinButton.Disable();
         this.stopSpinButton.Enable();
         this.checkToActiveSpinLeft();
     };
-    G1009ButtonControllerActor.prototype.onBigWinStarted = function () {
+    Slot45ButtonControllerActor.prototype.onBigWinStarted = function () {
         this.spinButton.Disable();
         this.stopSpinButton.Enable();
         this.stopSpinButton.Interactable(true);
     };
-    G1009ButtonControllerActor.prototype.onActiveAuto = function () {
+    Slot45ButtonControllerActor.prototype.onActiveAuto = function () {
         this.isAuto = true;
         this.stopSpinButton.Enable();
         this.spinButton.Disable();
     };
-    G1009ButtonControllerActor.prototype.onStopAuto = function () {
+    Slot45ButtonControllerActor.prototype.onStopAuto = function () {
         this.isAuto = false;
     };
-    G1009ButtonControllerActor.prototype.OnSpinClicked = function () {
+    Slot45ButtonControllerActor.prototype.OnSpinClicked = function () {
         if (this.isAuto == false) {
             this.spinButton.Disable();
             this.stopSpinButton.Enable();
         }
     };
-    G1009ButtonControllerActor.prototype.OnStopSpinClicked = function () {
+    Slot45ButtonControllerActor.prototype.OnStopSpinClicked = function () {
         this.stopSpinButton.Interactable(false);
     };
-    G1009ButtonControllerActor.prototype.onSpinComplete = function () {
+    Slot45ButtonControllerActor.prototype.onSpinComplete = function () {
         this.stopSpinButton.Interactable(false);
     };
-    G1009ButtonControllerActor.prototype.activeStopButton = function () {
+    Slot45ButtonControllerActor.prototype.activeStopButton = function () {
         this.freespinLeft -= 1;
         this.checkToActiveSpinLeft();
         this.stopSpinButton.Interactable(true);
     };
-    G1009ButtonControllerActor.prototype.checkToActiveSpinLeft = function () {
+    Slot45ButtonControllerActor.prototype.checkToActiveSpinLeft = function () {
         this.onStopAuto();
     };
-    G1009ButtonControllerActor.prototype.OnResetSpin = function () {
+    Slot45ButtonControllerActor.prototype.OnResetSpin = function () {
         if (this.isAuto == false) {
             this.stopSpinButton.Disable();
             this.spinButton.Enable();
         }
     };
-    G1009ButtonControllerActor.prototype.OnTurboClicked = function (action) {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("Turbo", action.isChecked);
+    Slot45ButtonControllerActor.prototype.OnTurboClicked = function (action) {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("Turbo", action.isChecked);
     };
-    G1009ButtonControllerActor.prototype.OnAutoClicked = function (action) {
+    Slot45ButtonControllerActor.prototype.OnAutoClicked = function (action) {
         if (action.isChecked) {
             this.onActiveAuto();
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ActiveAuto");
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("ActiveAuto");
         }
         else {
             this.onStopAuto();
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("StopAuto");
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("StopImmediately");
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("StopAuto");
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("StopImmediately");
         }
     };
     __decorate([
         property(Slot45_button_1.default)
-    ], G1009ButtonControllerActor.prototype, "spinButton", void 0);
+    ], Slot45ButtonControllerActor.prototype, "spinButton", void 0);
     __decorate([
         property(Slot45_button_1.default)
-    ], G1009ButtonControllerActor.prototype, "stopSpinButton", void 0);
+    ], Slot45ButtonControllerActor.prototype, "stopSpinButton", void 0);
     __decorate([
         property(cc.Toggle)
-    ], G1009ButtonControllerActor.prototype, "turboButton", void 0);
-    G1009ButtonControllerActor = __decorate([
+    ], Slot45ButtonControllerActor.prototype, "turboButton", void 0);
+    Slot45ButtonControllerActor = __decorate([
         ccclass
-    ], G1009ButtonControllerActor);
-    return G1009ButtonControllerActor;
+    ], Slot45ButtonControllerActor);
+    return Slot45ButtonControllerActor;
 }(cc.Component));
-exports.default = G1009ButtonControllerActor;
+exports.default = Slot45ButtonControllerActor;
 
 cc._RF.pop();

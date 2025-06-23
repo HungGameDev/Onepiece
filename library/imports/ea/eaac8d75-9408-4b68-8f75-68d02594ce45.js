@@ -27,22 +27,22 @@ var Slot45_game_controller_1 = require("../../base/controller/Slot45-game-contro
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_feature_trigger_actor_1 = require("../feature/Slot45-feature-trigger-actor");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009BonusTrigger = /** @class */ (function (_super) {
-    __extends(G1009BonusTrigger, _super);
-    function G1009BonusTrigger() {
+var Slot45BonusTrigger = /** @class */ (function (_super) {
+    __extends(Slot45BonusTrigger, _super);
+    function Slot45BonusTrigger() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.arrNodeSymbol = [];
         return _this;
     }
-    G1009BonusTrigger.prototype.checkRuleTrigger = function () {
+    Slot45BonusTrigger.prototype.checkRuleTrigger = function () {
         return Slot45_game_controller_1.default.GetInstance().CheckBonusPointTrigger();
     };
-    G1009BonusTrigger.prototype.notifyEnterFeature = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("EnterBonus", Slot45_game_controller_1.default.GetInstance().GetWinBonus());
+    Slot45BonusTrigger.prototype.notifyEnterFeature = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("EnterBonus", Slot45_game_controller_1.default.GetInstance().GetWinBonus());
     };
-    G1009BonusTrigger.prototype.showContent = function () {
+    Slot45BonusTrigger.prototype.showContent = function () {
         var _this = this;
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_bonustransition", isLoop: false });
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_bonustransition", isLoop: false });
         this.content.active = true;
         cc.tween(this.content)
             .to(0.5, { opacity: 255 })
@@ -65,23 +65,23 @@ var G1009BonusTrigger = /** @class */ (function (_super) {
         cc.tween(this.node).delay(2).call(function () {
             _this.notifyEnterFeature();
         }).delay(2).call(function () {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BonusWinComplete");
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("BonusWinComplete");
             _this.reset();
         })
             .start();
     };
-    G1009BonusTrigger.prototype.reset = function () {
+    Slot45BonusTrigger.prototype.reset = function () {
         this.content.opacity = 0;
         this.content.active = false;
     };
     __decorate([
         property(cc.Node)
-    ], G1009BonusTrigger.prototype, "arrNodeSymbol", void 0);
-    G1009BonusTrigger = __decorate([
+    ], Slot45BonusTrigger.prototype, "arrNodeSymbol", void 0);
+    Slot45BonusTrigger = __decorate([
         ccclass
-    ], G1009BonusTrigger);
-    return G1009BonusTrigger;
+    ], Slot45BonusTrigger);
+    return Slot45BonusTrigger;
 }(Slot45_feature_trigger_actor_1.default));
-exports.default = G1009BonusTrigger;
+exports.default = Slot45BonusTrigger;
 
 cc._RF.pop();

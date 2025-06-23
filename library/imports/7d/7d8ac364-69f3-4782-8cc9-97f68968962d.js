@@ -25,34 +25,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009InfoPageActor = /** @class */ (function (_super) {
-    __extends(G1009InfoPageActor, _super);
-    function G1009InfoPageActor() {
+var Slot45InfoPageActor = /** @class */ (function (_super) {
+    __extends(Slot45InfoPageActor, _super);
+    function Slot45InfoPageActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         return _this;
     }
-    G1009InfoPageActor.prototype.onLoad = function () {
+    Slot45InfoPageActor.prototype.onLoad = function () {
         this.register();
     };
-    G1009InfoPageActor.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("HideInfoPanel", this.onHideClick.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowInfoPanel", this.onShowClick.bind(this));
+    Slot45InfoPageActor.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("HideInfoPanel", this.onHideClick.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowInfoPanel", this.onShowClick.bind(this));
     };
-    G1009InfoPageActor.prototype.onHideClick = function () {
+    Slot45InfoPageActor.prototype.onHideClick = function () {
         this.content.active = false;
     };
-    G1009InfoPageActor.prototype.onShowClick = function () {
+    Slot45InfoPageActor.prototype.onShowClick = function () {
         this.content.active = true;
     };
     __decorate([
         property(cc.Node)
-    ], G1009InfoPageActor.prototype, "content", void 0);
-    G1009InfoPageActor = __decorate([
+    ], Slot45InfoPageActor.prototype, "content", void 0);
+    Slot45InfoPageActor = __decorate([
         ccclass
-    ], G1009InfoPageActor);
-    return G1009InfoPageActor;
+    ], Slot45InfoPageActor);
+    return Slot45InfoPageActor;
 }(cc.Component));
-exports.default = G1009InfoPageActor;
+exports.default = Slot45InfoPageActor;
 
 cc._RF.pop();

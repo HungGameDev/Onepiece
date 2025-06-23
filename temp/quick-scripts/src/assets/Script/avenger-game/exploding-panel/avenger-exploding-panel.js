@@ -38,8 +38,8 @@ var ExplodingPanel = /** @class */ (function (_super) {
         return _this;
     }
     ExplodingPanel.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
     };
     ExplodingPanel.prototype.onLoad = function () {
         var _this = this;
@@ -69,7 +69,7 @@ var ExplodingPanel = /** @class */ (function (_super) {
     ExplodingPanel.prototype.handleExplodeCompleted = function () {
         if (this.isStartExplodeCells) {
             this.isStartExplodeCells = false;
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ExplodeCellsComplete");
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("ExplodeCellsComplete");
         }
     };
     __decorate([

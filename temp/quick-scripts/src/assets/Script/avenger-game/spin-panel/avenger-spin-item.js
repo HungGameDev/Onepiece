@@ -79,8 +79,8 @@ var AvengerSpinItem = /** @class */ (function (_super) {
             tweenDropDown = cc.tween(cellItem.node)
                 .to(avenger_spin_panel_config_1.SpinPanelConfig.DropDownDuration, { y: endYPosition }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
                 .call(function () {
-                Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
-                Slot45_event_manager_1.G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
+                Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
+                Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
             })
                 .to(avenger_spin_panel_config_1.SpinPanelConfig.RotationDuration, { angle: avenger_spin_panel_config_1.SpinPanelConfig.ShakeRotation }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
                 .to(avenger_spin_panel_config_1.SpinPanelConfig.BounceDuration, { y: endYPosition + avenger_spin_panel_config_1.SpinPanelConfig.BouncedOffsetHeight, angle: -avenger_spin_panel_config_1.SpinPanelConfig.ShakeRotation / 2 }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
@@ -160,8 +160,8 @@ var AvengerSpinItem = /** @class */ (function (_super) {
                 tweenDropDown = cc.tween(cellItem.node)
                     .to(avenger_spin_panel_config_1.SpinPanelConfig.DropDownDuration, { y: desYPostion }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
                     .call(function () {
-                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
-                    Slot45_event_manager_1.G1009EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
+                    Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_cell_drop_down', isLoop: false });
+                    Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('CellDropCompleted', cellItem.GetCellIndex());
                 })
                     .to(avenger_spin_panel_config_1.SpinPanelConfig.RotationDuration, { angle: avenger_spin_panel_config_1.SpinPanelConfig.ShakeRotation }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })
                     .to(avenger_spin_panel_config_1.SpinPanelConfig.BounceDuration, { y: desYPostion + avenger_spin_panel_config_1.SpinPanelConfig.BouncedOffsetHeight, angle: -avenger_spin_panel_config_1.SpinPanelConfig.ShakeRotation / 2 }, { easing: avenger_spin_panel_config_1.SpinPanelConfig.EasingDropDown })

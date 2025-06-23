@@ -1,11 +1,11 @@
-import { G1009WinLineResult } from "../../UI/present-win/Slot45-present-win-panel";
-import { G1009EventManager } from "../events/Slot45-event-manager";
+import { Slot45WinLineResult } from "../../UI/present-win/Slot45-present-win-panel";
+import { Slot45EventManager } from "../events/Slot45-event-manager";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009GameController extends cc.Component {
-	private static instance: G1009GameController;
+export default class Slot45GameController extends cc.Component {
+	private static instance: Slot45GameController;
 
 	private data: any = null;
 	private featureDatas: any[] = [];
@@ -20,28 +20,28 @@ export default class G1009GameController extends cc.Component {
 	private comboCount: number = 0;
 
 	public static GetInstance() {
-		if (!G1009GameController.instance)
-			G1009GameController.instance = new G1009GameController();
-		return G1009GameController.instance;
+		if (!Slot45GameController.instance)
+			Slot45GameController.instance = new Slot45GameController();
+		return Slot45GameController.instance;
 	}
 
 	private register(): void {
-		G1009EventManager.GetInstance().register("ActiveAuto", this.onActiveAuto.bind(this));
-		G1009EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
-		G1009EventManager.GetInstance().register("Turbo", this.onTurbo.bind(this));
-		G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
-		G1009EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
-		G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
-		G1009EventManager.GetInstance().register("featureWinstarted", this.onfeatureWinstarted.bind(this));
-		G1009EventManager.GetInstance().register("BonusWinStarted", this.onBonusWinStarted.bind(this));
-		G1009EventManager.GetInstance().register("BonusWinComplete", this.onBonusWinComplete.bind(this));
-		G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
-		G1009EventManager.GetInstance().register("resumeBonus", this.onResumeBonus.bind(this));
-		G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-		G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
+		Slot45EventManager.GetInstance().register("ActiveAuto", this.onActiveAuto.bind(this));
+		Slot45EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
+		Slot45EventManager.GetInstance().register("Turbo", this.onTurbo.bind(this));
+		Slot45EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+		Slot45EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
+		Slot45EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
+		Slot45EventManager.GetInstance().register("featureWinstarted", this.onfeatureWinstarted.bind(this));
+		Slot45EventManager.GetInstance().register("BonusWinStarted", this.onBonusWinStarted.bind(this));
+		Slot45EventManager.GetInstance().register("BonusWinComplete", this.onBonusWinComplete.bind(this));
+		Slot45EventManager.GetInstance().register("resume", this.onResume.bind(this));
+		Slot45EventManager.GetInstance().register("resumeBonus", this.onResumeBonus.bind(this));
+		Slot45EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+		Slot45EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
 
 
-		G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
+		Slot45EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
 	}
 
 	private onStartPresentWinCombo() {
@@ -66,10 +66,10 @@ export default class G1009GameController extends cc.Component {
 	}
 
 	protected onLoad(): void {
-		if (G1009GameController.instance) {
+		if (Slot45GameController.instance) {
 			throw new Error("Error: Instantiation failed: Use GameController.getInstance() instead of new.");
 		}
-		G1009GameController.instance = this;
+		Slot45GameController.instance = this;
 		this.register();
 	}
 
@@ -90,13 +90,13 @@ export default class G1009GameController extends cc.Component {
 		var filterFeatureDatas = this.data.featureDatas.filter(x => !x.hitRule.includes("bonus"))
 		this.featureDatas = filterFeatureDatas;
 		this.data.featureDatas = filterFeatureDatas;
-		G1009EventManager.GetInstance().notify("featureWinCompleted", { hitRule: "bonus" });
+		Slot45EventManager.GetInstance().notify("featureWinCompleted", { hitRule: "bonus" });
 	}
 
 	private onSpinStarted(): void {
 		this.comboCount = 0;
 		var requestData = { isFreespin: this.CheckIsFreespin() }
-		G1009EventManager.GetInstance().notify("SpinRequest", requestData);
+		Slot45EventManager.GetInstance().notify("SpinRequest", requestData);
 	}
 
 	private onTurbo(isTurbo: boolean) {
@@ -118,10 +118,10 @@ export default class G1009GameController extends cc.Component {
 			this.freespinTotalWinPoint = data.freespintotalWinPoint;
 		}
 		if (!!this.data.bonusGameDatas) {
-			G1009EventManager.GetInstance().notify("PickUpdata", this.data.bonusGameDatas);
+			Slot45EventManager.GetInstance().notify("PickUpdata", this.data.bonusGameDatas);
 		}
-		G1009EventManager.GetInstance().notify("DataRespond", data.Cells);
-		G1009EventManager.GetInstance().notify("WinDataRespond", this.data);
+		Slot45EventManager.GetInstance().notify("DataRespond", data.Cells);
+		Slot45EventManager.GetInstance().notify("WinDataRespond", this.data);
 	}
 
 	private onfeatureWinCompleted(): void {
@@ -132,7 +132,7 @@ export default class G1009GameController extends cc.Component {
 		this.isFreespins = false;
 		// if (this.oldata == null) { this.oldata = this.data; }
 		// cc.tween(this.node).delay(1).call(() => {
-		// 	G1009EventManager.GetInstance().notify("SetOldItems", this.oldata);
+		// 	Slot45EventManager.GetInstance().notify("SetOldItems", this.oldata);
 
 		// 	this.oldata.featureDatas = [];
 		// }).start();
@@ -245,7 +245,7 @@ export default class G1009GameController extends cc.Component {
 		return data;
 	}
 
-	private generateWinAllResource(winLines: G1009WinLineResult[]): any {
+	private generateWinAllResource(winLines: Slot45WinLineResult[]): any {
 		let winAllSymbols: any[] = [];
 		let winPoint = 0;
 		let winNumber: number[] = [];
@@ -257,7 +257,7 @@ export default class G1009GameController extends cc.Component {
 
 		}
 		winAllSymbols = Array.from(new Set(winAllSymbols));
-		return new G1009WinLineResult(winAllSymbols, winPoint, winNumber, '', true);
+		return new Slot45WinLineResult(winAllSymbols, winPoint, winNumber, '', true);
 	}
 
 	public CheckTurbo(): boolean {
@@ -272,7 +272,7 @@ export default class G1009GameController extends cc.Component {
 		return this.isFreespins;
 	}
 
-	public GetWinBonus():G1009WinLineResult{
+	public GetWinBonus():Slot45WinLineResult{
 		return this.data.WinBonus;
 	}
 }

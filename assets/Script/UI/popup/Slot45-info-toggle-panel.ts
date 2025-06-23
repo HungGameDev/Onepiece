@@ -1,8 +1,8 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 const {ccclass, property} = cc._decorator;
 const TOGGLE_SPACE = -60;
 @ccclass
-export default class G1009InfoTogglePanelActor extends cc.Component {
+export default class Slot45InfoTogglePanelActor extends cc.Component {
 
     currenttoggleID: number = 0;
     container: cc.ToggleContainer = null;
@@ -13,7 +13,7 @@ export default class G1009InfoTogglePanelActor extends cc.Component {
        
     }
     private register(): void {
-        G1009EventManager.GetInstance().register("ChangeInfoPage", this.onChangeInfoPage.bind(this));
+        Slot45EventManager.GetInstance().register("ChangeInfoPage", this.onChangeInfoPage.bind(this));
     
     }
     

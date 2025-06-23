@@ -1,18 +1,18 @@
 import { State } from "../abstract/Slot45-state";
-import { G1009BetState } from "./Slot45-bet-state";
-import G1009BonusState from "./Slot45-bonus-state";
-import { G1009SpinState } from "./Slot45-spin-state";
+import { Slot45BetState } from "./Slot45-bet-state";
+import Slot45BonusState from "./Slot45-bonus-state";
+import { Slot45SpinState } from "./Slot45-spin-state";
 
-export class G1009InitState extends State {
+export class Slot45InitState extends State {
 	Init(): State {
-		return new G1009BetState();
+		return new Slot45BetState();
 	}
 
 	EnterFreespins(): State {
-		return new G1009SpinState();
+		return new Slot45SpinState();
 	}
 
 	EnterBonus(): State {
-		return new G1009BonusState();
+		return new Slot45BonusState();
 	}
 }

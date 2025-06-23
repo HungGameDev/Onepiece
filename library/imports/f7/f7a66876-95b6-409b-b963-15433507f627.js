@@ -27,28 +27,28 @@ var Slot45_game_controller_1 = require("../../base/controller/Slot45-game-contro
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_feature_trigger_actor_1 = require("../feature/Slot45-feature-trigger-actor");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009FreespinsTrigger = /** @class */ (function (_super) {
-    __extends(G1009FreespinsTrigger, _super);
-    function G1009FreespinsTrigger() {
+var Slot45FreespinsTrigger = /** @class */ (function (_super) {
+    __extends(Slot45FreespinsTrigger, _super);
+    function Slot45FreespinsTrigger() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.bannerCountFreespin = null;
         _this.bannerTriggerFreespin = null;
         return _this;
     }
-    G1009FreespinsTrigger.prototype.start = function () {
+    Slot45FreespinsTrigger.prototype.start = function () {
         _super.prototype.start.call(this);
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.showContent.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("resume", this.showContent.bind(this));
         this.resetBannerTrigger();
     };
-    G1009FreespinsTrigger.prototype.checkRuleTrigger = function () {
+    Slot45FreespinsTrigger.prototype.checkRuleTrigger = function () {
         return Slot45_game_controller_1.default.GetInstance().CheckFreespinTrigger();
     };
-    G1009FreespinsTrigger.prototype.notifyEnterFeature = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("EnterFreespins");
+    Slot45FreespinsTrigger.prototype.notifyEnterFeature = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("EnterFreespins");
     };
-    G1009FreespinsTrigger.prototype.showContent = function () {
+    Slot45FreespinsTrigger.prototype.showContent = function () {
         var _this = this;
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_freewin", isLoop: false });
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_freewin", isLoop: false });
         this.content.active = true;
         cc.tween(this.bannerTriggerFreespin)
             .to(0.2, { opacity: 255, scale: 1 })
@@ -59,7 +59,7 @@ var G1009FreespinsTrigger = /** @class */ (function (_super) {
             .delay(1)
             .call(function () {
             _this.resetBannerTrigger();
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("CountFreespinsLeft");
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("CountFreespinsLeft");
             _this.bannerCountFreespin.active = true;
             cc.tween(_this.node)
                 .delay(0.5)
@@ -69,25 +69,25 @@ var G1009FreespinsTrigger = /** @class */ (function (_super) {
         })
             .start();
     };
-    G1009FreespinsTrigger.prototype.hideContent = function () {
+    Slot45FreespinsTrigger.prototype.hideContent = function () {
         this.bannerCountFreespin.active = false;
     };
-    G1009FreespinsTrigger.prototype.resetBannerTrigger = function () {
+    Slot45FreespinsTrigger.prototype.resetBannerTrigger = function () {
         this.content.active = false;
         this.bannerTriggerFreespin.scale = 3;
         this.bannerTriggerFreespin.opacity = 0;
     };
     __decorate([
         property(cc.Node)
-    ], G1009FreespinsTrigger.prototype, "bannerCountFreespin", void 0);
+    ], Slot45FreespinsTrigger.prototype, "bannerCountFreespin", void 0);
     __decorate([
         property(cc.Node)
-    ], G1009FreespinsTrigger.prototype, "bannerTriggerFreespin", void 0);
-    G1009FreespinsTrigger = __decorate([
+    ], Slot45FreespinsTrigger.prototype, "bannerTriggerFreespin", void 0);
+    Slot45FreespinsTrigger = __decorate([
         ccclass
-    ], G1009FreespinsTrigger);
-    return G1009FreespinsTrigger;
+    ], Slot45FreespinsTrigger);
+    return Slot45FreespinsTrigger;
 }(Slot45_feature_trigger_actor_1.default));
-exports.default = G1009FreespinsTrigger;
+exports.default = Slot45FreespinsTrigger;
 
 cc._RF.pop();

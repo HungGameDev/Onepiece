@@ -25,44 +25,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009ToggleSimulatorActor = /** @class */ (function (_super) {
-    __extends(G1009ToggleSimulatorActor, _super);
-    function G1009ToggleSimulatorActor() {
+var Slot45ToggleSimulatorActor = /** @class */ (function (_super) {
+    __extends(Slot45ToggleSimulatorActor, _super);
+    function Slot45ToggleSimulatorActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.normalButton = null;
         _this.activeButton = null;
         _this.EventName = "Event-name";
         return _this;
     }
-    G1009ToggleSimulatorActor.prototype.changeToggleState = function (_isActive) {
+    Slot45ToggleSimulatorActor.prototype.changeToggleState = function (_isActive) {
         var isActive = _isActive == "true" ? true : false;
         this.activeButton.active = isActive;
         this.normalButton.active = !isActive;
     };
-    G1009ToggleSimulatorActor.prototype.onToggleOffClick = function () {
+    Slot45ToggleSimulatorActor.prototype.onToggleOffClick = function () {
         this.activeButton.active = false;
         this.normalButton.active = true;
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify(this.EventName + "-off");
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify(this.EventName + "-off");
     };
-    G1009ToggleSimulatorActor.prototype.onToggleOnClick = function () {
+    Slot45ToggleSimulatorActor.prototype.onToggleOnClick = function () {
         this.activeButton.active = true;
         this.normalButton.active = false;
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify(this.EventName + "-on");
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify(this.EventName + "-on");
     };
     __decorate([
         property(cc.Node)
-    ], G1009ToggleSimulatorActor.prototype, "normalButton", void 0);
+    ], Slot45ToggleSimulatorActor.prototype, "normalButton", void 0);
     __decorate([
         property(cc.Node)
-    ], G1009ToggleSimulatorActor.prototype, "activeButton", void 0);
+    ], Slot45ToggleSimulatorActor.prototype, "activeButton", void 0);
     __decorate([
         property
-    ], G1009ToggleSimulatorActor.prototype, "EventName", void 0);
-    G1009ToggleSimulatorActor = __decorate([
+    ], Slot45ToggleSimulatorActor.prototype, "EventName", void 0);
+    Slot45ToggleSimulatorActor = __decorate([
         ccclass
-    ], G1009ToggleSimulatorActor);
-    return G1009ToggleSimulatorActor;
+    ], Slot45ToggleSimulatorActor);
+    return Slot45ToggleSimulatorActor;
 }(cc.Component));
-exports.default = G1009ToggleSimulatorActor;
+exports.default = Slot45ToggleSimulatorActor;
 
 cc._RF.pop();

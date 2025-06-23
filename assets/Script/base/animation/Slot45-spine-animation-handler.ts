@@ -1,18 +1,18 @@
-import G1009SpineAnimationActor, { G1009SpineAnimationData, G1009SpineData } from "./Slot45-spine-animation";
+import Slot45SpineAnimationActor, { Slot45SpineAnimationData, Slot45SpineData } from "./Slot45-spine-animation";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009SpineAnimationHandler {
+export default class Slot45SpineAnimationHandler {
 
-    animation: G1009SpineAnimationActor = null;
+    animation: Slot45SpineAnimationActor = null;
     target: cc.Node = null;
     skeletonData: sp.SkeletonData = null;
     defaultDuration: number = 0;
-    animationData: G1009SpineAnimationData[] = null;
-    spineData: G1009SpineData = null;
+    animationData: Slot45SpineAnimationData[] = null;
+    spineData: Slot45SpineData = null;
 
-    public constructor(context: G1009SpineAnimationActor, targetNode: cc.Node) {
+    public constructor(context: Slot45SpineAnimationActor, targetNode: cc.Node) {
         this.animation = context;
         this.target = targetNode;
         this.skeletonData = this.animation.skeletonData;
@@ -43,7 +43,7 @@ export default class G1009SpineAnimationHandler {
         this.spineData = null;
     }
 
-    private handleAnimation(spineData: G1009SpineData, targetNode: cc.Node): any {
+    private handleAnimation(spineData: Slot45SpineData, targetNode: cc.Node): any {
 
         this.animation.spineSkeleton = targetNode.getComponent(sp.Skeleton) || targetNode.addComponent(sp.Skeleton);
         this.animation.spineSkeleton.timeScale = spineData.TimeScale;

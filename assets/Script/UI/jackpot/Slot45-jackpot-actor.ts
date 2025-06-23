@@ -1,13 +1,13 @@
-import G1009Util from "../../base/Util/Slot45-number-converter";
-import G1009GameController from "../../base/controller/Slot45-game-controller";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45Util from "../../base/Util/Slot45-number-converter";
+import Slot45GameController from "../../base/controller/Slot45-game-controller";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 const { ccclass, property } = cc._decorator;
 
 const FADE_DURATION = 0.25;
 const COUNT_POINT_DURATION = 2;
 const IDLE_DURATION = 1;
 @ccclass
-export default class G1009JackpotActor extends cc.Component {
+export default class Slot45JackpotActor extends cc.Component {
 
 	@property(cc.Node)
 	content: cc.Node = null;
@@ -28,10 +28,10 @@ export default class G1009JackpotActor extends cc.Component {
 	}
 
 	private register(): void {
-		G1009EventManager.GetInstance().register("JackpotStarted", this.onJackpotStarted.bind(this));
-		G1009EventManager.GetInstance().register("WinDataRespond", this.onSetFinalReSource.bind(this));
-		G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
-		G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+		Slot45EventManager.GetInstance().register("JackpotStarted", this.onJackpotStarted.bind(this));
+		Slot45EventManager.GetInstance().register("WinDataRespond", this.onSetFinalReSource.bind(this));
+		Slot45EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
+		Slot45EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
 	}
 
 	private onSetFinalReSource(finalResult: any): void {
@@ -44,7 +44,7 @@ export default class G1009JackpotActor extends cc.Component {
 		// 	this.speedUpAnimation();
 		// 	return;
 		// }
-		G1009EventManager.GetInstance().notify("JackpotPresentationStarted");
+		Slot45EventManager.GetInstance().notify("JackpotPresentationStarted");
 		let objTween = {
 			value: 0
 		};
@@ -52,7 +52,7 @@ export default class G1009JackpotActor extends cc.Component {
 			// .delay(4.6)
 			.to(FADE_DURATION, { scale: 1 })
 			.call(() => {
-				G1009EventManager.GetInstance().notify("JackpotShow");
+				Slot45EventManager.GetInstance().notify("JackpotShow");
 				this.content.active = true;
 				let track = this.spine.setAnimation(0, "NH", true);
 				// this.spine.setTrackCompleteListener(track, () => {
@@ -74,18 +74,18 @@ export default class G1009JackpotActor extends cc.Component {
 			.to(duration, { value: point1 }, {
 				progress: (start: any, end: any, current: any, ratio: any) => {
 					this.currentWinPoint = Math.round(current);
-					this.lblTotalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(this.currentWinPoint);
+					this.lblTotalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(this.currentWinPoint);
 					return start + (end - start) * ratio;
 				}
 			})
 			.call(() => {
-				this.lblTotalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(point1);
+				this.lblTotalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(point1);
 			})
 			.delay(IDLE_DURATION)
 			.call(() => {
 				cc.tween(this.content)
 					.to(FADE_DURATION, { opacity: 0 }).call(() => {
-						G1009EventManager.GetInstance().notify("JackpotCompleted", this.jackpotWinPoint);
+						Slot45EventManager.GetInstance().notify("JackpotCompleted", this.jackpotWinPoint);
 						//this.transitionNextState();
 						this.reset();
 					})
@@ -96,22 +96,22 @@ export default class G1009JackpotActor extends cc.Component {
 
 	private transitionNextState(): void {
 
-		// if (G1009GameController.GetInstance().CheckBonusFeatureTrigger())
+		// if (Slot45GameController.GetInstance().CheckBonusFeatureTrigger())
 		// {
-		// 	G1009EventManager.GetInstance().notify("FeatureTrigger");
+		// 	Slot45EventManager.GetInstance().notify("FeatureTrigger");
 		// 	return;
 		// }
-		// if (G1009GameController.GetInstance().CheckFreespinContinue())
+		// if (Slot45GameController.GetInstance().CheckFreespinContinue())
 		// {
-		// 	G1009EventManager.GetInstance().notify("Spin");
+		// 	Slot45EventManager.GetInstance().notify("Spin");
 		// 	return;
 		// }
-		// if (G1009GameController.GetInstance().CheckFreespinEnd())
+		// if (Slot45GameController.GetInstance().CheckFreespinEnd())
 		// {
-		// 	G1009EventManager.GetInstance().notify("FeatureComplete");
+		// 	Slot45EventManager.GetInstance().notify("FeatureComplete");
 		// 	return;
 		// }
-		// G1009EventManager.GetInstance().notify("EndRound");
+		// Slot45EventManager.GetInstance().notify("EndRound");
 	}
 
 	private reset(): void {
@@ -122,7 +122,7 @@ export default class G1009JackpotActor extends cc.Component {
 
 	public speedUpAnimation() {
 			this.tweenCountPoint && this.tweenCountPoint.stop();
-			G1009EventManager.GetInstance().notify("JackpotCompleted", this.jackpotWinPoint);
+			Slot45EventManager.GetInstance().notify("JackpotCompleted", this.jackpotWinPoint);
 			this.transitionNextState();
 			this.reset();
 	}

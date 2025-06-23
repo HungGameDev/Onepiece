@@ -23,13 +23,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.G1009SpineEventData = exports.G1009SpineData = exports.G1009SpineAnimationData = void 0;
+exports.Slot45SpineEventData = exports.Slot45SpineData = exports.Slot45SpineAnimationData = void 0;
 var Slot45_animation_1 = require("./Slot45-animation");
 var Slot45_spine_animation_handler_1 = require("./Slot45-spine-animation-handler");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SpineAnimationActor = /** @class */ (function (_super) {
-    __extends(G1009SpineAnimationActor, _super);
-    function G1009SpineAnimationActor() {
+var Slot45SpineAnimationActor = /** @class */ (function (_super) {
+    __extends(Slot45SpineAnimationActor, _super);
+    function Slot45SpineAnimationActor() {
         var _this = _super.call(this) || this;
         _this.skeletonData = new sp.SkeletonData;
         _this.defaultDuration = 1;
@@ -46,12 +46,12 @@ var G1009SpineAnimationActor = /** @class */ (function (_super) {
         _this.spineData = null;
         return _this;
     }
-    G1009SpineAnimationActor_1 = G1009SpineAnimationActor;
-    G1009SpineAnimationActor.prototype.Play = function (target, events, callback) {
+    Slot45SpineAnimationActor_1 = Slot45SpineAnimationActor;
+    Slot45SpineAnimationActor.prototype.Play = function (target, events, callback) {
         this.animationHandler = new Slot45_spine_animation_handler_1.default(this, target);
         this.animationHandler.Play(target, events, callback);
     };
-    G1009SpineAnimationActor.prototype.Stop = function (isCallComplete) {
+    Slot45SpineAnimationActor.prototype.Stop = function (isCallComplete) {
         if (this.animationHandler) {
             this.animationHandler.Stop(isCallComplete);
             this.animationHandler.Destroy();
@@ -59,53 +59,53 @@ var G1009SpineAnimationActor = /** @class */ (function (_super) {
         }
         this.reset();
     };
-    G1009SpineAnimationActor.prototype.Clone = function () {
-        var animation = new G1009SpineAnimationActor_1;
+    Slot45SpineAnimationActor.prototype.Clone = function () {
+        var animation = new Slot45SpineAnimationActor_1;
         animation.skeletonData = this.skeletonData;
         animation.defaultDuration = this.defaultDuration;
         animation.animationData = this.animationData;
         return animation;
     };
-    G1009SpineAnimationActor.prototype.GetDuration = function () {
+    Slot45SpineAnimationActor.prototype.GetDuration = function () {
         var duration = this.defaultDuration;
         if (this.trackEntry) {
             duration = this.trackEntry.animationEnd;
         }
         return duration;
     };
-    G1009SpineAnimationActor.prototype.GetIsPlaying = function () {
+    Slot45SpineAnimationActor.prototype.GetIsPlaying = function () {
         return this.trackEntry && (this.trackEntry.trackTime <= this.trackEntry.animationEnd);
     };
-    G1009SpineAnimationActor.prototype.reset = function () {
+    Slot45SpineAnimationActor.prototype.reset = function () {
         this.isLoadCompleted = null;
         this.spineSkeleton = null;
         this.trackEntry = null;
     };
-    var G1009SpineAnimationActor_1;
+    var Slot45SpineAnimationActor_1;
     __decorate([
         property
-    ], G1009SpineAnimationActor.prototype, "skeletonData", void 0);
+    ], Slot45SpineAnimationActor.prototype, "skeletonData", void 0);
     __decorate([
         property
-    ], G1009SpineAnimationActor.prototype, "defaultDuration", void 0);
+    ], Slot45SpineAnimationActor.prototype, "defaultDuration", void 0);
     __decorate([
         property
-    ], G1009SpineAnimationActor.prototype, "animationData", void 0);
-    G1009SpineAnimationActor = G1009SpineAnimationActor_1 = __decorate([
+    ], Slot45SpineAnimationActor.prototype, "animationData", void 0);
+    Slot45SpineAnimationActor = Slot45SpineAnimationActor_1 = __decorate([
         ccclass
-    ], G1009SpineAnimationActor);
-    return G1009SpineAnimationActor;
+    ], Slot45SpineAnimationActor);
+    return Slot45SpineAnimationActor;
 }(Slot45_animation_1.default));
-exports.default = G1009SpineAnimationActor;
-var G1009SpineAnimationData = /** @class */ (function () {
-    function G1009SpineAnimationData() {
+exports.default = Slot45SpineAnimationActor;
+var Slot45SpineAnimationData = /** @class */ (function () {
+    function Slot45SpineAnimationData() {
     }
     ;
-    return G1009SpineAnimationData;
+    return Slot45SpineAnimationData;
 }());
-exports.G1009SpineAnimationData = G1009SpineAnimationData;
-var G1009SpineData = /** @class */ (function () {
-    function G1009SpineData() {
+exports.Slot45SpineAnimationData = Slot45SpineAnimationData;
+var Slot45SpineData = /** @class */ (function () {
+    function Slot45SpineData() {
         this.IsLoop = false;
         this.TrackIndex = 0;
         this.TimeScale = 0;
@@ -121,17 +121,17 @@ var G1009SpineData = /** @class */ (function () {
         this.StaticSpriteFrame = new cc.SpriteFrame;
     }
     ;
-    return G1009SpineData;
+    return Slot45SpineData;
 }());
-exports.G1009SpineData = G1009SpineData;
-var G1009SpineEventData = /** @class */ (function () {
-    function G1009SpineEventData() {
+exports.Slot45SpineData = Slot45SpineData;
+var Slot45SpineEventData = /** @class */ (function () {
+    function Slot45SpineEventData() {
         this.Name = '';
         this.Time = 0;
     }
     ;
-    return G1009SpineEventData;
+    return Slot45SpineEventData;
 }());
-exports.G1009SpineEventData = G1009SpineEventData;
+exports.Slot45SpineEventData = Slot45SpineEventData;
 
 cc._RF.pop();

@@ -1,9 +1,9 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 
 const {ccclass, property} = cc._decorator;
 @ccclass
-export default class G1009InfoPageActor extends cc.Component {
+export default class Slot45InfoPageActor extends cc.Component {
 
     @property(cc.Node)
     private content: cc.Node = null;
@@ -13,8 +13,8 @@ export default class G1009InfoPageActor extends cc.Component {
     }
     private register(): void {
 
-        G1009EventManager.GetInstance().register("HideInfoPanel", this.onHideClick.bind(this));
-        G1009EventManager.GetInstance().register("ShowInfoPanel", this.onShowClick.bind(this));
+        Slot45EventManager.GetInstance().register("HideInfoPanel", this.onHideClick.bind(this));
+        Slot45EventManager.GetInstance().register("ShowInfoPanel", this.onShowClick.bind(this));
     }
 
     private onHideClick(): void {

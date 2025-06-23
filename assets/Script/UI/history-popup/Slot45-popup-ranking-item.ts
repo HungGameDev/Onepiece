@@ -1,9 +1,9 @@
-import G1009Util from "../../base/Util/Slot45-number-converter";
+import Slot45Util from "../../base/Util/Slot45-number-converter";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009PopupRankingItem extends cc.Component {
+export default class Slot45PopupRankingItem extends cc.Component {
 
 	@property(cc.Label)
 	private lblSesion: cc.Label = null;
@@ -23,7 +23,7 @@ export default class G1009PopupRankingItem extends cc.Component {
 		this.lblSesion.string = session;
 		this.lblTime.string = time;
 		this.lblUserName.string = userName;
-		this.lblTotalWin.string = G1009Util.Instance().NumberFormat(totalWin);
+		this.lblTotalWin.string = Slot45Util.Instance().NumberFormat(totalWin);
 		this.lblWinType.string = winType;
 		this.node.active = true;
 	}

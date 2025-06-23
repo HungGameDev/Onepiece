@@ -25,9 +25,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009PopupRankingItem = /** @class */ (function (_super) {
-    __extends(G1009PopupRankingItem, _super);
-    function G1009PopupRankingItem() {
+var Slot45PopupRankingItem = /** @class */ (function (_super) {
+    __extends(Slot45PopupRankingItem, _super);
+    function Slot45PopupRankingItem() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.lblSesion = null;
         _this.lblTime = null;
@@ -37,7 +37,7 @@ var G1009PopupRankingItem = /** @class */ (function (_super) {
         _this.sprBackround = null;
         return _this;
     }
-    G1009PopupRankingItem.prototype.SetInfoItem = function (session, time, userName, totalWin, winType, count) {
+    Slot45PopupRankingItem.prototype.SetInfoItem = function (session, time, userName, totalWin, winType, count) {
         this.sprBackround.node.active = count % 2 == 0;
         this.lblSesion.string = session;
         this.lblTime.string = time;
@@ -46,32 +46,32 @@ var G1009PopupRankingItem = /** @class */ (function (_super) {
         this.lblWinType.string = winType;
         this.node.active = true;
     };
-    G1009PopupRankingItem.prototype.Hide = function () {
+    Slot45PopupRankingItem.prototype.Hide = function () {
         this.node.active = false;
     };
     __decorate([
         property(cc.Label)
-    ], G1009PopupRankingItem.prototype, "lblSesion", void 0);
+    ], Slot45PopupRankingItem.prototype, "lblSesion", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupRankingItem.prototype, "lblTime", void 0);
+    ], Slot45PopupRankingItem.prototype, "lblTime", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupRankingItem.prototype, "lblUserName", void 0);
+    ], Slot45PopupRankingItem.prototype, "lblUserName", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupRankingItem.prototype, "lblTotalWin", void 0);
+    ], Slot45PopupRankingItem.prototype, "lblTotalWin", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009PopupRankingItem.prototype, "lblWinType", void 0);
+    ], Slot45PopupRankingItem.prototype, "lblWinType", void 0);
     __decorate([
         property(cc.Sprite)
-    ], G1009PopupRankingItem.prototype, "sprBackround", void 0);
-    G1009PopupRankingItem = __decorate([
+    ], Slot45PopupRankingItem.prototype, "sprBackround", void 0);
+    Slot45PopupRankingItem = __decorate([
         ccclass
-    ], G1009PopupRankingItem);
-    return G1009PopupRankingItem;
+    ], Slot45PopupRankingItem);
+    return Slot45PopupRankingItem;
 }(cc.Component));
-exports.default = G1009PopupRankingItem;
+exports.default = Slot45PopupRankingItem;
 
 cc._RF.pop();

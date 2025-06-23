@@ -24,12 +24,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009AnimationActor = /** @class */ (function (_super) {
-    __extends(G1009AnimationActor, _super);
-    function G1009AnimationActor() {
+var Slot45AnimationActor = /** @class */ (function (_super) {
+    __extends(Slot45AnimationActor, _super);
+    function Slot45AnimationActor() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    G1009AnimationActor.prototype.Play = function (target, events, callback) {
+    Slot45AnimationActor.prototype.Play = function (target, events, callback) {
         if (events != null && events.length > 0) {
             for (var index = 0; index < events.length; index++) {
                 var event = events[index];
@@ -40,22 +40,22 @@ var G1009AnimationActor = /** @class */ (function (_super) {
             callback();
         }
     };
-    G1009AnimationActor.prototype.Stop = function (isCallComplete) {
+    Slot45AnimationActor.prototype.Stop = function (isCallComplete) {
     };
-    G1009AnimationActor.prototype.Clone = function () {
+    Slot45AnimationActor.prototype.Clone = function () {
         return new Animation();
     };
-    G1009AnimationActor.prototype.GetDuration = function () {
+    Slot45AnimationActor.prototype.GetDuration = function () {
         return 0;
     };
-    G1009AnimationActor.prototype.GetIsPlaying = function () {
+    Slot45AnimationActor.prototype.GetIsPlaying = function () {
         return false;
     };
-    G1009AnimationActor = __decorate([
+    Slot45AnimationActor = __decorate([
         ccclass
-    ], G1009AnimationActor);
-    return G1009AnimationActor;
+    ], Slot45AnimationActor);
+    return Slot45AnimationActor;
 }(cc.Component));
-exports.default = G1009AnimationActor;
+exports.default = Slot45AnimationActor;
 
 cc._RF.pop();

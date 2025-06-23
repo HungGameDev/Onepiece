@@ -27,9 +27,9 @@ var Slot45_game_config_1 = require("../../Slot45-game-config");
 var Slot45_animation_provider_1 = require("../../base/animation/Slot45-animation-provider");
 var Slot45_sprite_frame_provider_1 = require("../provider/Slot45-sprite-frame-provider");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009WinCellItemActor = /** @class */ (function (_super) {
-    __extends(G1009WinCellItemActor, _super);
-    function G1009WinCellItemActor() {
+var Slot45WinCellItemActor = /** @class */ (function (_super) {
+    __extends(Slot45WinCellItemActor, _super);
+    function Slot45WinCellItemActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.cellIndex = -1;
         _this.dimColor = cc.Color.WHITE;
@@ -39,48 +39,48 @@ var G1009WinCellItemActor = /** @class */ (function (_super) {
         _this.itemID = 'a';
         return _this;
     }
-    G1009WinCellItemActor.prototype.onLoad = function () {
+    Slot45WinCellItemActor.prototype.onLoad = function () {
         this.sprite = this.node.getComponentInChildren(cc.Sprite);
         this.sprite.node.active = false;
         this.skeleton = this.node.getComponentInChildren(sp.Skeleton);
     };
-    G1009WinCellItemActor.prototype.setNormalFrame = function () {
+    Slot45WinCellItemActor.prototype.setNormalFrame = function () {
         if (this.itemID == "Blank" || this.itemID == "Reactor") {
             return;
         }
         this.skeleton.node.active = true;
-        var data = Slot45_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
+        var data = Slot45_animation_provider_1.Slot45AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
         this.skeleton.skeletonData = (data);
         this.skeleton.setAnimation(0, "animation", false);
     };
-    G1009WinCellItemActor.prototype.setOldFrame = function () {
+    Slot45WinCellItemActor.prototype.setOldFrame = function () {
         if (this.itemID == "Blank" || this.itemID == "Reactor") {
             this.skeleton.node.active = false;
             return;
         }
-        var data = Slot45_animation_provider_1.G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
+        var data = Slot45_animation_provider_1.Slot45AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
         this.skeleton.skeletonData = (data);
         this.skeleton.setAnimation(0, "animation", false);
     };
-    G1009WinCellItemActor.prototype.CheckValid = function () {
+    Slot45WinCellItemActor.prototype.CheckValid = function () {
         return this.sprite != null;
     };
-    G1009WinCellItemActor.prototype.GetItemID = function () {
+    Slot45WinCellItemActor.prototype.GetItemID = function () {
         return this.itemID;
     };
-    G1009WinCellItemActor.prototype.SetOldItem = function (item) {
+    Slot45WinCellItemActor.prototype.SetOldItem = function (item) {
         if (item != null) {
             this.itemID = item;
             this.setOldFrame();
         }
     };
-    G1009WinCellItemActor.prototype.SetItem = function (item) {
+    Slot45WinCellItemActor.prototype.SetItem = function (item) {
         if (item != null) {
             this.itemID = item;
             this.setNormalFrame();
         }
     };
-    G1009WinCellItemActor.prototype.PlayWinAnimation = function () {
+    Slot45WinCellItemActor.prototype.PlayWinAnimation = function () {
         this.Reset();
         if (this.itemID == "Blank" || this.itemID == "Reactor") {
             return;
@@ -92,7 +92,7 @@ var G1009WinCellItemActor = /** @class */ (function (_super) {
             this.skeleton.setAnimation(0, "Win", false);
         }
     };
-    G1009WinCellItemActor.prototype.PlayWinTrigger = function () {
+    Slot45WinCellItemActor.prototype.PlayWinTrigger = function () {
         var _this = this;
         this.Reset();
         if (this.itemID == "Blank" || this.itemID == "Reactor") {
@@ -103,7 +103,7 @@ var G1009WinCellItemActor = /** @class */ (function (_super) {
             _this.skeleton.setAnimation(0, "Win_Loop", true);
         });
     };
-    G1009WinCellItemActor.prototype.SetDim = function () {
+    Slot45WinCellItemActor.prototype.SetDim = function () {
         this.skeleton.node.color = this.dimColor;
         this.sprite.node.color = this.dimColor;
         if (this.itemID == "Blank" || this.itemID == "Reactor") {
@@ -114,11 +114,11 @@ var G1009WinCellItemActor = /** @class */ (function (_super) {
             this.skeleton.setBonesToSetupPose();
         }
     };
-    G1009WinCellItemActor.prototype.Reset = function () {
+    Slot45WinCellItemActor.prototype.Reset = function () {
         this.skeleton.node.color = cc.Color.WHITE;
         this.sprite.node.color = cc.Color.WHITE;
     };
-    G1009WinCellItemActor.prototype.Hide = function () {
+    Slot45WinCellItemActor.prototype.Hide = function () {
         this.node.opacity = 0;
         if (this.itemID == "Blank" || this.itemID == "Reactor") {
             return;
@@ -128,10 +128,10 @@ var G1009WinCellItemActor = /** @class */ (function (_super) {
             this.skeleton.setBonesToSetupPose();
         }
     };
-    G1009WinCellItemActor.prototype.Show = function () {
+    Slot45WinCellItemActor.prototype.Show = function () {
         this.node.opacity = 255;
     };
-    G1009WinCellItemActor.prototype.ShowJackpotWin = function () {
+    Slot45WinCellItemActor.prototype.ShowJackpotWin = function () {
         var _this = this;
         this.node.opacity = 255;
         if (this.itemID == "Core") {
@@ -141,16 +141,16 @@ var G1009WinCellItemActor = /** @class */ (function (_super) {
             });
         }
     };
-    G1009WinCellItemActor.prototype.ShowStaticFrame = function () {
+    Slot45WinCellItemActor.prototype.ShowStaticFrame = function () {
         if (this.itemID == "Blank" || this.itemID == "Reactor") {
             return;
         }
         // this.skeleton.node.active = false;
         this.sprite.node.color = this.dimColor;
         // this.sprite.node.active = true;
-        this.sprite.spriteFrame = Slot45_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
+        this.sprite.spriteFrame = Slot45_sprite_frame_provider_1.Slot45SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
     };
-    G1009WinCellItemActor.prototype.HideStaticFrame = function () {
+    Slot45WinCellItemActor.prototype.HideStaticFrame = function () {
         if (this.itemID == "Blank" || this.itemID == "Reactor") {
             return;
         }
@@ -159,15 +159,15 @@ var G1009WinCellItemActor = /** @class */ (function (_super) {
     };
     __decorate([
         property()
-    ], G1009WinCellItemActor.prototype, "cellIndex", void 0);
+    ], Slot45WinCellItemActor.prototype, "cellIndex", void 0);
     __decorate([
         property
-    ], G1009WinCellItemActor.prototype, "dimColor", void 0);
-    G1009WinCellItemActor = __decorate([
+    ], Slot45WinCellItemActor.prototype, "dimColor", void 0);
+    Slot45WinCellItemActor = __decorate([
         ccclass
-    ], G1009WinCellItemActor);
-    return G1009WinCellItemActor;
+    ], Slot45WinCellItemActor);
+    return Slot45WinCellItemActor;
 }(cc.Component));
-exports.default = G1009WinCellItemActor;
+exports.default = Slot45WinCellItemActor;
 
 cc._RF.pop();

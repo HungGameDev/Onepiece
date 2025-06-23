@@ -1,10 +1,10 @@
-import G1009Util from "../../base/Util/Slot45-number-converter";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45Util from "../../base/Util/Slot45-number-converter";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009PopupHistoryItem extends cc.Component {
+export default class Slot45PopupHistoryItem extends cc.Component {
 
 	@property(cc.Label)
 	private lblSession: cc.Label = null;
@@ -27,11 +27,11 @@ export default class G1009PopupHistoryItem extends cc.Component {
 		this.sprBackround.node.active = count % 2 == 0;
 		this.lblSession.string = session;
 		this.lblTime.string = time;
-		this.lblTotalBetPoint.string = G1009Util.Instance().NumberFormat(totalBetPoint);
-		this.lblTotalWin.string = G1009Util.Instance().NumberFormat(totalWin);
+		this.lblTotalBetPoint.string = Slot45Util.Instance().NumberFormat(totalBetPoint);
+		this.lblTotalWin.string = Slot45Util.Instance().NumberFormat(totalWin);
 		this.node.active = true;
 		this.spinResuilt = spinData;
-		this.totalWin = G1009Util.Instance().NumberFormat(totalWin);
+		this.totalWin = Slot45Util.Instance().NumberFormat(totalWin);
 		this.session = session;
 	}
 
@@ -40,6 +40,6 @@ export default class G1009PopupHistoryItem extends cc.Component {
 	}
 
 	public onButtonClick(): void {
-		G1009EventManager.GetInstance().notify("ShowDetailHistory",{Session:this.session,TotalWin:this.totalWin,SpinResuilt:this.spinResuilt});
+		Slot45EventManager.GetInstance().notify("ShowDetailHistory",{Session:this.session,TotalWin:this.totalWin,SpinResuilt:this.spinResuilt});
 	}
 }

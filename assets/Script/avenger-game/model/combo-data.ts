@@ -1,10 +1,10 @@
-import { G1009WinLineResult } from "../../UI/present-win/Slot45-present-win-panel";
+import { Slot45WinLineResult } from "../../UI/present-win/Slot45-present-win-panel";
 
 export class ComboData {
     private explodedCells: number[];
     private Cells: string[];
     private winPoint: number;
-    private WinLines: G1009WinLineResult[];
+    private WinLines: Slot45WinLineResult[];
 
     public constructor(explodedCells: number[]) {
         this.explodedCells = explodedCells;
@@ -26,7 +26,7 @@ export class ComboData {
     }
 
 
-    public GetWinLines(): G1009WinLineResult[] {
+    public GetWinLines(): Slot45WinLineResult[] {
         return this.WinLines;
     }
 

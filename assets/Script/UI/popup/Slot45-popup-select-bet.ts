@@ -1,11 +1,11 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import { G1009BalanceModel } from "../../models/Slot45-balance-model";
-import { G1009BetModel } from "../../models/Slot45-bet-model";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45BalanceModel } from "../../models/Slot45-balance-model";
+import { Slot45BetModel } from "../../models/Slot45-bet-model";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009PopUpSelectBetActor extends cc.Component {
+export default class Slot45PopUpSelectBetActor extends cc.Component {
 
     
     @property(cc.Node)
@@ -23,8 +23,8 @@ export default class G1009PopUpSelectBetActor extends cc.Component {
     }
 
     private register(): void {
-        G1009EventManager.GetInstance().register("ShowBetLinePanel", this.onShowClick.bind(this));
-        G1009EventManager.GetInstance().register("SelectBetLineClick", this.onSelectBetLineClick.bind(this));
+        Slot45EventManager.GetInstance().register("ShowBetLinePanel", this.onShowClick.bind(this));
+        Slot45EventManager.GetInstance().register("SelectBetLineClick", this.onSelectBetLineClick.bind(this));
     }
 
     private reset(): void {
@@ -38,13 +38,13 @@ export default class G1009PopUpSelectBetActor extends cc.Component {
             .to(0.2, { opacity: 0 })
             .call(() => {
                 this.reset()
-                G1009EventManager.GetInstance().notify("UpdateBetLine", this.selectedBetLine);
+                Slot45EventManager.GetInstance().notify("UpdateBetLine", this.selectedBetLine);
             })
             .start();
         }
         else
         {
-            G1009EventManager.GetInstance().notify("PopupInfoMessage", { message: "khong du tien", type: "info" });         
+            Slot45EventManager.GetInstance().notify("PopupInfoMessage", { message: "khong du tien", type: "info" });         
         }
        
     }
@@ -77,17 +77,17 @@ export default class G1009PopUpSelectBetActor extends cc.Component {
         this.selectedBetLine = this.selectedBetLine.filter(function (element) {
             return element % 2 == 0;
         });  
-        G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
+        Slot45EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
     }
 
     private onTakAllLine() {
         this.resetSelectBetLine();
-        G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
+        Slot45EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
     }
 
     private onTakNoLine() {
         this.selectedBetLine = [];
-        G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
+        Slot45EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
     }
 
     private onTakeOddLine() {
@@ -95,7 +95,7 @@ export default class G1009PopUpSelectBetActor extends cc.Component {
         this.selectedBetLine = this.selectedBetLine.filter(function (element) {
             return element % 2 !== 0;
         });
-        G1009EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
+        Slot45EventManager.GetInstance().notify("ChangeToggleState", this.selectedBetLine);
     }
 
     private resetSelectBetLine()
@@ -112,6 +112,6 @@ export default class G1009PopUpSelectBetActor extends cc.Component {
     }
 
     private validatorBet(): boolean {
-		return G1009BetModel.GetInstance().TryGetTotalBetPointByBetMultiplier(this.selectedBetLine.length) <= G1009BalanceModel.GetInstance().GetBalance();
+		return Slot45BetModel.GetInstance().TryGetTotalBetPointByBetMultiplier(this.selectedBetLine.length) <= Slot45BalanceModel.GetInstance().GetBalance();
 	}
 }

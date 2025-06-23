@@ -28,9 +28,9 @@ var Slot45_date_util_1 = require("../../base/Util/Slot45_date-util");
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_popup_history_item_1 = require("./Slot45-popup-history-item");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009PopupHistory = /** @class */ (function (_super) {
-    __extends(G1009PopupHistory, _super);
-    function G1009PopupHistory() {
+var Slot45PopupHistory = /** @class */ (function (_super) {
+    __extends(Slot45PopupHistory, _super);
+    function Slot45PopupHistory() {
         var _this = _super.call(this) || this;
         _this.prefabItem = null;
         _this.content = null;
@@ -39,24 +39,24 @@ var G1009PopupHistory = /** @class */ (function (_super) {
         _this.gameManager1009 = new Slot45_GameManager_1.GameManager1009();
         return _this;
     }
-    G1009PopupHistory.prototype.start = function () {
+    Slot45PopupHistory.prototype.start = function () {
         this.Init();
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("OpenLSC", this.Show.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("OpenLSC", this.Show.bind(this));
     };
-    G1009PopupHistory.prototype.Init = function () {
+    Slot45PopupHistory.prototype.Init = function () {
         var _this = this;
         this.gameManager1009.getBetHistory(this.pageIndex * 6, 20).then(function (data) {
             console.log('getBetHistory', data);
             _this.processData(data);
         });
     };
-    G1009PopupHistory.prototype.Show = function () {
+    Slot45PopupHistory.prototype.Show = function () {
         this.content.active = true;
     };
-    G1009PopupHistory.prototype.Hide = function () {
+    Slot45PopupHistory.prototype.Hide = function () {
         this.content.active = false;
     };
-    G1009PopupHistory.prototype.processData = function (historyData) {
+    Slot45PopupHistory.prototype.processData = function (historyData) {
         var _this = this;
         var count = 0;
         historyData.data.forEach(function (data) {
@@ -70,18 +70,18 @@ var G1009PopupHistory = /** @class */ (function (_super) {
     };
     __decorate([
         property(cc.Prefab)
-    ], G1009PopupHistory.prototype, "prefabItem", void 0);
+    ], Slot45PopupHistory.prototype, "prefabItem", void 0);
     __decorate([
         property(cc.Node)
-    ], G1009PopupHistory.prototype, "content", void 0);
+    ], Slot45PopupHistory.prototype, "content", void 0);
     __decorate([
         property(cc.Node)
-    ], G1009PopupHistory.prototype, "contentView", void 0);
-    G1009PopupHistory = __decorate([
+    ], Slot45PopupHistory.prototype, "contentView", void 0);
+    Slot45PopupHistory = __decorate([
         ccclass
-    ], G1009PopupHistory);
-    return G1009PopupHistory;
+    ], Slot45PopupHistory);
+    return Slot45PopupHistory;
 }(cc.Component));
-exports.default = G1009PopupHistory;
+exports.default = Slot45PopupHistory;
 
 cc._RF.pop();

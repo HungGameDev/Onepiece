@@ -1,10 +1,10 @@
-import { G1009AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
-import { G1009SpriteProviderManagerActor } from "../provider/Slot45-sprite-frame-provider";
+import { Slot45AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
+import { Slot45SpriteProviderManagerActor } from "../provider/Slot45-sprite-frame-provider";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009CellItemActor extends cc.Component {
+export default class Slot45CellItemActor extends cc.Component {
 
 	@property
 	cellIndex: number = -1;
@@ -26,14 +26,14 @@ export default class G1009CellItemActor extends cc.Component {
 	private setSpinFrame(): void {
 		this.skeleton.node.active = false;
 		this.sprite.node.active = true;
-		let frame = G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SpinSymbolFormat, this.itemID));
+		let frame = Slot45SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SpinSymbolFormat, this.itemID));
 		this.sprite.spriteFrame = frame;
 	}
 
 	private setNormalFrame(): void {
 		this.skeleton.node.active = true;
 		this.sprite.node.active = false;
-		let data = G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
+		let data = Slot45AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
 
 		if (data)
 		{
@@ -46,13 +46,13 @@ export default class G1009CellItemActor extends cc.Component {
 		{
 			this.skeleton.node.active = false;
 			this.sprite.node.active = true;
-			let frame = G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
+			let frame = Slot45SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
 			this.sprite.spriteFrame = frame;
 		}
 	}
 
 	private setOldFrame(): void {
-		let data = G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
+		let data = Slot45AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
 		if (data)
 		{
 			this.skeleton.node.active = true;
@@ -64,7 +64,7 @@ export default class G1009CellItemActor extends cc.Component {
 		{			
 			this.skeleton.node.active = false;
 			this.sprite.node.active = true;
-			let frame = G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
+			let frame = Slot45SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
 			this.sprite.spriteFrame = frame;
 		}
 	}

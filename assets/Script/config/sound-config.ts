@@ -35,7 +35,7 @@ SoundVolume[SoundNameConfig.BGMChooseBet] = 1;
 SoundVolume[SoundNameConfig.BGMFreeGame] = 0.7;
 SoundVolume[SoundNameConfig.BGMBonusGame] = 1;
 
-export default class G1009SoundConfig {
+export default class Slot45SoundConfig {
      SoundNameConfig: any = SoundNameConfig;
      SoundVolume: any = SoundVolume;
      SoundVolumeReduction:any = 0.3;

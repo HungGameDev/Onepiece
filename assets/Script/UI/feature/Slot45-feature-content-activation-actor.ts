@@ -1,9 +1,9 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009FeatureContentActivationActor extends cc.Component {
+export default class Slot45FeatureContentActivationActor extends cc.Component {
 
 	@property(cc.Node)
 	private content: cc.Node = null;
@@ -15,8 +15,8 @@ export default class G1009FeatureContentActivationActor extends cc.Component {
 	private endDuration:number = 0;
 	protected start(): void {
 		this.reset();
-		G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTriggerStarted.bind(this));
-		G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
+		Slot45EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTriggerStarted.bind(this));
+		Slot45EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
 	}
 
 	protected checkRuleTrigger(): boolean {

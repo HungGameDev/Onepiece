@@ -29,33 +29,33 @@ var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_balance_model_1 = require("../../models/Slot45-balance-model");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var COUNT_POINT_DURATION = 3;
-var G1009FeatureWinActor = /** @class */ (function (_super) {
-    __extends(G1009FeatureWinActor, _super);
-    function G1009FeatureWinActor() {
+var Slot45FeatureWinActor = /** @class */ (function (_super) {
+    __extends(Slot45FeatureWinActor, _super);
+    function Slot45FeatureWinActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         _this.lblTotalWinPoint = null;
         return _this;
     }
-    G1009FeatureWinActor.prototype.onLoad = function () {
+    Slot45FeatureWinActor.prototype.onLoad = function () {
         this.reset();
         this.register();
     };
-    G1009FeatureWinActor.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinstarted", this.onFeatureWinstarted.bind(this));
+    Slot45FeatureWinActor.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("featureWinstarted", this.onFeatureWinstarted.bind(this));
     };
-    G1009FeatureWinActor.prototype.onFeatureWinstarted = function () {
+    Slot45FeatureWinActor.prototype.onFeatureWinstarted = function () {
         if (this.content != null) {
             this.showTotalWin();
         }
         else {
-            var newBalance = Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() + Slot45_game_controller_1.default.GetInstance().GetTotalWinPoint();
-            Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("featureWinCompleted");
+            var newBalance = Slot45_balance_model_1.Slot45BalanceModel.GetInstance().GetBalance() + Slot45_game_controller_1.default.GetInstance().GetTotalWinPoint();
+            Slot45_balance_model_1.Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("BalanceChange", newBalance);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("featureWinCompleted");
         }
     };
-    G1009FeatureWinActor.prototype.showTotalWin = function () {
+    Slot45FeatureWinActor.prototype.showTotalWin = function () {
         var _this = this;
         var totalWin = Slot45_game_controller_1.default.GetInstance().GetTotalWinPoint();
         this.content.active = true;
@@ -66,7 +66,7 @@ var G1009FeatureWinActor = /** @class */ (function (_super) {
             cc.tween(_this.content)
                 .to(1, { opacity: 0 }).call(function () {
                 _this.reset();
-                Slot45_event_manager_1.G1009EventManager.GetInstance().notify("featureWinCompleted");
+                Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("featureWinCompleted");
             })
                 .start();
         }).start();
@@ -83,13 +83,13 @@ var G1009FeatureWinActor = /** @class */ (function (_super) {
         })
             .call(function () {
             _this.lblTotalWinPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(totalWin);
-            var newBalance = Slot45_balance_model_1.G1009BalanceModel.GetInstance().GetBalance() + Slot45_game_controller_1.default.GetInstance().GetTotalWinPoint();
-            Slot45_balance_model_1.G1009BalanceModel.GetInstance().SetBalance(newBalance);
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
+            var newBalance = Slot45_balance_model_1.Slot45BalanceModel.GetInstance().GetBalance() + Slot45_game_controller_1.default.GetInstance().GetTotalWinPoint();
+            Slot45_balance_model_1.Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("BalanceChange", newBalance);
         })
             .start();
     };
-    G1009FeatureWinActor.prototype.reset = function () {
+    Slot45FeatureWinActor.prototype.reset = function () {
         if (this.content != null) {
             this.lblTotalWinPoint.string = "";
             this.content.active = false;
@@ -98,15 +98,15 @@ var G1009FeatureWinActor = /** @class */ (function (_super) {
     };
     __decorate([
         property(cc.Node)
-    ], G1009FeatureWinActor.prototype, "content", void 0);
+    ], Slot45FeatureWinActor.prototype, "content", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009FeatureWinActor.prototype, "lblTotalWinPoint", void 0);
-    G1009FeatureWinActor = __decorate([
+    ], Slot45FeatureWinActor.prototype, "lblTotalWinPoint", void 0);
+    Slot45FeatureWinActor = __decorate([
         ccclass
-    ], G1009FeatureWinActor);
-    return G1009FeatureWinActor;
+    ], Slot45FeatureWinActor);
+    return Slot45FeatureWinActor;
 }(cc.Component));
-exports.default = G1009FeatureWinActor;
+exports.default = Slot45FeatureWinActor;
 
 cc._RF.pop();

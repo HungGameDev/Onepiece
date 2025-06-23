@@ -26,9 +26,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_present_win_panel_1 = require("../../UI/present-win/Slot45-present-win-panel");
 var Slot45_event_manager_1 = require("../events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009GameController = /** @class */ (function (_super) {
-    __extends(G1009GameController, _super);
-    function G1009GameController() {
+var Slot45GameController = /** @class */ (function (_super) {
+    __extends(Slot45GameController, _super);
+    function Slot45GameController() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.data = null;
         _this.featureDatas = [];
@@ -42,76 +42,76 @@ var G1009GameController = /** @class */ (function (_super) {
         _this.comboCount = 0;
         return _this;
     }
-    G1009GameController_1 = G1009GameController;
-    G1009GameController.GetInstance = function () {
-        if (!G1009GameController_1.instance)
-            G1009GameController_1.instance = new G1009GameController_1();
-        return G1009GameController_1.instance;
+    Slot45GameController_1 = Slot45GameController;
+    Slot45GameController.GetInstance = function () {
+        if (!Slot45GameController_1.instance)
+            Slot45GameController_1.instance = new Slot45GameController_1();
+        return Slot45GameController_1.instance;
     };
-    G1009GameController.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ActiveAuto", this.onActiveAuto.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Turbo", this.onTurbo.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinstarted", this.onfeatureWinstarted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BonusWinStarted", this.onBonusWinStarted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BonusWinComplete", this.onBonusWinComplete.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resumeBonus", this.onResumeBonus.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
+    Slot45GameController.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ActiveAuto", this.onActiveAuto.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("StopAuto", this.onStopAuto.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("Turbo", this.onTurbo.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("featureWinstarted", this.onfeatureWinstarted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("BonusWinStarted", this.onBonusWinStarted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("BonusWinComplete", this.onBonusWinComplete.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("resume", this.onResume.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("resumeBonus", this.onResumeBonus.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
     };
-    G1009GameController.prototype.onStartPresentWinCombo = function () {
+    Slot45GameController.prototype.onStartPresentWinCombo = function () {
         this.comboCount++;
     };
-    G1009GameController.prototype.onActiveAuto = function () {
+    Slot45GameController.prototype.onActiveAuto = function () {
         this.isAuto = true;
     };
-    G1009GameController.prototype.onStopAuto = function () {
+    Slot45GameController.prototype.onStopAuto = function () {
         this.isAuto = false;
     };
-    G1009GameController.prototype.onEndRound = function () {
+    Slot45GameController.prototype.onEndRound = function () {
         console.warn("onEndRound: ", this.comboCount);
         this.comboCount = 0;
     };
-    G1009GameController.prototype.IsActiveAuto = function () {
+    Slot45GameController.prototype.IsActiveAuto = function () {
         return this.isAuto;
     };
-    G1009GameController.prototype.onLoad = function () {
-        if (G1009GameController_1.instance) {
+    Slot45GameController.prototype.onLoad = function () {
+        if (Slot45GameController_1.instance) {
             throw new Error("Error: Instantiation failed: Use GameController.getInstance() instead of new.");
         }
-        G1009GameController_1.instance = this;
+        Slot45GameController_1.instance = this;
         this.register();
     };
-    G1009GameController.prototype.onResume = function (data) {
+    Slot45GameController.prototype.onResume = function (data) {
         // this.data = data;
         // this.oldata = Object.assign({}, data);
         // this.featureDatas = data.featureDatas;
     };
-    G1009GameController.prototype.onResumeBonus = function (data) {
+    Slot45GameController.prototype.onResumeBonus = function (data) {
         //this.oldata = Object.assign({}, data);
     };
-    G1009GameController.prototype.onBonusWinStarted = function () {
+    Slot45GameController.prototype.onBonusWinStarted = function () {
     };
-    G1009GameController.prototype.onBonusWinComplete = function () {
+    Slot45GameController.prototype.onBonusWinComplete = function () {
         var filterFeatureDatas = this.data.featureDatas.filter(function (x) { return !x.hitRule.includes("bonus"); });
         this.featureDatas = filterFeatureDatas;
         this.data.featureDatas = filterFeatureDatas;
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("featureWinCompleted", { hitRule: "bonus" });
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("featureWinCompleted", { hitRule: "bonus" });
     };
-    G1009GameController.prototype.onSpinStarted = function () {
+    Slot45GameController.prototype.onSpinStarted = function () {
         this.comboCount = 0;
         var requestData = { isFreespin: this.CheckIsFreespin() };
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("SpinRequest", requestData);
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("SpinRequest", requestData);
     };
-    G1009GameController.prototype.onTurbo = function (isTurbo) {
+    Slot45GameController.prototype.onTurbo = function (isTurbo) {
         this.isTurbo = isTurbo;
     };
-    G1009GameController.prototype.onNextScrollData = function (data) {
+    Slot45GameController.prototype.onNextScrollData = function (data) {
         this.data = this.processSpinData(data);
         if (data.featureDatas.length > 0) {
             this.featureDatas = Object.assign([], data.featureDatas);
@@ -126,58 +126,58 @@ var G1009GameController = /** @class */ (function (_super) {
             this.freespinTotalWinPoint = data.freespintotalWinPoint;
         }
         if (!!this.data.bonusGameDatas) {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("PickUpdata", this.data.bonusGameDatas);
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("PickUpdata", this.data.bonusGameDatas);
         }
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("DataRespond", data.Cells);
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("WinDataRespond", this.data);
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("DataRespond", data.Cells);
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("WinDataRespond", this.data);
     };
-    G1009GameController.prototype.onfeatureWinCompleted = function () {
+    Slot45GameController.prototype.onfeatureWinCompleted = function () {
         this.onEndRound();
     };
-    G1009GameController.prototype.onfeatureWinstarted = function () {
+    Slot45GameController.prototype.onfeatureWinstarted = function () {
         this.isFreespins = false;
         // if (this.oldata == null) { this.oldata = this.data; }
         // cc.tween(this.node).delay(1).call(() => {
-        // 	G1009EventManager.GetInstance().notify("SetOldItems", this.oldata);
+        // 	Slot45EventManager.GetInstance().notify("SetOldItems", this.oldata);
         // 	this.oldata.featureDatas = [];
         // }).start();
     };
-    G1009GameController.prototype.CheckExpandWild = function (data) {
+    Slot45GameController.prototype.CheckExpandWild = function (data) {
         if (data === void 0) { data = null; }
         if (data == null) {
             data = this.data;
         }
         return data != null && data.isExpandWild;
     };
-    G1009GameController.prototype.CheckWinLineData = function (data) {
+    Slot45GameController.prototype.CheckWinLineData = function (data) {
         if (data === void 0) { data = null; }
         if (data == null) {
             data = this.data;
         }
         return data != null && (data.allWinLine || data.WinScatters.length > 0 || data.WinBonus.length > 0);
     };
-    G1009GameController.prototype.CheckBonusFeatureTrigger = function (data) {
+    Slot45GameController.prototype.CheckBonusFeatureTrigger = function (data) {
         if (data === void 0) { data = null; }
         if (data == null) {
             data = this.data;
         }
         return data != null && data.featureDatas.length > 0;
     };
-    G1009GameController.prototype.CheckFreespinEnd = function (data) {
+    Slot45GameController.prototype.CheckFreespinEnd = function (data) {
         if (data === void 0) { data = null; }
         if (data == null) {
             data = this.data;
         }
         return data != null && data.isFreespins && data.freespinLeft == 0;
     };
-    G1009GameController.prototype.CheckFreespinContinue = function (data) {
+    Slot45GameController.prototype.CheckFreespinContinue = function (data) {
         if (data === void 0) { data = null; }
         if (data == null) {
             data = this.data;
         }
         return data != null && data.freespinLeft > 0;
     };
-    G1009GameController.prototype.CheckFreespinTrigger = function (featureDatas) {
+    Slot45GameController.prototype.CheckFreespinTrigger = function (featureDatas) {
         if (featureDatas === void 0) { featureDatas = null; }
         if (this.CheckBonusPointTrigger(featureDatas))
             return false;
@@ -187,7 +187,7 @@ var G1009GameController = /** @class */ (function (_super) {
         var featureData = featureDatas.find(function (x) { return x.hitRule.includes("freespins"); });
         return featureDatas && featureDatas.length > 0 && featureData != null && !featureData.isRetrigger;
     };
-    G1009GameController.prototype.CheckBonusPointTrigger = function (featureDatas) {
+    Slot45GameController.prototype.CheckBonusPointTrigger = function (featureDatas) {
         if (featureDatas === void 0) { featureDatas = null; }
         if (featureDatas == null) {
             featureDatas = this.featureDatas;
@@ -195,7 +195,7 @@ var G1009GameController = /** @class */ (function (_super) {
         var featureData = featureDatas.find(function (x) { return x.hitRule.includes("bonus"); });
         return featureDatas != null && featureDatas.length > 0 && featureData != null;
     };
-    G1009GameController.prototype.CheckFreespinRetrigger = function (featureDatas) {
+    Slot45GameController.prototype.CheckFreespinRetrigger = function (featureDatas) {
         if (featureDatas === void 0) { featureDatas = null; }
         if (this.CheckBonusPointTrigger(featureDatas))
             return false;
@@ -205,27 +205,27 @@ var G1009GameController = /** @class */ (function (_super) {
         var featureData = featureDatas.find(function (x) { return x.hitRule.includes("freespins"); });
         return featureDatas != null && featureDatas.length > 0 && featureData != null && featureData.isRetrigger;
     };
-    G1009GameController.prototype.CheckComboWinPresentation = function () {
+    Slot45GameController.prototype.CheckComboWinPresentation = function () {
         return this.comboCount < this.data.comboData.length;
     };
-    G1009GameController.prototype.GetFeatureWinData = function () {
+    Slot45GameController.prototype.GetFeatureWinData = function () {
         return this.featureDatas[0] || null;
     };
-    G1009GameController.prototype.GetFreespinTotalWinPoint = function () {
+    Slot45GameController.prototype.GetFreespinTotalWinPoint = function () {
         return this.freespinTotalWinPoint;
     };
-    G1009GameController.prototype.GetTotalWinPoint = function () {
+    Slot45GameController.prototype.GetTotalWinPoint = function () {
         return this.totalWinPoint;
     };
-    G1009GameController.prototype.GetExpandWildIndices = function () {
+    Slot45GameController.prototype.GetExpandWildIndices = function () {
         return this.data.expandWildIndices;
     };
-    G1009GameController.prototype.GetComboData = function () {
+    Slot45GameController.prototype.GetComboData = function () {
         var comboData = this.data.comboData[this.comboCount];
         this.processAllWinLinesComboData(comboData);
         return comboData;
     };
-    G1009GameController.prototype.processAllWinLinesComboData = function (inputData) {
+    Slot45GameController.prototype.processAllWinLinesComboData = function (inputData) {
         var winLine = inputData.WinLines;
         var allWinResource = this.generateWinAllResource(winLine);
         if (allWinResource.GetWinPoint() > 0) {
@@ -234,7 +234,7 @@ var G1009GameController = /** @class */ (function (_super) {
         winLine.sort(function (a, b) { return b.winPoint - a.winPoint; });
         inputData.WinLines = winLine;
     };
-    G1009GameController.prototype.processSpinData = function (inputData) {
+    Slot45GameController.prototype.processSpinData = function (inputData) {
         var data = Object.assign({}, inputData);
         var winLine = data.WinLines;
         var allWinResource = this.generateWinAllResource(winLine);
@@ -256,7 +256,7 @@ var G1009GameController = /** @class */ (function (_super) {
         data.WinLines = winLine;
         return data;
     };
-    G1009GameController.prototype.generateWinAllResource = function (winLines) {
+    Slot45GameController.prototype.generateWinAllResource = function (winLines) {
         var winAllSymbols = [];
         var winPoint = 0;
         var winNumber = [];
@@ -267,26 +267,26 @@ var G1009GameController = /** @class */ (function (_super) {
             winLines[index].GetWinNumber().forEach(function (number) { return winNumber.push(number); });
         }
         winAllSymbols = Array.from(new Set(winAllSymbols));
-        return new Slot45_present_win_panel_1.G1009WinLineResult(winAllSymbols, winPoint, winNumber, '', true);
+        return new Slot45_present_win_panel_1.Slot45WinLineResult(winAllSymbols, winPoint, winNumber, '', true);
     };
-    G1009GameController.prototype.CheckTurbo = function () {
+    Slot45GameController.prototype.CheckTurbo = function () {
         return this.isTurbo;
     };
-    G1009GameController.prototype.onEnterFreespins = function () {
+    Slot45GameController.prototype.onEnterFreespins = function () {
         this.isFreespins = true;
     };
-    G1009GameController.prototype.CheckIsFreespin = function () {
+    Slot45GameController.prototype.CheckIsFreespin = function () {
         return this.isFreespins;
     };
-    G1009GameController.prototype.GetWinBonus = function () {
+    Slot45GameController.prototype.GetWinBonus = function () {
         return this.data.WinBonus;
     };
-    var G1009GameController_1;
-    G1009GameController = G1009GameController_1 = __decorate([
+    var Slot45GameController_1;
+    Slot45GameController = Slot45GameController_1 = __decorate([
         ccclass
-    ], G1009GameController);
-    return G1009GameController;
+    ], Slot45GameController);
+    return Slot45GameController;
 }(cc.Component));
-exports.default = G1009GameController;
+exports.default = Slot45GameController;
 
 cc._RF.pop();

@@ -23,54 +23,54 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.G1009SpriteProviderManagerActor = void 0;
+exports.Slot45SpriteProviderManagerActor = void 0;
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SpriteProviderActor = /** @class */ (function (_super) {
-    __extends(G1009SpriteProviderActor, _super);
-    function G1009SpriteProviderActor() {
+var Slot45SpriteProviderActor = /** @class */ (function (_super) {
+    __extends(Slot45SpriteProviderActor, _super);
+    function Slot45SpriteProviderActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.spriteFrames = [];
         return _this;
     }
-    G1009SpriteProviderActor.prototype.onLoad = function () {
-        G1009SpriteProviderManagerActor.Instance().SetFrame(this.spriteFrames);
+    Slot45SpriteProviderActor.prototype.onLoad = function () {
+        Slot45SpriteProviderManagerActor.Instance().SetFrame(this.spriteFrames);
     };
     __decorate([
         property(cc.SpriteFrame)
-    ], G1009SpriteProviderActor.prototype, "spriteFrames", void 0);
-    G1009SpriteProviderActor = __decorate([
+    ], Slot45SpriteProviderActor.prototype, "spriteFrames", void 0);
+    Slot45SpriteProviderActor = __decorate([
         ccclass
-    ], G1009SpriteProviderActor);
-    return G1009SpriteProviderActor;
+    ], Slot45SpriteProviderActor);
+    return Slot45SpriteProviderActor;
 }(cc.Component));
-exports.default = G1009SpriteProviderActor;
-var G1009SpriteProviderManagerActor = /** @class */ (function () {
-    function G1009SpriteProviderManagerActor() {
+exports.default = Slot45SpriteProviderActor;
+var Slot45SpriteProviderManagerActor = /** @class */ (function () {
+    function Slot45SpriteProviderManagerActor() {
         this.dictSpriteFrame = [];
     }
-    G1009SpriteProviderManagerActor.Instance = function () {
-        if (!G1009SpriteProviderManagerActor.instance)
-            G1009SpriteProviderManagerActor.instance = new G1009SpriteProviderManagerActor();
-        return G1009SpriteProviderManagerActor.instance;
+    Slot45SpriteProviderManagerActor.Instance = function () {
+        if (!Slot45SpriteProviderManagerActor.instance)
+            Slot45SpriteProviderManagerActor.instance = new Slot45SpriteProviderManagerActor();
+        return Slot45SpriteProviderManagerActor.instance;
     };
-    G1009SpriteProviderManagerActor.prototype.SetFrame = function (_spriteFrames) {
+    Slot45SpriteProviderManagerActor.prototype.SetFrame = function (_spriteFrames) {
         var _this = this;
         _spriteFrames.forEach(function (frame) {
             _this.dictSpriteFrame[_this.getKey(frame.name)] = frame;
         });
     };
-    G1009SpriteProviderManagerActor.prototype.GetFrame = function (key) {
+    Slot45SpriteProviderManagerActor.prototype.GetFrame = function (key) {
         if (key == null) {
             cc.warn('Get sprite frame with invalid key:', key);
             return null;
         }
         return this.dictSpriteFrame[this.getKey(key)];
     };
-    G1009SpriteProviderManagerActor.prototype.getKey = function (name) {
+    Slot45SpriteProviderManagerActor.prototype.getKey = function (name) {
         return name.toLowerCase().replace(new RegExp('-', 'g'), '');
     };
-    return G1009SpriteProviderManagerActor;
+    return Slot45SpriteProviderManagerActor;
 }());
-exports.G1009SpriteProviderManagerActor = G1009SpriteProviderManagerActor;
+exports.Slot45SpriteProviderManagerActor = Slot45SpriteProviderManagerActor;
 
 cc._RF.pop();

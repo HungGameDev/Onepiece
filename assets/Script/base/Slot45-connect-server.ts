@@ -1,10 +1,10 @@
 import { GAME_MANAGER_EVENT, GameManager1009, JackpotInfo, JackpotMessage, PlayerData1009, PopupInfoMessage, StartGameData1009 } from "../GameManager/Slot45-GameManager";
-import { G1009WinLineResult } from "../UI/present-win/Slot45-present-win-panel";
+import { Slot45WinLineResult } from "../UI/present-win/Slot45-present-win-panel";
 import { NEAR_WIN_SYMBOL, SlottyParameter, reelCount, rowCount } from "../Slot45-game-config";
 import { ComboData } from "../avenger-game/model/combo-data";
-import { G1009BalanceModel } from "../models/Slot45-balance-model";
-import { G1009BetModel } from "../models/Slot45-bet-model";
-import { G1009EventManager } from "./events/Slot45-event-manager";
+import { Slot45BalanceModel } from "../models/Slot45-balance-model";
+import { Slot45BetModel } from "../models/Slot45-bet-model";
+import { Slot45EventManager } from "./events/Slot45-event-manager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -64,7 +64,7 @@ export default class ConnectServer extends cc.Component {
 
 	start() {
 		//hard set bet multipliser = 9
-		G1009BetModel.GetInstance().SetBetMultiplier(WIN_LINE_MAPPING.length);
+		Slot45BetModel.GetInstance().SetBetMultiplier(WIN_LINE_MAPPING.length);
 		this.gameManager1009.startGame();
 
 		// this.gameManager1009.getJPHistory(0, 8).then((data) => {
@@ -77,7 +77,7 @@ export default class ConnectServer extends cc.Component {
 
 		if (this.dataJackpot) {
 			setTimeout(() => {
-				G1009EventManager.GetInstance().notify('JackpotUpdate', this.dataJackpot);
+				Slot45EventManager.GetInstance().notify('JackpotUpdate', this.dataJackpot);
 			}, 100);
 		}
 	}
@@ -90,14 +90,14 @@ export default class ConnectServer extends cc.Component {
 			this.currentSession = data.playerState;
 			this.betInfos = data.betInfos;
 			let betPerLines = data.betInfos.map(betInfo => betInfo.betDenom);
-			G1009BetModel.GetInstance().SetBetPerLines(betPerLines);
+			Slot45BetModel.GetInstance().SetBetPerLines(betPerLines);
 
-			G1009BalanceModel.GetInstance().SetBalance(this.gameManager1009.getPlayerMoney());
+			Slot45BalanceModel.GetInstance().SetBalance(this.gameManager1009.getPlayerMoney());
 
-			G1009EventManager.GetInstance().notify("BetInfos", this.betInfos);
+			Slot45EventManager.GetInstance().notify("BetInfos", this.betInfos);
 			if (data.hasOwnProperty("playerState") && data.playerState) {
-				// G1009BetModel.GetInstance().SetCurrentBetPerLine(data.playerState.datas[0].content.bet);
-				G1009BetModel.GetInstance().SetCurrentBetPerLine(100);
+				// Slot45BetModel.GetInstance().SetCurrentBetPerLine(data.playerState.datas[0].content.bet);
+				Slot45BetModel.GetInstance().SetCurrentBetPerLine(100);
 			}
 			if (data.hasOwnProperty("allJackpotInfos")) {
 				this.dataJackpot = data.allJackpotInfos;
@@ -113,7 +113,7 @@ export default class ConnectServer extends cc.Component {
 						isRetrigger: false,
 
 					});
-					G1009EventManager.GetInstance().notify("resume", resuilt);
+					Slot45EventManager.GetInstance().notify("resume", resuilt);
 				}, 100);
 			}
 			else {
@@ -122,11 +122,11 @@ export default class ConnectServer extends cc.Component {
 					setTimeout(() => {
 						let resuilt = this.processNormalData();
 						resuilt.featureDatas = [];
-						G1009EventManager.GetInstance().notify("resumeBonus", resuilt);
+						Slot45EventManager.GetInstance().notify("resumeBonus", resuilt);
 					}, 100);
 				}
 				else {
-					G1009EventManager.GetInstance().notify("init");
+					Slot45EventManager.GetInstance().notify("init");
 				}
 			}
 		})
@@ -151,40 +151,40 @@ export default class ConnectServer extends cc.Component {
 
 		this.gameManager1009.registerEvent(GAME_MANAGER_EVENT.PLAYER_MONEY_UPDATE, (data: number) => {
 			console.log('PLAYER_MONEY_UPDATE', data);
-			// G1009BalanceModel.GetInstance().SetBalance(data);
-			// G1009EventManager.GetInstance().notify("BalanceChange", data);
+			// Slot45BalanceModel.GetInstance().SetBalance(data);
+			// Slot45EventManager.GetInstance().notify("BalanceChange", data);
 		})
 
 		this.gameManager1009.registerEvent(GAME_MANAGER_EVENT.JACKPOT_UPDATE, (data: { [key: string]: JackpotInfo }) => {
 			console.log('JACKPOT_UPDATE', data);
-			G1009EventManager.GetInstance().notify('JackpotUpdate', data);
+			Slot45EventManager.GetInstance().notify('JackpotUpdate', data);
 		})
 
 		this.gameManager1009.registerEvent(GAME_MANAGER_EVENT.JACKPOT_SHOW_MULTIPLE, (data: { [key: string]: JackpotMessage }) => {
 			console.log('JACKPOT_SHOW_MULTIPLE', data);
-			G1009EventManager.GetInstance().notify('JackpotShowMultiple', data);
+			Slot45EventManager.GetInstance().notify('JackpotShowMultiple', data);
 		})
 
 		this.gameManager1009.registerEvent(GAME_MANAGER_EVENT.JACKPOT_HIDE_MULTIPLE, (data: { [key: string]: JackpotMessage }) => {
 			console.log('JACKPOT_SHOW_MULTIPLE', data);
-			G1009EventManager.GetInstance().notify('JackpotHideMultiple');
+			Slot45EventManager.GetInstance().notify('JackpotHideMultiple');
 		})
 
 		this.gameManager1009.registerEvent(GAME_MANAGER_EVENT.POPUP_INFO_MESSAGE, (data: PopupInfoMessage) => {
 			console.log('POPUP_INFO_MESSAGE', data);
-			G1009EventManager.GetInstance().notify('PopupInfoMessage', data);
+			Slot45EventManager.GetInstance().notify('PopupInfoMessage', data);
 		})
 
-		G1009EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
-		G1009EventManager.GetInstance().register("PickUpRequest", this.onPickUpRequest.bind(this));
-		G1009EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
-		G1009EventManager.GetInstance().register("ShowBetPanel", this.onEndRound.bind(this));
-		G1009EventManager.GetInstance().register("UpdateBetLine", this.onUpdateBetLine.bind(this));
+		Slot45EventManager.GetInstance().register("SpinRequest", this.onSpinRequest.bind(this));
+		Slot45EventManager.GetInstance().register("PickUpRequest", this.onPickUpRequest.bind(this));
+		Slot45EventManager.GetInstance().register("EndRound", this.onEndRound.bind(this));
+		Slot45EventManager.GetInstance().register("ShowBetPanel", this.onEndRound.bind(this));
+		Slot45EventManager.GetInstance().register("UpdateBetLine", this.onUpdateBetLine.bind(this));
 	}
 
 	private onUpdateBetLine(betLines: number[]) {
-		G1009BetModel.GetInstance().SetBetMultiplier(betLines.length);
-		G1009EventManager.GetInstance().notify("ShowBetPanel");
+		Slot45BetModel.GetInstance().SetBetMultiplier(betLines.length);
+		Slot45EventManager.GetInstance().notify("ShowBetPanel");
 	}
 
 	private onPickUpRequest(item: number): void {
@@ -196,7 +196,7 @@ export default class ConnectServer extends cc.Component {
 			this.gameManager1009.freeSpin();
 		}
 		else {
-			let betDenom = G1009BetModel.GetInstance().GetCurrentBetPerLine();
+			let betDenom = Slot45BetModel.GetInstance().GetCurrentBetPerLine();
 			let betInfo = this.betInfos.filter((betInfo) => betInfo.betDenom == betDenom)[0];
 			this.gameManager1009.normalSpin(betInfo.betId);
 		}
@@ -217,11 +217,11 @@ export default class ConnectServer extends cc.Component {
 		let featureDatas = [];
 		let winBonus = [];
 		var cellsResult = [];
-		let WinLines: G1009WinLineResult[] = [];
+		let WinLines: Slot45WinLineResult[] = [];
 		let winScatters = [];
 		let freespintotalWinPoint = 0;
 		let jackpotWinPoint = 0;
-		let jackpotWinLine : G1009WinLineResult = null;
+		let jackpotWinLine : Slot45WinLineResult = null;
 		let totalWinPoint = 0;
 		let freespinLeft = 0;
 		let bonusGameDatas = null;
@@ -242,7 +242,7 @@ export default class ConnectServer extends cc.Component {
 					var content = element.content;
 					var arrNumber = [];
 					arrNumber.push(content.hitSetID);
-					var winLineData = new G1009WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
+					var winLineData = new Slot45WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
 					if (countCombo == 0) {
 						WinLines.push(winLineData);
 						winPoint += winLineData.GetWinPoint();
@@ -273,7 +273,7 @@ export default class ConnectServer extends cc.Component {
 						// 		scatters.push(index);
 						// 	}
 						// }
-						winScatters.push(new G1009WinLineResult(element.content.trigger.hitSet, 0, [-1], "Scatter", false, true));
+						winScatters.push(new Slot45WinLineResult(element.content.trigger.hitSet, 0, [-1], "Scatter", false, true));
 					}
 					break;
 				case "spinTriggerBonus":
@@ -291,13 +291,13 @@ export default class ConnectServer extends cc.Component {
 					// 		bonus.push(index);
 					// 	}
 					// }
-					winBonus.push(new G1009WinLineResult(element.content.trigger.hitSet, element.content.pay, [-1], "Bonus", false, true));
+					winBonus.push(new Slot45WinLineResult(element.content.trigger.hitSet, element.content.pay, [-1], "Bonus", false, true));
 					break;
 				case "jackpotWin":
 					var content = element.content;
 					var arrNumber = [];
 					arrNumber.push(content.hitSetID);
-					var winLineData = new G1009WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
+					var winLineData = new Slot45WinLineResult(content.hitSet, content.pay, arrNumber, content.what);
 					if (countCombo == 0) {
 						WinLines.push(winLineData);
 						winPoint += winLineData.GetWinPoint();
@@ -361,7 +361,7 @@ export default class ConnectServer extends cc.Component {
 		let winBonus = [];
 		let expandWildIndices = [];
 		let cellsResult = [];
-		let WinLines: G1009WinLineResult[] = [];
+		let WinLines: Slot45WinLineResult[] = [];
 		let winScatters = [];
 		let freespintotalWinPoint = 0;
 		let jackpotWinPoint = 0;
@@ -392,7 +392,7 @@ export default class ConnectServer extends cc.Component {
 		if (this.currentSession.hasOwnProperty("normalPayLines")) {
 			this.currentSession.normalPayLines.forEach(normalPayLine => {
 				WinLines.push(
-					new G1009WinLineResult(WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], SLOTTY_ITEM[normalPayLine.psc], false, NEAR_WIN_SYMBOL.includes((SLOTTY_ITEM[normalPayLine.psc]))));
+					new Slot45WinLineResult(WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], SLOTTY_ITEM[normalPayLine.psc], false, NEAR_WIN_SYMBOL.includes((SLOTTY_ITEM[normalPayLine.psc]))));
 			});
 		}
 		WinLines.forEach(winLine => winPoint += winLine.GetWinPoint());
@@ -417,7 +417,7 @@ export default class ConnectServer extends cc.Component {
 						scatters.push(index);
 					}
 				}
-				winScatters.push(new G1009WinLineResult(scatters, 0, [-1], "Scatter", false, true));
+				winScatters.push(new Slot45WinLineResult(scatters, 0, [-1], "Scatter", false, true));
 
 			}
 		}
@@ -438,7 +438,7 @@ export default class ConnectServer extends cc.Component {
 						bonus.push(index);
 					}
 				}
-				winBonus.push(new G1009WinLineResult(bonus, 0, [-1], "Bonus", false, true));
+				winBonus.push(new Slot45WinLineResult(bonus, 0, [-1], "Bonus", false, true));
 			}
 		}
 
@@ -481,7 +481,7 @@ export default class ConnectServer extends cc.Component {
 					coreWinLine.push(index);
 				}
 			})
-			jackpotWinLine.push(new G1009WinLineResult(coreWinLine, 0, [winLineNumber], "Core", false, true));
+			jackpotWinLine.push(new Slot45WinLineResult(coreWinLine, 0, [winLineNumber], "Core", false, true));
 			// });
 
 			jackpotWinPoint = jackpotTotalWin;
@@ -579,7 +579,7 @@ export default class ConnectServer extends cc.Component {
 			if (this.currentSession.hasOwnProperty("normalPayLines")) {
 				this.currentSession.normalPayLines.forEach(normalPayLine => {
 					data.WinLines.push(
-						new G1009WinLineResult(WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], SLOTTY_ITEM[normalPayLine.psc], false, NEAR_WIN_SYMBOL.includes((SLOTTY_ITEM[normalPayLine.psc]))));
+						new Slot45WinLineResult(WIN_LINE_MAPPING[normalPayLine.pwl - 1].slice(0, normalPayLine.pwrc), normalPayLine.pwa, [normalPayLine.pwl - 1], SLOTTY_ITEM[normalPayLine.psc], false, NEAR_WIN_SYMBOL.includes((SLOTTY_ITEM[normalPayLine.psc]))));
 				});
 			}
 			data.WinLines.forEach(winLine => data.winPoint += winLine.GetWinPoint());
@@ -603,7 +603,7 @@ export default class ConnectServer extends cc.Component {
 	private nextScrollData(): void {
 		let result = this.processNormalData();
 		setTimeout(() => {
-			G1009EventManager.GetInstance().notify("NextScrollData", result);
+			Slot45EventManager.GetInstance().notify("NextScrollData", result);
 			if (result.freespinLeft == 0) {
 				this.isFreespins = false;
 			}
@@ -612,15 +612,15 @@ export default class ConnectServer extends cc.Component {
 
 	private fakeBalanceSpin() {
 		if (!this.isFreespins) {
-			let newBalance = G1009BalanceModel.GetInstance().GetBalance() - G1009BetModel.GetInstance().GetTotalBetPoint();
-			G1009BalanceModel.GetInstance().SetBalance(newBalance);
-			G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
+			let newBalance = Slot45BalanceModel.GetInstance().GetBalance() - Slot45BetModel.GetInstance().GetTotalBetPoint();
+			Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+			Slot45EventManager.GetInstance().notify("BalanceChange", newBalance);
 		}
 	}
 
 	private onEndRound() {
 		let newBalance = this.gameManager1009.getPlayerMoney();
-		G1009BalanceModel.GetInstance().SetBalance(newBalance);
-		G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
+		Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+		Slot45EventManager.GetInstance().notify("BalanceChange", newBalance);
 	}
 }

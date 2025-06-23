@@ -17,7 +17,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.G1009ExpandwildState = void 0;
+exports.Slot45ExpandwildState = void 0;
 var Slot45_game_controller_1 = require("../../controller/Slot45-game-controller");
 var Slot45_event_manager_1 = require("../../events/Slot45-event-manager");
 var Slot45_state_1 = require("../abstract/Slot45-state");
@@ -26,33 +26,33 @@ var Slot45_feature_trigger_state_1 = require("./Slot45-feature-trigger-state");
 var Slot45_feature_win_state_1 = require("./Slot45-feature-win-state");
 var Slot45_spin_state_1 = require("./Slot45-spin-state");
 var Slot45_win_state_1 = require("./Slot45-win-state");
-var G1009ExpandwildState = /** @class */ (function (_super) {
-    __extends(G1009ExpandwildState, _super);
-    function G1009ExpandwildState() {
+var Slot45ExpandwildState = /** @class */ (function (_super) {
+    __extends(Slot45ExpandwildState, _super);
+    function Slot45ExpandwildState() {
         var _this = _super.call(this) || this;
         console.log("Expand wild state");
         setTimeout(function () {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ExpandWildStarted", Slot45_game_controller_1.default.GetInstance().GetExpandWildIndices());
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("ExpandWildStarted", Slot45_game_controller_1.default.GetInstance().GetExpandWildIndices());
         }, 100);
         return _this;
     }
-    G1009ExpandwildState.prototype.ExpandWildCompleted = function () {
+    Slot45ExpandwildState.prototype.ExpandWildCompleted = function () {
         if (Slot45_game_controller_1.default.GetInstance().CheckWinLineData()) {
-            return new Slot45_win_state_1.G1009WinState();
+            return new Slot45_win_state_1.Slot45WinState();
         }
         if (Slot45_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
-            return new Slot45_feature_trigger_state_1.G1009FeatureTriggerState();
+            return new Slot45_feature_trigger_state_1.Slot45FeatureTriggerState();
         }
         if (Slot45_game_controller_1.default.GetInstance().CheckFreespinContinue()) {
-            return new Slot45_spin_state_1.G1009SpinState();
+            return new Slot45_spin_state_1.Slot45SpinState();
         }
         if (Slot45_game_controller_1.default.GetInstance().CheckFreespinEnd()) {
-            return new Slot45_feature_win_state_1.G1009FeatureWinState();
+            return new Slot45_feature_win_state_1.Slot45FeatureWinState();
         }
-        return new Slot45_bet_state_1.G1009BetState();
+        return new Slot45_bet_state_1.Slot45BetState();
     };
-    return G1009ExpandwildState;
+    return Slot45ExpandwildState;
 }(Slot45_state_1.State));
-exports.G1009ExpandwildState = G1009ExpandwildState;
+exports.Slot45ExpandwildState = Slot45ExpandwildState;
 
 cc._RF.pop();

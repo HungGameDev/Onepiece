@@ -1,10 +1,10 @@
 import { NEAR_WIN_SYMBOL } from "../../Slot45-game-config";
-import { G1009AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
-import { G1009SpriteProviderManagerActor } from "../provider/Slot45-sprite-frame-provider";
+import { Slot45AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
+import { Slot45SpriteProviderManagerActor } from "../provider/Slot45-sprite-frame-provider";
 
 const { ccclass, property } = cc._decorator;
 @ccclass
-export default class G1009WinCellItemActor extends cc.Component {
+export default class Slot45WinCellItemActor extends cc.Component {
 
 	@property()
 	cellIndex: number = -1;
@@ -28,7 +28,7 @@ export default class G1009WinCellItemActor extends cc.Component {
 			return;
 		}
 		this.skeleton.node.active = true;
-		let data = G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
+		let data = Slot45AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
 		this.skeleton.skeletonData = (data);
 		this.skeleton.setAnimation(0, "animation", false);
 	}
@@ -39,7 +39,7 @@ export default class G1009WinCellItemActor extends cc.Component {
 			this.skeleton.node.active = false;
 			return;
 		}
-		let data = G1009AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
+		let data = Slot45AnimationProviderManager.Instance().GetAnimation(cc.js.formatStr(this.SymbolFormat, this.itemID));
 		this.skeleton.skeletonData = (data);
 		this.skeleton.setAnimation(0, "animation", false);
 	}
@@ -150,7 +150,7 @@ export default class G1009WinCellItemActor extends cc.Component {
 		// this.skeleton.node.active = false;
 		this.sprite.node.color = this.dimColor;
 		// this.sprite.node.active = true;
-		this.sprite.spriteFrame = G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
+		this.sprite.spriteFrame = Slot45SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, this.itemID));
 	}
 
 	public HideStaticFrame(): void {

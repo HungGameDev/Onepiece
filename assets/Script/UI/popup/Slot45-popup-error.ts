@@ -1,10 +1,10 @@
 import { PopupInfoMessage } from "../../GameManager/Slot45-GameManager";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009PopupError extends cc.Component {
+export default class Slot45PopupError extends cc.Component {
 
 	@property(cc.Node)
 	content: cc.Node = null;
@@ -16,7 +16,7 @@ export default class G1009PopupError extends cc.Component {
 	btnClosePopup: cc.Node = null;
 
 	protected start(): void {
-		G1009EventManager.GetInstance().register("PopupInfoMessage", this.onPopupInfoMessage.bind(this));
+		Slot45EventManager.GetInstance().register("PopupInfoMessage", this.onPopupInfoMessage.bind(this));
 		this.reset();
 	}
 

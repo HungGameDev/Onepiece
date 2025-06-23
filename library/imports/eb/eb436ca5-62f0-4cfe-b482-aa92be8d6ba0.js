@@ -38,14 +38,14 @@ SoundVolume[SoundNameConfig.BGMMainGame] = 1;
 SoundVolume[SoundNameConfig.BGMChooseBet] = 1;
 SoundVolume[SoundNameConfig.BGMFreeGame] = 0.7;
 SoundVolume[SoundNameConfig.BGMBonusGame] = 1;
-var G1009SoundConfig = /** @class */ (function () {
-    function G1009SoundConfig() {
+var Slot45SoundConfig = /** @class */ (function () {
+    function Slot45SoundConfig() {
         this.SoundNameConfig = SoundNameConfig;
         this.SoundVolume = SoundVolume;
         this.SoundVolumeReduction = 0.3;
     }
-    return G1009SoundConfig;
+    return Slot45SoundConfig;
 }());
-exports.default = G1009SoundConfig;
+exports.default = Slot45SoundConfig;
 
 cc._RF.pop();

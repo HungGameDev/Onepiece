@@ -1,4 +1,4 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 const {ccclass, property} = cc._decorator;
 
@@ -11,9 +11,9 @@ export default class NewClass extends cc.Component {
     freespinLeft: number = 0;
    
     protected start(): void {
-		G1009EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
-		G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
-		G1009EventManager.GetInstance().register("CountFreespinsLeft", this.onCountFreespinsLeft.bind(this));
+		Slot45EventManager.GetInstance().register("NextScrollData", this.onNextScrollData.bind(this));
+		Slot45EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+		Slot45EventManager.GetInstance().register("CountFreespinsLeft", this.onCountFreespinsLeft.bind(this));
     }
 
     protected onSpinStarted(data: any): void {

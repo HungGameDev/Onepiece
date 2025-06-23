@@ -25,27 +25,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009ButtonActor = /** @class */ (function (_super) {
-    __extends(G1009ButtonActor, _super);
-    function G1009ButtonActor() {
+var Slot45ButtonActor = /** @class */ (function (_super) {
+    __extends(Slot45ButtonActor, _super);
+    function Slot45ButtonActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.EventName = "Event-name";
         _this.button = null;
         return _this;
     }
-    G1009ButtonActor.prototype.onLoad = function () {
+    Slot45ButtonActor.prototype.onLoad = function () {
         this.button = this.node.getComponent(cc.Button);
         this.node.on("click", this.onButtonClick.bind(this));
     };
-    G1009ButtonActor.prototype.onButtonClick = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify(this.EventName);
+    Slot45ButtonActor.prototype.onButtonClick = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify(this.EventName);
     };
-    G1009ButtonActor.prototype.Interactable = function (isInteractable) {
+    Slot45ButtonActor.prototype.Interactable = function (isInteractable) {
         if (!!this.button)
             this.button = this.node.getComponent(cc.Button);
         this.button.interactable = isInteractable;
     };
-    G1009ButtonActor.prototype.Disable = function () {
+    Slot45ButtonActor.prototype.Disable = function () {
         var _this = this;
         this.killAllTween();
         this.disableTween = cc.tween(this.node)
@@ -53,13 +53,13 @@ var G1009ButtonActor = /** @class */ (function (_super) {
             .call(function () { _this.node.active = false; })
             .start();
     };
-    G1009ButtonActor.prototype.Enable = function () {
+    Slot45ButtonActor.prototype.Enable = function () {
         this.killAllTween();
         this.node.active = true;
         this.enableTween = cc.tween(this.node)
             .to(0.2, { opacity: 255 }).start();
     };
-    G1009ButtonActor.prototype.killAllTween = function () {
+    Slot45ButtonActor.prototype.killAllTween = function () {
         var _a, _b;
         (_a = this.enableTween) === null || _a === void 0 ? void 0 : _a.stop();
         (_b = this.disableTween) === null || _b === void 0 ? void 0 : _b.stop();
@@ -68,15 +68,15 @@ var G1009ButtonActor = /** @class */ (function (_super) {
     };
     __decorate([
         property
-    ], G1009ButtonActor.prototype, "EventName", void 0);
+    ], Slot45ButtonActor.prototype, "EventName", void 0);
     __decorate([
         property(cc.Button)
-    ], G1009ButtonActor.prototype, "button", void 0);
-    G1009ButtonActor = __decorate([
+    ], Slot45ButtonActor.prototype, "button", void 0);
+    Slot45ButtonActor = __decorate([
         ccclass
-    ], G1009ButtonActor);
-    return G1009ButtonActor;
+    ], Slot45ButtonActor);
+    return Slot45ButtonActor;
 }(cc.Component));
-exports.default = G1009ButtonActor;
+exports.default = Slot45ButtonActor;
 
 cc._RF.pop();

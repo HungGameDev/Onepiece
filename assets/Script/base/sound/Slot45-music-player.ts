@@ -1,9 +1,9 @@
-import G1009SoundPlayerActor from "./Slot45-sound-player";
+import Slot45SoundPlayerActor from "./Slot45-sound-player";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009MusicPlayerActor extends G1009SoundPlayerActor {
+export default class Slot45MusicPlayerActor extends Slot45SoundPlayerActor {
 
     isMute: boolean = false;
     muteVolume: number = 1;

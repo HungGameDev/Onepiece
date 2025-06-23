@@ -26,46 +26,46 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009JackpotInfoActor = /** @class */ (function (_super) {
-    __extends(G1009JackpotInfoActor, _super);
-    function G1009JackpotInfoActor() {
+var Slot45JackpotInfoActor = /** @class */ (function (_super) {
+    __extends(Slot45JackpotInfoActor, _super);
+    function Slot45JackpotInfoActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.labelsBet = [];
         _this.labelsDescription = [];
         _this.content = null;
         return _this;
     }
-    G1009JackpotInfoActor.prototype.start = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotShowMultiple', this.show.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotHideMultiple', this.hide.bind(this));
+    Slot45JackpotInfoActor.prototype.start = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('JackpotShowMultiple', this.show.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('JackpotHideMultiple', this.hide.bind(this));
     };
-    G1009JackpotInfoActor.prototype.show = function (datas) {
+    Slot45JackpotInfoActor.prototype.show = function (datas) {
         var arr = Object.entries(datas);
         for (var index = 0; index < arr.length; index++) {
             var element = arr[index][1];
-            this.labelsBet[index].string = "P" + Slot45_bet_model_1.G1009BetModel.GetInstance().GetBetPointByIndex(index).toString();
+            this.labelsBet[index].string = "P" + Slot45_bet_model_1.Slot45BetModel.GetInstance().GetBetPointByIndex(index).toString();
             this.labelsDescription[index].string = element.message;
         }
         this.content.active = true;
         console.log(datas);
     };
-    G1009JackpotInfoActor.prototype.hide = function () {
+    Slot45JackpotInfoActor.prototype.hide = function () {
         this.content.active = false;
     };
     __decorate([
         property(cc.Label)
-    ], G1009JackpotInfoActor.prototype, "labelsBet", void 0);
+    ], Slot45JackpotInfoActor.prototype, "labelsBet", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009JackpotInfoActor.prototype, "labelsDescription", void 0);
+    ], Slot45JackpotInfoActor.prototype, "labelsDescription", void 0);
     __decorate([
         property(cc.Node)
-    ], G1009JackpotInfoActor.prototype, "content", void 0);
-    G1009JackpotInfoActor = __decorate([
+    ], Slot45JackpotInfoActor.prototype, "content", void 0);
+    Slot45JackpotInfoActor = __decorate([
         ccclass
-    ], G1009JackpotInfoActor);
-    return G1009JackpotInfoActor;
+    ], Slot45JackpotInfoActor);
+    return Slot45JackpotInfoActor;
 }(cc.Component));
-exports.default = G1009JackpotInfoActor;
+exports.default = Slot45JackpotInfoActor;
 
 cc._RF.pop();

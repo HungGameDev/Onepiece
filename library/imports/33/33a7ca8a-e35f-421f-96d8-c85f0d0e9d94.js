@@ -26,33 +26,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var TOGGLE_SPACE = -60;
-var G1009InfoTogglePanelActor = /** @class */ (function (_super) {
-    __extends(G1009InfoTogglePanelActor, _super);
-    function G1009InfoTogglePanelActor() {
+var Slot45InfoTogglePanelActor = /** @class */ (function (_super) {
+    __extends(Slot45InfoTogglePanelActor, _super);
+    function Slot45InfoTogglePanelActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.currenttoggleID = 0;
         _this.container = null;
         return _this;
     }
-    G1009InfoTogglePanelActor.prototype.onLoad = function () {
+    Slot45InfoTogglePanelActor.prototype.onLoad = function () {
         this.register();
         this.container = this.node.getComponent(cc.ToggleContainer);
     };
-    G1009InfoTogglePanelActor.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ChangeInfoPage", this.onChangeInfoPage.bind(this));
+    Slot45InfoTogglePanelActor.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ChangeInfoPage", this.onChangeInfoPage.bind(this));
     };
-    G1009InfoTogglePanelActor.prototype.onChangeInfoPage = function (toggleId) {
+    Slot45InfoTogglePanelActor.prototype.onChangeInfoPage = function (toggleId) {
         if (this.currenttoggleID != toggleId) {
             this.container.toggleItems[toggleId].isChecked = true;
             this.currenttoggleID = toggleId;
             // cc.tween(this.node).to(0.3, { position: new cc.Vec3(TOGGLE_SPACE * this.currenttoggleID, this.node.position.y, this.node.position.z) }).start();
         }
     };
-    G1009InfoTogglePanelActor = __decorate([
+    Slot45InfoTogglePanelActor = __decorate([
         ccclass
-    ], G1009InfoTogglePanelActor);
-    return G1009InfoTogglePanelActor;
+    ], Slot45InfoTogglePanelActor);
+    return Slot45InfoTogglePanelActor;
 }(cc.Component));
-exports.default = G1009InfoTogglePanelActor;
+exports.default = Slot45InfoTogglePanelActor;
 
 cc._RF.pop();

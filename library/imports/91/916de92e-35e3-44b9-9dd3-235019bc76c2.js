@@ -41,9 +41,9 @@ var ESpinningState;
     ESpinningState[ESpinningState["Bounce"] = 4] = "Bounce";
     ESpinningState[ESpinningState["WaitingBounce"] = 5] = "WaitingBounce";
 })(ESpinningState = exports.ESpinningState || (exports.ESpinningState = {}));
-var G1009SpinItemActor = /** @class */ (function (_super) {
-    __extends(G1009SpinItemActor, _super);
-    function G1009SpinItemActor() {
+var Slot45SpinItemActor = /** @class */ (function (_super) {
+    __extends(Slot45SpinItemActor, _super);
+    function Slot45SpinItemActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.cellItems = [];
         _this.direction = EDirection.Down;
@@ -76,7 +76,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
         _this.repeatCount = 0;
         return _this;
     }
-    G1009SpinItemActor.prototype.Init = function (initData) {
+    Slot45SpinItemActor.prototype.Init = function (initData) {
         this.scrollSpeed = initData.ScrollSpeed;
         this.originSpeed = this.scrollSpeed;
         this.tensionSpeedMultiplier = initData.TensionSpeedMultiplier;
@@ -106,25 +106,25 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             }
         }
     };
-    G1009SpinItemActor.prototype.SetItems = function (reelData) {
+    Slot45SpinItemActor.prototype.SetItems = function (reelData) {
         for (var index = 0; index < this.cellItems.length; index++) {
             var cellIndex = this.cellItems[index].GetCellIndex();
             this.cellItems[index].SetItem(reelData[cellIndex]);
         }
     };
-    G1009SpinItemActor.prototype.SetOldItems = function (reelData) {
+    Slot45SpinItemActor.prototype.SetOldItems = function (reelData) {
         for (var index = 0; index < this.cellItems.length; index++) {
             var cellIndex = this.cellItems[index].GetCellIndex();
             this.cellItems[index].SetOldItem(reelData[cellIndex]);
         }
     };
-    G1009SpinItemActor.prototype.Spin = function () {
+    Slot45SpinItemActor.prototype.Spin = function () {
         if (this.state == ESpinningState.Idle) {
-            // G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelspin', isLoop: false });
+            // Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelspin', isLoop: false });
             this.momentum();
         }
     };
-    G1009SpinItemActor.prototype.momentum = function () {
+    Slot45SpinItemActor.prototype.momentum = function () {
         if (this.isTurbo || this.momentumRange == 0) {
             this.startScroll();
             return;
@@ -140,18 +140,18 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             this.startScroll();
         }
     };
-    G1009SpinItemActor.prototype.startScroll = function () {
+    Slot45SpinItemActor.prototype.startScroll = function () {
         this.cellItems.forEach(function (i) { return i.StartSpin(); });
         this.scroll();
     };
-    G1009SpinItemActor.prototype.lateUpdate = function (dt) {
+    Slot45SpinItemActor.prototype.lateUpdate = function (dt) {
         if (this.repeatCount >= 0.02) {
             this.fixUpdate();
             this.repeatCount = 0;
         }
         this.repeatCount += dt;
     };
-    G1009SpinItemActor.prototype.scroll = function () {
+    Slot45SpinItemActor.prototype.scroll = function () {
         this.state = ESpinningState.Idle;
         var isScrollComplete = false;
         for (var index = 0; index < this.cellItems.length; index++) {
@@ -184,7 +184,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
         }
         this.state = ESpinningState.Scroll;
     };
-    G1009SpinItemActor.prototype.fixCellIndex = function (firstIndex) {
+    Slot45SpinItemActor.prototype.fixCellIndex = function (firstIndex) {
         var index = this.cellItems.length;
         var cellIndices = Object.assign([], this.cellIndices);
         do {
@@ -195,7 +195,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             this.cellItems[(firstIndex + index) % this.cellItems.length].SetCellIndex(cellIndex);
         } while (--index > 0);
     };
-    G1009SpinItemActor.prototype.setFinalResults = function () {
+    Slot45SpinItemActor.prototype.setFinalResults = function () {
         var resultIndex = 0;
         for (var index = 0; index < this.cellItems.length; index++) {
             var cellItem = this.cellItems[index];
@@ -211,7 +211,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             }
         }
     };
-    G1009SpinItemActor.prototype.setSpinningItem = function (cellItem, index) {
+    Slot45SpinItemActor.prototype.setSpinningItem = function (cellItem, index) {
         if (this.rawResultItems.length > 0) {
             var item = this.resultItems.pop();
             cellItem.SetScrollItem(item);
@@ -223,7 +223,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             } while (cellItem.CheckValid() == false && loopCount++ < MAX_LOOP);
         }
     };
-    G1009SpinItemActor.prototype.stopScroll = function () {
+    Slot45SpinItemActor.prototype.stopScroll = function () {
         this.state = ESpinningState.StopScroll;
         var isStopScrollComplete = false;
         for (var index = 0; index < this.cellItems.length; index++) {
@@ -242,7 +242,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             this.bounce();
         }
     };
-    G1009SpinItemActor.prototype.bounce = function () {
+    Slot45SpinItemActor.prototype.bounce = function () {
         this.state = ESpinningState.Bounce;
         if (this.allowBounceUp == false && this.isStopImmediately == true) {
             this.state = ESpinningState.WaitingBounce;
@@ -258,21 +258,21 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             this.stopComplete();
         }
     };
-    G1009SpinItemActor.prototype.stopComplete = function () {
-        // G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelstop', isLoop: false });
+    Slot45SpinItemActor.prototype.stopComplete = function () {
+        // Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_reelstop', isLoop: false });
         this.cellItems.forEach(function (cellItem) { return cellItem.StopSpin(); });
         this.state = ESpinningState.Idle;
         this.onStopSpinCompleted(this.cellIndices);
         this.setDefaultPosition();
     };
-    G1009SpinItemActor.prototype.StopImmediately = function (isTurbo) {
+    Slot45SpinItemActor.prototype.StopImmediately = function (isTurbo) {
         this.isStopImmediately = true;
         this.isTurbo = isTurbo === true;
     };
-    G1009SpinItemActor.prototype.TensionStarted = function () {
+    Slot45SpinItemActor.prototype.TensionStarted = function () {
         this.scrollSpeed *= this.tensionSpeedMultiplier;
     };
-    G1009SpinItemActor.prototype.Reset = function () {
+    Slot45SpinItemActor.prototype.Reset = function () {
         this.state = ESpinningState.Idle;
         this.allowBounceUp == true;
         this.isStopImmediately = false;
@@ -287,7 +287,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             cellItem.Reset();
         }
     };
-    G1009SpinItemActor.prototype.setDefaultPosition = function () {
+    Slot45SpinItemActor.prototype.setDefaultPosition = function () {
         for (var index = 0; index < this.cellItems.length; index++) {
             var cellItem = this.cellItems[index];
             cellItem.node.y = this.originYCoordinates[index];
@@ -295,19 +295,19 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             cellItem.Reset();
         }
     };
-    G1009SpinItemActor.prototype.Enable = function () {
+    Slot45SpinItemActor.prototype.Enable = function () {
         this.cellItems.forEach(function (cell) { return cell.Enable(); });
     };
-    G1009SpinItemActor.prototype.Disable = function () {
+    Slot45SpinItemActor.prototype.Disable = function () {
         this.cellItems.forEach(function (cell) { return cell.Disable(); });
     };
-    G1009SpinItemActor.prototype.AllowBounceUp = function () {
+    Slot45SpinItemActor.prototype.AllowBounceUp = function () {
         this.allowBounceUp == true;
         if (this.state == ESpinningState.WaitingBounce) {
             this.bounce();
         }
     };
-    G1009SpinItemActor.prototype.setResultItems = function (items) {
+    Slot45SpinItemActor.prototype.setResultItems = function (items) {
         this.resultItems = [];
         for (var index = 0; index < this.cellItems.length; index++) {
             var cellItem = this.cellItems[index];
@@ -318,7 +318,7 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             }
         }
     };
-    G1009SpinItemActor.prototype.Stop = function (items) {
+    Slot45SpinItemActor.prototype.Stop = function (items) {
         this.setResultItems(items);
         if (this.direction == EDirection.Up) {
             this.resultItems.reverse();
@@ -334,11 +334,11 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
             this.stopScroll();
         }
     };
-    G1009SpinItemActor.prototype.checkReadyToStop = function () {
+    Slot45SpinItemActor.prototype.checkReadyToStop = function () {
         var isReady = this.rawResultItems.length > 0 && this.resultItems.length === this.rawResultItems.length;
         return isReady;
     };
-    G1009SpinItemActor.prototype.fixUpdate = function () {
+    Slot45SpinItemActor.prototype.fixUpdate = function () {
         switch (this.state) {
             case ESpinningState.Idle:
             case ESpinningState.WaitingBounce:
@@ -359,15 +359,15 @@ var G1009SpinItemActor = /** @class */ (function (_super) {
     };
     __decorate([
         property(Slot45_cell_item_1.default)
-    ], G1009SpinItemActor.prototype, "cellItems", void 0);
+    ], Slot45SpinItemActor.prototype, "cellItems", void 0);
     __decorate([
         property
-    ], G1009SpinItemActor.prototype, "direction", void 0);
-    G1009SpinItemActor = __decorate([
+    ], Slot45SpinItemActor.prototype, "direction", void 0);
+    Slot45SpinItemActor = __decorate([
         ccclass
-    ], G1009SpinItemActor);
-    return G1009SpinItemActor;
+    ], Slot45SpinItemActor);
+    return Slot45SpinItemActor;
 }(cc.Component));
-exports.default = G1009SpinItemActor;
+exports.default = Slot45SpinItemActor;
 
 cc._RF.pop();

@@ -27,9 +27,9 @@ var Slot45_event_manager_1 = require("../events/Slot45-event-manager");
 var Slot45_sfs_player_1 = require("./Slot45-sfs-player");
 var Slot45_music_player_1 = require("./Slot45-music-player");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SoundControllerActor = /** @class */ (function (_super) {
-    __extends(G1009SoundControllerActor, _super);
-    function G1009SoundControllerActor() {
+var Slot45SoundControllerActor = /** @class */ (function (_super) {
+    __extends(Slot45SoundControllerActor, _super);
+    function Slot45SoundControllerActor() {
         var _this = _super.call(this) || this;
         _this.localStorage = null;
         _this.musicPlayer = null;
@@ -37,82 +37,82 @@ var G1009SoundControllerActor = /** @class */ (function (_super) {
         _this.isMuteSfx = false;
         _this.isMuteMusic = false;
         _this.isMuteAll = false;
-        G1009SoundControllerActor_1.Instance = _this;
+        Slot45SoundControllerActor_1.Instance = _this;
         return _this;
     }
-    G1009SoundControllerActor_1 = G1009SoundControllerActor;
-    G1009SoundControllerActor.prototype.onLoad = function () {
+    Slot45SoundControllerActor_1 = Slot45SoundControllerActor;
+    Slot45SoundControllerActor.prototype.onLoad = function () {
         cc.game.addPersistRootNode(this.node);
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Music-on", this.UnmuteMusic.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Music-off", this.MuteMusic.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Sound-on", this.UnmuteSfx.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("Sound-off", this.MuteSfx.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("Music-on", this.UnmuteMusic.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("Music-off", this.MuteMusic.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("Sound-on", this.UnmuteSfx.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("Sound-off", this.MuteSfx.bind(this));
         cc.sys.localStorage.getItem('enableSFXKey') == "false" ? this.MuteSfx() : this.UnmuteSfx();
         cc.sys.localStorage.getItem('enableBGMKey') == "false" ? this.MuteMusic() : this.UnmuteMusic();
     };
-    G1009SoundControllerActor.prototype.MuteSfx = function () {
+    Slot45SoundControllerActor.prototype.MuteSfx = function () {
         this.isMuteSfx = true;
         this.sfxPlayer.Mute();
         cc.sys.localStorage.setItem('enableSFXKey', "false");
     };
-    G1009SoundControllerActor.prototype.UnmuteSfx = function () {
+    Slot45SoundControllerActor.prototype.UnmuteSfx = function () {
         this.isMuteSfx = false;
         this.sfxPlayer.Unmute();
         cc.sys.localStorage.setItem('enableSFXKey', "true");
     };
-    G1009SoundControllerActor.prototype.MuteMusic = function () {
+    Slot45SoundControllerActor.prototype.MuteMusic = function () {
         this.isMuteMusic = true;
         this.musicPlayer.Mute();
         cc.sys.localStorage.setItem('enableBGMKey', "false");
     };
-    G1009SoundControllerActor.prototype.UnmuteMusic = function () {
+    Slot45SoundControllerActor.prototype.UnmuteMusic = function () {
         this.isMuteMusic = false;
         this.musicPlayer.Unmute();
         cc.sys.localStorage.setItem('enableBGMKey', "true");
     };
-    G1009SoundControllerActor.prototype.AddSfx = function (name) {
+    Slot45SoundControllerActor.prototype.AddSfx = function (name) {
         this.sfxPlayer.AddAudio(name);
     };
-    G1009SoundControllerActor.prototype.AddMusic = function (name) {
+    Slot45SoundControllerActor.prototype.AddMusic = function (name) {
         this.musicPlayer.AddAudio(name);
     };
-    G1009SoundControllerActor.prototype.PlaySfx = function (name, isLoop) {
+    Slot45SoundControllerActor.prototype.PlaySfx = function (name, isLoop) {
         this.sfxPlayer.Play(name, isLoop);
     };
-    G1009SoundControllerActor.prototype.StopSfx = function (name) {
+    Slot45SoundControllerActor.prototype.StopSfx = function (name) {
         this.sfxPlayer.Stop(name);
     };
-    G1009SoundControllerActor.prototype.StopSfxWithFadeOut = function (name, duration) {
+    Slot45SoundControllerActor.prototype.StopSfxWithFadeOut = function (name, duration) {
         this.sfxPlayer.StopWithFadeOut(name, duration);
     };
-    G1009SoundControllerActor.prototype.StopAllSfx = function () {
+    Slot45SoundControllerActor.prototype.StopAllSfx = function () {
         this.sfxPlayer.StopAll();
     };
-    G1009SoundControllerActor.prototype.StopAllNonLoopingSfx = function () {
+    Slot45SoundControllerActor.prototype.StopAllNonLoopingSfx = function () {
         this.sfxPlayer.StopAllNonLoopingSfx();
     };
-    G1009SoundControllerActor.prototype.StopAllSfxWithFadeOut = function (duration) {
+    Slot45SoundControllerActor.prototype.StopAllSfxWithFadeOut = function (duration) {
         this.sfxPlayer.StopAllWithFadeOut(duration);
     };
-    G1009SoundControllerActor.prototype.StopAllNonLoopingSfxWithFadeOut = function (duration) {
+    Slot45SoundControllerActor.prototype.StopAllNonLoopingSfxWithFadeOut = function (duration) {
         this.sfxPlayer.StopAllNonLoopingSfxWithFadeOut(duration);
     };
-    G1009SoundControllerActor.prototype.HasSfx = function (name) {
+    Slot45SoundControllerActor.prototype.HasSfx = function (name) {
         return this.sfxPlayer.HasAudio(name);
     };
-    G1009SoundControllerActor.prototype.PlayMusic = function (name) {
+    Slot45SoundControllerActor.prototype.PlayMusic = function (name) {
         this.musicPlayer.Play(name, true);
     };
-    G1009SoundControllerActor.prototype.StopMusic = function (name) {
+    Slot45SoundControllerActor.prototype.StopMusic = function (name) {
         this.musicPlayer.Stop(name);
     };
-    G1009SoundControllerActor.prototype.StopMusicWithFadeOut = function (name, duration) {
+    Slot45SoundControllerActor.prototype.StopMusicWithFadeOut = function (name, duration) {
         this.musicPlayer.StopWithFadeOut(name, duration);
     };
-    G1009SoundControllerActor.prototype.HasMusic = function (name) {
+    Slot45SoundControllerActor.prototype.HasMusic = function (name) {
         return this.musicPlayer.HasAudio(name);
     };
-    G1009SoundControllerActor.prototype.ToggleMuteMusic = function () {
+    Slot45SoundControllerActor.prototype.ToggleMuteMusic = function () {
         if (this.isMuteMusic) {
             this.UnmuteMusic();
         }
@@ -120,10 +120,10 @@ var G1009SoundControllerActor = /** @class */ (function (_super) {
             this.MuteMusic();
         }
     };
-    G1009SoundControllerActor.prototype.IsMuteMusic = function () {
+    Slot45SoundControllerActor.prototype.IsMuteMusic = function () {
         return this.isMuteMusic;
     };
-    G1009SoundControllerActor.prototype.ToggleMuteSfx = function () {
+    Slot45SoundControllerActor.prototype.ToggleMuteSfx = function () {
         if (this.isMuteSfx) {
             this.UnmuteSfx();
         }
@@ -131,45 +131,45 @@ var G1009SoundControllerActor = /** @class */ (function (_super) {
             this.MuteSfx();
         }
     };
-    G1009SoundControllerActor.prototype.IsMuteSfx = function () {
+    Slot45SoundControllerActor.prototype.IsMuteSfx = function () {
         return this.isMuteSfx;
     };
-    G1009SoundControllerActor.prototype.IsMuteSound = function () {
+    Slot45SoundControllerActor.prototype.IsMuteSound = function () {
         return this.isMuteAll;
     };
-    G1009SoundControllerActor.prototype.SetMusicVolume = function (volume) {
+    Slot45SoundControllerActor.prototype.SetMusicVolume = function (volume) {
         this.musicPlayer.SetVolume(volume);
     };
-    G1009SoundControllerActor.prototype.GetMusicVolume = function () {
+    Slot45SoundControllerActor.prototype.GetMusicVolume = function () {
         return this.musicPlayer.GetVolume();
     };
-    G1009SoundControllerActor.prototype.SetSfxVolume = function (volume) {
+    Slot45SoundControllerActor.prototype.SetSfxVolume = function (volume) {
         this.sfxPlayer.SetVolume(volume);
     };
-    G1009SoundControllerActor.prototype.GetSfxVolume = function () {
+    Slot45SoundControllerActor.prototype.GetSfxVolume = function () {
         return this.sfxPlayer.GetVolume();
     };
-    G1009SoundControllerActor.prototype.GetMusicDuration = function (name) {
+    Slot45SoundControllerActor.prototype.GetMusicDuration = function (name) {
         return this.musicPlayer.GetAudioDuration(name);
     };
-    G1009SoundControllerActor.prototype.GetSfxDuration = function (name) {
+    Slot45SoundControllerActor.prototype.GetSfxDuration = function (name) {
         return this.sfxPlayer.GetAudioDuration(name);
     };
-    G1009SoundControllerActor.prototype.GetCurrentMusic = function () {
+    Slot45SoundControllerActor.prototype.GetCurrentMusic = function () {
         return this.musicPlayer.GetAudioPlaying();
     };
-    var G1009SoundControllerActor_1;
+    var Slot45SoundControllerActor_1;
     __decorate([
         property(Slot45_music_player_1.default)
-    ], G1009SoundControllerActor.prototype, "musicPlayer", void 0);
+    ], Slot45SoundControllerActor.prototype, "musicPlayer", void 0);
     __decorate([
         property(Slot45_sfs_player_1.default)
-    ], G1009SoundControllerActor.prototype, "sfxPlayer", void 0);
-    G1009SoundControllerActor = G1009SoundControllerActor_1 = __decorate([
+    ], Slot45SoundControllerActor.prototype, "sfxPlayer", void 0);
+    Slot45SoundControllerActor = Slot45SoundControllerActor_1 = __decorate([
         ccclass
-    ], G1009SoundControllerActor);
-    return G1009SoundControllerActor;
+    ], Slot45SoundControllerActor);
+    return Slot45SoundControllerActor;
 }(cc.Component));
-exports.default = G1009SoundControllerActor;
+exports.default = Slot45SoundControllerActor;
 
 cc._RF.pop();

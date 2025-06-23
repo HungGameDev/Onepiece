@@ -25,58 +25,58 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009FeatureContentActivationActor = /** @class */ (function (_super) {
-    __extends(G1009FeatureContentActivationActor, _super);
-    function G1009FeatureContentActivationActor() {
+var Slot45FeatureContentActivationActor = /** @class */ (function (_super) {
+    __extends(Slot45FeatureContentActivationActor, _super);
+    function Slot45FeatureContentActivationActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         _this.startDuration = 0;
         _this.endDuration = 0;
         return _this;
     }
-    G1009FeatureContentActivationActor.prototype.start = function () {
+    Slot45FeatureContentActivationActor.prototype.start = function () {
         this.reset();
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTriggerStarted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTriggerStarted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
     };
-    G1009FeatureContentActivationActor.prototype.checkRuleTrigger = function () {
+    Slot45FeatureContentActivationActor.prototype.checkRuleTrigger = function () {
         return false;
     };
-    G1009FeatureContentActivationActor.prototype.onFeatureTriggerStarted = function () {
+    Slot45FeatureContentActivationActor.prototype.onFeatureTriggerStarted = function () {
         if (this.checkRuleTrigger()) {
             this.showContent();
         }
     };
-    G1009FeatureContentActivationActor.prototype.onfeatureWinCompleted = function () {
+    Slot45FeatureContentActivationActor.prototype.onfeatureWinCompleted = function () {
         this.hideContent();
     };
-    G1009FeatureContentActivationActor.prototype.showContent = function () {
+    Slot45FeatureContentActivationActor.prototype.showContent = function () {
         this.content.active = true;
         cc.tween(this.content).delay(this.startDuration).to(0.5, { opacity: 255 }).start();
     };
-    G1009FeatureContentActivationActor.prototype.hideContent = function () {
+    Slot45FeatureContentActivationActor.prototype.hideContent = function () {
         this.reset();
         // cc.tween(this.content).delay(this.endDuration).to(0.5, { opacity: 0 }).call(() => {
         // }).start();
     };
-    G1009FeatureContentActivationActor.prototype.reset = function () {
+    Slot45FeatureContentActivationActor.prototype.reset = function () {
         this.content.opacity = 0;
         this.content.active = false;
     };
     __decorate([
         property(cc.Node)
-    ], G1009FeatureContentActivationActor.prototype, "content", void 0);
+    ], Slot45FeatureContentActivationActor.prototype, "content", void 0);
     __decorate([
         property
-    ], G1009FeatureContentActivationActor.prototype, "startDuration", void 0);
+    ], Slot45FeatureContentActivationActor.prototype, "startDuration", void 0);
     __decorate([
         property
-    ], G1009FeatureContentActivationActor.prototype, "endDuration", void 0);
-    G1009FeatureContentActivationActor = __decorate([
+    ], Slot45FeatureContentActivationActor.prototype, "endDuration", void 0);
+    Slot45FeatureContentActivationActor = __decorate([
         ccclass
-    ], G1009FeatureContentActivationActor);
-    return G1009FeatureContentActivationActor;
+    ], Slot45FeatureContentActivationActor);
+    return Slot45FeatureContentActivationActor;
 }(cc.Component));
-exports.default = G1009FeatureContentActivationActor;
+exports.default = Slot45FeatureContentActivationActor;
 
 cc._RF.pop();

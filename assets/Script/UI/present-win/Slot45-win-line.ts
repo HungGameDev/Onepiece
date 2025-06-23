@@ -1,7 +1,7 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009WinLineActor extends cc.Component {
+export default class Slot45WinLineActor extends cc.Component {
 
     @property
     lineIndex: number = -1;

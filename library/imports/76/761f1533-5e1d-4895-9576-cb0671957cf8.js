@@ -17,27 +17,27 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.G1009InitState = void 0;
+exports.Slot45InitState = void 0;
 var Slot45_state_1 = require("../abstract/Slot45-state");
 var Slot45_bet_state_1 = require("./Slot45-bet-state");
 var Slot45_bonus_state_1 = require("./Slot45-bonus-state");
 var Slot45_spin_state_1 = require("./Slot45-spin-state");
-var G1009InitState = /** @class */ (function (_super) {
-    __extends(G1009InitState, _super);
-    function G1009InitState() {
+var Slot45InitState = /** @class */ (function (_super) {
+    __extends(Slot45InitState, _super);
+    function Slot45InitState() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    G1009InitState.prototype.Init = function () {
-        return new Slot45_bet_state_1.G1009BetState();
+    Slot45InitState.prototype.Init = function () {
+        return new Slot45_bet_state_1.Slot45BetState();
     };
-    G1009InitState.prototype.EnterFreespins = function () {
-        return new Slot45_spin_state_1.G1009SpinState();
+    Slot45InitState.prototype.EnterFreespins = function () {
+        return new Slot45_spin_state_1.Slot45SpinState();
     };
-    G1009InitState.prototype.EnterBonus = function () {
+    Slot45InitState.prototype.EnterBonus = function () {
         return new Slot45_bonus_state_1.default();
     };
-    return G1009InitState;
+    return Slot45InitState;
 }(Slot45_state_1.State));
-exports.G1009InitState = G1009InitState;
+exports.Slot45InitState = Slot45InitState;
 
 cc._RF.pop();

@@ -569,11 +569,6 @@
     "meta": 1750694278843,
     "relativePath": "Script\\Slot45-game-config.ts"
   },
-  "52396f0f-131c-45c7-a940-e4914f340b24": {
-    "asset": 1750693791557,
-    "meta": 1750694278866,
-    "relativePath": "Script\\Slot45-slotty-setting.ts"
-  },
   "00de5613-7c73-45fa-bf25-c71c1400a641": {
     "asset": 1750692715820,
     "meta": 1750694278832,
@@ -648,11 +643,6 @@
     "asset": 1750693208252,
     "meta": 1750694279381,
     "relativePath": "Script\\Test\\aka_1009_TestGameManager.ts"
-  },
-  "2685faa1-6823-4a96-be7b-74f0b13e6a0f": {
-    "asset": 1750693691393,
-    "meta": 1750694279397,
-    "relativePath": "Script\\UI\\Slot45-notification-message.ts"
   },
   "05515d52-fece-4d66-ba26-6dce9c611dc5": {
     "asset": 1750693331267,
@@ -744,21 +734,6 @@
     "meta": 1750694279072,
     "relativePath": "Script\\base\\Util"
   },
-  "7b73b0a2-9d5d-4938-9433-e2be48f4e4c7": {
-    "asset": 1750693666755,
-    "meta": 1750694279016,
-    "relativePath": "Script\\base\\Slot45-connect-server.ts"
-  },
-  "98d734ec-cdc9-4f1b-b914-73dadba81c74": {
-    "asset": 1750692715841,
-    "meta": 1750694279033,
-    "relativePath": "Script\\base\\Slot45-perist-root-node.ts"
-  },
-  "d6647aed-56a0-4a98-8273-beb1d2f9d287": {
-    "asset": 1750693666755,
-    "meta": 1750694279070,
-    "relativePath": "Script\\base\\Slot45-simulator-server.ts"
-  },
   "d078f93f-e7e2-4ff7-a7ba-aea6ddea75e0": {
     "asset": 1750692912292,
     "meta": 1750694278892,
@@ -783,21 +758,6 @@
     "asset": 1750689755928,
     "meta": 1750694279070,
     "relativePath": "Script\\base\\state-machine"
-  },
-  "eb436ca5-62f0-4cfe-b482-aa92be8d6ba0": {
-    "asset": 1750692715844,
-    "meta": 1750694279078,
-    "relativePath": "Script\\config\\sound-config.ts"
-  },
-  "e3006f51-989d-48b4-b9ce-82ef473e8254": {
-    "asset": 1750692715852,
-    "meta": 1750694279334,
-    "relativePath": "Script\\models\\Slot45-balance-model.ts"
-  },
-  "b0f81408-b195-4a15-b698-77f29f03d1eb": {
-    "asset": 1750692715852,
-    "meta": 1750694279348,
-    "relativePath": "Script\\models\\Slot45-bet-model.ts"
   },
   "f8046af1-13ba-4f19-a57c-99029feab470": {
     "asset": 1750503169794,
@@ -839,365 +799,45 @@
     "meta": 1750694279433,
     "relativePath": "Textures\\sound\\sfx"
   },
-  "0deda4c7-f57c-46ee-a99a-003522d259c8": {
-    "asset": 1750693262030,
-    "meta": 1750694279733,
-    "relativePath": "Script\\UI\\big-win\\Slot45-big-win-actor.ts"
-  },
-  "eaac8d75-9408-4b68-8f75-68d02594ce45": {
-    "asset": 1750693431110,
-    "meta": 1750694279741,
-    "relativePath": "Script\\UI\\bonus-game\\Slot45-bonus-trigger-actor.ts"
-  },
-  "52e835d2-775c-46e7-ad44-2600f5808c73": {
-    "asset": 1750693262030,
-    "meta": 1750694279752,
-    "relativePath": "Script\\UI\\change-bet\\Slot45-change-bet-actor.ts"
-  },
   "3c605ce7-b9d3-4b59-b874-032390d76808": {
     "asset": 1750503169795,
     "meta": 1750694279896,
     "relativePath": "Textures\\fonts\\bmf-cuoc-export.png"
-  },
-  "b2b650e9-622b-45aa-9830-9a4b291d69d3": {
-    "asset": 1750692936025,
-    "meta": 1750694279758,
-    "relativePath": "Script\\UI\\feature\\Slot45-feature-content-activation-actor.ts"
-  },
-  "8e79aeef-f40d-4fd6-918b-38435876190f": {
-    "asset": 1750692936023,
-    "meta": 1750694279769,
-    "relativePath": "Script\\UI\\feature\\Slot45-feature-trigger-actor.ts"
   },
   "570d0885-7c8c-493b-9e80-c7d90ca1c549": {
     "asset": 1750503169795,
     "meta": 1750694279884,
     "relativePath": "Textures\\fonts\\bmf-hu-export.png"
   },
-  "dba97fbc-5fb4-4592-bdfb-db10ad768ccd": {
-    "asset": 1750693253624,
-    "meta": 1750694279780,
-    "relativePath": "Script\\UI\\feature\\Slot45-feature-win-actor.ts"
-  },
-  "1462b3e8-d7cd-4470-8f04-bdd5ad85688f": {
-    "asset": 1750693790787,
-    "meta": 1750694279784,
-    "relativePath": "Script\\UI\\freespins\\Slot45-freespins-content-activation-actor.ts"
-  },
-  "55b45ea2-c999-4cab-8a9f-cbe20958a22d": {
-    "asset": 1750693431108,
-    "meta": 1750694279795,
-    "relativePath": "Script\\UI\\freespins\\Slot45-freespins-retrigger-actor.ts"
-  },
-  "f7a66876-95b6-409b-b963-15433507f627": {
-    "asset": 1750693431110,
-    "meta": 1750694279799,
-    "relativePath": "Script\\UI\\freespins\\Slot45-freespins-trigger-actor.ts"
-  },
   "6522350d-9f3d-4e13-8a49-771170be436f": {
     "asset": 1750503169796,
     "meta": 1750694279899,
     "relativePath": "Textures\\fonts\\font_avenger1.png"
-  },
-  "7dae66d6-d256-4ff0-adb0-e858285d26a1": {
-    "asset": 1750693691395,
-    "meta": 1750694279805,
-    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-history-detail.ts"
   },
   "7bf2ee79-ddb8-4b42-8d48-bfa67946f961": {
     "asset": 1750503169796,
     "meta": 1750694280139,
     "relativePath": "Textures\\fonts\\fnt_popup_noti_content.png"
   },
-  "b98c8f3d-dee2-48e8-a91d-102fffeabbb3": {
-    "asset": 1750693143739,
-    "meta": 1750694279815,
-    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-history-item.ts"
-  },
-  "9e92a62f-20e2-4d43-8b22-a637732d705d": {
-    "asset": 1750693790026,
-    "meta": 1750694279822,
-    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-history.ts"
-  },
-  "bc0a9f64-238b-4269-9a6b-7b6ab61ab88f": {
-    "asset": 1750693143738,
-    "meta": 1750694279829,
-    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-ranking-item.ts"
-  },
-  "35ab413c-4f76-422d-b06b-80f18f9af1c9": {
-    "asset": 1750693789197,
-    "meta": 1750694279837,
-    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-ranking.ts"
-  },
-  "f13e15d0-7491-45b5-8733-786af4376496": {
-    "asset": 1750693143739,
-    "meta": 1750694279846,
-    "relativePath": "Script\\UI\\jackpot\\Slot45-jackpot-actor.ts"
-  },
-  "ba87f4be-92a7-4c2b-95a4-033240ca5d1b": {
-    "asset": 1750693262030,
-    "meta": 1750694279852,
-    "relativePath": "Script\\UI\\jackpot\\Slot45-jackpot-banner.ts"
-  },
-  "146ecc8e-7ff0-4e88-9a01-41c1d19aa1ae": {
-    "asset": 1750693787348,
-    "meta": 1750694279860,
-    "relativePath": "Script\\UI\\popup\\Slot45-bet-button-v2.ts"
-  },
-  "d208a26a-5722-4493-ae7b-e0190dd48b47": {
-    "asset": 1750693580243,
-    "meta": 1750694279871,
-    "relativePath": "Script\\UI\\popup\\Slot45-bet-button.ts"
-  },
-  "af56d2fe-ea50-4dcf-946c-cf7758eaf64c": {
-    "asset": 1750693788258,
-    "meta": 1750694279882,
-    "relativePath": "Script\\UI\\popup\\Slot45-bet-toggle-button.ts"
-  },
-  "0a196006-50ca-4b02-b066-599fe4f108d4": {
-    "asset": 1750693580243,
-    "meta": 1750694279896,
-    "relativePath": "Script\\UI\\popup\\Slot45-button-controller.ts"
-  },
-  "8d3a426e-7eb6-40d5-b6c8-73a53b0fa631": {
-    "asset": 1750692715876,
-    "meta": 1750694279898,
-    "relativePath": "Script\\UI\\popup\\Slot45-button-home.ts"
-  },
-  "e77c2a75-df7a-49d0-aa34-69dac23f545e": {
-    "asset": 1750692936027,
-    "meta": 1750694279916,
-    "relativePath": "Script\\UI\\popup\\Slot45-button-spin.ts"
-  },
-  "723d774a-0706-4f0e-84d6-e731739c4f5a": {
-    "asset": 1750692936026,
-    "meta": 1750694279922,
-    "relativePath": "Script\\UI\\popup\\Slot45-button.ts"
-  },
   "db521e74-494a-4831-8c58-d5fd368c09b8": {
     "asset": 1750503169796,
     "meta": 1750694279989,
     "relativePath": "Textures\\fonts\\font_avenger2.png"
-  },
-  "7d8ac364-69f3-4782-8cc9-97f68968962d": {
-    "asset": 1750692936027,
-    "meta": 1750694279928,
-    "relativePath": "Script\\UI\\popup\\Slot45-info-page.ts"
-  },
-  "35c57f75-57e1-49b2-892f-d8dfa743b293": {
-    "asset": 1750692936026,
-    "meta": 1750694279935,
-    "relativePath": "Script\\UI\\popup\\Slot45-info-toggle-button.ts"
-  },
-  "33a7ca8a-e35f-421f-96d8-c85f0d0e9d94": {
-    "asset": 1750692936027,
-    "meta": 1750694279939,
-    "relativePath": "Script\\UI\\popup\\Slot45-info-toggle-panel.ts"
-  },
-  "a97b20e8-4fc2-40a8-a676-778e1af6b853": {
-    "asset": 1750693262030,
-    "meta": 1750694279946,
-    "relativePath": "Script\\UI\\popup\\Slot45-jackpot-info-content.ts"
-  },
-  "2ce5f587-2b27-4642-bed0-7a3a102b7a9e": {
-    "asset": 1750693208252,
-    "meta": 1750694279950,
-    "relativePath": "Script\\UI\\popup\\Slot45-popup-error.ts"
-  },
-  "91481b9c-ea75-4310-85d2-658b6f862c40": {
-    "asset": 1750693262030,
-    "meta": 1750694279959,
-    "relativePath": "Script\\UI\\popup\\Slot45-popup-select-bet.ts"
-  },
-  "4dcd5b96-3e9f-4355-9fa7-395e79657670": {
-    "asset": 1750692936029,
-    "meta": 1750694279963,
-    "relativePath": "Script\\UI\\popup\\Slot45-round-popup.ts"
-  },
-  "5bfb9c33-9bdc-40a7-b6f1-8b6a91e4056c": {
-    "asset": 1750692936029,
-    "meta": 1750694279966,
-    "relativePath": "Script\\UI\\popup\\Slot45-select-bet-panel.ts"
-  },
-  "545ba834-bb0b-48a8-aa2e-e5ab4c52e38f": {
-    "asset": 1750693786442,
-    "meta": 1750694279971,
-    "relativePath": "Script\\UI\\popup\\Slot45-system-panel.ts"
-  },
-  "6bee6c23-2cf1-4119-9d9f-e05e698454f7": {
-    "asset": 1750692936029,
-    "meta": 1750694279985,
-    "relativePath": "Script\\UI\\popup\\Slot45-toggle-simulator.ts"
-  },
-  "9503249f-081c-401c-9f2c-11d3471fdf9f": {
-    "asset": 1750693783530,
-    "meta": 1750694279996,
-    "relativePath": "Script\\UI\\present-win\\Slot45-present-win-line-panel.ts"
-  },
-  "8edf3f52-8576-4898-babc-8cd8f9b498f3": {
-    "asset": 1750693784546,
-    "meta": 1750694280034,
-    "relativePath": "Script\\UI\\present-win\\Slot45-present-win-panel.ts"
-  },
-  "bb23bd13-73a9-4ca6-9092-c1a036d00e9a": {
-    "asset": 1750693691387,
-    "meta": 1750694280047,
-    "relativePath": "Script\\UI\\present-win\\Slot45-win-cell-item.ts"
-  },
-  "0366a814-7fa3-45fa-bf8b-256c184b2cec": {
-    "asset": 1750692715884,
-    "meta": 1750694280053,
-    "relativePath": "Script\\UI\\present-win\\Slot45-win-line.ts"
-  },
-  "6903a9af-2070-4925-b6e7-c98fdaf9e747": {
-    "asset": 1750692715884,
-    "meta": 1750694280057,
-    "relativePath": "Script\\UI\\provider\\Slot45-sprite-frame-provider.ts"
-  },
-  "948e4084-6a3b-4656-81d1-d117423faf81": {
-    "asset": 1750693691395,
-    "meta": 1750694280067,
-    "relativePath": "Script\\UI\\spin-panel\\Slot45-cell-item.ts"
-  },
-  "5de3f4a9-695f-48ce-8fc7-2b82ba8b3d63": {
-    "asset": 1750692715888,
-    "meta": 1750694280072,
-    "relativePath": "Script\\UI\\spin-panel\\Slot45-spin-item-data.ts"
-  },
-  "916de92e-35e3-44b9-9dd3-235019bc76c2": {
-    "asset": 1750693713167,
-    "meta": 1750694280102,
-    "relativePath": "Script\\UI\\spin-panel\\Slot45-spin-item.ts"
-  },
-  "52feeac2-ebc2-40ef-8381-27b349750314": {
-    "asset": 1750693719057,
-    "meta": 1750694280134,
-    "relativePath": "Script\\UI\\spin-panel\\Slot45-spin-panel.ts"
-  },
-  "abfdd3f9-ac36-43a2-bb7f-ec2ce587cd9f": {
-    "asset": 1750693143739,
-    "meta": 1750694279446,
-    "relativePath": "Script\\avenger-game\\avenger-total-win\\combo-win-point.ts"
-  },
-  "e825db6d-0f8a-4edf-9ac1-1fd3e5f49986": {
-    "asset": 1750693143739,
-    "meta": 1750694279475,
-    "relativePath": "Script\\avenger-game\\avenger-total-win\\total-win-panel.ts"
-  },
-  "77ed3155-fe18-4317-93e2-1d9f1dc73369": {
-    "asset": 1750693305399,
-    "meta": 1750694279484,
-    "relativePath": "Script\\avenger-game\\border-win-cell-panel\\border-win-cell-panel.ts"
-  },
-  "ad6af187-bc87-472b-ac67-f205432a0325": {
-    "asset": 1750692881023,
-    "meta": 1750694279488,
-    "relativePath": "Script\\avenger-game\\exploding-panel\\avenger-exploding-cell.ts"
-  },
-  "1876976e-41ec-4c46-bc2c-c7bf0fdf4d42": {
-    "asset": 1750692936029,
-    "meta": 1750694279496,
-    "relativePath": "Script\\avenger-game\\exploding-panel\\avenger-exploding-panel.ts"
-  },
-  "91baa982-bb17-4047-b611-0e92f7c6eeb2": {
-    "asset": 1750692936029,
-    "meta": 1750694279504,
-    "relativePath": "Script\\avenger-game\\exploding-panel\\avenger-smoke-panel.ts"
-  },
-  "c8e1ec99-245a-406e-814e-6ca74e7cb19a": {
-    "asset": 1750693666754,
-    "meta": 1750694279508,
-    "relativePath": "Script\\avenger-game\\model\\combo-data.ts"
-  },
-  "4f01f9e2-7c80-4c92-8f37-58424cee1a17": {
-    "asset": 1750693719057,
-    "meta": 1750694279535,
-    "relativePath": "Script\\avenger-game\\spin-panel\\avenger-spin-item.ts"
   },
   "eb55f4cb-2fe5-4bcb-a4be-bf12d11e7640": {
     "asset": 1750691761393,
     "meta": 1750694279538,
     "relativePath": "Script\\avenger-game\\spin-panel\\avenger-spin-panel-config.ts"
   },
-  "c776d941-8ef8-4326-b5ea-62aed6c01eb9": {
-    "asset": 1750693781377,
-    "meta": 1750694279542,
-    "relativePath": "Script\\avenger-game\\spin-panel\\avenger-spin-panel.ts"
-  },
-  "fc7cabee-9adb-4563-aa17-0814b1ba7106": {
-    "asset": 1750692715840,
-    "meta": 1750694279713,
-    "relativePath": "Script\\base\\Util\\Slot45-number-converter.ts"
-  },
   "b746e1dc-a38d-48ab-80f3-b5ac1e56b498": {
     "asset": 1750692715840,
     "meta": 1750694279718,
     "relativePath": "Script\\base\\Util\\Slot45_date-util.ts"
   },
-  "4883defd-d680-4b64-a783-f074251d5029": {
-    "asset": 1750692715820,
-    "meta": 1750694279552,
-    "relativePath": "Script\\base\\animation\\Slot45-animation-provider.ts"
-  },
-  "368ee758-997d-4b68-bfb8-dcb71b5b1b97": {
-    "asset": 1750692715820,
-    "meta": 1750694279555,
-    "relativePath": "Script\\base\\animation\\Slot45-animation.ts"
-  },
-  "cf5ba27c-42a5-4d97-a8d6-9c09ba5f42c6": {
-    "asset": 1750693807679,
-    "meta": 1750694279563,
-    "relativePath": "Script\\base\\animation\\Slot45-spine-animation-handler.ts"
-  },
   "c605f22e-9ef9-4630-9ce2-fc4a0d5e5685": {
     "asset": 1750503169798,
     "meta": 1750694279978,
     "relativePath": "Textures\\fonts\\font_win.png"
-  },
-  "6d52bf6e-5d94-4a58-9ac8-1506e4d37028": {
-    "asset": 1750693809310,
-    "meta": 1750694279572,
-    "relativePath": "Script\\base\\animation\\Slot45-spine-animation.ts"
-  },
-  "67c0dbb2-86ca-4219-ae9f-090e8894705c": {
-    "asset": 1750693666755,
-    "meta": 1750694279608,
-    "relativePath": "Script\\base\\controller\\Slot45-game-controller.ts"
-  },
-  "15d135d3-4b87-4e87-937e-71dac68edbb9": {
-    "asset": 1750692715827,
-    "meta": 1750694279619,
-    "relativePath": "Script\\base\\events\\Slot45-event-manager.ts"
-  },
-  "185312a0-a344-4f57-aea5-68b60f90a71e": {
-    "asset": 1750693005760,
-    "meta": 1750694279663,
-    "relativePath": "Script\\base\\sound\\Slot45-sfs-player.ts"
-  },
-  "337d14d9-4d6a-4af1-99a0-83d7ea5738b1": {
-    "asset": 1750693005760,
-    "meta": 1750694279638,
-    "relativePath": "Script\\base\\sound\\Slot45-music-player.ts"
-  },
-  "a0a96c68-fd86-46a6-be7b-a478d3eb5631": {
-    "asset": 1750692936029,
-    "meta": 1750694279668,
-    "relativePath": "Script\\base\\sound\\Slot45-sound-button-click.ts"
-  },
-  "2ab1aae3-9416-4781-84f3-bccf87f7722a": {
-    "asset": 1750693805901,
-    "meta": 1750694279684,
-    "relativePath": "Script\\base\\sound\\Slot45-sound-controller.ts"
-  },
-  "0a82f7b0-116b-40d1-bb96-e3236f57685f": {
-    "asset": 1750693800820,
-    "meta": 1750694279696,
-    "relativePath": "Script\\base\\sound\\Slot45-sound-handler.ts"
-  },
-  "76a4859f-447e-4458-bab1-b80d64f0a5e3": {
-    "asset": 1750692715831,
-    "meta": 1750694279701,
-    "relativePath": "Script\\base\\sound\\Slot45-sound-player.ts"
   },
   "71a7b821-e154-4734-96d4-e4ae81fe4a0b": {
     "asset": 1750693034927,
@@ -1223,46 +863,6 @@
     "asset": 1750689813341,
     "meta": 1750694280660,
     "relativePath": "Textures\\sound\\sfx\\sfx_explosive.mp3"
-  },
-  "97a43825-73ea-42fc-bd5d-f36d244a9d16": {
-    "asset": 1750693081204,
-    "meta": 1750694280322,
-    "relativePath": "Script\\base\\state-machine\\state\\Slot45-bet-state.ts"
-  },
-  "c6f5f749-d873-4cf0-9e2d-60089165cf57": {
-    "asset": 1750693107055,
-    "meta": 1750694280334,
-    "relativePath": "Script\\base\\state-machine\\state\\Slot45-expand-wild-state.ts"
-  },
-  "cb65b85f-6318-4337-a8e4-e4d3532f0d5d": {
-    "asset": 1750693954897,
-    "meta": 1750694280338,
-    "relativePath": "Script\\base\\state-machine\\state\\Slot45-feature-trigger-state.ts"
-  },
-  "b40c56e0-2068-4726-bc2b-293611448793": {
-    "asset": 1750693107055,
-    "meta": 1750694280348,
-    "relativePath": "Script\\base\\state-machine\\state\\Slot45-feature-win-state.ts"
-  },
-  "761f1533-5e1d-4895-9576-cb0671957cf8": {
-    "asset": 1750693954897,
-    "meta": 1750694280351,
-    "relativePath": "Script\\base\\state-machine\\state\\Slot45-init-state.ts"
-  },
-  "4a420cbc-ba44-4d5b-92a2-82cc903d5bcc": {
-    "asset": 1750693107055,
-    "meta": 1750694280355,
-    "relativePath": "Script\\base\\state-machine\\state\\Slot45-jackpot-state.ts"
-  },
-  "010b72d3-f7d0-4447-bc9d-d468c32f5b51": {
-    "asset": 1750693795411,
-    "meta": 1750694280359,
-    "relativePath": "Script\\base\\state-machine\\state\\Slot45-spin-state.ts"
-  },
-  "e694de6a-819c-4d36-b353-e2e642e82bc9": {
-    "asset": 1750693107055,
-    "meta": 1750694280372,
-    "relativePath": "Script\\base\\state-machine\\state\\Slot45-win-state.ts"
   },
   "d75104b0-4810-444f-8f46-d89f351902dc": {
     "asset": 1750692715832,
@@ -1333,21 +933,6 @@
     "asset": 1750503556293,
     "meta": 1750694280799,
     "relativePath": "Textures\\one-piece\\ui-lobby.plist"
-  },
-  "4d04938e-77fb-411d-a071-c58abbba5f84": {
-    "asset": 1750693143739,
-    "meta": 1750694279458,
-    "relativePath": "Script\\avenger-game\\avenger-total-win\\effect-total-win-panel.ts"
-  },
-  "2a448f12-b9b4-4a05-b3fe-c9e209fc7512": {
-    "asset": 1750692936025,
-    "meta": 1750694279788,
-    "relativePath": "Script\\UI\\freespins\\Slot45-freespins-feature.ts"
-  },
-  "1cda64fd-5021-46d9-9970-9e549a65b986": {
-    "asset": 1750693580243,
-    "meta": 1750694279909,
-    "relativePath": "Script\\UI\\popup\\Slot45-button-spin-animation.ts"
   },
   "8a01031d-8be5-44a7-a951-92b2b6df96d7": {
     "asset": 1750503556197,
@@ -1483,11 +1068,6 @@
     "asset": 1750503556200,
     "meta": 1750694280300,
     "relativePath": "Textures\\one-piece\\spin-panel\\reels-panel.png"
-  },
-  "c30385c7-fb34-4e75-aaed-a9487d172b9b": {
-    "asset": 1750693107055,
-    "meta": 1750694280327,
-    "relativePath": "Script\\base\\state-machine\\state\\Slot45-bonus-state.ts"
   },
   "f9b21a32-58b7-4229-880a-e6a86d1fe35b": {
     "asset": 1750503556195,
@@ -1813,5 +1393,425 @@
     "asset": 1750694838599,
     "meta": 1750695065081,
     "relativePath": "Textures\\animations\\background_shadow.png"
+  },
+  "abfdd3f9-ac36-43a2-bb7f-ec2ce587cd9f": {
+    "asset": 1750695563934,
+    "meta": 1750695571539,
+    "relativePath": "Script\\avenger-game\\avenger-total-win\\combo-win-point.ts"
+  },
+  "4d04938e-77fb-411d-a071-c58abbba5f84": {
+    "asset": 1750695563934,
+    "meta": 1750695571555,
+    "relativePath": "Script\\avenger-game\\avenger-total-win\\effect-total-win-panel.ts"
+  },
+  "e825db6d-0f8a-4edf-9ac1-1fd3e5f49986": {
+    "asset": 1750695563934,
+    "meta": 1750695571578,
+    "relativePath": "Script\\avenger-game\\avenger-total-win\\total-win-panel.ts"
+  },
+  "77ed3155-fe18-4317-93e2-1d9f1dc73369": {
+    "asset": 1750695563934,
+    "meta": 1750695571595,
+    "relativePath": "Script\\avenger-game\\border-win-cell-panel\\border-win-cell-panel.ts"
+  },
+  "ad6af187-bc87-472b-ac67-f205432a0325": {
+    "asset": 1750695563934,
+    "meta": 1750695571603,
+    "relativePath": "Script\\avenger-game\\exploding-panel\\avenger-exploding-cell.ts"
+  },
+  "1876976e-41ec-4c46-bc2c-c7bf0fdf4d42": {
+    "asset": 1750695563934,
+    "meta": 1750695571615,
+    "relativePath": "Script\\avenger-game\\exploding-panel\\avenger-exploding-panel.ts"
+  },
+  "91baa982-bb17-4047-b611-0e92f7c6eeb2": {
+    "asset": 1750695563934,
+    "meta": 1750695571622,
+    "relativePath": "Script\\avenger-game\\exploding-panel\\avenger-smoke-panel.ts"
+  },
+  "c8e1ec99-245a-406e-814e-6ca74e7cb19a": {
+    "asset": 1750695563934,
+    "meta": 1750695571631,
+    "relativePath": "Script\\avenger-game\\model\\combo-data.ts"
+  },
+  "4f01f9e2-7c80-4c92-8f37-58424cee1a17": {
+    "asset": 1750695563934,
+    "meta": 1750695571666,
+    "relativePath": "Script\\avenger-game\\spin-panel\\avenger-spin-item.ts"
+  },
+  "c776d941-8ef8-4326-b5ea-62aed6c01eb9": {
+    "asset": 1750695563934,
+    "meta": 1750695571671,
+    "relativePath": "Script\\avenger-game\\spin-panel\\avenger-spin-panel.ts"
+  },
+  "4883defd-d680-4b64-a783-f074251d5029": {
+    "asset": 1750695563934,
+    "meta": 1750695571680,
+    "relativePath": "Script\\base\\animation\\Slot45-animation-provider.ts"
+  },
+  "368ee758-997d-4b68-bfb8-dcb71b5b1b97": {
+    "asset": 1750695563934,
+    "meta": 1750695571687,
+    "relativePath": "Script\\base\\animation\\Slot45-animation.ts"
+  },
+  "cf5ba27c-42a5-4d97-a8d6-9c09ba5f42c6": {
+    "asset": 1750695563934,
+    "meta": 1750695571702,
+    "relativePath": "Script\\base\\animation\\Slot45-spine-animation-handler.ts"
+  },
+  "6d52bf6e-5d94-4a58-9ac8-1506e4d37028": {
+    "asset": 1750695563934,
+    "meta": 1750695571713,
+    "relativePath": "Script\\base\\animation\\Slot45-spine-animation.ts"
+  },
+  "67c0dbb2-86ca-4219-ae9f-090e8894705c": {
+    "asset": 1750695563934,
+    "meta": 1750695571747,
+    "relativePath": "Script\\base\\controller\\Slot45-game-controller.ts"
+  },
+  "15d135d3-4b87-4e87-937e-71dac68edbb9": {
+    "asset": 1750695563934,
+    "meta": 1750695571754,
+    "relativePath": "Script\\base\\events\\Slot45-event-manager.ts"
+  },
+  "7b73b0a2-9d5d-4938-9433-e2be48f4e4c7": {
+    "asset": 1750695563934,
+    "meta": 1750695571822,
+    "relativePath": "Script\\base\\Slot45-connect-server.ts"
+  },
+  "98d734ec-cdc9-4f1b-b914-73dadba81c74": {
+    "asset": 1750695563934,
+    "meta": 1750695571826,
+    "relativePath": "Script\\base\\Slot45-perist-root-node.ts"
+  },
+  "d6647aed-56a0-4a98-8273-beb1d2f9d287": {
+    "asset": 1750695563934,
+    "meta": 1750695571859,
+    "relativePath": "Script\\base\\Slot45-simulator-server.ts"
+  },
+  "337d14d9-4d6a-4af1-99a0-83d7ea5738b1": {
+    "asset": 1750695563934,
+    "meta": 1750695571872,
+    "relativePath": "Script\\base\\sound\\Slot45-music-player.ts"
+  },
+  "185312a0-a344-4f57-aea5-68b60f90a71e": {
+    "asset": 1750695563934,
+    "meta": 1750695571897,
+    "relativePath": "Script\\base\\sound\\Slot45-sfs-player.ts"
+  },
+  "a0a96c68-fd86-46a6-be7b-a478d3eb5631": {
+    "asset": 1750695563934,
+    "meta": 1750695571902,
+    "relativePath": "Script\\base\\sound\\Slot45-sound-button-click.ts"
+  },
+  "2ab1aae3-9416-4781-84f3-bccf87f7722a": {
+    "asset": 1750695563934,
+    "meta": 1750695571923,
+    "relativePath": "Script\\base\\sound\\Slot45-sound-controller.ts"
+  },
+  "0a82f7b0-116b-40d1-bb96-e3236f57685f": {
+    "asset": 1750695563934,
+    "meta": 1750695571945,
+    "relativePath": "Script\\base\\sound\\Slot45-sound-handler.ts"
+  },
+  "76a4859f-447e-4458-bab1-b80d64f0a5e3": {
+    "asset": 1750695563934,
+    "meta": 1750695571956,
+    "relativePath": "Script\\base\\sound\\Slot45-sound-player.ts"
+  },
+  "97a43825-73ea-42fc-bd5d-f36d244a9d16": {
+    "asset": 1750695563934,
+    "meta": 1750695571961,
+    "relativePath": "Script\\base\\state-machine\\state\\Slot45-bet-state.ts"
+  },
+  "c30385c7-fb34-4e75-aaed-a9487d172b9b": {
+    "asset": 1750695563934,
+    "meta": 1750695571974,
+    "relativePath": "Script\\base\\state-machine\\state\\Slot45-bonus-state.ts"
+  },
+  "c6f5f749-d873-4cf0-9e2d-60089165cf57": {
+    "asset": 1750695563934,
+    "meta": 1750695571979,
+    "relativePath": "Script\\base\\state-machine\\state\\Slot45-expand-wild-state.ts"
+  },
+  "cb65b85f-6318-4337-a8e4-e4d3532f0d5d": {
+    "asset": 1750695563934,
+    "meta": 1750695571983,
+    "relativePath": "Script\\base\\state-machine\\state\\Slot45-feature-trigger-state.ts"
+  },
+  "b40c56e0-2068-4726-bc2b-293611448793": {
+    "asset": 1750695563934,
+    "meta": 1750695571988,
+    "relativePath": "Script\\base\\state-machine\\state\\Slot45-feature-win-state.ts"
+  },
+  "761f1533-5e1d-4895-9576-cb0671957cf8": {
+    "asset": 1750695563934,
+    "meta": 1750695571992,
+    "relativePath": "Script\\base\\state-machine\\state\\Slot45-init-state.ts"
+  },
+  "4a420cbc-ba44-4d5b-92a2-82cc903d5bcc": {
+    "asset": 1750695563934,
+    "meta": 1750695571996,
+    "relativePath": "Script\\base\\state-machine\\state\\Slot45-jackpot-state.ts"
+  },
+  "010b72d3-f7d0-4447-bc9d-d468c32f5b51": {
+    "asset": 1750695563934,
+    "meta": 1750695572001,
+    "relativePath": "Script\\base\\state-machine\\state\\Slot45-spin-state.ts"
+  },
+  "e694de6a-819c-4d36-b353-e2e642e82bc9": {
+    "asset": 1750695563934,
+    "meta": 1750695572008,
+    "relativePath": "Script\\base\\state-machine\\state\\Slot45-win-state.ts"
+  },
+  "fc7cabee-9adb-4563-aa17-0814b1ba7106": {
+    "asset": 1750695563934,
+    "meta": 1750695572017,
+    "relativePath": "Script\\base\\Util\\Slot45-number-converter.ts"
+  },
+  "eb436ca5-62f0-4cfe-b482-aa92be8d6ba0": {
+    "asset": 1750695563934,
+    "meta": 1750695572023,
+    "relativePath": "Script\\config\\sound-config.ts"
+  },
+  "e3006f51-989d-48b4-b9ce-82ef473e8254": {
+    "asset": 1750695563934,
+    "meta": 1750695572026,
+    "relativePath": "Script\\models\\Slot45-balance-model.ts"
+  },
+  "b0f81408-b195-4a15-b698-77f29f03d1eb": {
+    "asset": 1750695563934,
+    "meta": 1750695572037,
+    "relativePath": "Script\\models\\Slot45-bet-model.ts"
+  },
+  "52396f0f-131c-45c7-a940-e4914f340b24": {
+    "asset": 1750695563916,
+    "meta": 1750695572050,
+    "relativePath": "Script\\Slot45-slotty-setting.ts"
+  },
+  "0deda4c7-f57c-46ee-a99a-003522d259c8": {
+    "asset": 1750695563934,
+    "meta": 1750695572066,
+    "relativePath": "Script\\UI\\big-win\\Slot45-big-win-actor.ts"
+  },
+  "eaac8d75-9408-4b68-8f75-68d02594ce45": {
+    "asset": 1750695563934,
+    "meta": 1750695572076,
+    "relativePath": "Script\\UI\\bonus-game\\Slot45-bonus-trigger-actor.ts"
+  },
+  "52e835d2-775c-46e7-ad44-2600f5808c73": {
+    "asset": 1750695563934,
+    "meta": 1750695572089,
+    "relativePath": "Script\\UI\\change-bet\\Slot45-change-bet-actor.ts"
+  },
+  "b2b650e9-622b-45aa-9830-9a4b291d69d3": {
+    "asset": 1750695563934,
+    "meta": 1750695572095,
+    "relativePath": "Script\\UI\\feature\\Slot45-feature-content-activation-actor.ts"
+  },
+  "8e79aeef-f40d-4fd6-918b-38435876190f": {
+    "asset": 1750695563934,
+    "meta": 1750695572101,
+    "relativePath": "Script\\UI\\feature\\Slot45-feature-trigger-actor.ts"
+  },
+  "dba97fbc-5fb4-4592-bdfb-db10ad768ccd": {
+    "asset": 1750695563934,
+    "meta": 1750695572109,
+    "relativePath": "Script\\UI\\feature\\Slot45-feature-win-actor.ts"
+  },
+  "1462b3e8-d7cd-4470-8f04-bdd5ad85688f": {
+    "asset": 1750695563934,
+    "meta": 1750695572113,
+    "relativePath": "Script\\UI\\freespins\\Slot45-freespins-content-activation-actor.ts"
+  },
+  "2a448f12-b9b4-4a05-b3fe-c9e209fc7512": {
+    "asset": 1750695563934,
+    "meta": 1750695572118,
+    "relativePath": "Script\\UI\\freespins\\Slot45-freespins-feature.ts"
+  },
+  "55b45ea2-c999-4cab-8a9f-cbe20958a22d": {
+    "asset": 1750695563934,
+    "meta": 1750695572124,
+    "relativePath": "Script\\UI\\freespins\\Slot45-freespins-retrigger-actor.ts"
+  },
+  "f7a66876-95b6-409b-b963-15433507f627": {
+    "asset": 1750695563934,
+    "meta": 1750695572132,
+    "relativePath": "Script\\UI\\freespins\\Slot45-freespins-trigger-actor.ts"
+  },
+  "7dae66d6-d256-4ff0-adb0-e858285d26a1": {
+    "asset": 1750695563934,
+    "meta": 1750695572138,
+    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-history-detail.ts"
+  },
+  "b98c8f3d-dee2-48e8-a91d-102fffeabbb3": {
+    "asset": 1750695563934,
+    "meta": 1750695572143,
+    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-history-item.ts"
+  },
+  "9e92a62f-20e2-4d43-8b22-a637732d705d": {
+    "asset": 1750695563934,
+    "meta": 1750695572150,
+    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-history.ts"
+  },
+  "bc0a9f64-238b-4269-9a6b-7b6ab61ab88f": {
+    "asset": 1750695563934,
+    "meta": 1750695572155,
+    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-ranking-item.ts"
+  },
+  "35ab413c-4f76-422d-b06b-80f18f9af1c9": {
+    "asset": 1750695563934,
+    "meta": 1750695572165,
+    "relativePath": "Script\\UI\\history-popup\\Slot45-popup-ranking.ts"
+  },
+  "f13e15d0-7491-45b5-8733-786af4376496": {
+    "asset": 1750695563934,
+    "meta": 1750695572179,
+    "relativePath": "Script\\UI\\jackpot\\Slot45-jackpot-actor.ts"
+  },
+  "ba87f4be-92a7-4c2b-95a4-033240ca5d1b": {
+    "asset": 1750695563934,
+    "meta": 1750695572186,
+    "relativePath": "Script\\UI\\jackpot\\Slot45-jackpot-banner.ts"
+  },
+  "146ecc8e-7ff0-4e88-9a01-41c1d19aa1ae": {
+    "asset": 1750695563934,
+    "meta": 1750695572195,
+    "relativePath": "Script\\UI\\popup\\Slot45-bet-button-v2.ts"
+  },
+  "d208a26a-5722-4493-ae7b-e0190dd48b47": {
+    "asset": 1750695563934,
+    "meta": 1750695572201,
+    "relativePath": "Script\\UI\\popup\\Slot45-bet-button.ts"
+  },
+  "af56d2fe-ea50-4dcf-946c-cf7758eaf64c": {
+    "asset": 1750695563934,
+    "meta": 1750695572206,
+    "relativePath": "Script\\UI\\popup\\Slot45-bet-toggle-button.ts"
+  },
+  "0a196006-50ca-4b02-b066-599fe4f108d4": {
+    "asset": 1750695563934,
+    "meta": 1750695572216,
+    "relativePath": "Script\\UI\\popup\\Slot45-button-controller.ts"
+  },
+  "8d3a426e-7eb6-40d5-b6c8-73a53b0fa631": {
+    "asset": 1750695563934,
+    "meta": 1750695572218,
+    "relativePath": "Script\\UI\\popup\\Slot45-button-home.ts"
+  },
+  "1cda64fd-5021-46d9-9970-9e549a65b986": {
+    "asset": 1750695563934,
+    "meta": 1750695572225,
+    "relativePath": "Script\\UI\\popup\\Slot45-button-spin-animation.ts"
+  },
+  "e77c2a75-df7a-49d0-aa34-69dac23f545e": {
+    "asset": 1750695563934,
+    "meta": 1750695572229,
+    "relativePath": "Script\\UI\\popup\\Slot45-button-spin.ts"
+  },
+  "723d774a-0706-4f0e-84d6-e731739c4f5a": {
+    "asset": 1750695563934,
+    "meta": 1750695572239,
+    "relativePath": "Script\\UI\\popup\\Slot45-button.ts"
+  },
+  "7d8ac364-69f3-4782-8cc9-97f68968962d": {
+    "asset": 1750695563934,
+    "meta": 1750695572247,
+    "relativePath": "Script\\UI\\popup\\Slot45-info-page.ts"
+  },
+  "35c57f75-57e1-49b2-892f-d8dfa743b293": {
+    "asset": 1750695563934,
+    "meta": 1750695572251,
+    "relativePath": "Script\\UI\\popup\\Slot45-info-toggle-button.ts"
+  },
+  "33a7ca8a-e35f-421f-96d8-c85f0d0e9d94": {
+    "asset": 1750695563934,
+    "meta": 1750695572255,
+    "relativePath": "Script\\UI\\popup\\Slot45-info-toggle-panel.ts"
+  },
+  "a97b20e8-4fc2-40a8-a676-778e1af6b853": {
+    "asset": 1750695563934,
+    "meta": 1750695572262,
+    "relativePath": "Script\\UI\\popup\\Slot45-jackpot-info-content.ts"
+  },
+  "2ce5f587-2b27-4642-bed0-7a3a102b7a9e": {
+    "asset": 1750695563934,
+    "meta": 1750695572266,
+    "relativePath": "Script\\UI\\popup\\Slot45-popup-error.ts"
+  },
+  "91481b9c-ea75-4310-85d2-658b6f862c40": {
+    "asset": 1750695563934,
+    "meta": 1750695572279,
+    "relativePath": "Script\\UI\\popup\\Slot45-popup-select-bet.ts"
+  },
+  "4dcd5b96-3e9f-4355-9fa7-395e79657670": {
+    "asset": 1750695563934,
+    "meta": 1750695572282,
+    "relativePath": "Script\\UI\\popup\\Slot45-round-popup.ts"
+  },
+  "5bfb9c33-9bdc-40a7-b6f1-8b6a91e4056c": {
+    "asset": 1750695563934,
+    "meta": 1750695572286,
+    "relativePath": "Script\\UI\\popup\\Slot45-select-bet-panel.ts"
+  },
+  "545ba834-bb0b-48a8-aa2e-e5ab4c52e38f": {
+    "asset": 1750695563934,
+    "meta": 1750695572293,
+    "relativePath": "Script\\UI\\popup\\Slot45-system-panel.ts"
+  },
+  "6bee6c23-2cf1-4119-9d9f-e05e698454f7": {
+    "asset": 1750695563934,
+    "meta": 1750695572297,
+    "relativePath": "Script\\UI\\popup\\Slot45-toggle-simulator.ts"
+  },
+  "9503249f-081c-401c-9f2c-11d3471fdf9f": {
+    "asset": 1750695563934,
+    "meta": 1750695572302,
+    "relativePath": "Script\\UI\\present-win\\Slot45-present-win-line-panel.ts"
+  },
+  "8edf3f52-8576-4898-babc-8cd8f9b498f3": {
+    "asset": 1750695563934,
+    "meta": 1750695572338,
+    "relativePath": "Script\\UI\\present-win\\Slot45-present-win-panel.ts"
+  },
+  "bb23bd13-73a9-4ca6-9092-c1a036d00e9a": {
+    "asset": 1750695563934,
+    "meta": 1750695572351,
+    "relativePath": "Script\\UI\\present-win\\Slot45-win-cell-item.ts"
+  },
+  "0366a814-7fa3-45fa-bf8b-256c184b2cec": {
+    "asset": 1750695563934,
+    "meta": 1750695572356,
+    "relativePath": "Script\\UI\\present-win\\Slot45-win-line.ts"
+  },
+  "6903a9af-2070-4925-b6e7-c98fdaf9e747": {
+    "asset": 1750695563934,
+    "meta": 1750695572362,
+    "relativePath": "Script\\UI\\provider\\Slot45-sprite-frame-provider.ts"
+  },
+  "2685faa1-6823-4a96-be7b-74f0b13e6a0f": {
+    "asset": 1750695563934,
+    "meta": 1750695572375,
+    "relativePath": "Script\\UI\\Slot45-notification-message.ts"
+  },
+  "948e4084-6a3b-4656-81d1-d117423faf81": {
+    "asset": 1750695563934,
+    "meta": 1750695572384,
+    "relativePath": "Script\\UI\\spin-panel\\Slot45-cell-item.ts"
+  },
+  "5de3f4a9-695f-48ce-8fc7-2b82ba8b3d63": {
+    "asset": 1750695563934,
+    "meta": 1750695572386,
+    "relativePath": "Script\\UI\\spin-panel\\Slot45-spin-item-data.ts"
+  },
+  "916de92e-35e3-44b9-9dd3-235019bc76c2": {
+    "asset": 1750695563934,
+    "meta": 1750695572415,
+    "relativePath": "Script\\UI\\spin-panel\\Slot45-spin-item.ts"
+  },
+  "52feeac2-ebc2-40ef-8381-27b349750314": {
+    "asset": 1750695563934,
+    "meta": 1750695572444,
+    "relativePath": "Script\\UI\\spin-panel\\Slot45-spin-panel.ts"
   }
 }

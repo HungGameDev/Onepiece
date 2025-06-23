@@ -24,17 +24,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SoundPlayerActor = /** @class */ (function (_super) {
-    __extends(G1009SoundPlayerActor, _super);
-    function G1009SoundPlayerActor() {
+var Slot45SoundPlayerActor = /** @class */ (function (_super) {
+    __extends(Slot45SoundPlayerActor, _super);
+    function Slot45SoundPlayerActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.audioClips = [];
         return _this;
     }
-    G1009SoundPlayerActor.prototype.onLoad = function () {
+    Slot45SoundPlayerActor.prototype.onLoad = function () {
         this.initAudioClip();
     };
-    G1009SoundPlayerActor.prototype.initAudioClip = function () {
+    Slot45SoundPlayerActor.prototype.initAudioClip = function () {
         this.audioClips = this.audioClips.filter(function (element) {
             return element != null;
         });
@@ -43,23 +43,23 @@ var G1009SoundPlayerActor = /** @class */ (function (_super) {
             this.audioClips[clip.name] = clip;
         }
     };
-    G1009SoundPlayerActor.prototype.AddAudio = function (audioClip) {
+    Slot45SoundPlayerActor.prototype.AddAudio = function (audioClip) {
         if (audioClip instanceof cc.AudioClip && this.audioClips[audioClip.name] == null) {
             this.audioClips[audioClip.name] = audioClip;
             this.audioClips.push(audioClip);
         }
     };
-    G1009SoundPlayerActor.prototype.HasAudio = function (name) {
+    Slot45SoundPlayerActor.prototype.HasAudio = function (name) {
         return this.audioClips[name] != null;
     };
     __decorate([
         property(cc.AudioClip)
-    ], G1009SoundPlayerActor.prototype, "audioClips", void 0);
-    G1009SoundPlayerActor = __decorate([
+    ], Slot45SoundPlayerActor.prototype, "audioClips", void 0);
+    Slot45SoundPlayerActor = __decorate([
         ccclass
-    ], G1009SoundPlayerActor);
-    return G1009SoundPlayerActor;
+    ], Slot45SoundPlayerActor);
+    return Slot45SoundPlayerActor;
 }(cc.Component));
-exports.default = G1009SoundPlayerActor;
+exports.default = Slot45SoundPlayerActor;
 
 cc._RF.pop();

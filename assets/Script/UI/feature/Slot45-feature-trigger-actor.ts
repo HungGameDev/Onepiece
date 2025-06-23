@@ -1,16 +1,16 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009FeatureTrigger extends cc.Component {
+export default class Slot45FeatureTrigger extends cc.Component {
 
 	@property(cc.Node)
 	protected content: cc.Node = null;
 
 	protected start(): void {
-		G1009EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTrigger.bind(this));
-		G1009EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
+		Slot45EventManager.GetInstance().register("featuretriggerstarted", this.onFeatureTrigger.bind(this));
+		Slot45EventManager.GetInstance().register("featureWinCompleted", this.onfeatureWinCompleted.bind(this));
 
 	}
 

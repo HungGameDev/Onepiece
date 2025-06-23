@@ -1,15 +1,15 @@
-export class G1009BetModel
+export class Slot45BetModel
 {
-	private static instance: G1009BetModel;
+	private static instance: Slot45BetModel;
 	private betPerLines: number[] = [];
 	private currentBetPerLine: number = 0;
 	private betMultiplier: number = 1;
 
 	public static GetInstance()
 	{
-		if (!G1009BetModel.instance)
-			G1009BetModel.instance = new G1009BetModel();
-		return G1009BetModel.instance;
+		if (!Slot45BetModel.instance)
+			Slot45BetModel.instance = new Slot45BetModel();
+		return Slot45BetModel.instance;
 	}
 
 	public SetBetMultiplier(betMultiplier: number)

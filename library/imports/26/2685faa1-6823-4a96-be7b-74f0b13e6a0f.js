@@ -46,13 +46,13 @@ var NewClass = /** @class */ (function (_super) {
         this.register();
     };
     NewClass.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("NotificationWinMessage", this.onMessages.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SpinStarted", this.reset.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("NotificationWinMessage", this.onMessages.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SetTotalWin", this.onSetTotalWin.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("resume", this.onResume.bind(this));
     };
     NewClass.prototype.onResume = function (data) {
         if (data.isFreespins) {
@@ -70,7 +70,7 @@ var NewClass = /** @class */ (function (_super) {
             if (mesageData.WinSymbol != "Scatter" && mesageData.WinSymbol != "Bonus") {
                 this.winNumber.string = mesageData.WinNumber[0] + 1;
                 this.winPoint.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(mesageData.WinPoint);
-                this.winIcon.spriteFrame = Slot45_sprite_frame_provider_1.G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, mesageData.WinSymbol));
+                this.winIcon.spriteFrame = Slot45_sprite_frame_provider_1.Slot45SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat, mesageData.WinSymbol));
                 this.lineMessage.active = true;
             }
         }

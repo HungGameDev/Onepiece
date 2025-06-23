@@ -1,10 +1,10 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import { G1009SpriteProviderManagerActor } from "../provider/Slot45-sprite-frame-provider";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45SpriteProviderManagerActor } from "../provider/Slot45-sprite-frame-provider";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009PopupHistoryDetail extends cc.Component {
+export default class Slot45PopupHistoryDetail extends cc.Component {
 
     @property(cc.Node)
     private content: cc.Node = null;
@@ -21,7 +21,7 @@ export default class G1009PopupHistoryDetail extends cc.Component {
     private spinResuilt: cc.Sprite[] = [];
     SymbolFormat: string = 'Symbol_%s';
     protected start(): void {
-        G1009EventManager.GetInstance().register("ShowDetailHistory", this.onShowDetailHistory.bind(this));
+        Slot45EventManager.GetInstance().register("ShowDetailHistory", this.onShowDetailHistory.bind(this));
 
         for (let index = 0; index < this.contentSpinResuilt.childrenCount; index++) {
             const itemComponent = this.contentSpinResuilt.children[index].getComponent(cc.Sprite);
@@ -33,7 +33,7 @@ export default class G1009PopupHistoryDetail extends cc.Component {
         for (let index = 0; index < data.SpinResuilt.length; index++)
         {
             const Id = data.SpinResuilt[index];
-            let frame = G1009SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat,Id));
+            let frame = Slot45SpriteProviderManagerActor.Instance().GetFrame(cc.js.formatStr(this.SymbolFormat,Id));
             this.spinResuilt[index].spriteFrame = frame;  
         }
         this.lblSession.string = data.Session;

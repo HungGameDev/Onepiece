@@ -1,10 +1,10 @@
-import G1009AnimationActor from "./Slot45-animation";
-import G1009SpineAnimationHandler from "./Slot45-spine-animation-handler";
+import Slot45AnimationActor from "./Slot45-animation";
+import Slot45SpineAnimationHandler from "./Slot45-spine-animation-handler";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009SpineAnimationActor extends G1009AnimationActor {
+export default class Slot45SpineAnimationActor extends Slot45AnimationActor {
 
     @property
     skeletonData: sp.SkeletonData = new sp.SkeletonData;
@@ -14,13 +14,13 @@ export default class G1009SpineAnimationActor extends G1009AnimationActor {
     defaultDuration: number = 1;
 
     @property
-    animationData: G1009SpineAnimationData[] = [];
+    animationData: Slot45SpineAnimationData[] = [];
  
     isLoadCompleted: boolean = false;
     spineSkeleton = null;
     animationHandler= null;
     trackEntry = null;
-    spineData:G1009SpineData = null;
+    spineData:Slot45SpineData = null;
     
     public constructor()
     {
@@ -32,7 +32,7 @@ export default class G1009SpineAnimationActor extends G1009AnimationActor {
         this.spineData = null;
     }
     public Play(target: cc.Node, events: Function[], callback: Function): void {
-        this.animationHandler = new G1009SpineAnimationHandler(this, target);
+        this.animationHandler = new Slot45SpineAnimationHandler(this, target);
         this.animationHandler.Play(target, events, callback);
     }
 
@@ -46,7 +46,7 @@ export default class G1009SpineAnimationActor extends G1009AnimationActor {
     }
 
     public Clone(): any {
-        let animation = new G1009SpineAnimationActor;
+        let animation = new Slot45SpineAnimationActor;
         animation.skeletonData = this.skeletonData;
         animation.defaultDuration = this.defaultDuration;
         animation.animationData = this.animationData;    
@@ -73,20 +73,20 @@ export default class G1009SpineAnimationActor extends G1009AnimationActor {
 }
 
 
-export  class G1009SpineAnimationData {
+export  class Slot45SpineAnimationData {
     public AnimationName: string;
     public constructor(){};
 }
 
 
-export class G1009SpineData {
+export class Slot45SpineData {
 
     public Name: string ;
     public IsLoop: boolean = false;
     public TrackIndex: number = 0;
     public TimeScale: number = 0;
     public IsCallComplete: boolean = false;
-    public Events: G1009SpineEventData[] = [];
+    public Events: Slot45SpineEventData[] = [];
     public StaticSpriteFrame: cc.SpriteFrame = null;
     public constructor() {
         
@@ -101,7 +101,7 @@ export class G1009SpineData {
 }
 
 
-export class G1009SpineEventData {
+export class Slot45SpineEventData {
     public Name: string = '';
     public Time: number = 0;
     public constructor(){};

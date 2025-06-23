@@ -33,9 +33,9 @@ var COUNT_POINT_DURATION2 = 0.75;
 var COUNT_POINT_DURATION3 = 0.75;
 var IDLE_DURATION = 2.5;
 var SUPER_WIN_TRIGGER_POINT = 10;
-var G1009BigwinActor = /** @class */ (function (_super) {
-    __extends(G1009BigwinActor, _super);
-    function G1009BigwinActor() {
+var Slot45BigwinActor = /** @class */ (function (_super) {
+    __extends(Slot45BigwinActor, _super);
+    function Slot45BigwinActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         _this.spine = null;
@@ -48,28 +48,28 @@ var G1009BigwinActor = /** @class */ (function (_super) {
         _this.duration = 4;
         return _this;
     }
-    G1009BigwinActor.prototype.onLoad = function () {
+    Slot45BigwinActor.prototype.onLoad = function () {
         this.reset();
         this.register();
     };
-    G1009BigwinActor.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("BigWinStarted", this.onBigWinStarted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
+    Slot45BigwinActor.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("BigWinStarted", this.onBigWinStarted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
     };
-    G1009BigwinActor.prototype.onBigWinStarted = function (point) {
+    Slot45BigwinActor.prototype.onBigWinStarted = function (point) {
         var _this = this;
         // if (this.isStopImmediately)
         // {
         // 	this.speedUpAnimation();
         // 	return;
         // }
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BigWinPresentationStarted");
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("BigWinPresentationStarted");
         var objTween = {
             value: 0
         };
         this.totalWin = point;
-        var multi = point / Slot45_bet_model_1.G1009BetModel.GetInstance().GetTotalBetPoint();
+        var multi = point / Slot45_bet_model_1.Slot45BetModel.GetInstance().GetTotalBetPoint();
         this.spine.node.y = multi >= SUPER_WIN_TRIGGER_POINT ? 56 : -90;
         this.tweenShowPopup = cc.tween(this.spine.node)
             .to(FADE_DURATION, { scale: 1 })
@@ -86,11 +86,11 @@ var G1009BigwinActor = /** @class */ (function (_super) {
         });
         this.tweenShowPopup.start();
     };
-    G1009BigwinActor.prototype.getAnimation = function (multi) {
+    Slot45BigwinActor.prototype.getAnimation = function (multi) {
         var skeletonData = multi >= SUPER_WIN_TRIGGER_POINT ? this.skeletonDataTSL : this.skeletonDataTL;
         return skeletonData;
     };
-    G1009BigwinActor.prototype.countPoint = function (objTween, point1, duration, delay, callback) {
+    Slot45BigwinActor.prototype.countPoint = function (objTween, point1, duration, delay, callback) {
         var _this = this;
         if (delay === void 0) { delay = 0; }
         if (callback === void 0) { callback = function () { }; }
@@ -110,20 +110,20 @@ var G1009BigwinActor = /** @class */ (function (_super) {
             .call(function () {
             cc.tween(_this.content)
                 .to(FADE_DURATION, { opacity: 0 }).call(function () {
-                Slot45_event_manager_1.G1009EventManager.GetInstance().notify("BigWinCompleted");
+                Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("BigWinCompleted");
                 _this.reset();
             })
                 .start();
         });
         this.tweenCountPoint.start();
     };
-    G1009BigwinActor.prototype.reset = function () {
+    Slot45BigwinActor.prototype.reset = function () {
         this.spine.skeletonData = null;
         this.lblTotalWinPoint.string = "";
         this.content.active = false;
         this.content.opacity = 0;
     };
-    G1009BigwinActor.prototype.speedUpAnimation = function () {
+    Slot45BigwinActor.prototype.speedUpAnimation = function () {
         this.tweenCountPoint && this.tweenCountPoint.stop();
         this.tweenShowPopup && this.tweenShowPopup.stop();
         var objTween = {
@@ -131,33 +131,33 @@ var G1009BigwinActor = /** @class */ (function (_super) {
         };
         this.countPoint(objTween, this.totalWin, 0);
     };
-    G1009BigwinActor.prototype.onSpinStarted = function () {
+    Slot45BigwinActor.prototype.onSpinStarted = function () {
         // this.duration =4;
         // this.isStopImmediately = false;
     };
-    G1009BigwinActor.prototype.onStopImmediately = function () {
+    Slot45BigwinActor.prototype.onStopImmediately = function () {
         // this.duration = 0;
     };
     __decorate([
         property(cc.Node)
-    ], G1009BigwinActor.prototype, "content", void 0);
+    ], Slot45BigwinActor.prototype, "content", void 0);
     __decorate([
         property(sp.Skeleton)
-    ], G1009BigwinActor.prototype, "spine", void 0);
+    ], Slot45BigwinActor.prototype, "spine", void 0);
     __decorate([
         property(sp.SkeletonData)
-    ], G1009BigwinActor.prototype, "skeletonDataTL", void 0);
+    ], Slot45BigwinActor.prototype, "skeletonDataTL", void 0);
     __decorate([
         property(sp.SkeletonData)
-    ], G1009BigwinActor.prototype, "skeletonDataTSL", void 0);
+    ], Slot45BigwinActor.prototype, "skeletonDataTSL", void 0);
     __decorate([
         property(cc.Label)
-    ], G1009BigwinActor.prototype, "lblTotalWinPoint", void 0);
-    G1009BigwinActor = __decorate([
+    ], Slot45BigwinActor.prototype, "lblTotalWinPoint", void 0);
+    Slot45BigwinActor = __decorate([
         ccclass
-    ], G1009BigwinActor);
-    return G1009BigwinActor;
+    ], Slot45BigwinActor);
+    return Slot45BigwinActor;
 }(cc.Component));
-exports.default = G1009BigwinActor;
+exports.default = Slot45BigwinActor;
 
 cc._RF.pop();

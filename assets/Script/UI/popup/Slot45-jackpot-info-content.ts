@@ -1,10 +1,10 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import { G1009BetModel } from "../../models/Slot45-bet-model";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45BetModel } from "../../models/Slot45-bet-model";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009JackpotInfoActor extends cc.Component {
+export default class Slot45JackpotInfoActor extends cc.Component {
 
     @property(cc.Label)
     labelsBet: cc.Label[] = [];
@@ -16,15 +16,15 @@ export default class G1009JackpotInfoActor extends cc.Component {
     content: cc.Node = null;
 
     public start(): void{
-        G1009EventManager.GetInstance().register('JackpotShowMultiple', this.show.bind(this));
-        G1009EventManager.GetInstance().register('JackpotHideMultiple',this.hide.bind(this));
+        Slot45EventManager.GetInstance().register('JackpotShowMultiple', this.show.bind(this));
+        Slot45EventManager.GetInstance().register('JackpotHideMultiple',this.hide.bind(this));
     }
 
     private show(datas: any): void{
         let arr = Object.entries(datas);
         for (let index = 0; index < arr.length; index++) {
             const element = arr[index][1];
-            this.labelsBet[index].string ="P"+G1009BetModel.GetInstance().GetBetPointByIndex(index).toString();
+            this.labelsBet[index].string ="P"+Slot45BetModel.GetInstance().GetBetPointByIndex(index).toString();
             this.labelsDescription[index].string = element.message;
         }
         this.content.active = true;

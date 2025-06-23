@@ -1,4 +1,4 @@
-import { G1009AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
+import { Slot45AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
 
 const { ccclass, property } = cc._decorator;
 
@@ -13,7 +13,7 @@ export default class ExplodingCell extends cc.Component {
 
 
     onLoad() {
-        this.animEffectExplosion = G1009AnimationProviderManager.Instance().GetAnimation('eff_explosion');
+        this.animEffectExplosion = Slot45AnimationProviderManager.Instance().GetAnimation('eff_explosion');
     }
 
     public PlayEffectExplodeCells(nameSymbol: string) {

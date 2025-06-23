@@ -25,30 +25,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009RoundPopupActor = /** @class */ (function (_super) {
-    __extends(G1009RoundPopupActor, _super);
-    function G1009RoundPopupActor() {
+var Slot45RoundPopupActor = /** @class */ (function (_super) {
+    __extends(Slot45RoundPopupActor, _super);
+    function Slot45RoundPopupActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.rounnd = null;
         return _this;
     }
-    G1009RoundPopupActor.prototype.start = function () {
+    Slot45RoundPopupActor.prototype.start = function () {
         this.register();
     };
-    G1009RoundPopupActor.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowRound", this.OnShowRound.bind(this));
+    Slot45RoundPopupActor.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowRound", this.OnShowRound.bind(this));
     };
-    G1009RoundPopupActor.prototype.OnShowRound = function (round) {
+    Slot45RoundPopupActor.prototype.OnShowRound = function (round) {
         this.rounnd.string = round;
     };
     __decorate([
         property(cc.Label)
-    ], G1009RoundPopupActor.prototype, "rounnd", void 0);
-    G1009RoundPopupActor = __decorate([
+    ], Slot45RoundPopupActor.prototype, "rounnd", void 0);
+    Slot45RoundPopupActor = __decorate([
         ccclass
-    ], G1009RoundPopupActor);
-    return G1009RoundPopupActor;
+    ], Slot45RoundPopupActor);
+    return Slot45RoundPopupActor;
 }(cc.Component));
-exports.default = G1009RoundPopupActor;
+exports.default = Slot45RoundPopupActor;
 
 cc._RF.pop();

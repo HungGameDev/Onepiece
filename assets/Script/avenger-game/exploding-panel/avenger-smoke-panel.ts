@@ -1,5 +1,5 @@
 
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -10,7 +10,7 @@ export default class SmokePanel extends cc.Component {
 	private particleSmoke: sp.Skeleton [] = [];
 
     private register(): void {
-        G1009EventManager.GetInstance().register("CellDropCompleted", this.onCellDropCompleted.bind(this));
+        Slot45EventManager.GetInstance().register("CellDropCompleted", this.onCellDropCompleted.bind(this));
     }
 
     onLoad() {

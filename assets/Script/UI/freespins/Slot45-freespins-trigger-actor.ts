@@ -1,10 +1,10 @@
-import G1009GameController from "../../base/controller/Slot45-game-controller";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import G1009FeatureTrigger from "../feature/Slot45-feature-trigger-actor";
+import Slot45GameController from "../../base/controller/Slot45-game-controller";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import Slot45FeatureTrigger from "../feature/Slot45-feature-trigger-actor";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009FreespinsTrigger extends G1009FeatureTrigger {
+export default class Slot45FreespinsTrigger extends Slot45FeatureTrigger {
 
 	@property(cc.Node)
 	bannerCountFreespin: cc.Node = null;
@@ -13,20 +13,20 @@ export default class G1009FreespinsTrigger extends G1009FeatureTrigger {
 
 	protected start(): void {
 		super.start();
-		G1009EventManager.GetInstance().register("resume", this.showContent.bind(this));
+		Slot45EventManager.GetInstance().register("resume", this.showContent.bind(this));
 		this.resetBannerTrigger();
 	}
 
 	protected checkRuleTrigger(): boolean {
-		return G1009GameController.GetInstance().CheckFreespinTrigger();
+		return Slot45GameController.GetInstance().CheckFreespinTrigger();
 	}
 
 	protected notifyEnterFeature() {
-		G1009EventManager.GetInstance().notify("EnterFreespins");
+		Slot45EventManager.GetInstance().notify("EnterFreespins");
 	}
 
 	protected showContent(): void {
-		G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_freewin", isLoop: false });
+		Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_freewin", isLoop: false });
 		this.content.active = true;
 		cc.tween(this.bannerTriggerFreespin)
 		.to(0.2, { opacity: 255,scale : 1 })
@@ -37,7 +37,7 @@ export default class G1009FreespinsTrigger extends G1009FeatureTrigger {
 		.delay(1)
 		.call(()=>{
 			this.resetBannerTrigger();
-			G1009EventManager.GetInstance().notify("CountFreespinsLeft");
+			Slot45EventManager.GetInstance().notify("CountFreespinsLeft");
 			this.bannerCountFreespin.active = true;
 			cc.tween(this.node)
 			.delay(0.5)

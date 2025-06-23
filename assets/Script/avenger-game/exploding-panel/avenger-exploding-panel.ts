@@ -1,5 +1,5 @@
-import { G1009AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45AnimationProviderManager } from "../../base/animation/Slot45-animation-provider";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 import AvengerSpinItem from "../spin-panel/avenger-spin-item";
 import ExplodingCell from "./avenger-exploding-cell";
 
@@ -18,8 +18,8 @@ export default class ExplodingPanel extends cc.Component {
     private oldCells: string[] = null;
 
     private register(): void {
-        G1009EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
-        G1009EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
+        Slot45EventManager.GetInstance().register("StartPresentWinCombo", this.onStartPresentWinCombo.bind(this));
+        Slot45EventManager.GetInstance().register("DataRespond", this.onDataRespond.bind(this));
 
     }
 
@@ -54,7 +54,7 @@ export default class ExplodingPanel extends cc.Component {
     private handleExplodeCompleted() {
         if (this.isStartExplodeCells) {
             this.isStartExplodeCells = false;
-            G1009EventManager.GetInstance().notify("ExplodeCellsComplete");
+            Slot45EventManager.GetInstance().notify("ExplodeCellsComplete");
         }
     }
 }

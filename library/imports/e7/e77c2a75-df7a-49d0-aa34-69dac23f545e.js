@@ -25,40 +25,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009ButtonSpin = /** @class */ (function (_super) {
-    __extends(G1009ButtonSpin, _super);
-    function G1009ButtonSpin() {
+var Slot45ButtonSpin = /** @class */ (function (_super) {
+    __extends(Slot45ButtonSpin, _super);
+    function Slot45ButtonSpin() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.EventName = "Event-name";
         _this.button = null;
         return _this;
     }
-    G1009ButtonSpin.prototype.onLoad = function () {
+    Slot45ButtonSpin.prototype.onLoad = function () {
         this.button = this.node.getComponent(cc.Button);
         this.node.on("click", this.onButtonClick.bind(this));
     };
-    G1009ButtonSpin.prototype.onButtonClick = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify(this.EventName);
+    Slot45ButtonSpin.prototype.onButtonClick = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify(this.EventName);
     };
-    G1009ButtonSpin.prototype.Disable = function () {
+    Slot45ButtonSpin.prototype.Disable = function () {
         this.node.active = false;
     };
-    G1009ButtonSpin.prototype.Enable = function () {
+    Slot45ButtonSpin.prototype.Enable = function () {
         this.node.active = true;
     };
-    G1009ButtonSpin.prototype.Interactable = function (isInteractable) {
+    Slot45ButtonSpin.prototype.Interactable = function (isInteractable) {
         if (!!this.button)
             this.button = this.node.getComponent(cc.Button);
         this.button.interactable = isInteractable;
     };
     __decorate([
         property
-    ], G1009ButtonSpin.prototype, "EventName", void 0);
-    G1009ButtonSpin = __decorate([
+    ], Slot45ButtonSpin.prototype, "EventName", void 0);
+    Slot45ButtonSpin = __decorate([
         ccclass
-    ], G1009ButtonSpin);
-    return G1009ButtonSpin;
+    ], Slot45ButtonSpin);
+    return Slot45ButtonSpin;
 }(cc.Component));
-exports.default = G1009ButtonSpin;
+exports.default = Slot45ButtonSpin;
 
 cc._RF.pop();

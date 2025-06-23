@@ -26,9 +26,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_toggle_simulator_1 = require("./Slot45-toggle-simulator");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SystemPanel = /** @class */ (function (_super) {
-    __extends(G1009SystemPanel, _super);
-    function G1009SystemPanel() {
+var Slot45SystemPanel = /** @class */ (function (_super) {
+    __extends(Slot45SystemPanel, _super);
+    function Slot45SystemPanel() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.content = null;
         _this.soundButton = null;
@@ -38,24 +38,24 @@ var G1009SystemPanel = /** @class */ (function (_super) {
         _this.isActive = false;
         return _this;
     }
-    G1009SystemPanel.prototype.onLoad = function () {
+    Slot45SystemPanel.prototype.onLoad = function () {
         this.enableBGMKey = cc.sys.localStorage.getItem('enableBGMKey');
         this.enableSFXKey = cc.sys.localStorage.getItem('enableSFXKey');
         this.setSound();
         this.register();
     };
-    G1009SystemPanel.prototype.register = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("HideSysTemPanel", this.onHideClick.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("ShowSysTemPanel", this.onShowClick.bind(this));
+    Slot45SystemPanel.prototype.register = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("HideSysTemPanel", this.onHideClick.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("ShowSysTemPanel", this.onShowClick.bind(this));
     };
-    G1009SystemPanel.prototype.setSound = function () {
+    Slot45SystemPanel.prototype.setSound = function () {
         this.soundButton.changeToggleState(this.enableSFXKey);
         this.musicButton.changeToggleState(this.enableBGMKey);
     };
-    G1009SystemPanel.prototype.onHideClick = function () {
+    Slot45SystemPanel.prototype.onHideClick = function () {
         this.content.active = false;
     };
-    G1009SystemPanel.prototype.onShowClick = function () {
+    Slot45SystemPanel.prototype.onShowClick = function () {
         if (this.isActive) {
             this.isActive = false;
             this.onHideClick();
@@ -66,18 +66,18 @@ var G1009SystemPanel = /** @class */ (function (_super) {
     };
     __decorate([
         property(cc.Node)
-    ], G1009SystemPanel.prototype, "content", void 0);
+    ], Slot45SystemPanel.prototype, "content", void 0);
     __decorate([
         property(Slot45_toggle_simulator_1.default)
-    ], G1009SystemPanel.prototype, "soundButton", void 0);
+    ], Slot45SystemPanel.prototype, "soundButton", void 0);
     __decorate([
         property(Slot45_toggle_simulator_1.default)
-    ], G1009SystemPanel.prototype, "musicButton", void 0);
-    G1009SystemPanel = __decorate([
+    ], Slot45SystemPanel.prototype, "musicButton", void 0);
+    Slot45SystemPanel = __decorate([
         ccclass
-    ], G1009SystemPanel);
-    return G1009SystemPanel;
+    ], Slot45SystemPanel);
+    return Slot45SystemPanel;
 }(cc.Component));
-exports.default = G1009SystemPanel;
+exports.default = Slot45SystemPanel;
 
 cc._RF.pop();

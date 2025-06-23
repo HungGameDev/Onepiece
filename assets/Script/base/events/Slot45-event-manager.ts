@@ -1,5 +1,5 @@
-export class G1009EventManager {
-	private static instance: G1009EventManager;
+export class Slot45EventManager {
+	private static instance: Slot45EventManager;
 	private events: { [name: string]: Function[] }
 
 	private constructor() {
@@ -7,9 +7,9 @@ export class G1009EventManager {
 	}
 
 	public static GetInstance() {
-		if (!G1009EventManager.instance)
-			G1009EventManager.instance = new G1009EventManager();
-		return G1009EventManager.instance;
+		if (!Slot45EventManager.instance)
+			Slot45EventManager.instance = new Slot45EventManager();
+		return Slot45EventManager.instance;
 	}
 
 	public register(name: string, callback: Function) {

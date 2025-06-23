@@ -1,9 +1,9 @@
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009ButtonSpin extends cc.Component {
+export default class Slot45ButtonSpin extends cc.Component {
 
     @property
     EventName: string = "Event-name";
@@ -17,7 +17,7 @@ export default class G1009ButtonSpin extends cc.Component {
 
     
     protected onButtonClick(): void {
-        G1009EventManager.GetInstance().notify(this.EventName); 
+        Slot45EventManager.GetInstance().notify(this.EventName); 
     }
 
     public Disable(): void {

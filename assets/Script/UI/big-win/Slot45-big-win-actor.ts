@@ -1,6 +1,6 @@
-import G1009Util from "../../base/Util/Slot45-number-converter";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import { G1009BetModel } from "../../models/Slot45-bet-model";
+import Slot45Util from "../../base/Util/Slot45-number-converter";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45BetModel } from "../../models/Slot45-bet-model";
 const { ccclass, property } = cc._decorator;
 
 const FADE_DURATION = 0.25;
@@ -11,7 +11,7 @@ const IDLE_DURATION = 2.5;
 const SUPER_WIN_TRIGGER_POINT = 10;
 
 @ccclass
-export default class G1009BigwinActor extends cc.Component {
+export default class Slot45BigwinActor extends cc.Component {
 
 	@property(cc.Node)
 	content: cc.Node = null;
@@ -37,9 +37,9 @@ export default class G1009BigwinActor extends cc.Component {
 	}
 
 	private register(): void {
-		G1009EventManager.GetInstance().register("BigWinStarted", this.onBigWinStarted.bind(this));
-		G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
-		G1009EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
+		Slot45EventManager.GetInstance().register("BigWinStarted", this.onBigWinStarted.bind(this));
+		Slot45EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+		Slot45EventManager.GetInstance().register("StopImmediately", this.onStopImmediately.bind(this));
 	}
 
 	private onBigWinStarted(point: number): void {
@@ -48,14 +48,14 @@ export default class G1009BigwinActor extends cc.Component {
 		// 	this.speedUpAnimation();
 		// 	return;
 		// }
-		G1009EventManager.GetInstance().notify("BigWinPresentationStarted");
+		Slot45EventManager.GetInstance().notify("BigWinPresentationStarted");
 
 		let objTween = {
 			value: 0
 		};
 
 		this.totalWin = point;
-		var multi = point / G1009BetModel.GetInstance().GetTotalBetPoint();
+		var multi = point / Slot45BetModel.GetInstance().GetTotalBetPoint();
 		this.spine.node.y = multi >= SUPER_WIN_TRIGGER_POINT ? 56 : -90;
 		this.tweenShowPopup = cc.tween(this.spine.node)
 			.to(FADE_DURATION, { scale: 1 })
@@ -84,18 +84,18 @@ export default class G1009BigwinActor extends cc.Component {
 			.to(duration, { value: point1 }, {
 				progress: (start: any, end: any, current: any, ratio: any) => {
 					this.currentWinPoint = Math.round(current);
-					this.lblTotalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(this.currentWinPoint);
+					this.lblTotalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(this.currentWinPoint);
 					return start + (end - start) * ratio;
 				}
 			})
 			.call(() => {
-				this.lblTotalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(point1);
+				this.lblTotalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(point1);
 			})
 			.delay(IDLE_DURATION)
 			.call(() => {
 				cc.tween(this.content)
 					.to(FADE_DURATION, { opacity: 0 }).call(() => {
-						G1009EventManager.GetInstance().notify("BigWinCompleted");
+						Slot45EventManager.GetInstance().notify("BigWinCompleted");
 						this.reset();
 					})
 					.start();

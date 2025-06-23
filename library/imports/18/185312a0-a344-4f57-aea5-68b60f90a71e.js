@@ -25,9 +25,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var Slot45_sound_player_1 = require("./Slot45-sound-player");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009SFXPlayerActor = /** @class */ (function (_super) {
-    __extends(G1009SFXPlayerActor, _super);
-    function G1009SFXPlayerActor() {
+var Slot45SFXPlayerActor = /** @class */ (function (_super) {
+    __extends(Slot45SFXPlayerActor, _super);
+    function Slot45SFXPlayerActor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.isMute = false;
         _this.muteVolume = 1;
@@ -35,14 +35,14 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
         _this.tweenFadeOuts = cc.tween();
         return _this;
     }
-    G1009SFXPlayerActor.prototype.start = function () {
+    Slot45SFXPlayerActor.prototype.start = function () {
         for (var index = 0, length = this.audioClips.length; index < length; index++) {
             var clip = this.audioClips[index];
             this.audioPlayings[clip.name] = [];
             this.tweenFadeOuts[clip.name] = cc.tween();
         }
     };
-    G1009SFXPlayerActor.prototype.handleAudioClipLoaded = function (audioID, audioName, isLoop) {
+    Slot45SFXPlayerActor.prototype.handleAudioClipLoaded = function (audioID, audioName, isLoop) {
         var startLoadTime = Date.now();
         this.audioClips[audioName].once("load", function () {
             if (this.audioPlayings[audioName].indexOf(audioID) == -1) {
@@ -59,7 +59,7 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
             }
         });
     };
-    G1009SFXPlayerActor.prototype.AddAudio = function (audioClip) {
+    Slot45SFXPlayerActor.prototype.AddAudio = function (audioClip) {
         if (audioClip instanceof cc.AudioClip && this.audioClips[audioClip.name] == null) {
             this.audioClips[audioClip.name] = audioClip;
             this.audioClips.push(audioClip);
@@ -67,7 +67,7 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
             this.tweenFadeOuts[audioClip.name] = cc.tween();
         }
     };
-    G1009SFXPlayerActor.prototype.Play = function (audioName, isLoop) {
+    Slot45SFXPlayerActor.prototype.Play = function (audioName, isLoop) {
         if (this.audioClips[audioName] != null) {
             var audioID = cc.audioEngine.playEffect(this.audioClips[audioName], isLoop);
             this.audioPlayings[audioName].push(audioID);
@@ -81,7 +81,7 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
             }
         }
     };
-    G1009SFXPlayerActor.prototype.Stop = function (audioName) {
+    Slot45SFXPlayerActor.prototype.Stop = function (audioName) {
         if (this.audioClips[audioName] != null && this.audioPlayings[audioName].length > 0) {
             for (var index = 0; index < this.audioPlayings[audioName].length; index++) {
                 var audioID = this.audioPlayings[audioName][index];
@@ -91,7 +91,7 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
             this.tweenFadeOuts[audioName].stop();
         }
     };
-    G1009SFXPlayerActor.prototype.StopWithFadeOut = function (audioName, duration) {
+    Slot45SFXPlayerActor.prototype.StopWithFadeOut = function (audioName, duration) {
         var _this = this;
         if (this.audioClips[audioName] != null && this.audioPlayings[audioName].length > 0) {
             var audioIDs_1 = this.audioPlayings[audioName];
@@ -120,47 +120,47 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
             tweenFade.start();
         }
     };
-    G1009SFXPlayerActor.prototype.StopAll = function () {
+    Slot45SFXPlayerActor.prototype.StopAll = function () {
         for (var audioName in this.audioPlayings) {
             this.Stop(audioName);
         }
     };
-    G1009SFXPlayerActor.prototype.StopAllNonLoopingSfx = function () {
+    Slot45SFXPlayerActor.prototype.StopAllNonLoopingSfx = function () {
         for (var audioName in this.audioPlayings) {
             if (!this.CheckAudioLoop(audioName)) {
                 this.Stop(audioName);
             }
         }
     };
-    G1009SFXPlayerActor.prototype.StopAllWithFadeOut = function (duration) {
+    Slot45SFXPlayerActor.prototype.StopAllWithFadeOut = function (duration) {
         for (var audioName in this.audioPlayings) {
             this.StopWithFadeOut(audioName, duration);
         }
     };
-    G1009SFXPlayerActor.prototype.StopAllNonLoopingSfxWithFadeOut = function (duration) {
+    Slot45SFXPlayerActor.prototype.StopAllNonLoopingSfxWithFadeOut = function (duration) {
         for (var audioName in this.audioPlayings) {
             if (!this.CheckAudioLoop(audioName)) {
                 this.StopWithFadeOut(audioName, duration);
             }
         }
     };
-    G1009SFXPlayerActor.prototype.Mute = function () {
+    Slot45SFXPlayerActor.prototype.Mute = function () {
         if (this.isMute == false) {
             this.isMute = true;
             this.muteVolume = cc.audioEngine.getEffectsVolume();
             cc.audioEngine.setEffectsVolume(0);
         }
     };
-    G1009SFXPlayerActor.prototype.Unmute = function () {
+    Slot45SFXPlayerActor.prototype.Unmute = function () {
         if (this.isMute) {
             this.isMute = false;
             cc.audioEngine.setEffectsVolume(this.muteVolume);
         }
     };
-    G1009SFXPlayerActor.prototype.IsMute = function () {
+    Slot45SFXPlayerActor.prototype.IsMute = function () {
         return this.isMute;
     };
-    G1009SFXPlayerActor.prototype.SetVolume = function (volume) {
+    Slot45SFXPlayerActor.prototype.SetVolume = function (volume) {
         if (this.isMute) {
             this.muteVolume = volume;
         }
@@ -168,7 +168,7 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
             cc.audioEngine.setEffectsVolume(volume);
         }
     };
-    G1009SFXPlayerActor.prototype.GetVolume = function () {
+    Slot45SFXPlayerActor.prototype.GetVolume = function () {
         if (this.isMute) {
             return this.muteVolume;
         }
@@ -176,12 +176,12 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
             return cc.audioEngine.getEffectsVolume();
         }
     };
-    G1009SFXPlayerActor.prototype.GetAudioDuration = function (audioName) {
+    Slot45SFXPlayerActor.prototype.GetAudioDuration = function (audioName) {
         if (this.audioClips[audioName] != null) {
             return this.audioClips[audioName].duration;
         }
     };
-    G1009SFXPlayerActor.prototype.CheckAudioLoop = function (audioName) {
+    Slot45SFXPlayerActor.prototype.CheckAudioLoop = function (audioName) {
         var isAudioLoop = false;
         var audioPlaying = this.audioPlayings[audioName];
         audioPlaying.forEach(function (audioID) {
@@ -191,11 +191,11 @@ var G1009SFXPlayerActor = /** @class */ (function (_super) {
         });
         return isAudioLoop;
     };
-    G1009SFXPlayerActor = __decorate([
+    Slot45SFXPlayerActor = __decorate([
         ccclass
-    ], G1009SFXPlayerActor);
-    return G1009SFXPlayerActor;
+    ], Slot45SFXPlayerActor);
+    return Slot45SFXPlayerActor;
 }(Slot45_sound_player_1.default));
-exports.default = G1009SFXPlayerActor;
+exports.default = Slot45SFXPlayerActor;
 
 cc._RF.pop();

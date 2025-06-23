@@ -28,19 +28,19 @@ var Slot45_event_manager_1 = require("../../base/events/Slot45-event-manager");
 var Slot45_popup_history_1 = require("./Slot45-popup-history");
 var Slot45_popup_ranking_item_1 = require("./Slot45-popup-ranking-item");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009PopupLeaderBoard = /** @class */ (function (_super) {
-    __extends(G1009PopupLeaderBoard, _super);
-    function G1009PopupLeaderBoard() {
+var Slot45PopupLeaderBoard = /** @class */ (function (_super) {
+    __extends(Slot45PopupLeaderBoard, _super);
+    function Slot45PopupLeaderBoard() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.allData = null;
         _this.jackpotData = null;
         return _this;
     }
-    G1009PopupLeaderBoard.prototype.start = function () {
+    Slot45PopupLeaderBoard.prototype.start = function () {
         this.Init();
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register("OpenJackpotH", this.Show.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register("OpenJackpotH", this.Show.bind(this));
     };
-    G1009PopupLeaderBoard.prototype.Init = function () {
+    Slot45PopupLeaderBoard.prototype.Init = function () {
         var _this = this;
         this.gameManager1009.getJPHistory(this.pageIndex * 6, 20).then(function (data) {
             console.log('getJPHistory', data);
@@ -49,7 +49,7 @@ var G1009PopupLeaderBoard = /** @class */ (function (_super) {
             _this.processData(data.data);
         });
     };
-    G1009PopupLeaderBoard.prototype.processData = function (historyData) {
+    Slot45PopupLeaderBoard.prototype.processData = function (historyData) {
         var count = 0;
         for (var index = 0; index < historyData.length; index++) {
             var data = historyData[index];
@@ -61,19 +61,19 @@ var G1009PopupLeaderBoard = /** @class */ (function (_super) {
             item.setParent(this.contentView);
         }
     };
-    G1009PopupLeaderBoard.prototype.OnAllClick = function () {
+    Slot45PopupLeaderBoard.prototype.OnAllClick = function () {
         this.contentView.destroyAllChildren();
         this.processData(this.allData);
     };
-    G1009PopupLeaderBoard.prototype.OnJackPotClick = function () {
+    Slot45PopupLeaderBoard.prototype.OnJackPotClick = function () {
         this.contentView.destroyAllChildren();
         this.processData(this.jackpotData);
     };
-    G1009PopupLeaderBoard = __decorate([
+    Slot45PopupLeaderBoard = __decorate([
         ccclass
-    ], G1009PopupLeaderBoard);
-    return G1009PopupLeaderBoard;
+    ], Slot45PopupLeaderBoard);
+    return Slot45PopupLeaderBoard;
 }(Slot45_popup_history_1.default));
-exports.default = G1009PopupLeaderBoard;
+exports.default = Slot45PopupLeaderBoard;
 
 cc._RF.pop();

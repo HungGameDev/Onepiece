@@ -1,21 +1,21 @@
-import G1009Util from "../../base/Util/Slot45-number-converter";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import { G1009BetModel } from "../../models/Slot45-bet-model";
+import Slot45Util from "../../base/Util/Slot45-number-converter";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45BetModel } from "../../models/Slot45-bet-model";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class G1009JackpotBanner extends cc.Component {
+export default class Slot45JackpotBanner extends cc.Component {
 	@property(cc.Label)
 	private lblJackpotPoint: cc.Label = null;
 
 	private betInfos: any;
 
 	protected onLoad(): void {
-		G1009EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
-		G1009EventManager.GetInstance().register('JackpotCompleted', this.onJackpotCompleted.bind(this));
-		G1009EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
-		G1009EventManager.GetInstance().register('JackpotShow', this.onJackpotStarted.bind(this));
-		G1009EventManager.GetInstance().register('ChangeBet', this.updateLabel.bind(this));
+		Slot45EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
+		Slot45EventManager.GetInstance().register('JackpotCompleted', this.onJackpotCompleted.bind(this));
+		Slot45EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
+		Slot45EventManager.GetInstance().register('JackpotShow', this.onJackpotStarted.bind(this));
+		Slot45EventManager.GetInstance().register('ChangeBet', this.updateLabel.bind(this));
 	}
 
 	private onBetInfos(data): void {
@@ -39,9 +39,9 @@ export default class G1009JackpotBanner extends cc.Component {
 	}
 
 	private updateLabel(): void {
-		let betDenom = G1009BetModel.GetInstance().GetCurrentBetPerLine();
+		let betDenom = Slot45BetModel.GetInstance().GetCurrentBetPerLine();
 		let betInfo = this.betInfos.filter((betInfo) => betInfo.betDenom == betDenom)[0];
-		this.lblJackpotPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(betInfo.jackpotInfos[0].jackpotAmount);
+		this.lblJackpotPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(betInfo.jackpotInfos[0].jackpotAmount);
 	}
 
 	private onJackpotStarted(): void {

@@ -2,7 +2,7 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009AnimationActor extends cc.Component {
+export default class Slot45AnimationActor extends cc.Component {
 
     public Play(target: cc.Node, events: Function[], callback: Function) {
         if (events != null && events.length > 0) {

@@ -17,7 +17,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.G1009JackpotState = void 0;
+exports.Slot45JackpotState = void 0;
 var Slot45_game_controller_1 = require("../../controller/Slot45-game-controller");
 var Slot45_event_manager_1 = require("../../events/Slot45-event-manager");
 var Slot45_state_1 = require("../abstract/Slot45-state");
@@ -25,44 +25,44 @@ var Slot45_bet_state_1 = require("./Slot45-bet-state");
 var Slot45_feature_trigger_state_1 = require("./Slot45-feature-trigger-state");
 var Slot45_feature_win_state_1 = require("./Slot45-feature-win-state");
 var Slot45_spin_state_1 = require("./Slot45-spin-state");
-var G1009JackpotState = /** @class */ (function (_super) {
-    __extends(G1009JackpotState, _super);
-    function G1009JackpotState() {
+var Slot45JackpotState = /** @class */ (function (_super) {
+    __extends(Slot45JackpotState, _super);
+    function Slot45JackpotState() {
         var _this = _super.call(this) || this;
         console.log("Jackpot state");
         setTimeout(function () {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("JackpotStarted");
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("JackpotStarted");
         }, 100);
         return _this;
     }
-    G1009JackpotState.prototype.FeatureTrigger = function () {
+    Slot45JackpotState.prototype.FeatureTrigger = function () {
         if (Slot45_game_controller_1.default.GetInstance().CheckBonusFeatureTrigger()) {
-            return new Slot45_feature_trigger_state_1.G1009FeatureTriggerState();
+            return new Slot45_feature_trigger_state_1.Slot45FeatureTriggerState();
         }
         if (Slot45_game_controller_1.default.GetInstance().CheckFreespinContinue()) {
-            return new Slot45_spin_state_1.G1009SpinState();
+            return new Slot45_spin_state_1.Slot45SpinState();
         }
         if (Slot45_game_controller_1.default.GetInstance().CheckFreespinEnd()) {
-            return new Slot45_feature_win_state_1.G1009FeatureWinState();
+            return new Slot45_feature_win_state_1.Slot45FeatureWinState();
         }
-        return new Slot45_bet_state_1.G1009BetState();
+        return new Slot45_bet_state_1.Slot45BetState();
     };
-    G1009JackpotState.prototype.FeatureComplete = function () {
-        return new Slot45_feature_win_state_1.G1009FeatureWinState();
+    Slot45JackpotState.prototype.FeatureComplete = function () {
+        return new Slot45_feature_win_state_1.Slot45FeatureWinState();
     };
-    G1009JackpotState.prototype.Spin = function () {
+    Slot45JackpotState.prototype.Spin = function () {
         if (Slot45_game_controller_1.default.GetInstance().CheckFreespinContinue()) {
-            return new Slot45_spin_state_1.G1009SpinState();
+            return new Slot45_spin_state_1.Slot45SpinState();
         }
-        return new Slot45_bet_state_1.G1009BetState();
+        return new Slot45_bet_state_1.Slot45BetState();
     };
-    G1009JackpotState.prototype.EndRound = function () {
+    Slot45JackpotState.prototype.EndRound = function () {
         if (Slot45_game_controller_1.default.GetInstance().IsActiveAuto())
-            return new Slot45_spin_state_1.G1009SpinState();
-        return new Slot45_bet_state_1.G1009BetState();
+            return new Slot45_spin_state_1.Slot45SpinState();
+        return new Slot45_bet_state_1.Slot45BetState();
     };
-    return G1009JackpotState;
+    return Slot45JackpotState;
 }(Slot45_state_1.State));
-exports.G1009JackpotState = G1009JackpotState;
+exports.Slot45JackpotState = Slot45JackpotState;
 
 cc._RF.pop();

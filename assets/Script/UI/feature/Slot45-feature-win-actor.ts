@@ -1,13 +1,13 @@
-import G1009Util from "../../base/Util/Slot45-number-converter";
-import G1009GameController from "../../base/controller/Slot45-game-controller";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import { G1009BalanceModel } from "../../models/Slot45-balance-model";
+import Slot45Util from "../../base/Util/Slot45-number-converter";
+import Slot45GameController from "../../base/controller/Slot45-game-controller";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45BalanceModel } from "../../models/Slot45-balance-model";
 
 const { ccclass, property } = cc._decorator;
 
 const COUNT_POINT_DURATION = 3;
 @ccclass
-export default class G1009FeatureWinActor extends cc.Component {
+export default class Slot45FeatureWinActor extends cc.Component {
 
 	@property(cc.Node)
 	content: cc.Node = null;
@@ -20,7 +20,7 @@ export default class G1009FeatureWinActor extends cc.Component {
 	}
 
 	private register(): void {
-		G1009EventManager.GetInstance().register("featureWinstarted", this.onFeatureWinstarted.bind(this));
+		Slot45EventManager.GetInstance().register("featureWinstarted", this.onFeatureWinstarted.bind(this));
 	}
 
 	onFeatureWinstarted(): void {
@@ -28,15 +28,15 @@ export default class G1009FeatureWinActor extends cc.Component {
 			this.showTotalWin();
 		}
 		else {
-			let newBalance = G1009BalanceModel.GetInstance().GetBalance() + G1009GameController.GetInstance().GetTotalWinPoint();
-			G1009BalanceModel.GetInstance().SetBalance(newBalance);
-			G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
-			G1009EventManager.GetInstance().notify("featureWinCompleted");
+			let newBalance = Slot45BalanceModel.GetInstance().GetBalance() + Slot45GameController.GetInstance().GetTotalWinPoint();
+			Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+			Slot45EventManager.GetInstance().notify("BalanceChange", newBalance);
+			Slot45EventManager.GetInstance().notify("featureWinCompleted");
 		}
 	}
 
 	private showTotalWin(): void {
-		let totalWin = G1009GameController.GetInstance().GetTotalWinPoint();
+		let totalWin = Slot45GameController.GetInstance().GetTotalWinPoint();
 		this.content.active = true;
 		cc.tween(this.content)
 			.to(1, { opacity: 255 })
@@ -45,7 +45,7 @@ export default class G1009FeatureWinActor extends cc.Component {
 				cc.tween(this.content)
 					.to(1, { opacity: 0 }).call(() => {
 						this.reset();
-						G1009EventManager.GetInstance().notify("featureWinCompleted");
+						Slot45EventManager.GetInstance().notify("featureWinCompleted");
 					})
 					.start();
 			}).start();
@@ -57,15 +57,15 @@ export default class G1009FeatureWinActor extends cc.Component {
 			.delay(1)
 			.to(COUNT_POINT_DURATION, { value: totalWin }, {
 				progress: (start, end, current, ratio) => {
-					this.lblTotalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(Math.round(current));
+					this.lblTotalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(Math.round(current));
 					return start + (end - start) * ratio;
 				}
 			})
 			.call(() => {
-				this.lblTotalWinPoint.string = G1009Util.Instance().NumberFormatWithoutCharacter(totalWin);
-				let newBalance = G1009BalanceModel.GetInstance().GetBalance() + G1009GameController.GetInstance().GetTotalWinPoint();
-				G1009BalanceModel.GetInstance().SetBalance(newBalance);
-				G1009EventManager.GetInstance().notify("BalanceChange", newBalance);
+				this.lblTotalWinPoint.string = Slot45Util.Instance().NumberFormatWithoutCharacter(totalWin);
+				let newBalance = Slot45BalanceModel.GetInstance().GetBalance() + Slot45GameController.GetInstance().GetTotalWinPoint();
+				Slot45BalanceModel.GetInstance().SetBalance(newBalance);
+				Slot45EventManager.GetInstance().notify("BalanceChange", newBalance);
 			})
 			.start();
 	}

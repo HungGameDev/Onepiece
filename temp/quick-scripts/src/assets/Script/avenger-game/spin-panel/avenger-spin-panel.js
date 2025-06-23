@@ -24,10 +24,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // import { SlottyParameter } from "../../aka-g1009-game-config";
-// import G1009Util from "../../base/Util/aka-g1009-number-converter";
-// import { G1009EventManager } from "../../base/events/aka-g1009-event-manager";
-// import G1009SpinItemActor, { ESpinningState } from "./aka-g1009-spin-item";
-// import { G1009SpinItemData } from "./aka-g1009-spin-item-data";
+// import Slot45Util from "../../base/Util/aka-g1009-number-converter";
+// import { Slot45EventManager } from "../../base/events/aka-g1009-event-manager";
+// import Slot45SpinItemActor, { ESpinningState } from "./aka-g1009-spin-item";
+// import { Slot45SpinItemData } from "./aka-g1009-spin-item-data";
 var Slot45_spin_panel_1 = require("../../UI/spin-panel/Slot45-spin-panel");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var AvengerSpinPanel = /** @class */ (function (_super) {

@@ -1,13 +1,13 @@
-export class G1009BalanceModel
+export class Slot45BalanceModel
 {
-	private static instance: G1009BalanceModel;
+	private static instance: Slot45BalanceModel;
 	private balance: number = 0;
 
 	public static GetInstance()
 	{
-		if (!G1009BalanceModel.instance)
-			G1009BalanceModel.instance = new G1009BalanceModel();
-		return G1009BalanceModel.instance;
+		if (!Slot45BalanceModel.instance)
+			Slot45BalanceModel.instance = new Slot45BalanceModel();
+		return Slot45BalanceModel.instance;
 	}
 
 	public SetBalance(balance): void

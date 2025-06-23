@@ -1,7 +1,7 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009SoundPlayerActor extends cc.Component {
+export default class Slot45SoundPlayerActor extends cc.Component {
 
     @property(cc.AudioClip)
     protected   audioClips: cc.AudioClip[] = [];

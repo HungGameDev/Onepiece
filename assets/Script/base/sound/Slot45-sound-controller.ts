@@ -1,35 +1,35 @@
-import { G1009EventManager } from "../events/Slot45-event-manager";
-import G1009SFXPlayerActor from "./Slot45-sfs-player";
-import G1009MusicPlayerActor from "./Slot45-music-player";
+import { Slot45EventManager } from "../events/Slot45-event-manager";
+import Slot45SFXPlayerActor from "./Slot45-sfs-player";
+import Slot45MusicPlayerActor from "./Slot45-music-player";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class G1009SoundControllerActor extends cc.Component {
+export default class Slot45SoundControllerActor extends cc.Component {
 
-    public static Instance: G1009SoundControllerActor;
+    public static Instance: Slot45SoundControllerActor;
     private localStorage: any = null;
 
-    @property(G1009MusicPlayerActor)
-    musicPlayer: G1009MusicPlayerActor = null;
+    @property(Slot45MusicPlayerActor)
+    musicPlayer: Slot45MusicPlayerActor = null;
 
-    @property(G1009SFXPlayerActor)
-    sfxPlayer: G1009SFXPlayerActor = null;
+    @property(Slot45SFXPlayerActor)
+    sfxPlayer: Slot45SFXPlayerActor = null;
 
     isMuteSfx: boolean = false;
     isMuteMusic: boolean = false;
     isMuteAll: boolean = false;
     private constructor() {
         super();
-        G1009SoundControllerActor.Instance = this; 
+        Slot45SoundControllerActor.Instance = this; 
     }
     
     protected onLoad(): void {
         cc.game.addPersistRootNode(this.node);
-        G1009EventManager.GetInstance().register("Music-on", this.UnmuteMusic.bind(this));
-        G1009EventManager.GetInstance().register("Music-off", this.MuteMusic.bind(this));
-        G1009EventManager.GetInstance().register("Sound-on", this.UnmuteSfx.bind(this));
-        G1009EventManager.GetInstance().register("Sound-off", this.MuteSfx.bind(this));
+        Slot45EventManager.GetInstance().register("Music-on", this.UnmuteMusic.bind(this));
+        Slot45EventManager.GetInstance().register("Music-off", this.MuteMusic.bind(this));
+        Slot45EventManager.GetInstance().register("Sound-on", this.UnmuteSfx.bind(this));
+        Slot45EventManager.GetInstance().register("Sound-off", this.MuteSfx.bind(this));
         
         cc.sys.localStorage.getItem('enableSFXKey') == "false" ? this.MuteSfx() : this.UnmuteSfx();
         cc.sys.localStorage.getItem('enableBGMKey') == "false" ? this.MuteMusic() : this.UnmuteMusic();

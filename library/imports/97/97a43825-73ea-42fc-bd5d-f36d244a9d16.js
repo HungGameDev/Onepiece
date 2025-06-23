@@ -17,29 +17,29 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.G1009BetState = void 0;
+exports.Slot45BetState = void 0;
 var Slot45_event_manager_1 = require("../../events/Slot45-event-manager");
 var Slot45_state_1 = require("../abstract/Slot45-state");
 var Slot45_spin_state_1 = require("./Slot45-spin-state");
-var G1009BetState = /** @class */ (function (_super) {
-    __extends(G1009BetState, _super);
-    function G1009BetState() {
+var Slot45BetState = /** @class */ (function (_super) {
+    __extends(Slot45BetState, _super);
+    function Slot45BetState() {
         var _this = _super.call(this) || this;
         console.log("bet state");
         setTimeout(function () {
-            Slot45_event_manager_1.G1009EventManager.GetInstance().notify("ShowBetPanel");
+            Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("ShowBetPanel");
         }, 100);
         return _this;
     }
-    G1009BetState.prototype.Spin = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify("HideBetPanel");
-        return new Slot45_spin_state_1.G1009SpinState();
+    Slot45BetState.prototype.Spin = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify("HideBetPanel");
+        return new Slot45_spin_state_1.Slot45SpinState();
     };
-    G1009BetState.prototype.EndRound = function () {
-        return new G1009BetState();
+    Slot45BetState.prototype.EndRound = function () {
+        return new Slot45BetState();
     };
-    return G1009BetState;
+    return Slot45BetState;
 }(Slot45_state_1.State));
-exports.G1009BetState = G1009BetState;
+exports.Slot45BetState = Slot45BetState;
 
 cc._RF.pop();

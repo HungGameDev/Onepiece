@@ -1,46 +1,46 @@
-import G1009GameController from "../../controller/Slot45-game-controller";
-import { G1009EventManager } from "../../events/Slot45-event-manager";
+import Slot45GameController from "../../controller/Slot45-game-controller";
+import { Slot45EventManager } from "../../events/Slot45-event-manager";
 import { State } from "../abstract/Slot45-state";
-import { G1009BetState } from "./Slot45-bet-state";
-import { G1009ExpandwildState } from "./Slot45-expand-wild-state";
-import { G1009FeatureTriggerState } from "./Slot45-feature-trigger-state";
-import { G1009FeatureWinState } from "./Slot45-feature-win-state";
-import { G1009WinState } from "./Slot45-win-state";
+import { Slot45BetState } from "./Slot45-bet-state";
+import { Slot45ExpandwildState } from "./Slot45-expand-wild-state";
+import { Slot45FeatureTriggerState } from "./Slot45-feature-trigger-state";
+import { Slot45FeatureWinState } from "./Slot45-feature-win-state";
+import { Slot45WinState } from "./Slot45-win-state";
 
-export class G1009SpinState extends State {
+export class Slot45SpinState extends State {
 	constructor() {
 		super();
 		console.log("spin state");
 		setTimeout(() => {
-			G1009EventManager.GetInstance().notify("SpinStarted");
+			Slot45EventManager.GetInstance().notify("SpinStarted");
 		}, 100);
 	}
 
 	SpinComplete(): State {
-		if (G1009GameController.GetInstance().CheckExpandWild())
+		if (Slot45GameController.GetInstance().CheckExpandWild())
 		{
-			return new G1009ExpandwildState();
+			return new Slot45ExpandwildState();
 		}
-		if (G1009GameController.GetInstance().CheckWinLineData())
+		if (Slot45GameController.GetInstance().CheckWinLineData())
 		{
-			return new G1009WinState();
+			return new Slot45WinState();
 		}
-		if (G1009GameController.GetInstance().CheckBonusFeatureTrigger())
+		if (Slot45GameController.GetInstance().CheckBonusFeatureTrigger())
 		{
-			return new G1009FeatureTriggerState();
+			return new Slot45FeatureTriggerState();
 		}
-		if (G1009GameController.GetInstance().CheckFreespinContinue())
+		if (Slot45GameController.GetInstance().CheckFreespinContinue())
 		{
-			return new G1009SpinState();
+			return new Slot45SpinState();
 		}
-		if (G1009GameController.GetInstance().CheckFreespinEnd())
+		if (Slot45GameController.GetInstance().CheckFreespinEnd())
 		{
-			return new G1009FeatureWinState();
+			return new Slot45FeatureWinState();
 		}
-		if (G1009GameController.GetInstance().IsActiveAuto())
+		if (Slot45GameController.GetInstance().IsActiveAuto())
 		{
-			return new G1009SpinState();
+			return new Slot45SpinState();
 		}
-		return new G1009BetState();
+		return new Slot45BetState();
 	}
 }

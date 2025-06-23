@@ -28,18 +28,18 @@ var Slot45_number_converter_1 = require("../../base/Util/Slot45-number-converter
 var Slot45_bet_model_1 = require("../../models/Slot45-bet-model");
 var Slot45_bet_button_1 = require("./Slot45-bet-button");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var G1009BetButtonv2Actor = /** @class */ (function (_super) {
-    __extends(G1009BetButtonv2Actor, _super);
-    function G1009BetButtonv2Actor() {
+var Slot45BetButtonv2Actor = /** @class */ (function (_super) {
+    __extends(Slot45BetButtonv2Actor, _super);
+    function Slot45BetButtonv2Actor() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.txtJackpotText = null;
         return _this;
     }
-    G1009BetButtonv2Actor.prototype.start = function () {
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
-        Slot45_event_manager_1.G1009EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
+    Slot45BetButtonv2Actor.prototype.start = function () {
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('BetInfos', this.onBetInfos.bind(this));
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().register('JackpotUpdate', this.onJackpotUpdate.bind(this));
     };
-    G1009BetButtonv2Actor.prototype.onJackpotUpdate = function (datas) {
+    Slot45BetButtonv2Actor.prototype.onJackpotUpdate = function (datas) {
         var arr = Object.entries(datas);
         this.betInfos.forEach(function (betInfo) {
             var jackpotData = arr.find(function (data) {
@@ -49,27 +49,27 @@ var G1009BetButtonv2Actor = /** @class */ (function (_super) {
         });
         this.updateLabel();
     };
-    G1009BetButtonv2Actor.prototype.onBetInfos = function (data) {
+    Slot45BetButtonv2Actor.prototype.onBetInfos = function (data) {
         this.betInfos = Object.assign([], data);
         this.updateLabel();
     };
-    G1009BetButtonv2Actor.prototype.onButtonClick = function () {
+    Slot45BetButtonv2Actor.prototype.onButtonClick = function () {
         _super.prototype.onButtonClick.call(this);
-        Slot45_event_manager_1.G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_choosen_bet", isLoop: false });
+        Slot45_event_manager_1.Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_choosen_bet", isLoop: false });
     };
-    G1009BetButtonv2Actor.prototype.updateLabel = function () {
+    Slot45BetButtonv2Actor.prototype.updateLabel = function () {
         var betInfo = this.betInfos[this.betIndex];
-        this.txtButtonText.string = Slot45_bet_model_1.G1009BetModel.GetInstance().GetBetPointByIndex(this.betIndex).toString();
+        this.txtButtonText.string = Slot45_bet_model_1.Slot45BetModel.GetInstance().GetBetPointByIndex(this.betIndex).toString();
         this.txtJackpotText.string = Slot45_number_converter_1.default.Instance().NumberFormatWithoutCharacter(betInfo.jackpotInfos[0].jackpotAmount);
     };
     __decorate([
         property(cc.Label)
-    ], G1009BetButtonv2Actor.prototype, "txtJackpotText", void 0);
-    G1009BetButtonv2Actor = __decorate([
+    ], Slot45BetButtonv2Actor.prototype, "txtJackpotText", void 0);
+    Slot45BetButtonv2Actor = __decorate([
         ccclass
-    ], G1009BetButtonv2Actor);
-    return G1009BetButtonv2Actor;
+    ], Slot45BetButtonv2Actor);
+    return Slot45BetButtonv2Actor;
 }(Slot45_bet_button_1.default));
-exports.default = G1009BetButtonv2Actor;
+exports.default = Slot45BetButtonv2Actor;
 
 cc._RF.pop();

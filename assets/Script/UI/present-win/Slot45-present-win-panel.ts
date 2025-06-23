@@ -1,22 +1,22 @@
 import { SlottyParameter } from "../../Slot45-game-config";
-import G1009GameController from "../../base/controller/Slot45-game-controller";
-import { G1009EventManager } from "../../base/events/Slot45-event-manager";
-import { G1009BalanceModel } from "../../models/Slot45-balance-model";
-import { G1009BetModel } from "../../models/Slot45-bet-model";
-import G1009WinCellItemActor from "./Slot45-win-cell-item";
+import Slot45GameController from "../../base/controller/Slot45-game-controller";
+import { Slot45EventManager } from "../../base/events/Slot45-event-manager";
+import { Slot45BalanceModel } from "../../models/Slot45-balance-model";
+import { Slot45BetModel } from "../../models/Slot45-bet-model";
+import Slot45WinCellItemActor from "./Slot45-win-cell-item";
 
 const { ccclass, property } = cc._decorator;
 const BIG_WIN_TRIGGER_POINT = 5;
 @ccclass
-export default class G1009WinPanelActor extends cc.Component {
+export default class Slot45WinPanelActor extends cc.Component {
 
-	Items: G1009WinCellItemActor[] = [];
+	Items: Slot45WinCellItemActor[] = [];
 	cellsResult: string[];
-	winLine: G1009WinLineResult[];
-	private jackpotWinLine: G1009WinLineResult;
-	private triggerWinLine: G1009WinLineResult[];
-	private allWinLine: G1009WinLineResult = null;
-	winScatters: G1009WinLineResult[];
+	winLine: Slot45WinLineResult[];
+	private jackpotWinLine: Slot45WinLineResult;
+	private triggerWinLine: Slot45WinLineResult[];
+	private allWinLine: Slot45WinLineResult = null;
+	winScatters: Slot45WinLineResult[];
 	featureDatas: [];
 	winNumber: number;
 	count: number = 0;
@@ -41,27 +41,27 @@ export default class G1009WinPanelActor extends cc.Component {
 
 	protected onLoad(): void {
 		this.register();
-		this.Items = this.node.getComponentsInChildren(G1009WinCellItemActor);
+		this.Items = this.node.getComponentsInChildren(Slot45WinCellItemActor);
 		this.Items.sort(function (a, b) { return a.cellIndex - b.cellIndex });
 		this.Items.forEach(item => item.Hide());
 	}
 
 	private register(): void {
-		G1009EventManager.GetInstance().register("WinDataRespond", this.onSetFinalReSource.bind(this));
-		G1009EventManager.GetInstance().register("PresentWinStart", this.onPresentWinStart.bind(this));
-		G1009EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
-		G1009EventManager.GetInstance().register("ExpandWildStarted", this.onExpandWildStarted.bind(this));
-		G1009EventManager.GetInstance().register("ExpandWildHide", this.onExpandWildHide.bind(this));
-		G1009EventManager.GetInstance().register("BigWinCompleted", this.onBigWinCompleted.bind(this));
-		G1009EventManager.GetInstance().register("JackpotCompleted", this.onJackpotCompleted.bind(this));
-		G1009EventManager.GetInstance().register("JackpotStarted", this.onJackpotStarted.bind(this));
-		G1009EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
-		G1009EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
-		G1009EventManager.GetInstance().register("resume", this.onResume.bind(this));
-		G1009EventManager.GetInstance().register("PresentAllWinComplete", this.onPresentAllWinComplete.bind(this));
-		G1009EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
-		G1009EventManager.GetInstance().register("EnterBonus", this.onEnterBonus.bind(this));
-		G1009EventManager.GetInstance().register("ExplodeCellsComplete", this.onExplodeCellsComplete.bind(this));
+		Slot45EventManager.GetInstance().register("WinDataRespond", this.onSetFinalReSource.bind(this));
+		Slot45EventManager.GetInstance().register("PresentWinStart", this.onPresentWinStart.bind(this));
+		Slot45EventManager.GetInstance().register("SpinStarted", this.onSpinStarted.bind(this));
+		Slot45EventManager.GetInstance().register("ExpandWildStarted", this.onExpandWildStarted.bind(this));
+		Slot45EventManager.GetInstance().register("ExpandWildHide", this.onExpandWildHide.bind(this));
+		Slot45EventManager.GetInstance().register("BigWinCompleted", this.onBigWinCompleted.bind(this));
+		Slot45EventManager.GetInstance().register("JackpotCompleted", this.onJackpotCompleted.bind(this));
+		Slot45EventManager.GetInstance().register("JackpotStarted", this.onJackpotStarted.bind(this));
+		Slot45EventManager.GetInstance().register("EnterFreespins", this.onEnterFreespins.bind(this));
+		Slot45EventManager.GetInstance().register("featureWinCompleted", this.onFeatureWinCompleted.bind(this));
+		Slot45EventManager.GetInstance().register("resume", this.onResume.bind(this));
+		Slot45EventManager.GetInstance().register("PresentAllWinComplete", this.onPresentAllWinComplete.bind(this));
+		Slot45EventManager.GetInstance().register("BonusWinComplete", this.reset.bind(this));
+		Slot45EventManager.GetInstance().register("EnterBonus", this.onEnterBonus.bind(this));
+		Slot45EventManager.GetInstance().register("ExplodeCellsComplete", this.onExplodeCellsComplete.bind(this));
 
 	}
 
@@ -95,7 +95,7 @@ export default class G1009WinPanelActor extends cc.Component {
 			this.Items.forEach(item => item.Show());
 			this.isAlreadyChangeState = false;
 			if (this.checkJackpotTriggered()) {
-				G1009EventManager.GetInstance().notify("JackpotTriggered");
+				Slot45EventManager.GetInstance().notify("JackpotTriggered");
 			}
 			else {
 				this.presentAllWin();
@@ -105,9 +105,9 @@ export default class G1009WinPanelActor extends cc.Component {
 
 	onExplodeCellsComplete() {
 		this.updateDataWinPanelByComboData();
-		// this.isBigwinTriggered = (this.checkBigWinTriggered() && !G1009GameController.GetInstance().CheckBonusPointTrigger() && !this.checkJackpotTriggered());
-		this.isBigwinTriggered = (this.checkBigWinTriggered() && !G1009GameController.GetInstance().CheckBonusPointTrigger() && this.jackpotWinPoint <= 0);
-		var hasCombo = G1009GameController.GetInstance().CheckComboWinPresentation();
+		// this.isBigwinTriggered = (this.checkBigWinTriggered() && !Slot45GameController.GetInstance().CheckBonusPointTrigger() && !this.checkJackpotTriggered());
+		this.isBigwinTriggered = (this.checkBigWinTriggered() && !Slot45GameController.GetInstance().CheckBonusPointTrigger() && this.jackpotWinPoint <= 0);
+		var hasCombo = Slot45GameController.GetInstance().CheckComboWinPresentation();
 		if (hasCombo) {
 			this.onPresentWinStart();
 		}
@@ -126,7 +126,7 @@ export default class G1009WinPanelActor extends cc.Component {
 		});
 		if (winPoint > 0) {
 			this.totalWinPoint += winPoint;
-			G1009EventManager.GetInstance().notify("IncreaseTotalWin", winPoint);
+			Slot45EventManager.GetInstance().notify("IncreaseTotalWin", winPoint);
 		}
 	}
 
@@ -142,7 +142,7 @@ export default class G1009WinPanelActor extends cc.Component {
 	}
 
 	private checkBigWinTriggered(): boolean {
-		return this.totalWinPoint / G1009BetModel.GetInstance().GetTotalBetPoint() > BIG_WIN_TRIGGER_POINT;
+		return this.totalWinPoint / Slot45BetModel.GetInstance().GetTotalBetPoint() > BIG_WIN_TRIGGER_POINT;
 	}
 
 	private checkJackpotTriggered(): boolean {
@@ -160,7 +160,7 @@ export default class G1009WinPanelActor extends cc.Component {
 	protected presentAllWin(): void {
 		const winData = this.allWinLine;
 		this.playSoundSFX(winData.CheckIsAllWin());
-		G1009EventManager.GetInstance().notify("NotificationWinMessage", {
+		Slot45EventManager.GetInstance().notify("NotificationWinMessage", {
 			isAllWin: winData.CheckIsAllWin(),
 			WinPoint: winData.GetWinPoint(),
 			WinSymbol: winData.GetWinSymbol(),
@@ -169,7 +169,7 @@ export default class G1009WinPanelActor extends cc.Component {
 
 		if (this.winPoint > 0) {
 			this.totalWinPoint += this.winPoint;
-			G1009EventManager.GetInstance().notify("IncreaseTotalWin", this.winPoint);
+			Slot45EventManager.GetInstance().notify("IncreaseTotalWin", this.winPoint);
 		}
 
 		this.showWinSymbols(this.allWinLine.GetWinLine());
@@ -178,8 +178,8 @@ export default class G1009WinPanelActor extends cc.Component {
 		this.tweenPresentation = cc.tween(this.node)
 			.delay(this.delayTime)
 			.call(() => {
-				if (G1009GameController.GetInstance().CheckComboWinPresentation()) {
-					this.comboData = G1009GameController.GetInstance().GetComboData();
+				if (Slot45GameController.GetInstance().CheckComboWinPresentation()) {
+					this.comboData = Slot45GameController.GetInstance().GetComboData();
 					this.presentWinCombo();
 				}
 				else {
@@ -192,14 +192,14 @@ export default class G1009WinPanelActor extends cc.Component {
 
 	private presentWinCombo() {
 		this.reset();
-		G1009EventManager.GetInstance().notify("StartPresentWinCombo", this.comboData);
-		G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_explosive", isLoop: false });
+		Slot45EventManager.GetInstance().notify("StartPresentWinCombo", this.comboData);
+		Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: "sfx_explosive", isLoop: false });
 	}
 
 	private startBigWin(): void {
 		if (this.isBigwinTriggered) {
 			this.Items.forEach(i => i.ShowStaticFrame());
-			G1009EventManager.GetInstance().notify("BigWinStarted", this.totalWinPoint);
+			Slot45EventManager.GetInstance().notify("BigWinStarted", this.totalWinPoint);
 		} else {
 			this.onBigWinCompleted();
 		}
@@ -216,7 +216,7 @@ export default class G1009WinPanelActor extends cc.Component {
 				const winData = this.jackpotWinLine[0];
 				if (winData != undefined && winData != null) {
 					this.playSoundSFX(false);
-					G1009EventManager.GetInstance().notify("NotificationWinMessage", {
+					Slot45EventManager.GetInstance().notify("NotificationWinMessage", {
 						isAllWin: winData.CheckIsAllWin(),
 						WinPoint: winData.GetWinPoint(),
 						WinSymbol: winData.GetWinSymbol(),
@@ -234,18 +234,18 @@ export default class G1009WinPanelActor extends cc.Component {
 
 				return;
 			}
-			else if (G1009GameController.GetInstance().CheckBonusFeatureTrigger()) {
+			else if (Slot45GameController.GetInstance().CheckBonusFeatureTrigger()) {
 				const winData = this.triggerWinLine[0];
 				if (winData != undefined && winData != null) {
 					this.playSoundSFX(false);
-					G1009EventManager.GetInstance().notify("NotificationWinMessage", {
+					Slot45EventManager.GetInstance().notify("NotificationWinMessage", {
 						isAllWin: winData.CheckIsAllWin(),
 						WinPoint: winData.GetWinPoint(),
 						WinSymbol: winData.GetWinSymbol(),
 						WinNumber: winData.GetWinNumber()
 					});
 					this.showTriggerWinSymbols(winData.GetWinLine());
-					G1009EventManager.GetInstance().notify("showTriggerWinSymbols");
+					Slot45EventManager.GetInstance().notify("showTriggerWinSymbols");
 					this.OnShowLine(winData.GetWinNumber());
 					this.tweenPresentation = cc.tween(this.node)
 						.delay(this.delayTransitionTime)
@@ -275,7 +275,7 @@ export default class G1009WinPanelActor extends cc.Component {
 		const winData = this.winLine[this.count];
 		if (!this.isCompleteOneLoop)
 			this.playSoundSFX(winData.CheckIsAllWin());
-		G1009EventManager.GetInstance().notify("NotificationWinMessage", {
+		Slot45EventManager.GetInstance().notify("NotificationWinMessage", {
 			isAllWin: winData.CheckIsAllWin(),
 			WinPoint: winData.GetWinPoint(),
 			WinSymbol: winData.GetWinSymbol(),
@@ -317,51 +317,51 @@ export default class G1009WinPanelActor extends cc.Component {
 	}
 
 	private playSoundSFX(isAllWin: boolean): void {
-		if (!isAllWin && !G1009GameController.GetInstance().CheckBonusFeatureTrigger()) {
-			G1009EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_symbolwin', isLoop: false });
+		if (!isAllWin && !Slot45GameController.GetInstance().CheckBonusFeatureTrigger()) {
+			Slot45EventManager.GetInstance().notify('PlaySFX', { sfxName: 'sfx_symbolwin', isLoop: false });
 		}
 	}
 
 	private transitionNextState(): void {
-		this.totalWinPoint = G1009GameController.GetInstance().GetTotalWinPoint();
+		this.totalWinPoint = Slot45GameController.GetInstance().GetTotalWinPoint();
 		if (!this.isAlreadyChangeState) {
 			this.isAlreadyChangeState = true;
 			// if (this.checkJackpotTriggered()) {
-			// 	G1009EventManager.GetInstance().notify("JackpotTriggered");
+			// 	Slot45EventManager.GetInstance().notify("JackpotTriggered");
 			// 	return;
 			// }
-			if (G1009GameController.GetInstance().CheckBonusFeatureTrigger()) {
-				var dataFeature = G1009GameController.GetInstance().GetFeatureWinData();
-				G1009EventManager.GetInstance().notify("FeatureTrigger", dataFeature);
+			if (Slot45GameController.GetInstance().CheckBonusFeatureTrigger()) {
+				var dataFeature = Slot45GameController.GetInstance().GetFeatureWinData();
+				Slot45EventManager.GetInstance().notify("FeatureTrigger", dataFeature);
 				return;
 			}
-			if (G1009GameController.GetInstance().CheckFreespinContinue()) {
+			if (Slot45GameController.GetInstance().CheckFreespinContinue()) {
 				this.reset();
-				G1009EventManager.GetInstance().notify("Spin");
+				Slot45EventManager.GetInstance().notify("Spin");
 				return;
 			}
-			if (G1009GameController.GetInstance().CheckFreespinEnd()) {
+			if (Slot45GameController.GetInstance().CheckFreespinEnd()) {
 				this.reset();
 				this.totalWinPoint = 0;
-				G1009EventManager.GetInstance().notify("FeatureComplete");
+				Slot45EventManager.GetInstance().notify("FeatureComplete");
 				return;
 			}
 			this.totalWinPoint = 0;
 			console.warn('transitionNextState:, ', this.totalWinPoint);
-			G1009EventManager.GetInstance().notify("EndRound");
+			Slot45EventManager.GetInstance().notify("EndRound");
 		}
 	}
 
 	private OnShowLine(line: number[]): void {
-		G1009EventManager.GetInstance().notify("ShowLine", line);
+		Slot45EventManager.GetInstance().notify("ShowLine", line);
 	}
 
 	private OnHideAllLine(): void {
-		G1009EventManager.GetInstance().notify("ResetAllLine");
+		Slot45EventManager.GetInstance().notify("ResetAllLine");
 	}
 
 	private showWinSymbols(winLine: number[]) {
-		G1009EventManager.GetInstance().notify("ShowWinCells", winLine);
+		Slot45EventManager.GetInstance().notify("ShowWinCells", winLine);
 		for (let index = 0; index < winLine.length; index++) {
 			this.Items.find(item => item.cellIndex == winLine[index]).PlayWinAnimation();
 		}
@@ -410,7 +410,7 @@ export default class G1009WinPanelActor extends cc.Component {
 		// this.OnHideAllLine();
 	}
 }
-export class G1009WinLineResult {
+export class Slot45WinLineResult {
 	private winLine: number[];
 	private winPoint: number;
 	private winNumber: number[];
